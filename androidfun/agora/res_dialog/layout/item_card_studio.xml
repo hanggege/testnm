@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/studio_cover"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_margin="15dp"
+        android:src="@drawable/default_studio_cover"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:radius_all="8dp" />
+
+    <TextView
+        android:id="@+id/studio_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/color_333333"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/studio_cover"
+        app:layout_constraintTop_toTopOf="@id/studio_cover"
+        tools:text="贾北霞心灵工作室" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/studio_introduce"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginTop="10dp"
+        android:drawableEnd="@drawable/icon_personal_arrow"
+        android:drawablePadding="4dp"
+        android:gravity="center"
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp"
+        android:text="工作室介绍"
+        android:textColor="@color/color_333333"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="@id/studio_name"
+        app:layout_constraintTop_toBottomOf="@id/studio_name"
+        app:rv_cornerRadius="28dp"
+        app:rv_strokeColor="@color/color_e8e8e8"
+        app:rv_strokeWidth="0.5dp"
+        tools:ignore="HardcodedText,SmallSp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

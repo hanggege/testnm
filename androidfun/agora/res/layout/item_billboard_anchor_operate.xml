@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:paddingStart="110dp"
+    android:paddingEnd="15dp">
+
+    <com.mei.widget.gradient.GradientLinearLayout
+        android:id="@+id/chat_to_anchor"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="2dp"
+        app:gd_start_color="@color/color_FF7F33">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/icon_chat_tip"
+            android:drawablePadding="5dp"
+            android:text="私聊"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
+    </com.mei.widget.gradient.GradientLinearLayout>
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/look_page"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="查看主页"
+        app:rv_backgroundColor="@color/color_F5F5F5"
+        app:rv_cornerRadius="2dp"
+        tools:ignore="HardcodedText" />
+</LinearLayout>

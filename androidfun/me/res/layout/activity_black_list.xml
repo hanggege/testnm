@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/black_list_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="16dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="16dp"
+            android:src="@drawable/bg_black_back_arrow"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/rose_title"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="黑名单"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/consume_record"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+    <com.flyco.roundview.RoundFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title_layout"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius_TL="15dp"
+        app:rv_cornerRadius_TR="15dp">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/black_list_recy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+        <include layout="@layout/include_net_error_layout" />
+
+
+    </com.flyco.roundview.RoundFrameLayout>
+
+</RelativeLayout>

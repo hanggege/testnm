@@ -1,0 +1,33 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <activity
+        android:name="com.chuanglan.shanyan_sdk.view.CmccLoginActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:launchMode="singleTop"
+        android:screenOrientation="behind"
+        android:theme="@style/ShanYanDialogStyle" />
+
+    <activity-alias
+        android:name="com.cmic.sso.sdk.activity.LoginAuthActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:launchMode="singleTop"
+        android:screenOrientation="behind"
+        android:targetActivity="com.chuanglan.shanyan_sdk.view.CmccLoginActivity"
+        android:theme="@style/ShanYanDialogStyle" />
+
+    <activity
+        android:name="com.chuanglan.shanyan_sdk.view.ShanYanOneKeyActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:launchMode="singleTop"
+        android:screenOrientation="behind"
+        android:theme="@style/ShanYanDialogStyle" />
+
+    <activity
+        android:name="com.chuanglan.shanyan_sdk.view.CTCCPrivacyProtocolActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:launchMode="singleTop"
+        android:screenOrientation="behind"
+        android:theme="@style/ShanYanDialogStyle" />
+
+
+</manifest>

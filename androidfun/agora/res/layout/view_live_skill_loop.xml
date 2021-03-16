@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="20dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="7.5dp"
+    android:paddingEnd="7.5dp"
+    app:rv_backgroundColor="@color/masks_layer_20"
+    app:rv_cornerRadius="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="擅长："
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        tools:ignore="HardcodedText,SmallSp" />
+
+    <ViewFlipper
+        android:id="@+id/view_flipper"
+        android:layout_width="150dp"
+        android:autoStart="true"
+        android:layout_height="wrap_content" />
+</com.flyco.roundview.RoundLinearLayout>

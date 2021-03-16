@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="FlickerTextView">
+        <attr name="flickerColor" format="color" />
+        <attr name="secondColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="SwitchButton">
+        <attr name="onDrawable" format="reference" />
+        <attr name="offDrawable" format="reference" />
+        <attr name="thumbDrawable" format="reference" />
+        <attr name="thumb_margin" format="dimension|reference" />
+        <attr name="thumb_marginTop" format="dimension|reference" />
+        <attr name="thumb_marginBottom" format="dimension|reference" />
+        <attr name="thumb_marginLeft" format="dimension|reference" />
+        <attr name="thumb_marginRight" format="dimension|reference" />
+        <attr name="thumb_width" format="dimension|reference" />
+        <attr name="thumb_height" format="dimension|reference" />
+        <attr name="onColor" format="color|reference" />
+        <attr name="offColor" format="color|reference" />
+        <attr name="thumbColor" format="color|reference" />
+        <attr name="thumbPressedColor" format="color|reference" />
+        <attr name="animationVelocity" format="integer" />
+        <attr name="switchradius" format="integer" />
+        <attr name="measureFactor" format="float" />
+        <attr name="insetLeft" format="dimension|reference" />
+        <attr name="insetRight" format="dimension|reference" />
+        <attr name="insetTop" format="dimension|reference" />
+        <attr name="insetBottom" format="dimension|reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="LimitRecyclerView">
+        <attr name="RecycleView_maxHeight" format="dimension" />
+        <attr name="RecycleView_maxWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleProgress">
+        <attr name="progressWidth" format="dimension" />
+        <attr name="progressColor" format="color|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="BottomLineTextView">
+        <attr name="lineColor" format="color|reference" />
+        <attr name="lineHeight" format="dimension|reference" />
+        <attr name="lineRadius" format="dimension|reference" />
+        <attr name="linePadBottom" format="dimension|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="TimeDownTextView">
+        <attr name="time_text_color" format="string|color" />
+        <attr name="time_text" format="string|reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SlidingTabLayout">
+        <attr name="tl_indicator_color" />
+        <attr name="tl_indicator_height" />
+        <attr name="tl_indicator_width" />
+        <attr name="tl_indicator_margin_left" />
+        <attr name="tl_indicator_margin_top" />
+        <attr name="tl_indicator_margin_right" />
+        <attr name="tl_indicator_margin_bottom" />
+        <attr name="tl_indicator_corner_radius" />
+        <attr name="tl_indicator_gravity" />
+        <attr name="tl_indicator_style" />
+        <attr name="tl_indicator_width_equal_title" />
+        <attr name="tl_underline_color" />
+        <attr name="tl_underline_height" />
+        <attr name="tl_underline_gravity" />
+        <attr name="tl_divider_color" />
+        <attr name="tl_divider_width" />
+        <attr name="tl_divider_padding" />
+        <attr name="tl_tab_padding" />
+        <attr name="tl_tab_space_equal" />
+        <attr name="tl_tab_width" />
+        <attr name="tl_textsize" />
+        <attr name="tl_textSelectColor" />
+        <attr name="tl_textUnselectColor" />
+        <attr name="tl_textBold" />
+        <attr name="tl_textAllCaps" />
+        <attr name="tl_textSelectSize" format="dimension|reference" />
+        <attr name="tl_background_selectColor" format="color|reference" />
+        <attr name="tl_background_unSelectColor" format="color|reference" />
+        <attr name="tl_tab_radius" format="dimension|reference" />
+    </declare-styleable>
+
+    <!--为空界面用到的-->
+    <declare-styleable name="EmptyPageLayout">
+        <attr name="empty_layout_image_resource" format="reference" />
+        <attr name="empty_layout_image_top_margin" format="dimension|reference" />
+        <attr name="empty_layout_text" format="string|reference" />
+        <attr name="empty_layout_btn_text" format="reference|string" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundConstraintLayout">
+        <attr name="rv_backgroundColor" />
+        <attr name="rv_backgroundPressColor" />
+        <attr name="rv_cornerRadius" />
+        <attr name="rv_strokeWidth" />
+        <attr name="rv_strokeColor" />
+        <attr name="rv_strokePressColor" />
+        <attr name="rv_isRadiusHalfHeight" />
+        <attr name="rv_isWidthHeightEqual" />
+        <attr name="rv_cornerRadius_TL" />
+        <attr name="rv_cornerRadius_TR" />
+        <attr name="rv_cornerRadius_BL" />
+        <attr name="rv_cornerRadius_BR" />
+        <attr name="rv_isRippleEnable" />
+    </declare-styleable>
+
+    <declare-styleable name="SpreadAvatarView">
+        <attr name="spread_big_start_color" format="color|reference" />
+        <attr name="spread_big_end_color" format="color|reference" />
+        <attr name="spread_small_start_color" format="color|reference" />
+        <attr name="spread_small_end_color" format="color|reference" />
+        <attr name="spread_is_stroke" format="boolean" />
+        <attr name="spread_stroke_width" format="dimension|reference" />
+        <attr name="spread_out_radius" format="dimension|reference" />
+        <attr name="spread_in_radius" format="dimension|reference" />
+    </declare-styleable>
+</resources>

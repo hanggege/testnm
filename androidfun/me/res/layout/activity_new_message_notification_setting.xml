@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8F8"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/system_message_notification_setting_rl"
+        style="@style/setting_row_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/list_press_selector_normal"
+        tools:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="系统消息提醒"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/notification_state_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/arrow"
+                android:textSize="12sp"
+                android:textColor="@color/color_333333"
+                android:text="未开启"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+            <com.mei.widget.arrow.ArrowView
+                android:id="@+id/system_message_arrow"
+                android:layout_width="6dp"
+                android:layout_height="12dp"
+                app:arrow_direction="right"
+                android:layout_marginStart="7dp"
+                android:layout_gravity="center_vertical"
+                app:arrow_line_color="@color/color_cacaca" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        style="@style/setting_row_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/color_f8f9fa">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="系统内提醒"
+            android:textColor="@color/color_666666"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/setting_banner_notification_rl"
+        style="@style/setting_row_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/list_press_selector_normal">
+
+        <TextView
+            android:id="@+id/banner_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="横幅提醒"
+            android:textColor="@color/color_333333"
+            android:layout_marginTop="5dp"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_999999"
+            android:textSize="11sp"
+            android:layout_marginTop="4dp"
+            android:text="关闭后，知心运行过程中不再收到横幅提醒"
+            android:layout_below="@+id/banner_title_tv"
+            tools:ignore="HardcodedText,SmallSp" />
+
+
+        <com.mei.base.weight.button.SwitchButton
+            android:id="@+id/new_message_banner_sb"
+            android:layout_width="43dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="5dp"
+            app:onColor="#78d374"
+            app:thumb_height="20dp"
+            app:thumb_width="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.75dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="#F8F8F8"
+        tools:visibility="visible" />
+
+    <RelativeLayout
+        style="@style/setting_row_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/list_press_selector_normal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="声音"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <com.mei.base.weight.button.SwitchButton
+            android:id="@+id/new_message_voice_sb"
+            android:layout_width="43dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="5dp"
+            app:onColor="#78d374"
+            app:thumb_height="20dp"
+            app:thumb_width="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.75dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="#F8F8F8"
+        tools:visibility="visible" />
+
+    <RelativeLayout
+        style="@style/setting_row_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/list_press_selector_normal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="震动"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <com.mei.base.weight.button.SwitchButton
+            android:id="@+id/new_message_vibration_sb"
+            android:layout_width="43dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="5dp"
+            app:onColor="#78d374"
+            app:thumb_height="20dp"
+            app:thumb_width="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/setting_row_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/list_press_selector_normal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="直播间邀请弹窗"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <com.mei.base.weight.button.SwitchButton
+            android:id="@+id/new_message_invitation_sb"
+            android:layout_width="43dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="5dp"
+            app:onColor="#78d374"
+            app:thumb_height="20dp"
+            app:thumb_width="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+</LinearLayout>

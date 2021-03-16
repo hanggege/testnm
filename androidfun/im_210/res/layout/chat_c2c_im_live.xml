@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/c2c_im_live"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_marginBottom="5dp"
+    android:background="@android:color/white"
+    android:clipChildren="false"
+    android:orientation="horizontal"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fl_pub_head_audience"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="17dp"
+        android:background="@android:color/white"
+        android:clipChildren="false">
+
+
+        <com.mei.me.view.GradientStrokeView
+            android:id="@+id/message_header_item_header_line1"
+            android:layout_width="57dp"
+            android:layout_height="57dp"
+            android:visibility="invisible"
+            app:end_color="#FF5454"
+            app:gradient_stroke_width="1dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:round_radius="60dp"
+            app:start_color="#FFA00A" />
+
+        <com.mei.me.view.GradientStrokeView
+            android:id="@+id/message_header_item_header_line2"
+            android:layout_width="57dp"
+            android:layout_height="57dp"
+            android:visibility="invisible"
+            app:end_color="#FF5454"
+            app:gradient_stroke_width="1dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:round_radius="60dp"
+            app:start_color="#FFA00A" />
+
+        <com.mei.me.view.GradientStrokeView
+            android:id="@+id/message_header_item_header_line3"
+            android:layout_width="57dp"
+            android:layout_height="57dp"
+            android:visibility="invisible"
+            app:end_color="#FF5454"
+            app:gradient_stroke_width="1dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:round_radius="60dp"
+            app:start_color="#FFA00A" />
+
+        <com.mei.me.view.GradientStrokeView
+            android:id="@+id/message_header_item_header_bg"
+            android:layout_width="57dp"
+            android:layout_height="57dp"
+            android:src="@android:color/white"
+            android:visibility="invisible"
+            app:end_color="#FF5454"
+            app:gradient_stroke_width="2dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:round_radius="60dp"
+            app:start_color="#FFA00A" />
+
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/message_header_item_header"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            app:layout_constraintBottom_toBottomOf="@+id/message_header_item_header_bg"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/message_header_item_header_bg"
+            app:radius_all="60dp"
+            tools:src="@drawable/default_male_head" />
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/message_header_item_online"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="8dp"
+            android:src="#27B836"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/message_header_item_header"
+            app:layout_constraintRight_toRightOf="@+id/message_header_item_header"
+            app:radius_all="50dp" />
+
+        <!--给闪光加白底 否则出现黑色边 跟随message_header_item_header_living 显示或隐藏-->
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/message_header_item_header_living_bg"
+            android:layout_width="42dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="40dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="3dp"
+            android:paddingRight="7dp"
+            android:paddingBottom="3dp"
+            android:text=""
+            android:textColor="@android:color/white"
+            android:textSize="11sp"
+            app:layout_constraintLeft_toLeftOf="@+id/shimmer_frame"
+            app:layout_constraintRight_toRightOf="@+id/shimmer_frame"
+            app:layout_constraintTop_toTopOf="@+id/message_header_item_header_bg"
+            app:rv_backgroundColor="@android:color/white"
+            app:rv_cornerRadius="10dp"
+            tools:ignore="SmallSp" />
+
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:visibility="invisible"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/message_header_item_header_bg"
+            app:shimmer_base_alpha="1"
+            app:shimmer_duration="2000"
+            app:shimmer_highlight_alpha="0.5"
+            app:shimmer_highlight_color="@android:color/white"
+            tools:visibility="visible">
+
+            <com.mei.widget.gradient.GradientTextView
+                android:id="@+id/personal_live_status"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="7dp"
+                android:paddingTop="2dp"
+                android:paddingRight="7dp"
+                android:paddingBottom="3dp"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="11sp"
+                app:gd_end_color="@color/color_FF4030"
+                app:gd_radius="50dp"
+                app:gd_start_color="@color/color_FF973B"
+                tools:ignore="SmallSp" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <ImageView
+            android:id="@+id/online_staus"
+            android:layout_width="42dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="2dp"
+            android:contentDescription="TODO"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/message_header_item_header_bg" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="17dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <com.flyco.roundview.RoundRelativeLayout
+            android:id="@+id/round_boder"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            app:rv_cornerRadius="65dp"
+            app:rv_strokeWidth="1dp">
+
+            <com.mei.widget.round.RoundImageView
+                android:id="@+id/personal_avatar"
+                android:layout_width="51dp"
+                android:layout_height="51dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_shadow_avatar"
+                android:elevation="3dp"
+                android:scaleType="center"
+                app:radius_all="68dp"
+                app:round_stroke_color="@color/color_white_20alpha"
+                app:round_stroke_width="1dp"
+                tools:src="@drawable/default_female_head_more_big" />
+        </com.flyco.roundview.RoundRelativeLayout>
+
+        <TextView
+            android:layout_width="37dp"
+            android:layout_height="14dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="2dp"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="9sp"
+            android:translationZ="3dp"
+            tools:text="haha"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_frame_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="13dp"
+        android:layout_toEndOf="@+id/fl_pub_head_audience"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:id="@+id/id_flowlayout_zhubo"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginRight="15dp"
+            app:max_select="-1" />
+
+        <TextView
+            android:id="@+id/tv_user_jieshao"
+            android:layout_width="match_parent"
+            android:layout_height="19dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="7.5dp"
+            android:layout_marginRight="15dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/color_666666"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <com.mei.widget.arrow.ArrowView
+        android:id="@+id/arrow"
+        android:layout_width="6dp"
+        android:layout_height="12dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="15dp"
+        app:arrow_direction="right"
+        app:arrow_line_color="@color/color_C8C8C8"
+        tools:ignore="MissingConstraints" />
+
+</RelativeLayout>

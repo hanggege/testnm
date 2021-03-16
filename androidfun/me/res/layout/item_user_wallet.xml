@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="67dp"
+    android:orientation="vertical"
+    tools:background="@color/color_FF5A00">
+
+    <ImageView
+        android:id="@+id/user_img"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/icon_balance" />
+
+    <TextView
+        android:id="@+id/user_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4.5dp"
+        android:textColor="@color/color_333333"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_img"
+        tools:text="我的余额" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/user_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingHorizontal="5dp"
+        android:paddingVertical="2dp"
+        android:textColor="@android:color/white"
+        android:textSize="8sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/user_img_top_line"
+        app:layout_constraintEnd_toEndOf="@id/user_coupon_img_end_line"
+        app:layout_constraintStart_toStartOf="@id/user_coupon_img_end_line"
+        app:layout_constraintTop_toTopOf="@id/user_img_top_line"
+        app:rv_backgroundColor="@color/color_FF5454"
+        app:rv_cornerRadius="8dp"
+        app:rv_strokeColor="@android:color/white"
+        app:rv_strokeWidth="1dp"
+        tools:ignore="SmallSp"
+        tools:text="5张可用"
+        tools:visibility="visible" />
+
+    <View
+        android:id="@+id/user_img_top_line"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/user_img" />
+
+    <View
+        android:id="@+id/user_coupon_img_end_line"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/user_img"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/message_title_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clipChildren="false">
+
+        <LinearLayout
+            android:id="@+id/msg_tab_menu_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical">
+
+            <include
+                layout="@layout/include_msg_tab_item"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content" />
+
+            <include
+                layout="@layout/include_msg_tab_item"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/message_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/color_333333"
+            android:text="私聊"
+            android:textSize="18sp"
+            android:visibility="gone"
+            tools:ignore="HardcodedText" />
+
+        <FrameLayout
+            android:id="@+id/notification_icon_fl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:paddingEnd="10dp"
+            tools:ignore="RtlSymmetry">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_icon_notify"
+                tools:ignore="ContentDescription" />
+
+            <com.flyco.roundview.RoundLinearLayout
+                android:id="@+id/notify_red_dot_rll"
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                app:rv_cornerRadius="50dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="8.5dp"
+                android:layout_marginEnd="8.5dp"
+                android:visibility="visible"
+                app:rv_backgroundColor="@android:color/holo_red_light" />
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/dove_msg_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:layout_below="@id/message_title_rl" />
+
+
+</RelativeLayout>

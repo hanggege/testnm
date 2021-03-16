@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mei.video.browser.view.CustomConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_333333">
+
+    <View
+        android:id="@+id/status_bar_view"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/short_video_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.mei.video.browser.view.ShortVideoPlayBrowser
+            android:id="@+id/short_video_browser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_333333" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.mei.base.common.EmptyPageLayout
+        android:id="@+id/net_error_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:empty_layout_image_resource="@drawable/home_error_page"
+        app:empty_layout_text="@string/no_network"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
+
+</com.mei.video.browser.view.CustomConstraintLayout>
+
+
+

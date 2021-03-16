@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="9dp"
+    tools:background="@android:color/white">
+
+    <com.mei.widget.round.RoundView
+        android:id="@+id/room_main_square_avatar_bg"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:stroke_radius="5dp" />
+
+    <com.flyco.roundview.RoundFrameLayout
+        android:id="@+id/room_main_square_avatar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:rv_cornerRadius="5dp">
+
+        <ImageView
+            android:id="@+id/room_main_square_avatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitCenter"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/personal_img_male_default" />
+
+    </com.flyco.roundview.RoundFrameLayout>
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/room_main_square_avatar_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:ellipsize="end"
+        android:gravity="bottom|center_horizontal"
+        android:maxLines="2"
+        android:paddingVertical="5dp"
+        android:paddingBottom="5dp"
+        android:textColor="@android:color/white"
+        android:textSize="11sp"
+        app:gd_LB_radius="5dp"
+        app:gd_RB_radius="5dp"
+        app:gd_direction="topToBottom"
+        app:gd_end_color="@color/masks_layer_50"
+        app:gd_start_color="@color/masks_layer_00"
+        tools:ignore="SmallSp"
+        tools:text="飞飞老师ddddd" />
+
+</FrameLayout>

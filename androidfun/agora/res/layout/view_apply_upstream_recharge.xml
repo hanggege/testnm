@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recharge_list"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="6dp"
+        android:overScrollMode="never" />
+
+    <LinearLayout
+        android:id="@+id/now_apply_coupon_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/now_apply_coupon_prefix_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="正在使用"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="139dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/coupon_now_apply_bg">
+
+            <TextView
+                android:id="@+id/now_apply_coupon_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/line"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                tools:ignore="SmallSp"
+                tools:text="免费券免费券" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="55dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/now_apply_coupon_content_hint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/color_FF3A3A"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/line"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                tools:ignore="SmallSp"
+                tools:text="5分钟连线5分钟连线5分钟连线" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/coupon_apply_check"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/now_apply_coupon_checked"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/top_up_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        tools:ignore="DisableBaselineAlignment">
+
+        <com.mei.widget.gradient.GradientLinearLayout
+            android:id="@+id/wechat_pay"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:gd_end_color="@color/color_0CC70A"
+            app:gd_radius="30dp"
+            app:gd_start_color="@color/color_09BB07">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="@string/wechat_pay"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                app:drawableStartCompat="@drawable/icon_wechat_pay" />
+        </com.mei.widget.gradient.GradientLinearLayout>
+
+        <com.mei.widget.gradient.GradientLinearLayout
+            android:id="@+id/ali_pay"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:gd_end_color="@color/color_469DFA"
+            app:gd_radius="30dp"
+            app:gd_start_color="@color/color_398EE8">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="@string/ali_pay"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                app:drawableStartCompat="@drawable/icon_ali_pay" />
+        </com.mei.widget.gradient.GradientLinearLayout>
+    </LinearLayout>
+</LinearLayout>

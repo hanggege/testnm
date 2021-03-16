@@ -1,0 +1,14 @@
+wechatApi("WXEntryActivity")
+wechatApi("WXPayEntryActivity")
+
+def wechatApi(String clsName) {
+    String weChatApiFile = "$rootDir/cache/wechat/${getApplicationId(project).replace(".", "/")}/wxapi/${clsName}.kt"
+    println("=============生成微信代码 ${clsName}=================")
+    writeFile(weChatApiFile, "package ${getApplicationId(project)}.wxapi \n\n", false)
+    writeFile(weChatApiFile, "import android.annotation.SuppressLint \n", true)
+    writeFile(weChatApiFile, "import com.joker.support.WxBaseEntryActivity \n\n", true)
+    writeFile(weChatApiFile, "@SuppressLint(\"Registered\") \n", true)
+    writeFile(weChatApiFile, "class ${clsName} : WxBaseEntryActivity() {\n}", true)
+    println("==============结束生成微信代码 ${clsName}================")
+
+}

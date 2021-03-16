@@ -1,0 +1,38 @@
+apply from: "$rootDir/history/app_id.gradle"
+apply from: "$rootDir/androidlib/ext/library_version.gradle"
+ext {
+    androidx_lib_version = '1.3.0-alpha02'
+    build_tools_version = '29.0.3'
+    min_sdk_version = 21
+    target_sdk_version = 29
+
+    app_scheme = "dove"
+
+    /** 可打包电脑名列表,加入电脑名后则无法运行release包调试 **/
+    package_user = ['joker', 'yinhao', 'mylovehang', 'ring', "xiaolu", "mdl", "zxjCode", "kun"]
+
+    /**需要上传ftp的渠道包**/
+    jiagu_flavor = 'dove'
+
+    //cache
+    history_path = "$rootDir/history"
+
+    module_list_all = getAllLibs()
+
+}
+
+
+String[] getAllLibs() {
+    def ignore = ['app', 'launcher-compiler', 'launcher-joke', 'test']
+    def libs = []
+    rootProject.childProjects.each { name, child ->
+        if (!ignore.contains(child.name)) {
+            libs.add(child.name)
+        }
+    }
+    return libs
+}
+
+
+
+

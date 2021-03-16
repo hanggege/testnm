@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/to_login_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:visibility="visible">
+
+    <ImageView
+        android:layout_width="226dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:src="@drawable/empty_login_img" />
+
+    <TextView
+        android:id="@+id/message_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="登录后才能查看消息哦"
+        android:textColor="@color/color_999999"
+        android:textSize="15sp" />
+
+    <com.mei.widget.gradient.GradientFrameLayout
+        android:id="@+id/goto_login_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="25dp"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="90dp"
+        app:gd_start_color="@color/color_FF7F33">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="立即登录"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+    </com.mei.widget.gradient.GradientFrameLayout>
+
+
+</LinearLayout>

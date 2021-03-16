@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/pay_top_view"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.flyco.roundview.RoundRelativeLayout
+        android:id="@+id/pay_dialog_root"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius_TL="12dp"
+        app:rv_cornerRadius_TR="12dp">
+
+        <TextView
+            android:id="@+id/pay_dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="11dp"
+            android:text="@string/top_up"
+            android:textColor="@android:color/black"
+            android:textSize="17sp" />
+
+        <com.mei.me.view.GiftTopUpView
+            android:id="@+id/gift_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_above="@id/pay_dialog_pay"
+            android:layout_below="@id/pay_dialog_title"
+            android:layout_marginTop="10dp" />
+
+        <LinearLayout
+            android:id="@+id/pay_dialog_pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginBottom="15dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <com.mei.widget.gradient.GradientLinearLayout
+                android:id="@+id/wechat_pay"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginEnd="12.5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                app:gd_end_color="@color/color_0CC70A"
+                app:gd_radius="30dp"
+                app:gd_start_color="@color/color_09BB07">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/icon_wechat_pay"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:text="@string/wechat_pay"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+            </com.mei.widget.gradient.GradientLinearLayout>
+
+            <com.mei.widget.gradient.GradientLinearLayout
+                android:id="@+id/ali_pay"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="12.5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                app:gd_end_color="@color/color_469DFA"
+                app:gd_radius="30dp"
+                app:gd_start_color="@color/color_398EE8">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/icon_ali_pay"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:text="@string/ali_pay"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+            </com.mei.widget.gradient.GradientLinearLayout>
+        </LinearLayout>
+    </com.flyco.roundview.RoundRelativeLayout>
+
+</LinearLayout>

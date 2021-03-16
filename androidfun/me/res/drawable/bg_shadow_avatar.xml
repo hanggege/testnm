@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#ffffffff" />
+    <item android:name="android:shadowColor">#d0000000</item>
+    <item android:name="android:shadowDx">0</item>
+    <item android:name="android:shadowDy">7</item>
+    <item android:name="android:shadowRadius">40</item>
+</shape>

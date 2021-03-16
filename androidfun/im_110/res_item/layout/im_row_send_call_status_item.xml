@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    tools:background="@android:color/holo_blue_light">
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/im_time_stamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:includeFontPadding="false"
+        android:padding="5dp"
+        android:textColor="#989898"
+        android:textSize="12sp"
+        app:rv_cornerRadius="3dp"
+        tools:text="12:00" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal"
+        android:paddingRight="15dp">
+
+        <include layout="@layout/include_avatar_42" />
+
+
+        <!--这个结构下面的为每条消息体，上面的是通用消息内容，一般都会有-->
+        <com.flyco.roundview.RoundLinearLayout
+            android:id="@+id/im_message_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingTop="13dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="13dp"
+            app:rv_backgroundColor="#FFDA0A"
+            app:rv_cornerRadius="10dp">
+
+            <TextView
+                android:id="@+id/im_msg_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="4dp"
+                android:maxWidth="230dp"
+                android:textColor="@color/color_333333"
+                android:textColorLink="@android:color/holo_blue_light"
+                android:textSize="15sp"
+                tools:text="知心达人未接听" />
+
+            <ImageView
+                android:id="@+id/icon_call_status"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/im_send_call_fail_img" />
+        </com.flyco.roundview.RoundLinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

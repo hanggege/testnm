@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mei.base.weight.relative.RoundConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="310dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:rv_backgroundColor="@android:color/white"
+    app:rv_cornerRadius="8dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="请选择服务内容"
+        android:textColor="@color/color_333333"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <com.mei.widget.choince.ChoiceView
+        android:id="@+id/back_choice"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="15dp"
+        app:choice_color="@color/color_999999"
+        app:choice_type="cross"
+        app:choice_width="1.5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.mei.base.weight.recyclerview.LimitRecyclerView
+        android:id="@+id/service_list"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        app:RecycleView_maxHeight="300dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+</com.mei.base.weight.relative.RoundConstraintLayout>

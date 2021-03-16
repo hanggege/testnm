@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion target_sdk_version
+    buildToolsVersion build_tools_version
+
+    defaultConfig {
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        manifestPlaceholders = [
+                weixin_app_id: weixin_app_id,
+//                weixin_app_secret: weixin_app_secret,
+                package_name : getApplicationId(project)
+        ]
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly("androidx.appcompat:appcompat:$androidx_lib_version")
+
+    api getWeixinLib()
+}
+
+def getWeixinLib() {
+    try {
+        return wechat_lib
+    } catch (Exception e) {
+        return 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.6.5'
+    }
+}

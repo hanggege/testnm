@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/service_exclusive_click"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal"
+    android:paddingTop="5dp"
+    tools:background="#370C06">
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/user_avatar_img"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/default_avatar_50"
+        app:radius_all="14dp" />
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/live_msg_menu"
+        android:layout_width="212dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:orientation="vertical"
+        android:padding="6dp"
+        app:rv_backgroundColor="@color/masks_layer_30"
+        app:rv_cornerRadius="8dp">
+
+        <FrameLayout
+            android:id="@+id/ly_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <include layout="@layout/view_level" />
+
+            <TextView
+                android:id="@+id/tv_live_name_pub_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/color_A3E2FB"
+                android:textSize="13sp"
+                tools:text="小峰 推荐 【专属服务】" />
+
+        </FrameLayout>
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:id="@+id/live_msg_content_frame"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ly_name"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            app:radius_all="14dp"
+            app:rv_backgroundColor="#f2ffffff"
+            app:rv_cornerRadius="4dp">
+
+            <com.mei.widget.round.RoundImageView
+                android:id="@+id/top_image"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:visibility="gone"
+                app:radius_all="2dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.mei.widget.round.RoundImageView
+                    android:id="@+id/start_image"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_marginEnd="10dp"
+                    android:visibility="gone"
+                    app:radius_all="2dp"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/card_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="@color/color_333333"
+                    android:textSize="13sp"
+                    tools:text="抑郁程度测评，测测你的抑郁程度测测你的抑郁程度" />
+
+                <com.mei.widget.round.RoundImageView
+                    android:id="@+id/end_image"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="10dp"
+                    android:visibility="gone"
+                    app:radius_all="2dp" />
+
+            </LinearLayout>
+
+            <com.mei.widget.round.RoundImageView
+                android:id="@+id/bottom_image"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                app:radius_all="2dp" />
+
+            <TextView
+                android:id="@+id/card_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/color_FE3F3F"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/button_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center">
+
+                <com.flyco.roundview.RoundTextView
+                    android:id="@+id/start_btn"
+                    android:layout_width="85dp"
+                    android:layout_height="28dp"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:visibility="visible"
+                    app:rv_backgroundColor="@color/color_D8D8D8"
+                    app:rv_cornerRadius="32dp"
+                    tools:text="立即查看" />
+
+                <com.mei.widget.gradient.GradientTextView
+                    android:id="@+id/end_btn"
+                    android:layout_width="85dp"
+                    android:layout_height="28dp"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:visibility="visible"
+                    app:gd_end_color="@color/color_FF3F36"
+                    app:gd_radius="32dp"
+                    app:gd_start_color="@color/color_FF7F33"
+                    tools:text="立即查看" />
+            </LinearLayout>
+        </com.flyco.roundview.RoundLinearLayout>
+    </com.flyco.roundview.RoundLinearLayout>
+
+</LinearLayout>

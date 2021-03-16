@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/im_bubble_pop_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minWidth="50dp"
+        android:minHeight="20dp"
+        android:orientation="horizontal"
+        app:rv_backgroundColor="@color/color_333333"
+        app:rv_cornerRadius="4dp" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/im_bullle_pop_bottom_bg"
+        tools:ignore="ContentDescription" />
+
+</LinearLayout>

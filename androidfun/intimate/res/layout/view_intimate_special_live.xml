@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_intimate_home_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/live_cover_image"
+        android:layout_width="172dp"
+        android:layout_height="172dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:radius_left_top="5dp"
+        app:radius_right_top="5dp"
+        tools:background="@color/color_FF8254" />
+
+    <ImageView
+        android:id="@+id/image_photo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginEnd="27dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="@id/live_cover_image"
+        app:layout_constraintEnd_toEndOf="@id/live_cover_image"
+        app:layout_constraintStart_toStartOf="@id/live_cover_image"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/icon_exclusive_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/icon_special_service_label"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="@id/live_cover_image"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/studio_name"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:background="@drawable/bg_intimate_special_live_studio_name"
+        android:gravity="center"
+        android:paddingStart="7.5dp"
+        android:paddingEnd="11dp"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@id/live_cover_image"
+        app:layout_constraintStart_toStartOf="@id/live_cover_image"
+        tools:ignore="SmallSp"
+        tools:text="暖冬的狐狸工作室" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/upstream_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3.5dp"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="3dp"
+        android:paddingVertical="2dp"
+        android:textColor="@android:color/white"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toTopOf="@id/studio_name"
+        app:layout_constraintEnd_toEndOf="@id/right_connect_user"
+        app:layout_constraintStart_toStartOf="@id/left_connect_user"
+        app:layout_goneMarginBottom="10dp"
+        app:rv_backgroundColor="@color/masks_layer_30"
+        app:rv_cornerRadius="12dp"
+        tools:ignore="SmallSp"
+        tools:text="已连时长01:03:34" />
+
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/left_connect_user"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/default_female_head"
+        app:layout_constraintBottom_toBottomOf="@id/right_connect_user"
+        app:layout_constraintEnd_toStartOf="@id/right_connect_user"
+        app:layout_constraintTop_toTopOf="@id/right_connect_user"
+        app:radius_all="30dp"
+        app:round_stroke_color="@android:color/white"
+        app:round_stroke_width="1.5dp" />
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/right_connect_user"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="6dp"
+        android:src="@drawable/default_female_head"
+        app:layout_constraintBottom_toTopOf="@id/upstream_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:radius_all="30dp"
+        app:round_stroke_color="@android:color/white"
+        app:round_stroke_width="1.5dp" />
+
+    <ImageView
+        android:id="@+id/icon_connect"
+        android:layout_width="26dp"
+        android:layout_height="21.5dp"
+        android:src="@drawable/icon_connect"
+        app:layout_constraintBottom_toBottomOf="@id/right_connect_user"
+        app:layout_constraintEnd_toEndOf="@id/right_connect_user"
+        app:layout_constraintStart_toStartOf="@id/left_connect_user"
+        app:layout_constraintTop_toTopOf="@id/right_connect_user"
+        tools:ignore="ContentDescription" />
+
+    <com.flyco.roundview.RoundFrameLayout
+        android:layout_width="0dp"
+        android:layout_height="41.5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/live_cover_image"
+        app:layout_constraintStart_toStartOf="@id/live_cover_image"
+        app:layout_constraintTop_toBottomOf="@id/live_cover_image"
+        app:rv_backgroundColor="@android:color/transparent"
+        app:rv_cornerRadius_BL="5dp"
+        app:rv_cornerRadius_BR="5dp" />
+
+    <TextView
+        android:id="@+id/live_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="2dp"
+        android:maxLines="2"
+        android:textColor="@color/color_333333"
+        android:textSize="15sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/live_cover_image"
+        app:layout_constraintStart_toStartOf="@id/live_cover_image"
+        app:layout_constraintTop_toBottomOf="@id/live_cover_image"
+        tools:text="2020婚姻命理咨询解密感情运势危机" />
+
+    <TextView
+        android:id="@+id/intimate_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="6.5dp"
+        android:layout_marginBottom="13.5dp"
+        android:drawablePadding="2dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:singleLine="true"
+        android:textColor="@color/color_666666"
+        android:textSize="12sp"
+        app:drawableStartCompat="@drawable/icon_intimate_sun"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/live_cover_image"
+        app:layout_constraintTop_toBottomOf="@id/live_title"
+        app:layout_goneMarginTop="11.5dp"
+        tools:text="李老师情感咨询" />
+</merge>

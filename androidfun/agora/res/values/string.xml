@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="send_gift">送给 %s</string>
+    <string name="platform_safe_hint_one">我们倡导绿色沟通，直播超管24小时监控，交流内容含低俗、政治、迷信等都会被封号处理。</string>
+    <string name="platform_safe_hint_two">为了保证您的利益不受损失，请勿发送电话及微信告知他人，或在线下与知心达人或其他用户进行交易行为，由此产生的损失概不负责。</string>
+    <string name="total_contribute">累计互动</string>
+    <string name="contribute_coin">贡献心币</string>
+    <string name="contribute_question">1. 通过送礼给知心达人，或和知心达人连麦，今日贡献的心币数进入该直播间的前100名，即可上今日互动榜。\n 2. 累计贡献的心币数进入该直播间的前100名，即可上累计互动榜。\n 3. 每天凌晨4点，今日互动榜数据清零重置。</string>
+    <string name="contribute_txt">快来抢个好位置吧～</string>
+    <string name="send_gift_txt">送礼</string>
+    <string name="contribute_about">互动榜说明</string>
+    <string name="look_for_permission">查看特权</string>
+    <string name="not_at_rank">暂未\n上榜</string>
+    <string name="my_contribute">我已贡献：%s心币</string>
+    <string name="distance_of_list">距离上榜还差%s心币</string>
+    <string name="distance_of_last_person">距离上一名还差%s心币</string>
+    <string name="contribute_coin_mark">贡献%s心币</string>
+    <string name="empty_contribute_txt">虚位以待</string>
+    <string name="first_100">前100名</string>
+    <string name="social_contract">收起</string>
+    <string name="social_expend">展开</string>
+    <string name="social_text_target">网页链接</string>
+    <string name="immediate_apply">立即申请</string>
+    <string name="convert_audio_upstream_hint_for_anchor">由于用户当前网络不佳，无法连接到视频，系统已自动将用户摄像头关闭，切换为语音连线。</string>
+    <string name="convert_audio_upstream_hint_for_user">由于您当前网络不佳，无法连接到视频，系统已自动将您的摄像头关闭，切换为语音连线。</string>
+    <string name="studio_start_live">工作室开播</string>
+    <string name="icon_share_btn_description">直播间顶部分享按钮</string>
+    <string name="week_rank_crown_description">排名头冠</string>
+    <string name="week_rank_user_status_description">周榜知心人状态</string>
+    <string name="more_medal_bg_description">多个勋章弹框背景显示</string>
+</resources>

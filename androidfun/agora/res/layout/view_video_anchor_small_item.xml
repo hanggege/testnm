@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/user_container"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/masks_layer_30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/user_avatar"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            app:radius_all="13dp"
+            app:round_stroke_color="@color/color_73FA5D"
+            app:round_stroke_width="0.5dp" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/user_avatar"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toEndOf="@id/user_avatar"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            tools:ignore="SmallSp"
+            tools:text="暖冬的小狐狸" />
+
+        <com.flyco.roundview.RoundFrameLayout
+            android:id="@+id/upstream_time_point"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            android:layout_alignBottom="@id/user_avatar"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="4dp"
+            android:layout_toEndOf="@id/user_avatar"
+            app:rv_backgroundColor="@color/color_73FA5D"
+            app:rv_cornerRadius="4dp" />
+
+        <TextView
+            android:id="@+id/upstream_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/user_avatar"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/upstream_time_point"
+            android:paddingHorizontal="5dp"
+            android:textColor="@color/alpha90_white"
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/zoom_img"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:padding="5dp"
+        android:src="@drawable/icon_zoom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/close_video"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/close_video"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:padding="5dp"
+        android:src="@drawable/icon_live_video_img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/close_audio"
+        app:layout_constraintStart_toEndOf="@id/zoom_img" />
+
+    <ImageView
+        android:id="@+id/close_audio"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:padding="5dp"
+        android:src="@drawable/live_voice_state_img_selector2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/close_video" />
+
+
+    <ImageView
+        android:id="@+id/down_mic"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:layout_marginBottom="45dp"
+        android:padding="5dp"
+        android:src="@drawable/icon_down_mic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

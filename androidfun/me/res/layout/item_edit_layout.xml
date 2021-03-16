@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/edit_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/list_press_selector_normal">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="27dp" />
+
+    <ImageView
+        android:id="@+id/edit_icon"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:src="@drawable/icon_basic_information"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/guide_line"
+        app:layout_constraintRight_toRightOf="@+id/guide_line"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/edit_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:textColor="@color/color_333333"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlHardcoded"
+        tools:text="基本资料" />
+
+    <com.mei.widget.arrow.ArrowView
+        android:id="@+id/edit_arrow"
+        android:layout_width="7dp"
+        android:layout_height="12dp"
+        android:layout_marginEnd="15dp"
+        app:arrow_direction="right"
+        app:arrow_line_color="@color/color_c8c8c8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    用于交友心声  显示末尾省略号-->
+    <TextView
+        android:id="@+id/text_view_b"
+        android:layout_width="160dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="6dp"
+        android:background="@null"
+        android:ellipsize="end"
+        android:gravity="center_vertical|right"
+        android:singleLine="true"
+        android:textColor="@color/color_333333"
+        android:textColorHint="@color/color_cbcbcb"
+        android:textSize="13sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/edit_arrow"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlHardcoded"
+        tools:text="完善资料可获得心币完善资料可获得心币" />
+
+    <com.mei.me.view.FocusEditText
+        android:id="@+id/edit_text"
+        android:layout_width="160dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="6dp"
+        android:background="@null"
+        android:ellipsize="end"
+        android:gravity="center_vertical|right"
+        android:maxLength="8"
+        android:singleLine="true"
+        android:textColor="@color/color_333333"
+        android:textColorHint="@color/color_cbcbcb"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/edit_arrow"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlHardcoded"
+        tools:text="完善资料可获得心币完善资料可获得心币" />
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/edit_text_label"
+        android:layout_width="wrap_content"
+        android:layout_height="22.5dp"
+        android:layout_marginEnd="12.5dp"
+        android:gravity="center"
+        android:paddingHorizontal="7dp"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        android:visibility="gone"
+        app:gd_end_color="@color/color_FF4030"
+        app:gd_radius="11.25dp"
+        app:gd_start_color="@color/color_FF8484"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/edit_arrow"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SmallSp"
+        tools:text="赚现金+心币"
+        tools:visibility="visible" />
+
+    <FrameLayout
+        android:id="@+id/tips_icon_fl"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="5dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/edit_arrow"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/tips_icon_iv"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tips_hint_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:maxLines="1"
+            android:textSize="11sp"
+            tools:ignore="SmallSp"
+            tools:text="1" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

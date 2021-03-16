@@ -1,0 +1,20 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.joker.wb">
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <meta-data
+            android:name="weibo_app_key"
+            android:value="${weibo_app_key}" />
+        <meta-data
+            android:name="weibo_redirect_url"
+            android:value="${weibo_redirect_url}" />
+        <meta-data
+            android:name="weibo_scope"
+            android:value="${weibo_scope}" />
+
+    </application>
+</manifest>

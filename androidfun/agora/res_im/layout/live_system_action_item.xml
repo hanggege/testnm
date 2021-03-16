@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/action_container_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/live_system_action_share"
+    android:clickable="false"
+    tools:ignore="RtlSymmetry"
+    tools:layout_margin="20dp">
+
+    <ImageView
+        android:id="@+id/flash_bg_view"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_marginStart="14dp"
+        android:background="@drawable/action_flash_bg_img"
+        android:scaleType="fitCenter"
+        android:alpha="0"
+        app:layout_constraintLeft_toLeftOf="@id/live_system_avatar_img"
+        app:layout_constraintTop_toTopOf="@id/live_system_action_tv" />
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/live_system_avatar_img"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6.5dp"
+        android:layout_marginBottom="6.5dp"
+        android:clickable="false"
+        android:src="@drawable/default_male_head"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:radius_all="14dp" />
+
+    <TextView
+        android:id="@+id/live_system_action_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="50dp"
+        android:clickable="false"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:letterSpacing="0.05"
+        android:lineSpacingExtra="3dp"
+        android:minHeight="41dp"
+        android:paddingTop="6.5dp"
+        android:paddingBottom="6.5dp"
+        android:textColor="@android:color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/live_system_avatar_img"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="西瓜西瓜西瓜西瓜  送 " />
+</androidx.constraintlayout.widget.ConstraintLayout>

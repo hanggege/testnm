@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_10"
+    android:layout_marginRight="10dp"
+    app:rv_backgroundColor="@color/color_12FF3A3A"
+    app:rv_cornerRadius="4dp">
+
+    <TextView
+        android:id="@+id/tag_text"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:drawableRight="@drawable/icon_delete_label"
+        android:drawablePadding="9dp"
+        android:gravity="center"
+        android:paddingLeft="7dp"
+        android:paddingRight="@dimen/dp_10"
+        android:textColor="@color/color_FF3A3A"
+        android:textSize="@dimen/sp_14"
+        tools:text="123123123" />
+
+</com.flyco.roundview.RoundFrameLayout>

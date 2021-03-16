@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@color/color_666666">
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/short_video_cover"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:radius_left_top="5dp"
+        app:radius_right_top="5dp" />
+
+    <com.mei.widget.gradient.GradientFrameLayout
+        android:id="@+id/short_video_mask"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignBottom="@id/short_video_cover"
+        app:gd_direction="topToBottom"
+        app:gd_end_color="@color/masks_layer_50"
+        app:gd_start_color="@color/masks_layer_00" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/short_video_cover"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/short_video_avatar"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:radius_all="10dp" />
+
+        <TextView
+            android:id="@+id/short_video_consultant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            tools:text="小松心理咨询师" />
+    </LinearLayout>
+
+    <com.zhy.view.flowlayout.TagFlowLayout
+        android:id="@+id/short_video_tag_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/short_video_cover"
+        android:background="@android:color/white"
+        android:paddingStart="5dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="5dp" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/short_video_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/short_video_tag_list"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:maxLines="2"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/color_333333"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius_BL="5dp"
+        app:rv_cornerRadius_BR="5dp"
+        tools:text="恋爱中你不知道的三条冷知识" />
+</RelativeLayout>

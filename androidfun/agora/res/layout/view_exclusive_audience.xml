@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.mei.widget.gradient.GradientConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:gd_end_color="#3338AAFE"
+        app:gd_radius="8dp"
+        app:gd_start_color="#33B9E1FF">
+
+        <LinearLayout
+            android:id="@+id/upstream_type_layout"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_exclusive_audience_top"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/upstream_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/icon_exclusive_protect_audience_small"
+                android:drawablePadding="4dp"
+                android:gravity="center_vertical"
+                android:text="私密连线中"
+                android:textColor="@android:color/white"
+                android:textSize="11sp"
+                tools:ignore="HardcodedText,SmallSp,UseCompatTextViewDrawableXml" />
+
+            <TextView
+                android:id="@+id/upstream_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="10dp"
+                tools:ignore="SpUsage"
+                tools:text="已连线01:03:22" />
+        </LinearLayout>
+
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/consult_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7.5dp"
+            android:layout_marginEnd="7.5dp"
+            android:drawableStart="@drawable/icon_consult_hint"
+            android:drawablePadding="1dp"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:paddingStart="5dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="2dp"
+            android:textColor="@android:color/white"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginTop="0dp"
+            app:rv_backgroundColor="@color/masks_layer_30"
+            app:rv_cornerRadius="24dp"
+            tools:ignore="HardcodedText,SmallSp"
+            tools:text="如何私密连线" />
+
+        <com.opensource.svgaplayer.SVGAImageView
+            android:id="@+id/upstream_gif"
+            android:layout_width="81dp"
+            android:layout_height="31dp"
+            app:loopCount="-1"
+            android:layout_marginTop="26dp"
+            app:layout_constraintEnd_toEndOf="@+id/upstream_type_layout"
+            app:layout_constraintStart_toStartOf="@+id/upstream_type_layout"
+            app:layout_constraintTop_toBottomOf="@+id/upstream_type_layout" />
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/mentor_avatar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toStartOf="@id/upstream_type_layout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:radius_all="60dp"
+            tools:src="@drawable/default_male_head" />
+
+        <ImageView
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:background="@drawable/bg_avatar_stroke"
+            app:layout_constraintBottom_toBottomOf="@id/mentor_avatar"
+            app:layout_constraintEnd_toEndOf="@id/mentor_avatar"
+            app:layout_constraintStart_toStartOf="@id/mentor_avatar"
+            app:layout_constraintTop_toTopOf="@id/mentor_avatar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:gravity="center"
+            android:text="知心达人"
+            android:textColor="@android:color/white"
+            android:textSize="8sp"
+            app:layout_constraintBottom_toBottomOf="@id/mentor_avatar"
+            app:layout_constraintEnd_toEndOf="@id/mentor_avatar"
+            app:layout_constraintStart_toStartOf="@+id/mentor_avatar"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <TextView
+            android:id="@+id/mentor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/mentor_avatar"
+            app:layout_constraintStart_toStartOf="@id/mentor_avatar"
+            app:layout_constraintTop_toBottomOf="@id/mentor_avatar"
+            tools:text="心理情感研究师" />
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/user_avatar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toEndOf="@id/upstream_type_layout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:radius_all="60dp" />
+
+        <ImageView
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:background="@drawable/bg_avatar_stroke"
+            app:layout_constraintBottom_toBottomOf="@id/user_avatar"
+            app:layout_constraintEnd_toEndOf="@id/user_avatar"
+            app:layout_constraintStart_toStartOf="@id/user_avatar"
+            app:layout_constraintTop_toTopOf="@id/user_avatar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:gravity="center"
+            android:text="连线用户"
+            android:textColor="@android:color/white"
+            android:textSize="8sp"
+            app:layout_constraintBottom_toBottomOf="@id/user_avatar"
+            app:layout_constraintEnd_toEndOf="@id/user_avatar"
+            app:layout_constraintStart_toStartOf="@+id/user_avatar"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/user_avatar"
+            app:layout_constraintStart_toStartOf="@id/user_avatar"
+            app:layout_constraintTop_toBottomOf="@id/user_avatar"
+            tools:text="心理情感研究师" />
+
+        <TextView
+            android:id="@+id/icon_exclusive_lock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/icon_exclusive_lock"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="连线全程保密"
+            android:textColor="@color/alpha75_white"
+            android:textSize="9sp"
+            app:layout_constraintEnd_toEndOf="@id/user_name"
+            app:layout_constraintStart_toStartOf="@id/user_name"
+            app:layout_constraintTop_toBottomOf="@id/user_name"
+            tools:ignore="HardcodedText,SmallSp,UseCompatTextViewDrawableXml" />
+    </com.mei.widget.gradient.GradientConstraintLayout>
+
+    <com.flyco.roundview.RoundRelativeLayout
+        android:id="@+id/studio_live_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="10dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="10dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius_BL="8dp"
+        app:rv_cornerRadius_TL="8dp"
+        tools:visibility="visible">
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/studio_cover"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/default_studio_cover"
+            app:radius_all="4dp" />
+
+        <TextView
+            android:id="@+id/studio_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/studio_cover"
+            android:layout_marginStart="7.5dp"
+            android:layout_marginTop="1.5dp"
+            android:layout_toEndOf="@id/studio_cover"
+            android:includeFontPadding="false"
+            android:textColor="@color/color_333333"
+            android:textSize="11sp"
+            tools:ignore="SmallSp"
+            tools:text="贾北霞心灵工作室" />
+
+        <com.mei.widget.gradient.GradientLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_alignBottom="@id/studio_cover"
+            android:layout_marginStart="7.5dp"
+            android:layout_toEndOf="@id/studio_cover"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:gd_LB_radius="16dp"
+            app:gd_RB_radius="16dp"
+            app:gd_RT_radius="16dp"
+            app:gd_end_color="@color/color_FF5454"
+            app:gd_start_color="@color/color_ffa00a">
+
+            <com.mei.widget.living.LivingView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="5dp"
+                app:line_color="@android:color/white"
+                app:line_width="1.5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="5dp"
+                android:includeFontPadding="false"
+                android:text="直播中"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                tools:ignore="HardcodedText,SmallSp" />
+        </com.mei.widget.gradient.GradientLinearLayout>
+    </com.flyco.roundview.RoundRelativeLayout>
+</LinearLayout>

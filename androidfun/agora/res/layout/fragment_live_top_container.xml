@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false">
+
+    <com.mei.widget.gradient.GradientFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:gd_direction="topToBottom"
+        app:gd_end_color="#00000000"
+        app:gd_start_color="@color/masks_layer_50"
+        app:layout_constraintBottom_toBottomOf="@+id/special_studio_top_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/common_top_container"
+        layout="@layout/layout_common_top_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/studio_top_container"
+        layout="@layout/layout_studio_top_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/common_top_container"
+        app:layout_goneMarginTop="5dp"
+        tools:visibility="gone" />
+
+    <include
+        android:id="@+id/special_studio_top_container"
+        layout="@layout/layout_special_studio_top_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/studio_top_container"
+        app:layout_goneMarginTop="5dp"
+        tools:visibility="gone" />
+
+    <com.mei.widget.choince.ChoiceView
+        android:id="@+id/back_choice"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:padding="9dp"
+        app:back_color="@color/masks_layer_30"
+        app:choice_color="@android:color/white"
+        app:choice_type="cross"
+        app:choice_width="1.5dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stroke_radius="15dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/online_user_recycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="@+id/back_choice"
+        app:layout_constraintTop_toTopOf="@+id/marquee_layout" />
+
+    <com.mei.live.views.room.LiveSkillLoopView
+        android:id="@+id/skill_loop_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/special_studio_top_container"
+        tools:visibility="visible" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/consult_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:drawableStart="@drawable/icon_consult_hint"
+        android:drawablePadding="1dp"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:paddingStart="5dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="2dp"
+        android:text="直播咨询是什么"
+        android:textColor="@android:color/white"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="@id/back_choice"
+        app:layout_constraintTop_toBottomOf="@id/online_user_recycler"
+        app:layout_goneMarginTop="0dp"
+        app:rv_backgroundColor="@color/masks_layer_30"
+        app:rv_cornerRadius="24dp"
+        tools:ignore="HardcodedText,SmallSp" />
+
+    <FrameLayout
+        android:id="@+id/rank_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skill_loop_view" />
+
+    <com.mei.live.views.LiveExclusiveAudienceView
+        android:id="@+id/exclusive_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rank_container"
+        tools:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/packet_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/exclusive_layout"
+        app:layout_goneMarginTop="10dp" />
+
+
+    <HorizontalScrollView
+        android:id="@+id/marquee_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="85dp"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:id="@+id/live_tips_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:rv_backgroundColor="#b2f2ac38"
+            app:rv_cornerRadius="10dp"
+            tools:ignore="RtlSymmetry">
+
+            <ImageView
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/live_notice_icon"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/system_tips_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText"
+                tools:text="sadfasdfadsafdfsadfasfdasfdasdfasdfasfdasfasdfdasdfasdas" />
+
+        </com.flyco.roundview.RoundLinearLayout>
+    </HorizontalScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

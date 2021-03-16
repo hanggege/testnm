@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="voice_cover_bg_description">电台默认背景</string>
+    <string name="radio_user_avatar_crown_description">正在听的用户头冠</string>
+    <string name="radio_play_or_pause_description">电台播放暂停按钮</string>
+
+</resources>

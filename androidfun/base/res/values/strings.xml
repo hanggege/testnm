@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_copy_success">复制成功</string>
+    <string name="pay_cancel">支付已取消</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 底层白色 -->
+    <item android:drawable="@android:color/white" />
+
+<!--    <item android:gravity="top">-->
+<!--        <bitmap android:src="@drawable/splash_top_bg" />-->
+<!--    </item>-->
+
+    <item
+        android:bottom="20dp"
+        android:gravity="bottom">
+        <bitmap android:src="@drawable/splash_bottom_bg" />
+    </item>
+</layer-list>

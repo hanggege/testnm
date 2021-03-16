@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:clipChildren="false"
+    android:paddingBottom="5dp">
+
+    <com.mei.base.weight.custom.SpreadAvatarView
+        android:id="@+id/spread_avatar_view"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="@+id/message_header_item_header"
+        app:layout_constraintEnd_toEndOf="@+id/message_header_item_header"
+        app:layout_constraintStart_toStartOf="@+id/message_header_item_header"
+        app:layout_constraintTop_toTopOf="@+id/message_header_item_header"
+        app:spread_big_end_color="#FF5454"
+        app:spread_big_start_color="#FFA00A"
+        app:spread_in_radius="17dp"
+        app:spread_is_stroke="true"
+        app:spread_out_radius="27.5dp"
+        app:spread_small_end_color="#FF5454"
+        app:spread_small_start_color="#FFA00A"
+        app:spread_stroke_width="1dp" />
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/message_header_item_header"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:radius_all="60dp"
+        tools:src="@drawable/default_male_head" />
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/message_header_item_online"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="8dp"
+        android:src="#27B836"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/message_header_item_header"
+        app:layout_constraintRight_toRightOf="@+id/message_header_item_header"
+        app:radius_all="50dp" />
+
+    <!--给闪光加白底 否则出现黑色边 跟随message_header_item_header_living 显示或隐藏-->
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/message_header_item_header_living_bg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="直播中"
+        android:textColor="@android:color/white"
+        android:textSize="11sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/shimmer_frame"
+        app:layout_constraintLeft_toLeftOf="@+id/shimmer_frame"
+        app:layout_constraintRight_toRightOf="@+id/shimmer_frame"
+        app:layout_constraintTop_toTopOf="@+id/shimmer_frame"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius="10dp"
+        tools:ignore="HardcodedText,SmallSp" />
+
+    <View
+        android:id="@+id/message_header_header_bottom_line"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/message_header_item_header" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/message_header_header_bottom_line"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/message_header_header_bottom_line"
+        app:shimmer_base_alpha="1"
+        app:shimmer_duration="2000"
+        app:shimmer_highlight_alpha="0.5"
+        app:shimmer_highlight_color="@android:color/white">
+
+
+        <com.mei.widget.gradient.GradientTextView
+            android:id="@+id/message_header_item_header_living"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="1.5dp"
+            android:text="直播中"
+            android:textColor="@android:color/white"
+            android:textSize="8sp"
+            app:gd_end_color="@color/color_FF4030"
+            app:gd_radius="50dp"
+            app:gd_start_color="@color/color_FF973B"
+            tools:ignore="HardcodedText,SmallSp" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <TextView
+        android:id="@+id/message_header_item_header_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/message_header_item_header"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxEms="4"
+        android:maxLines="1"
+        android:textColor="#333333"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shimmer_frame"
+        tools:text="冷冷的风" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

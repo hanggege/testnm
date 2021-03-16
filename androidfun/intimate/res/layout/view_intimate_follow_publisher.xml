@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <ImageView
+        android:id="@+id/intimate_follow_publisher_top_bg"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_intimate_follow_list"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/intimate_follow_publisher_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="1.1"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="繁忙的生活节奏，让你陷入了吵架？矛盾?\n情绪失控?放不下？为什么这么累？" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/intimate_follow_publisher_bg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_intimate_follow_list_label"
+        android:clipChildren="false"
+        android:minHeight="116dp"
+        app:layout_constraintBottom_toBottomOf="@id/intimate_follow_publisher_rv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/intimate_follow_publisher_title">
+
+        <TextView
+            android:id="@+id/intimate_follow_publisher_my_follow_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="我的关注"
+            android:textColor="@color/color_333333"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/intimate_follow_publisher_recommend_avatar"
+            app:layout_constraintTop_toTopOf="@id/intimate_follow_publisher_bg"
+            app:layout_goneMarginStart="15dp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/intimate_follow_publisher_sub_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/color_999999"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="@id/intimate_follow_publisher_my_follow_text"
+            app:layout_constraintTop_toBottomOf="@id/intimate_follow_publisher_my_follow_text"
+            tools:ignore="HardcodedText,SmallSp"
+            tools:text="您的知心达人在线，找TA聊聊，找到你情绪" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/intimate_follow_publisher_rv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            android:paddingVertical="15dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="@id/intimate_follow_publisher_bg"
+            app:layout_constraintEnd_toStartOf="@id/intimate_follow_publisher_more_click"
+            app:layout_constraintStart_toStartOf="@id/intimate_follow_publisher_my_follow_text"
+            app:layout_constraintTop_toBottomOf="@id/intimate_follow_publisher_sub_text" />
+
+        <TextView
+            android:id="@+id/intimate_follow_publisher_more_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="查看更多"
+            android:textColor="@color/color_FF8254"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/intimate_follow_publisher_more_click"
+            app:layout_constraintStart_toStartOf="@id/intimate_follow_publisher_more_click"
+            app:layout_constraintTop_toTopOf="@id/intimate_follow_publisher_more_click"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/intimate_follow_publisher_more_click"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="240dp"
+            app:layout_constraintBottom_toBottomOf="@id/intimate_follow_publisher_bg"
+            app:layout_constraintEnd_toEndOf="@id/intimate_follow_publisher_bg"
+            app:layout_constraintStart_toStartOf="@id/intimate_follow_publisher_my_follow_text"
+            app:layout_constraintTop_toBottomOf="@id/intimate_follow_publisher_sub_text" />
+
+        <include
+            android:id="@+id/intimate_follow_publisher_recommend_avatar"
+            layout="@layout/item_intimate_follow_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="22.5dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/intimate_follow_publisher_bg"
+            app:layout_constraintEnd_toStartOf="@id/intimate_follow_publisher_recommend_description"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/intimate_follow_publisher_my_follow_text"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/intimate_follow_publisher_recommend_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:lineSpacingMultiplier="1.3"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="8dp"
+            android:textColor="@color/color_FF8254"
+            android:textSize="12sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@id/intimate_follow_publisher_recommend_avatar"
+            app:layout_constraintEnd_toEndOf="@id/intimate_follow_publisher_bg"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/intimate_follow_publisher_recommend_avatar"
+            app:layout_constraintTop_toTopOf="@id/intimate_follow_publisher_recommend_avatar"
+            tools:text="和知心达人在线聊聊\n让你的情绪在这里释放" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/intimate_follow_publisher_group_recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:constraint_referenced_ids="intimate_follow_publisher_recommend_avatar, intimate_follow_publisher_recommend_description" />
+
+        <ImageView
+            android:id="@+id/intimate_follow_publisher_RB_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/icon_intimate_follow_list_avatar"
+            app:layout_constraintBottom_toBottomOf="@id/intimate_follow_publisher_bg"
+            app:layout_constraintEnd_toEndOf="@id/intimate_follow_publisher_bg"
+            tools:ignore="ContentDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</merge>

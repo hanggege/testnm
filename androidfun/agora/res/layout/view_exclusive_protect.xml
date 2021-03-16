@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="310dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:rv_backgroundColor="@android:color/white"
+    android:paddingBottom="45dp"
+    app:rv_cornerRadius="10dp"
+    android:layout_gravity="center">
+
+    <ImageView
+        android:id="@+id/content_img"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_exclusive_protect_dialog"
+        android:layout_height="140dp" />
+
+    <com.mei.widget.choince.ChoiceView
+        android:id="@+id/back_choice"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:padding="15dp"
+        android:layout_alignParentEnd="true"
+        app:choice_color="@android:color/white"
+        app:choice_type="cross"
+        app:choice_width="1dp" />
+
+    <TextView
+        android:id="@+id/protect_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/color_333333"
+        android:text="全程隐私保护"
+        android:layout_below="@+id/content_img"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp" />
+
+    <TextView
+        android:id="@+id/protect_text"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/protect_tip"
+        android:layout_marginTop="14dp"
+        android:lineSpacingExtra="2dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:textSize="14sp"
+        android:textColor="@color/color_333333" />
+</com.flyco.roundview.RoundRelativeLayout>

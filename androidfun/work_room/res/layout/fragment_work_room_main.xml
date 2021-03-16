@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/room_main_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:background="@android:color/white"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="12" />
+
+    <com.mei.widget.arrow.ArrowView
+        android:id="@+id/room_main_back_arrow"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:paddingStart="17.5dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="17.5dp"
+        android:paddingBottom="14dp"
+        app:arrow_direction="left"
+        app:arrow_line_color="@color/color_000000"
+        app:arrow_width="2dp" />
+
+    <include layout="@layout/activity_work_room_main_toolbar" />
+
+    <include layout="@layout/activity_work_room_main_footer" />
+
+</FrameLayout>

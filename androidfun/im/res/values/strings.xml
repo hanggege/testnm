@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="submit_send">发送</string>
+    <string name="original_img_size_str">原图发送(%s)</string>
+    <string name="chat_video_too_short">视频录制太短，请重试</string>
+
+</resources>

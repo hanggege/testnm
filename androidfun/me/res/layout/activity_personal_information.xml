@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nest_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/information_done_tip"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#1affa00a"
+                android:gravity="center"
+                android:text="@string/perfect_information_for_roses"
+                android:textColor="@color/color_ffa00a"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Tips： 点击更换照片，拖拽可更改照片"
+                android:textColor="@color/color_9b9b9b"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/color_f8f8f8"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/head_layout"
+                android:layout_width="80dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center">
+
+                <com.mei.widget.round.RoundImageView
+                    android:id="@+id/image_avatar"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="3dp"
+                    android:src="@drawable/default_female_head"
+                    app:radius_all="68dp" />
+
+
+                <com.mei.widget.round.RoundImageView
+                    android:id="@+id/image_flask"
+                    android:layout_width="61dp"
+                    android:layout_height="61dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/bg_avatar_flask"
+                    app:radius_all="68dp" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="15dp"
+                    android:layout_alignBottom="@id/image_avatar"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/icon_avatar_camera"
+                    android:elevation="3dp" />
+
+
+            </RelativeLayout>
+
+            <com.mei.me.ext.ObserverTextView
+                android:id="@+id/basic_info_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="4dp"
+                android:drawablePadding="10dp"
+                android:includeFontPadding="false"
+                android:text="基础资料"
+                android:textColor="@color/color_262626"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.mei.me.view.EditItemView
+                    android:id="@+id/nick_name"
+                    android:layout_width="0dp"
+                    android:layout_height="47dp"
+                    app:edit_arrow_visible="false"
+                    app:edit_hint="请输入您的昵称"
+                    app:edit_title="@string/nick_name"
+                    app:edit_title_color="@color/color_505050"
+                    app:edit_title_size="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/nick_name_barrier"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/icon_edit_tip"
+                    android:layout_width="9dp"
+                    android:layout_height="14dp"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/icon_edit_tip"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription"
+                    tools:visibility="gone" />
+
+                <com.flyco.roundview.RoundLinearLayout
+                    android:id="@+id/label_change_nickname"
+                    android:layout_width="66dp"
+                    android:layout_height="21dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:rv_cornerRadius="10.5dp"
+                    app:rv_strokeColor="@color/color_FF3F36"
+                    app:rv_strokeWidth="0.5dp"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/change_nickname_icon"
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_marginEnd="4dp"
+                        android:src="@drawable/icon_change"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/change_nickname_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="换一个"
+                        android:textColor="@color/color_FF3F36"
+                        android:textSize="10sp"
+                        tools:ignore="HardcodedText,SmallSp" />
+
+                </com.flyco.roundview.RoundLinearLayout>
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/nick_name_barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="start"
+                    app:constraint_referenced_ids="label_change_nickname,icon_edit_tip" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/color_ffe8e8e8" />
+
+            <com.mei.me.view.EditItemView
+                android:id="@+id/sex_item"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                app:edit_hint="请选择您的性别"
+                app:edit_text_focus="false"
+                app:edit_title="性别"
+                app:edit_title_color="@color/color_505050"
+                app:edit_title_size="15sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/color_ffe8e8e8" />
+
+            <com.mei.me.view.EditItemView
+                android:id="@+id/age_item"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                app:edit_hint="请选择您的年龄"
+                app:edit_text_focus="false"
+                app:edit_title="@string/age"
+                app:edit_title_color="@color/color_505050"
+                app:edit_title_size="15sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/color_ffe8e8e8" />
+
+            <RelativeLayout
+                android:id="@+id/interested_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.mei.me.view.EditItemView
+                    android:id="@+id/interested_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    app:edit_hint="请选择您感兴趣的内容"
+                    app:edit_text_focus="false"
+                    app:edit_title="感兴趣的内容"
+                    app:edit_title_color="@color/color_505050"
+                    app:edit_title_size="15sp" />
+
+                <TextView
+                    android:id="@+id/interested_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="160dp"
+                    android:layout_marginRight="28dp"
+                    android:background="@null"
+                    android:ellipsize="marquee"
+                    android:gravity="center_vertical|right"
+                    android:singleLine="true"
+                    android:textColor="@color/color_333333"
+                    android:textColorHint="@color/color_cbcbcb"
+                    android:textSize="13sp"
+                    tools:text="相亲交友,相亲交友,相亲交友,相亲交友,相亲交友,相亲交友," />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/skill_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <com.mei.me.view.EditItemView
+                    android:id="@+id/skill_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    app:edit_hint="请选择您擅长的内容"
+                    app:edit_text_focus="false"
+                    app:edit_title="擅长领域"
+                    app:edit_title_color="@color/color_505050"
+                    app:edit_title_size="15sp" />
+
+                <TextView
+                    android:id="@+id/skill_text"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="28dp"
+                    android:background="@null"
+                    android:ellipsize="marquee"
+                    android:gravity="center_vertical|right"
+                    android:singleLine="true"
+                    android:textColor="@color/color_333333"
+                    android:textColorHint="@color/color_cbcbcb"
+                    android:textSize="13sp"
+                    tools:text="的地方地,的地方地,的地方地,的地方地," />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ly_lable_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/color_f8f8f8" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:text="自定义标签"
+                        android:textColor="@color/color_262626"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <com.mei.widget.gradient.GradientTextView
+                        android:id="@+id/tv_personal_infomation_add_lable"
+                        android:layout_width="60dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:gravity="center"
+                        android:text="添加"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        app:gd_end_color="@color/color_FF3F36"
+                        app:gd_radius="22.5dp"
+                        app:gd_start_color="@color/color_FF7F33" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/icon_use_edit_lable" />
+
+                    <TextView
+                        android:id="@+id/personal_lable_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="16dp"
+                        android:layout_marginLeft="3dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/personal_lable_txt"
+                        android:textColor="@color/color_999999"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@android:color/white"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="15dp">
+
+                    <com.zhy.view.flowlayout.TagFlowLayout
+                        android:id="@+id/id_flowlayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:max_select="-1" />
+
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/color_f8f8f8" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="个人简介"
+                        android:textColor="@color/color_262626"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <com.mei.widget.gradient.GradientTextView
+                        android:id="@+id/tv_personal_edit_info"
+                        android:layout_width="60dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:gravity="center"
+                        android:text="编辑"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        app:gd_end_color="@color/color_FF3F36"
+                        app:gd_radius="22.5dp"
+                        app:gd_start_color="@color/color_FF7F33" />
+                </RelativeLayout>
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@android:color/white">
+
+                    <com.mei.live.views.ExpandableTextView.CardExpandableTextView
+                        android:id="@+id/personal_introduction_et_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:hint="个人简介将展示在发现页和个人主页，向大家介绍一下你的优势、特长或个人履历吧~"
+                        android:lineSpacingExtra="4dp"
+                        android:textColor="@color/color_333333"
+                        android:textSize="15sp"
+                        app:ep_contract_color="@color/color_FF8200"
+                        app:ep_expand_color="@color/color_FF8200"
+                        app:ep_max_line="7"
+                        app:ep_mention_color="@color/color_666666"
+                        app:ep_need_contract="true"
+                        app:ep_need_expand="true"
+                        app:ep_need_link="false"
+                        app:ep_need_mention="false" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/color_f8f8f8" />
+
+            <com.mei.me.ext.ObserverTextView
+                android:id="@+id/personal_info_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="4dp"
+                android:drawablePadding="10dp"
+                android:includeFontPadding="false"
+                android:text="账号信息"
+                android:textColor="@color/color_262626"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/bind_phone_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.mei.me.view.EditItemView
+                    android:id="@+id/bind_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    app:edit_text_focus="false"
+                    app:edit_textview_type="TextView"
+                    app:edit_title="绑定手机"
+                    app:edit_title_color="@color/color_505050"
+                    app:edit_title_size="15sp" />
+
+                <TextView
+                    android:id="@+id/bind_phone_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="23dp"
+                    android:background="@drawable/bg_bind_award"
+                    android:gravity="center"
+                    android:paddingLeft="23dp"
+                    android:text="绑定可得5心币!"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/bind_wechat_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.mei.me.view.EditItemView
+                    android:id="@+id/bind_wechat"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    app:edit_text_focus="false"
+                    app:edit_textview_type="TextView"
+                    app:edit_title="绑定微信"
+                    app:edit_title_color="@color/color_505050"
+                    app:edit_title_size="15sp" />
+
+                <TextView
+                    android:id="@+id/bind_wechat_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="23dp"
+                    android:background="@drawable/bg_bind_award"
+                    android:gravity="center"
+                    android:paddingLeft="23dp"
+                    android:text="绑定可得5心币!"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/save_information"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/login_bt_bg"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="保存"
+                android:textColor="@android:color/white"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

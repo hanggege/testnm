@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/bind_phone_red_packet"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        tools:ignore="ContentDescription"
+        android:src="@drawable/icon_receive_red_packet" />
+
+    <ImageView
+        android:id="@+id/receive_red_packet_bg"
+        android:layout_width="40dp"
+        android:layout_height="45dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_live_room_red_packet"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/need_duration_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="21dp"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        android:visibility="gone"
+        tools:ignore="SmallSp"
+        tools:text="04:20"
+        tools:visibility="visible" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/receive_red_packet_btn"
+        android:layout_width="37dp"
+        android:layout_height="15dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp"
+        android:gravity="center"
+        android:text="领红包"
+        android:textColor="@android:color/white"
+        android:textSize="9sp"
+        app:rv_backgroundColor="@color/masks_layer_50"
+        app:rv_cornerRadius="15dp"
+        tools:ignore="HardcodedText,SmallSp" />
+
+</FrameLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.mei.message.wiget.IconTextMenuView
+            android:id="@+id/my_fans_itv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:icon_drawable="@drawable/message_my_fans"
+            app:text_content="我的粉丝" />
+
+        <com.mei.message.wiget.IconTextMenuView
+            android:id="@+id/connect_user_itv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:icon_drawable="@drawable/message_my_connect"
+            app:text_content="连线用户" />
+
+        <com.mei.message.wiget.IconTextMenuView
+            android:id="@+id/service_itv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:icon_drawable="@drawable/message_icon_service"
+            app:text_content="专属用户" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/color_f8f8f8" />
+</LinearLayout>

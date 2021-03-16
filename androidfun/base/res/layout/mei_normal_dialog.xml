@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="295dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/dialog_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:rv_backgroundColor="#f8f8f8"
+        app:rv_cornerRadius="8dp">
+
+        <LinearLayout
+            android:padding="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/dialog_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:maxLines="1"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                tools:text="title" />
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
+                android:id="@+id/dialog_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#333333"
+                android:textIsSelectable="true"
+                android:textSize="15sp"
+                tools:text="系统检测到账号异常，为了你的账号安全，系统暂时停用了你的账号，详情请联系小鹿官方客服。" />
+
+
+            <TextView
+                android:id="@+id/dialog_content_hint"
+                android:gravity="center"
+                android:textColor="#989898"
+                android:textIsSelectable="true"
+                android:textSize="15sp"
+                tools:text="（专属相亲需20心币/分钟）"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/mid_line"
+            android:background="#E4E4E4"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_height="1px" />
+
+        <LinearLayout
+            android:id="@+id/dialog_bottom_layout"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/cancel_btn"
+                android:layout_width="0dp"
+                android:textColor="#989898"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:text="拒绝" />
+
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/action_line"
+                android:background="#E4E4E4"
+                android:layout_width="1px"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/ok_btn"
+                android:layout_width="0dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="#333333"
+                android:text="允许" />
+
+        </LinearLayout>
+    </com.flyco.roundview.RoundLinearLayout>
+
+    <FrameLayout
+        android:id="@+id/custom_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

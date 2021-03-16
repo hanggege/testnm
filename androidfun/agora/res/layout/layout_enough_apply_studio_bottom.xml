@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    app:rv_backgroundColor="@android:color/white"
+    app:rv_cornerRadius_BL="8dp"
+    app:rv_cornerRadius_BR="8dp">
+
+    <TextView
+        android:id="@+id/enough_upstream_residue_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="bottom"
+        android:textColor="@color/color_333333"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/enough_residue_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/icon_heart_money"
+            android:drawablePadding="2dp"
+            android:gravity="bottom" />
+
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/recharge_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_marginStart="15dp"
+            android:drawableEnd="@drawable/right_arrow_ff8200"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:text="@string/top_up"
+            android:textColor="@color/color_ff8200"
+            android:textSize="12sp"
+            app:rv_cornerRadius="12dp"
+            app:rv_strokeColor="@color/color_ff8200"
+            app:rv_strokeWidth="0.5dp" />
+    </LinearLayout>
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/immediate_apply"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
+        android:text="@string/immediate_apply"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="22.5dp"
+        app:gd_start_color="@color/color_FF7F33" />
+
+</com.flyco.roundview.RoundLinearLayout>

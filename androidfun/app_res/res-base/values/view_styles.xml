@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--actionbar title-->
+    <!--分割线-->
+
+    <style name="head_style">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
+    <!--分割线-->
+
+</resources>

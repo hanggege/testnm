@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion target_sdk_version
+    buildToolsVersion build_tools_version
+
+    defaultConfig {
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        manifestPlaceholders = [
+                paypal_environment_production: paypal_environment_production
+        ]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly("androidx.appcompat:appcompat:$androidx_lib_version")
+
+    api('com.paypal.sdk:paypal-android-sdk:2.16.0') {
+        exclude group: 'io.card'
+        exclude group: 'com.squareup.okhttp3'
+    }
+
+    compileOnly project(':td_pay')
+    compileOnly project(':td_support')
+}
+
+

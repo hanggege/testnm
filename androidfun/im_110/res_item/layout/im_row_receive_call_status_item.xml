@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    tools:background="@android:color/holo_blue_light">
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/im_time_stamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:includeFontPadding="false"
+        android:padding="5dp"
+        android:text="12:00"
+        android:textColor="#989898"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:rv_cornerRadius="3dp"
+        tools:visibility="visible" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp">
+
+        <include
+            android:id="@+id/avatar_container"
+            layout="@layout/include_avatar_42" />
+
+        <TextView
+            android:id="@+id/group_user_mark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_toRightOf="@id/avatar_container"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingBottom="5dp"
+            android:text="this is user name"
+            android:textColor="@color/color_7f7f7f"
+            android:textSize="13sp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/group_user_mark"
+            android:layout_toRightOf="@id/avatar_container"
+            android:orientation="horizontal">
+
+
+            <!--这个结构下面的为每条消息体，上面的是通用消息内容，一般都会有-->
+            <com.flyco.roundview.RoundLinearLayout
+                android:id="@+id/im_message_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingTop="13dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="13dp"
+                app:rv_backgroundColor="@android:color/white"
+                app:rv_cornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/icon_call_status"
+                    android:layout_width="16dp"
+                    android:src="@drawable/im_receive_call_fail_img"
+                    android:scaleType="fitXY"
+                    android:layout_height="16dp" />
+
+                <TextView
+                    android:id="@+id/im_msg_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:gravity="start"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="4dp"
+                    android:maxWidth="230dp"
+                    android:textColor="@color/color_333333"
+                    android:textSize="15sp"
+                    tools:text="知心达人未接听" />
+
+
+            </com.flyco.roundview.RoundLinearLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

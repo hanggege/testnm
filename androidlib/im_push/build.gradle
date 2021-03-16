@@ -1,0 +1,85 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+
+android {
+    compileSdkVersion rootProject.ext.target_sdk_version
+    buildToolsVersion rootProject.ext.build_tools_version
+    compileOptions.encoding = 'utf-8'
+    defaultConfig {
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField "long", "HW_PUSH_BUZID", HW_PUSH_BUZID
+        buildConfigField "long", "XM_PUSH_BUZID", XM_PUSH_BUZID
+        buildConfigField "long", "MZ_PUSH_BUZID", MZ_PUSH_BUZID
+        buildConfigField "long", "VIVO_PUSH_BUZID", VIVO_PUSH_BUZID
+        buildConfigField "long", "OPPO_PUSH_BUZID", OPPO_PUSH_BUZID
+        buildConfigField "String", "XIAOMI_APP_ID", "\"$XIAOMI_APP_ID\""
+        buildConfigField "String", "XIAOMI_APP_KEY", "\"$XIAOMI_APP_KEY\""
+        buildConfigField "String", "VIVO_APP_ID", "\"$VIVO_APP_ID\""
+        buildConfigField "String", "VIVO_APP_KEY", "\"$VIVO_APP_KEY\""
+        buildConfigField "String", "VIVO_APP_SECRET", "\"$VIVO_APP_SECRET\""
+        buildConfigField "String", "VIVO_APP_SECRET", "\"$VIVO_APP_SECRET\""
+        buildConfigField "String", "MZ_PUSH_APPID", "\"$MZ_PUSH_APPID\""
+        buildConfigField "String", "MZ_PUSH_APPKEY", "\"$MZ_PUSH_APPKEY\""
+        buildConfigField "String", "OPPO_PUSH_APPKEY", "\"$OPPO_PUSH_APPKEY\""
+        buildConfigField "String", "OPPO_PUSH_SECRET", "\"$OPPO_PUSH_SECRET\""
+
+
+        manifestPlaceholders = [
+                applicationId: getApplicationId(project),
+                HUAWEI_APP_ID: HUAWEI_APP_ID,
+                VIVO_APP_ID  : VIVO_APP_ID,
+                VIVO_APP_KEY : VIVO_APP_KEY
+        ]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs += "huawei/code"
+//            java.srcDirs += "huawei_2.6.3/code"
+            java.srcDirs += "xiaomi/code"
+            java.srcDirs += "vivo/code"
+            java.srcDirs += "meizu/code"
+            java.srcDirs += "oppo_2.0.2/code"
+//            java.srcDirs += "oppo_2.1.0/code"
+        }
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+
+    compileOnly("androidx.appcompat:appcompat:$androidx_lib_version")
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compileOnly "com.google.code.gson:gson:$json_version"
+
+    implementation project(':im_v4')
+}
+
+buildscript {
+    repositories {
+        maven { url 'http://developer.huawei.com/repo/' }
+    }
+}
+dependencies {
+//    // 华为
+    api 'com.huawei.hms:push:5.0.2.301'
+    // 魅族
+    api 'com.meizu.flyme.internet:push-internal:4.0.2@aar'
+    //桌面角标
+    api 'me.leolin:ShortcutBadger:1.1.22@aar'
+
+}

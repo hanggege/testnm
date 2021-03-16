@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/red_packet_bg_iv"
+        android:layout_width="205dp"
+        android:layout_height="255dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/hint_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/alpha75_white"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_detail_fl"
+        tools:ignore="MissingConstraints"
+        tools:text="04:20分钟后可领取" />
+
+    <FrameLayout
+        android:id="@+id/time_detail_fl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        app:layout_constraintEnd_toEndOf="@+id/red_packet_bg_iv"
+        app:layout_constraintStart_toStartOf="@+id/red_packet_bg_iv"
+        app:layout_constraintTop_toTopOf="@+id/red_packet_bg_iv"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/open_red_packet_iv"
+            android:layout_width="114dp"
+            android:layout_height="114dp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <com.flyco.roundview.RoundFrameLayout
+            android:id="@+id/time_detail_rf"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_gravity="center_horizontal"
+            app:rv_backgroundColor="@color/color_FF355A"
+            app:rv_cornerRadius="90dp"
+            tools:visibility="visible"
+            android:visibility="gone">
+
+            <com.flyco.roundview.RoundFrameLayout
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                app:rv_backgroundColor="@color/color_FF476A"
+                app:rv_cornerRadius="90dp">
+
+                <TextView
+                    android:id="@+id/down_time_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="21sp"
+                    tools:text="04:20" />
+
+            </com.flyco.roundview.RoundFrameLayout>
+
+            <com.mei.base.weight.progress.CircleProgress
+                android:id="@+id/receive_time_progress"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                app:progressWidth="5dp"
+                app:progressColor="@color/color_FFD7AC"/>
+
+        </com.flyco.roundview.RoundFrameLayout>
+
+    </FrameLayout>
+
+
+    <com.opensource.svgaplayer.SVGAImageView
+        android:id="@+id/svg_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:fillMode="Forward"
+        app:loopCount="1" />
+
+    <ImageView
+        android:id="@+id/close_receive_red_packet_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/icon_close_receive_red_packet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/red_packet_bg_iv"
+        tools:ignore="MissingConstraints"
+        android:visibility="gone"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mei.wood">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <!-- 需要申请的权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+
+
+    <permission
+        android:name="android.permission.INTERACT_ACROSS_USERS_FULL"
+        android:protectionLevel="signature" />
+    <permission
+        android:name="android.permission.INTERACT_ACROSS_USERS"
+        android:protectionLevel="signature" />
+
+    <!-- 个推Android9.0以上默认不不⽀支持http通信，为保证SDK正常使⽤用，请在application节点下新增该属性  android:usesCleartextTraffic="true"-->
+
+
+    <!--Q 后台定位权限-->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+    <!--android 9使用前台服务定位适配-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+
+    <!-- 去AndroidManifest_wood.xml 找对应清单 -->
+
+
+    <!--https://developer.android.google.cn/preview/privacy/scoped-storage-->
+    <!--android:requestLegacyExternalStorage="true"  Q存储兼容  设置为兼容模式Legacy View-->
+    <!--Filtered View-->
+    <!--App可以直接访问App-specific目录，但不能直接访问App-specific外的文件。-->
+    <!--访问公共目录或其他APP的App-specific目录，只能通过MediaStore、SAF、或者其他APP提供的ContentProvider、FileProvider等访问。-->
+    <!--Legacy View-->
+    <!--兼容模式。与Android Q以前一样， 申请权限后App可访问外部存储，拥有完整的访问权限。-->
+    <application
+        android:name="com.mei.wood.App"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="UnusedAttribute"
+        tools:replace="android:label,android:allowBackup">
+
+        <!-- 渠道 -->
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL}" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name="com.mei.splash.ui.SplashActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <data
+                    android:host="${package_name}"
+                    android:scheme="${app_scheme}" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.oppopush" />
+            </intent-filter>
+            <!-- GIO 集成配置，使用圈选和 Debugger 等功能用作唤醒 APP-->
+            <intent-filter>
+                <data android:scheme="${GROWING_IO_SCHEME}" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <!-- GIO APPLinks 配置，广告监测用途，APP 用户点击广告监测短链直接跳转 APP-->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="gio.ren"
+                    android:pathPattern="/nWR4bud.*"
+                    android:scheme="https" />
+                <data
+                    android:host="gio.ren"
+                    android:pathPattern="/nWR4b.*id.*"
+                    android:scheme="https" />
+
+                <data
+                    android:host="gio.ren"
+                    android:pathPattern="/nWR4b.*td.*"
+                    android:scheme="https" />
+
+                <data
+                    android:host="datayi.cn"
+                    android:pathPattern="/nWR4bud.*"
+                    android:scheme="https" />
+                <data
+                    android:host="datayi.cn"
+                    android:pathPattern="/nWR4b.*id.*"
+                    android:scheme="https" />
+
+                <data
+                    android:host="datayi.cn"
+                    android:pathPattern="/nWR4b.*td.*"
+                    android:scheme="https" />
+            </intent-filter>
+
+
+        </activity>
+
+
+    </application>
+
+</manifest>

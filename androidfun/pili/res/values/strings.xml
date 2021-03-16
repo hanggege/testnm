@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="errcode_player_open_failed">播放器打开失败</string>
+    <string name="errcode_seek_error">网络异常</string>
+    <string name="errcode_hw_decode_failure">硬解失败</string>
+    <string name="errcode_version_not_match">so库版本不匹配，需要升级</string>
+</resources>

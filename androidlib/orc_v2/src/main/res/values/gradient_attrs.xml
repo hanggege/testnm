@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="gd_radius" format="dimension" />
+    <attr name="gd_LT_radius" format="dimension" />
+    <attr name="gd_LB_radius" format="dimension" />
+    <attr name="gd_RT_radius" format="dimension" />
+    <attr name="gd_RB_radius" format="dimension" />
+    <attr name="gd_start_color" format="color|reference" />
+    <attr name="gd_center_color" format="color|reference" />
+    <attr name="gd_end_color" format="color|reference" />
+    <attr name="gd_direction" format="enum">
+        <enum name="leftToRight" value="0" />
+        <enum name="topToBottom" value="1" />
+        <enum name="leftToBottom" value="2" />
+    </attr>
+    <attr name="gd_stroke_width" format="dimension" />
+    <attr name="gd_stroke_start_color" format="color|reference" />
+    <attr name="gd_stroke_center_color" format="color|reference" />
+    <attr name="gd_stroke_end_color" format="color|reference" />
+    <attr name="gd_stroke_direction" format="enum">
+        <enum name="leftToRight" value="0" />
+        <enum name="topToBottom" value="1" />
+        <enum name="leftToBottom" value="2" />
+    </attr>
+
+    <declare-styleable name="GradientLinearLayout">
+        <attr name="gd_radius" />
+        <attr name="gd_LT_radius" />
+        <attr name="gd_LB_radius" />
+        <attr name="gd_RT_radius" />
+        <attr name="gd_RB_radius" />
+        <attr name="gd_start_color" />
+        <attr name="gd_center_color" />
+        <attr name="gd_end_color" />
+        <attr name="gd_direction" />
+        <attr name="gd_stroke_width" />
+        <attr name="gd_stroke_start_color" />
+        <attr name="gd_stroke_center_color" />
+        <attr name="gd_stroke_end_color" />
+        <attr name="gd_stroke_direction" />
+    </declare-styleable>
+    <declare-styleable name="GradientRelativeLayout">
+        <attr name="gd_radius" />
+        <attr name="gd_LT_radius" />
+        <attr name="gd_LB_radius" />
+        <attr name="gd_RT_radius" />
+        <attr name="gd_RB_radius" />
+        <attr name="gd_start_color" />
+        <attr name="gd_center_color" />
+        <attr name="gd_end_color" />
+        <attr name="gd_direction" />
+        <attr name="gd_stroke_width" />
+        <attr name="gd_stroke_start_color" />
+        <attr name="gd_stroke_center_color" />
+        <attr name="gd_stroke_end_color" />
+        <attr name="gd_stroke_direction" />
+    </declare-styleable>
+    <declare-styleable name="GradientConstraintLayout">
+        <attr name="gd_radius" />
+        <attr name="gd_LT_radius" />
+        <attr name="gd_LB_radius" />
+        <attr name="gd_RT_radius" />
+        <attr name="gd_RB_radius" />
+        <attr name="gd_start_color" />
+        <attr name="gd_center_color" />
+        <attr name="gd_end_color" />
+        <attr name="gd_direction" />
+        <attr name="gd_stroke_width" />
+        <attr name="gd_stroke_start_color" />
+        <attr name="gd_stroke_center_color" />
+        <attr name="gd_stroke_end_color" />
+        <attr name="gd_stroke_direction" />
+    </declare-styleable>
+    <declare-styleable name="GradientFrameLayout">
+        <attr name="gd_radius" />
+        <attr name="gd_LT_radius" />
+        <attr name="gd_LB_radius" />
+        <attr name="gd_RT_radius" />
+        <attr name="gd_RB_radius" />
+        <attr name="gd_start_color" />
+        <attr name="gd_center_color" />
+        <attr name="gd_end_color" />
+        <attr name="gd_direction" />
+        <attr name="gd_stroke_width" />
+        <attr name="gd_stroke_start_color" />
+        <attr name="gd_stroke_center_color" />
+        <attr name="gd_stroke_end_color" />
+        <attr name="gd_stroke_direction" />
+    </declare-styleable>
+    <declare-styleable name="GradientTextView">
+        <attr name="gd_radius" />
+        <attr name="gd_LT_radius" />
+        <attr name="gd_LB_radius" />
+        <attr name="gd_RT_radius" />
+        <attr name="gd_RB_radius" />
+        <attr name="gd_start_color" />
+        <attr name="gd_center_color" />
+        <attr name="gd_end_color" />
+        <attr name="gd_direction" />
+        <attr name="gd_stroke_width" />
+        <attr name="gd_stroke_start_color" />
+        <attr name="gd_stroke_center_color" />
+        <attr name="gd_stroke_end_color" />
+        <attr name="gd_stroke_direction" />
+    </declare-styleable>
+</resources>

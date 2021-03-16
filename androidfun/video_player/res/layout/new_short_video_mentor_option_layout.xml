@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/item_video_layout">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/new_mentor_option_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="mentor_info_gl"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mentor_info_gl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:id="@+id/living_gll_extend"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            app:layout_constraintBottom_toTopOf="@id/mentor_avatar_riv"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.mei.widget.gradient.GradientLinearLayout
+            android:id="@+id/living_gll"
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="14dp"
+            android:gravity="center_vertical"
+            app:gd_end_color="@color/masks_layer_20"
+            app:gd_radius="3dp"
+            app:gd_start_color="@color/masks_layer_20"
+            app:layout_constraintBottom_toTopOf="@id/mentor_avatar_riv"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <com.mei.widget.gradient.GradientFrameLayout
+                android:id="@+id/living_gfl"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="2dp"
+                app:gd_end_color="@color/color_FC5143"
+                app:gd_radius="2dp"
+                app:gd_start_color="@color/color_FF973B">
+
+                <com.mei.widget.living.LivingView
+                    android:id="@+id/living_lv"
+                    android:layout_width="11dp"
+                    android:layout_height="11dp"
+                    android:layout_gravity="center"
+                    app:line_color="@android:color/white"
+                    app:line_width="1.5dp" />
+            </com.mei.widget.gradient.GradientFrameLayout>
+
+            <TextView
+                android:id="@+id/living_status_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="4dp"
+                android:drawableEnd="@drawable/icon_small_gray_arrow"
+                android:drawablePadding="3dp"
+                android:text="直播中"
+                android:textColor="@android:color/white"
+                android:textSize="13sp"
+                tools:ignore="HardcodedText" />
+
+        </com.mei.widget.gradient.GradientLinearLayout>
+
+        <View
+            android:id="@+id/mask_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/mentor_avatar_riv" />
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/mentor_avatar_riv"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@id/mentor_info_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:radius_all="45dp"
+            tools:ignore="MissingConstraints"
+            tools:src="@drawable/default_avatar_28" />
+
+        <TextView
+            android:id="@+id/mentor_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/mentor_avatar_riv"
+            app:layout_constraintStart_toEndOf="@+id/mentor_avatar_riv"
+            app:layout_constraintTop_toTopOf="@id/mentor_avatar_riv"
+            tools:ignore="MissingConstraints"
+            tools:text="糊涂的小仙女" />
+
+        <com.mei.widget.gradient.GradientFrameLayout
+            android:id="@+id/follow_gfl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:visibility="gone"
+            app:gd_end_color="@color/color_ff8b07"
+            app:gd_radius="45dp"
+            app:gd_start_color="@color/color_FEBA2E"
+            app:layout_constraintBottom_toBottomOf="@+id/mentor_avatar_riv"
+            app:layout_constraintStart_toEndOf="@+id/mentor_name_tv"
+            app:layout_constraintTop_toTopOf="@+id/mentor_avatar_riv"
+            tools:ignore="MissingConstraints"
+            tools:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="1.5dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="2dp"
+                android:text="关注"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
+        </com.mei.widget.gradient.GradientFrameLayout>
+
+
+        <TextView
+            android:id="@+id/mentor_info_title"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/short_video_like_ll"
+            app:layout_constraintLeft_toLeftOf="@id/mentor_avatar_riv"
+            app:layout_goneMarginBottom="40dp"
+            tools:ignore="MissingConstraints"
+            tools:text="两个技巧，三分钟教会你怎么控制情绪" />
+
+        <LinearLayout
+            android:id="@+id/to_chat_gll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:orientation="vertical"
+            android:paddingEnd="12dp"
+            app:layout_constraintBottom_toTopOf="@id/short_video_like_ll"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints,RtlSymmetry,UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/icon_chat_iv"
+                android:layout_width="43dp"
+                android:layout_height="57dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="ContentDescription,MissingConstraints"
+                tools:src="@drawable/short_chat_icom" />
+
+            <TextView
+                android:id="@+id/chat_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="私聊"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/short_video_like_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:orientation="vertical"
+            android:paddingEnd="12dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:visibility="visible">
+
+            <com.opensource.svgaplayer.SVGAImageView
+                android:id="@+id/short_video_like_iv"
+                android:layout_width="43dp"
+                android:layout_height="57dp"
+                android:src="@drawable/icon_praise"
+                app:fillMode="Forward"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:loopCount="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="赞"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</merge>

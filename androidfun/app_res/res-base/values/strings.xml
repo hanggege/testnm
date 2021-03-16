@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="exit">退出</string>
+    <string name="follow">关注</string>
+    <string name="msg_no_more">没有更多了</string>
+    <string name="pull_loading">加载中&#8230;</string>
+    <string name="submit">提交</string>
+    <string name="elite_list_no_content">暂无内容</string>
+    <string name="intent_to_network">网络开小差了</string>
+    <string name="call_phone_confirm">拨打客服电话%s</string>
+    <string name="empty_here">这里空空的呢</string>
+    <string name="no_network">你的网络似乎去约会了</string>
+    <string name="try_again">重新加载</string>
+    <string name="free">免费</string>
+    <string name="xiaolu_slogan">倾诉解惑·知心·知你</string>
+
+</resources>

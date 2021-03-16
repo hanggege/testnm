@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="72.5dp"
+    android:layout_marginEnd="10dp"
+    android:background="@drawable/bg_no_special_service">
+
+    <ImageView
+        android:id="@+id/item_service_img"
+        android:layout_width="35.5dp"
+        android:layout_height="31.5dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="13dp"
+        android:padding="3dp"
+        android:src="@drawable/icon_service_diamond"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/item_service_title"
+        android:layout_width="72.5dp"
+        android:layout_height="16dp"
+        android:src="@drawable/label_special_service"
+        app:layout_constraintBottom_toBottomOf="@id/item_service_img"
+        app:layout_constraintStart_toEndOf="@id/item_service_img"
+        app:layout_constraintTop_toTopOf="@id/item_service_img"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/item_service_consult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:text="暂未开通专属服务"
+        android:textColor="@color/color_E6EEFF"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/item_service_img"
+        app:layout_constraintTop_toBottomOf="@id/item_service_img"
+        tools:ignore="HardcodedText" />
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/item_service_start_text"
+        android:layout_width="65dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center"
+        android:text="去看看"
+        android:textColor="@color/color_3079E6"
+        android:textSize="11sp"
+        app:gd_end_color="@color/color_E2E5FF"
+        app:gd_radius="15dp"
+        app:gd_start_color="@color/color_ECF6FF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,SmallSp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

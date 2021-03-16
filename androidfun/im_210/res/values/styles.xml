@@ -1,0 +1,18 @@
+<resources>
+
+    <style name="AnimDown" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_scale_in</item>
+        <item name="android:windowExitAnimation">@anim/push_scale_out</item>
+    </style>
+
+    <style name="AnimRight" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_scale_right_in</item>
+        <item name="android:windowExitAnimation">@anim/push_scale_right_out</item>
+    </style>
+
+    <style name="BottomFragmentToTopAnim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/fragment_push_bottom_in_new</item>
+        <item name="android:windowExitAnimation">@anim/fragment_push_bottom_out_new</item>
+    </style>
+
+</resources>

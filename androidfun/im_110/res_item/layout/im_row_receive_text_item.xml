@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    tools:background="@android:color/holo_blue_light">
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/im_time_stamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:includeFontPadding="false"
+        android:padding="5dp"
+        android:text="12:00"
+        android:textColor="#989898"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:rv_cornerRadius="3dp"
+        tools:visibility="visible" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp">
+
+        <include
+            android:id="@+id/avatar_container"
+            layout="@layout/include_avatar_42" />
+
+        <TextView
+            android:id="@+id/group_user_mark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_toRightOf="@id/avatar_container"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingBottom="5dp"
+            android:text="this is user name"
+            android:textColor="@color/color_7f7f7f"
+            android:textSize="13sp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/group_user_mark"
+            android:layout_toRightOf="@id/avatar_container"
+            android:orientation="horizontal">
+
+
+            <!--这个结构下面的为每条消息体，上面的是通用消息内容，一般都会有-->
+            <com.flyco.roundview.RoundRelativeLayout
+                android:id="@+id/im_message_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:paddingStart="15dp"
+                android:paddingTop="13dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="13dp"
+                app:rv_backgroundColor="@android:color/white"
+                app:rv_cornerRadius="10dp">
+
+                <com.rockerhieu.emojicon.EmojiconTextView
+                    android:id="@+id/im_msg_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="all"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="4dp"
+                    android:maxWidth="230dp"
+                    android:textColor="@color/color_333333"
+                    android:textColorLink="@android:color/holo_blue_light"
+                    android:textSize="15sp"
+                    tools:text="目前BAT中仅有百度有完整的人机对https://www.jianshu.com/p/413184996fc8 话解决方案,为了推广dueros(智能设备解决方案),百度开发了一套可配置的人机对话系统称之为理解与交互技术UNIT.可以自行准备训练预料对机器人进行训练,也可以添加已经预训练好的模块,基本上日常用到的模块都有,并且这一切都是免费的,只是免费用户进行了QPS(每秒调用次数)的限制,如果要做一个特殊领域的人机会话机器人只需要自己按照自己所在的领域准备一些专有的语料进行训练即可其他专门做人机对话的公司也提供了一些解决方案." />
+            </com.flyco.roundview.RoundRelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

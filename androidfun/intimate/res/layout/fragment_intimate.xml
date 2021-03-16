@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/intimate_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        app:srlEnableAutoLoadMore="false"
+        app:srlEnableOverScrollBounce="false"
+        app:srlEnableOverScrollDrag="false">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/intimate_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants"
+            android:overScrollMode="never" />
+
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+    <com.mei.base.common.EmptyPageLayout
+        android:id="@+id/empty_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:empty_layout_image_top_margin="123dp"
+        tools:visibility="visible" />
+
+</FrameLayout>

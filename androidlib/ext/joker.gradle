@@ -1,0 +1,132 @@
+import java.nio.channels.FileChannel
+
+ext {
+    writeFile = this.&writeFile
+    deleteDir = this.&deleteDir
+    copyFile = this.&copyFile
+    isJenkins = this.&isJenkins
+    runBefore = this.&runBefore
+    getProjectCode = this.&getProjectCode
+    getShowNameFromProject = this.&getShowNameFromProject
+    getApplicationId = this.&getApplicationId
+}
+
+void runBefore(String dependentTaskName, Task task) {
+    Task dependentTask = tasks.findByPath(dependentTaskName)
+    if (dependentTask != null) {
+        dependentTask.dependsOn task
+    }
+}
+
+
+def deleteDir(File saveDir, boolean deleteSelf) {
+    if (saveDir.exists() && saveDir.isDirectory()) {
+        def tempList = saveDir.listFiles()
+        tempList.each { f ->
+            if (f.isDirectory()) deleteDir(f, true)
+            else f.delete()
+        }
+        if (deleteSelf)
+            saveDir.deleteDir()
+    }
+}
+
+def copyFile(File srcFile, File toFile) {
+    FileChannel sourceChannel = null
+    FileChannel destChannel = null
+    try {
+        sourceChannel = new FileInputStream(srcFile).getChannel()
+        destChannel = new FileOutputStream(toFile).getChannel()
+        destChannel.transferFrom(sourceChannel, 0, sourceChannel.size())
+    } finally {
+        if (sourceChannel != null) {
+            sourceChannel.close()
+        }
+        if (destChannel != null) {
+            destChannel.close()
+        }
+    }
+}
+
+def writeFile(String path, String content, boolean append) {
+    try {
+        file(path).parentFile.mkdirs()
+        if (!file(path).exists()) {
+            println("$path err message: \nFile does not exist")
+            file(path).createNewFile()
+        }
+        // 打开一个写文件器，构造函数中的第二个参数true表示以追加形式写文件
+        def writer = new FileWriter(path, append)
+        writer.write(content)
+        writer.close()
+    } catch (IOException e) {
+        e.printStackTrace()
+    }
+}
+
+/**
+ * 获取项目的ApplicationId
+ */
+@SuppressWarnings("GrMethodMayBeStatic")
+def getApplicationId(Project project) {
+    String app_package = ""
+    project.rootProject.childProjects.each {
+        Project p = it.value
+        p.getPlugins().each {
+            if ("com.android.build.gradle.AppPlugin".equalsIgnoreCase(it.class.name)) {
+                app_package = p.android.defaultConfig.applicationId
+            }
+        }
+    }
+    return app_package
+}
+
+/**
+ * 获取项目别名
+ */
+def getProjectCode() {
+    String name = rootProject.name
+    if (rootProject.name.toLowerCase().contains('shadow')) {
+        name = "melkor"
+    } else if (rootProject.name.toLowerCase().contains("dove")) {
+        name = "goat"
+    }
+    return name
+}
+
+/**
+ * 获取app显示名称
+ */
+def getShowNameFromProject() {
+    String name = "小鹿"
+    if (rootProject.name.toLowerCase().contains("dove")) {
+        name = "知心"
+    } else {
+        project.rootProject.childProjects.each {
+            Project p = it.value
+            p.getPlugins().each {
+                if ("com.android.build.gradle.AppPlugin".equalsIgnoreCase(it.class.name)) {
+                    p.android.sourceSets.main.res.srcDirs.each {
+                        file("$it/values").listFiles().each {
+                            new XmlParser().parse(it).string.each {
+                                String key = it["@name"]
+                                if (key == "app_name") {
+                                    name = it.text()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return name
+}
+
+static boolean isJenkins() {
+    return "ring".equalsIgnoreCase(System.properties['user.name']) || "jenkins".equalsIgnoreCase(System.properties['user.name'])
+}
+
+
+
+

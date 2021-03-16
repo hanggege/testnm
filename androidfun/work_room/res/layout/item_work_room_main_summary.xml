@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.zhy.view.flowlayout.TagFlowLayout
+        android:id="@+id/room_main_summary_info_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="15dp" />
+
+    <com.mei.live.views.ExpandableTextView.CardExpandableTextView
+        android:id="@+id/room_main_summary_expand_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="15dp"
+        android:gravity="start"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="4dp"
+        android:textColor="@color/color_666666"
+        android:textSize="15sp"
+        app:ep_contract_color="@color/color_333333"
+        app:ep_expand_color="@color/color_FF3030"
+        app:ep_max_line="5"
+        app:ep_mention_color="@color/color_666666"
+        app:ep_need_contract="false"
+        app:ep_need_expand="true"
+        app:ep_need_link="false"
+        app:ep_need_mention="false"
+        app:layout_constraintTop_toBottomOf="@id/room_main_summary_info_tag" />
+</LinearLayout>

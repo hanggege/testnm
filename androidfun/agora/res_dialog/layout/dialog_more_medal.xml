@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top">
+
+    <ImageView
+        android:id="@+id/more_medal_bg_iv"
+        android:layout_width="match_parent"
+        android:layout_height="372dp"
+        android:layout_marginTop="80dp"
+        android:contentDescription="@string/more_medal_bg_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/color_FF4F00"
+        tools:ignore="MissingConstraints" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:maxHeight="340dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/more_medal_bg_iv"
+        tools:ignore="MissingConstraints">
+
+        <com.mei.base.weight.relative.RoundConstraintLayout
+            android:id="@+id/more_medal_list_rcl"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:maxHeight="340dp"
+            app:rv_backgroundColor="@android:color/white"
+            app:rv_cornerRadius="10dp"
+            tools:ignore="MissingConstraints">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/more_medal_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="46dp"
+                android:maxHeight="200dp"
+                android:overScrollMode="never"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.mei.widget.gradient.GradientFrameLayout
+                android:id="@+id/more_medal_btn_gfl"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                app:gd_end_color="@color/color_FF3F36"
+                app:gd_radius="20dp"
+                app:gd_start_color="@color/color_FF7F33"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/more_medal_rv">
+
+                <TextView
+                    android:id="@+id/more_medal_btn_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    tools:text="去看看" />
+            </com.mei.widget.gradient.GradientFrameLayout>
+
+
+        </com.mei.base.weight.relative.RoundConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="290dp"
+            android:layout_height="48dp"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/medal_title_bg_iv"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="42dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@color/color_FD6443"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/more_medal_title_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:layout_marginEnd="30dp"
+                android:gravity="center_horizontal"
+                app:layout_constraintTop_toTopOf="parent"
+                android:maxLines="1"
+                app:layout_constraintEnd_toEndOf="@+id/medal_title_bg_iv"
+                app:layout_constraintStart_toStartOf="@+id/medal_title_bg_iv"
+                tools:text="你获得了30枚勋章勋章勋章" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

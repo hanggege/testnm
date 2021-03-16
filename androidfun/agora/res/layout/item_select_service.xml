@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mei.base.weight.relative.RoundConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    app:rv_backgroundColor="@color/color_f9f9f9"
+    app:rv_cornerRadius="4dp">
+
+    <TextView
+        android:id="@+id/service_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/color_333333"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/start_service"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="挽救婚姻婚内移情，重获幸福家庭重获幸福家庭" />
+
+    <TextView
+        android:id="@+id/remain_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/color_999999"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/service_title"
+        app:layout_constraintTop_toBottomOf="@id/service_title"
+        tools:text="剩余时长：240分钟" />
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/start_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:includeFontPadding="false"
+        android:paddingStart="8dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="5dp"
+        android:text="开始服务"
+        android:textColor="@android:color/white"
+        android:textSize="11sp"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="25dp"
+        app:gd_start_color="@color/color_FF7F33"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,SmallSp" />
+</com.mei.base.weight.relative.RoundConstraintLayout>

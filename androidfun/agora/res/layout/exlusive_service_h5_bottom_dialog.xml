@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:rv_cornerRadius_TL="10dp"
+    app:rv_cornerRadius_TR="10dp">
+
+    <com.mei.widget.webview.InputWebView
+        android:id="@+id/live_service_web_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:overScrollMode="never"
+        tools:ignore="MissingConstraints" />
+
+    <com.mei.widget.progress.ProgressView
+        android:id="@+id/short_video_loading"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        app:pv_progressMode="indeterminate"
+        app:pv_progressStyle="@style/CircularProgress" />
+
+
+    <RelativeLayout
+        android:id="@+id/net_error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_layout"
+        android:background="@android:color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/empty_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/home_error_page"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/empty_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="180dp"
+            android:text="@string/intent_to_network"
+            android:textColor="@color/color_999999"
+            android:textSize="15sp" />
+
+        <com.mei.widget.gradient.GradientTextView
+            android:id="@+id/reload_btn"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/empty_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/try_again"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:gd_end_color="@color/color_FF3F36"
+            app:gd_radius="22.5dp"
+            app:gd_start_color="@color/color_FF7F33" />
+    </RelativeLayout>
+</com.flyco.roundview.RoundFrameLayout>
+
+

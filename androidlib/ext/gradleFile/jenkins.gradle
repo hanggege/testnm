@@ -1,0 +1,232 @@
+import java.util.function.Predicate
+
+ext {
+    luncherJenkins = this.&luncherJenkins
+    JENKINS_SAVE = '/Users/ring/Public/webSites/monkey_log'
+}
+
+if (isJenkins()) {
+    try {
+        if (!android.defaultConfig.versionName.contains('beta')) {
+            checkVersionCode("$JENKINS_SAVE/version/${getProjectCode()}_version.txt", android.defaultConfig.versionName, android.defaultConfig.versionCode)
+        }
+    } catch (Exception e) {
+    }
+    ding_token.each { token ->
+        exec {
+            println("打包提示：token---->  " + token)
+            String msg = "Android  【${getShowNameFromProject()}】开始打包了，请等待几分钟"
+            commandLine 'sh', createDingShell(msg), token
+        }
+
+    }
+}
+
+/**
+ * 启动jenkins，copy备份包，准备打多渠道包，一般在打包上传pgyer完成后执行
+ * @return
+ */
+task prepareJenkins {
+    doLast {
+        if (isJenkins()) {
+            /** 备份打出来的包 **/
+            File androidApk = file("$JENKINS_SAVE/Android/${android.defaultConfig.versionName}")
+            androidApk.mkdirs()
+            deleteDir(androidApk, false)
+            copy {
+                from("$history_path${File.separatorChar}${android.defaultConfig.versionName}")
+                into(androidApk)
+            }
+        }
+    }
+}
+
+/**
+ * 对所有已生成的apk进行按渠道分组
+ */
+Map<String, List<File>> groupApkByChannel() {
+    /**获取所有签名与未签名apk文件**/
+    List<File> apkList = getApkFiles { f, name -> name.endsWith(".apk") }
+    return apkList.groupBy { f ->
+        String name = f.name.replace("${android.defaultConfig.versionName}-", '')
+                .replace("${android.defaultConfig.versionCode}-", '')
+        String notPointVersionName = android.defaultConfig.versionName.replace(".", "")
+        int index = name.indexOf("_${notPointVersionName}_") > 0 ? name.indexOf("_${notPointVersionName}_") : name.indexOf('.')
+        String channelName = name.substring(0, index)
+        return channelName
+    }
+}
+
+/**============================================打多渠道包且压缩多渠道包================================================================================================**/
+/**
+ * 打多渠道包且压缩多渠道包
+ */
+task marketZip {
+    doLast {
+        try {
+            File versionDir = file("$history_path${File.separatorChar}${android.defaultConfig.versionName}")
+            File originalDir = file("$versionDir/original")
+            deleteDir(originalDir, true)
+            println("===========================收集原apk文件和未加渠道的加固文件 ${originalDir.absolutePath}===========================================")
+            copy {
+                from versionDir
+                into originalDir
+                include '*.apk'
+            }
+            groupApkByChannel().each { map ->
+                /** 找到已经加固签名了的**/
+                File apk = map.value.find { it.name.contains("jiagu_sign") }
+                /** 多渠道文件，配置多渠道 **/
+                File marketsFile = getMarketFile(map.key)
+                /** 多渠道生成目录 **/
+                File channel = file("${versionDir.path}/${map.key}_channel")
+                channel.mkdirs()
+                deleteDir(channel, false)
+
+                if (apk != null && apk.exists()) {
+                    exec {
+                        println("===========================开始打多渠道包 ：${apk.absolutePath}===========================================")
+                        def package_jar = "$rootDir/androidlib/ext/jar/walle-cli-all.jar"
+                        workingDir "$rootDir/androidlib/ext/jar"
+                        def cmdList = ['java', "-jar", package_jar, "batch", "-f", marketsFile.absolutePath, apk.path, channel.path]
+                        commandLine(cmdList)
+                    }
+//                    exec {
+//                        println("===========================将打出来多渠道包进行压缩 ：${apk.absolutePath}===========================================")
+//                        println("${map.key}_channel_apks.zip" + "    " + channel.name)
+//                        workingDir versionDir.path
+//                        commandLine 'zip', '-r', "${map.key}_channel_apks.zip", channel.name
+//                    }
+                } else {
+                    println("===========================打多渠道包未找到文件 ：${apk}===========================================")
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace()
+        }
+    }
+}
+
+def getMarketFile(String key) {
+    //在任务runZipalign中，因为google的需要zipalign处理，会有两份加固文件，均取google_markets.text下的文件
+    String tempKey = key
+    if (key == "google_zipalign") {
+        tempKey = "google"
+    }
+    File marketsFile = file("$rootDir/androidlib/ext/file/markets.txt")
+    file("$rootDir/androidlib/ext/file").listFiles().each {
+        if (it.isDirectory()) {
+            File f = it.listFiles().find { it.name == "${tempKey}_markets.txt" }
+            if (f != null && f.exists()) marketsFile = f
+        } else if (it.name == "${tempKey}_markets.txt") {
+            marketsFile = it
+        }
+    }
+    return marketsFile
+}
+
+/**============================================上传ftp================================================================================================**/
+task reportFtp {
+    doLast {
+        println("开始上传ftp")
+        File versionDir = file("$history_path${File.separatorChar}${android.defaultConfig.versionName}")
+        Map<File, List<File>> resultGroup = new HashMap<>()
+        groupApks(versionDir, resultGroup)
+        resultGroup.each {
+            List<File> list = it.value
+            if (it.key.path.equalsIgnoreCase(versionDir.path)) {
+                list.removeIf(new Predicate<File>() {
+                    @Override
+                    boolean test(File file) {
+                        return file.name.endsWith(".apk") && (!file.name.contains("jiagu_sign") || !file.name.contains("-$jiagu_flavor"))
+                    }
+                })
+            }
+            if (list.size() > 0) {
+                File ftp = createFtpFile(list)
+                exec {
+                    commandLine 'sh', ftp
+                }
+            }
+        }
+        ding_token.each { token ->
+            exec {
+                println("打包提示：token---->  " + token)
+                String msg = "Android  打包完成\\n 请前往下载\\n去往ftp地址: " +
+                        "\\nftp://ftp.ixiaolu.com/${rootProject.name}/${android.defaultConfig.versionName.replace('.', '')}" +
+                        "\\n--------------------------------------------\\n ftp帐号密码:" +
+                        "\\n--------------------------------------------\\n mei\\n huainanhai111"
+                commandLine 'sh', createDingShell(msg), token
+            }
+        }
+    }
+}
+
+/**
+ * 对apk进行分组
+ */
+def groupApks(File dir, Map<File, List<File>> map) {
+    try {
+        ArrayList<File> fileList = dir.listFiles(new FilenameFilter() {
+            @Override
+            boolean accept(File f, String name) {
+                return name.endsWith(".apk") || name.endsWith(".zip") || file("$f/$name").isDirectory()
+            }
+        })
+        List<File> list = new ArrayList<>()
+        fileList.each {
+            if (it.isDirectory()) groupApks(it, map)
+            else list.add(it)
+        }
+        map.put(dir, list)
+    } catch (Exception e) {
+        e.printStackTrace()
+    }
+
+}
+
+/**
+ * 创建一个上传ftp的sh文件
+ */
+def createFtpFile(List<File> fileList) {
+    String projectName = rootProject.name
+    String versionName = android.defaultConfig.versionName
+    File versionDir = file("$history_path${File.separatorChar}${versionName}")
+    def parentPath = fileList.first().parent.replace("$versionDir", "").replace('/', '')
+    File ftpDir = file("$rootDir/cache/shell")
+    ftpDir.mkdirs()
+    File ftpFile = file("$ftpDir/ftp_${parentPath}_${fileList.size()}.sh")
+    writeFile(ftpFile.absolutePath, '#!/bin/bash', false)
+    writeFile(ftpFile.absolutePath, '\necho 开始上传ftp', true)
+    fileList.each {
+        writeFile(ftpFile.absolutePath, "\necho $it.path", true)
+    }
+    writeFile(ftpFile.absolutePath, "\necho 版本 $versionName", true)
+    writeFile(ftpFile.absolutePath, '\nftp_server=ftp.ixiaolu.com' +
+            '\n/usr/local/bin/ftp -n $ftp_server <<EOF' +
+            '\nuser mei huainanhai111' +
+            '\nbin' +
+            "\nmkdir $projectName" +
+            "\ncd $projectName" +
+            "\nmkdir ${versionName.replace('.', '')}" +
+            "\ncd ${versionName.replace('.', '')}" +
+            "\npassive", true)
+    if (parentPath.length() > 0) {
+        writeFile(ftpFile.absolutePath, "\nmkdir $parentPath" +
+                "\ncd $parentPath", true)
+    }
+    fileList.each {
+        writeFile(ftpFile.absolutePath, "\nput $it $it.name", true)
+    }
+    writeFile(ftpFile.absolutePath, '\nby' +
+            '\nEOF' +
+            '\necho 上传ftp结束', true)
+
+    return ftpFile
+}
+
+/**============================================task 生命周期================================================================================================**/
+dingTalk.finalizedBy prepareJenkins
+prepareJenkins.finalizedBy marketZip
+marketZip.finalizedBy reportFtp
+

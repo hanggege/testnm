@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <EditText
+        android:id="@+id/phone_num"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/masks_layer_60"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text=""
+        android:textColor="@color/color_ffa000" />
+
+    <EditText
+        android:id="@+id/password_num"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/phone_num"
+        android:layout_marginTop="30dp"
+        android:background="@color/masks_layer_60"
+        android:hint="不输入的话默认用4个1 和1234等默认密码去登录"
+        android:inputType="textPassword"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/color_c8c8c8"
+        android:textSize="16sp" />
+
+
+    <RadioGroup
+        android:id="@+id/account_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password_num"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/normal_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="普通帐号" />
+
+        <RadioButton
+            android:id="@+id/vip_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="导师帐号" />
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/login_textview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/password_num"
+        android:layout_marginTop="70dp"
+        android:background="@color/main_theme_color"
+        android:gravity="center"
+        android:text="login"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/account_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/login_textview"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+</RelativeLayout>

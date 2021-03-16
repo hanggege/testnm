@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+        <activity android:name="com.mei.wood.ForTestMethodActivity" />
+        <activity android:name="com.mei.wood.ForTestLoginActivity" />
+        <activity android:name="com.mei.wood.DebugMainActivity" />
+        <activity android:name="com.mei.wood.ForClientRequestActivity" />
+        <activity android:name="com.mei.wood.TestFragmentActivity" />
+        <activity android:name="com.mei.wood.ViewTestActivity" />
+    </application>
+</manifest>

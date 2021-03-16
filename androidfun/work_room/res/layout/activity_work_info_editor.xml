@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="50dp">
+
+            <com.mei.widget.round.RoundImageView
+                android:id="@+id/work_room_img_riv"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:radius_all="6dp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/base_info_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="25dp"
+                android:text="基础资料"
+                android:textColor="@color/color_666666"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/work_room_img_riv"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/work_room_nickname_title_tv"
+                style="@style/workRoomInfoEditorStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:text="工作室名称"
+                app:layout_constraintTop_toBottomOf="@id/base_info_tv"
+                tools:ignore="MissingConstraints" />
+
+            <EditText
+                android:id="@+id/work_room_nickname_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:background="@null"
+                android:gravity="right"
+                android:hint="请输入工作室名称"
+                android:maxLength="8"
+                android:textColor="@color/color_262626"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/work_room_nickname_title_tv"
+                tools:ignore="MissingConstraints,RtlHardcoded"
+                tools:text="工作室昵称"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="19.5dp"
+                android:background="@color/color_f8f8f8"
+                app:layout_constraintTop_toBottomOf="@+id/work_room_nickname_title_tv" />
+
+            <TextView
+                style="@style/workRoomInfoEditorStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="成员介绍"
+                app:layout_constraintTop_toBottomOf="@id/line1"
+                tools:ignore="MissingConstraints" />
+
+            <com.mei.widget.gradient.GradientTextView
+                android:id="@+id/et_member_introduce"
+                android:layout_width="60dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="18.5dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="center"
+                android:text="编辑"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                app:gd_end_color="@color/color_FF3F36"
+                app:gd_radius="13dp"
+                app:gd_start_color="@color/color_FF7F33"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line1"
+                tools:ignore="MissingConstraints" />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="19dp"
+                android:background="@color/color_f8f8f8"
+                app:layout_constraintTop_toBottomOf="@+id/et_member_introduce" />
+
+            <TextView
+                style="@style/workRoomInfoEditorStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="自定义标签"
+                app:layout_constraintTop_toBottomOf="@id/line2"
+                tools:ignore="MissingConstraints" />
+
+            <com.mei.widget.gradient.GradientTextView
+                android:id="@+id/et_custom_tag"
+                android:layout_width="60dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="18.5dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="center"
+                android:text="添加"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                app:gd_end_color="@color/color_FF3F36"
+                app:gd_radius="13dp"
+                app:gd_start_color="@color/color_FF7F33"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line2"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/custom_tag_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="12dp"
+                android:drawableLeft="@drawable/icon_use_edit_lable"
+                android:drawablePadding="2.5dp"
+                android:gravity="left"
+                android:maxLines="1"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_custom_tag"
+                tools:ignore="MissingConstraints"
+                tools:text="标签将展示在发现页和个人主页，你还可以添加" />
+
+
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/custom_tag_tfl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="22dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/custom_tag_hint"
+                tools:ignore="MissingConstraints" />
+
+            <View
+                android:id="@+id/line3"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/color_f8f8f8"
+                app:layout_constraintTop_toBottomOf="@+id/custom_tag_tfl" />
+
+            <TextView
+                style="@style/workRoomInfoEditorStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="工作室简介"
+                app:layout_constraintTop_toBottomOf="@id/line3"
+                tools:ignore="MissingConstraints" />
+
+            <com.mei.widget.gradient.GradientTextView
+                android:id="@+id/et_work_room_introduce"
+                android:layout_width="60dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="18.5dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="center"
+                android:text="编辑"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                app:gd_end_color="@color/color_FF3F36"
+                app:gd_radius="13dp"
+                app:gd_start_color="@color/color_FF7F33"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line3"
+                tools:ignore="MissingConstraints" />
+
+
+            <com.mei.live.views.ExpandableTextView.CardExpandableTextView
+                android:id="@+id/work_room_introduce_cet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="left"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="4dp"
+                android:paddingBottom="15dp"
+                android:textColor="@color/color_666666"
+                android:textSize="14sp"
+                app:ep_contract_color="@color/color_FF3A3A"
+                app:ep_expand_color="@color/color_FF3A3A"
+                app:ep_max_line="7"
+                app:ep_mention_color="@color/color_666666"
+                app:ep_need_contract="true"
+                app:ep_need_expand="true"
+                app:ep_need_link="false"
+                app:ep_need_mention="false"
+                app:layout_constraintTop_toBottomOf="@+id/et_work_room_introduce"
+                tools:ignore="MissingConstraints" />
+
+            <com.mei.widget.gradient.GradientTextView
+                android:id="@+id/save_work_info_gcv"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="53dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="50dp"
+                android:gravity="center"
+                android:text="保存"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:gd_end_color="@color/color_FF3F36"
+                app:gd_radius="25dp"
+                app:gd_start_color="@color/color_FF7F33"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_room_introduce_cet"
+                tools:ignore="MissingConstraints" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <include
+        layout="@layout/include_net_error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
+        android:visibility="gone"
+        tools:visibility="gone" />
+</FrameLayout>

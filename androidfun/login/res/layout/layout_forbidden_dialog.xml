@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:rv_backgroundColor="#f8f8f8"
+    app:rv_cornerRadius="8dp">
+
+    <TextView
+        android:id="@+id/dialog_content"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:lineSpacingExtra="5dp"
+        android:textColor="#333333"
+        android:textIsSelectable="true"
+        android:textSize="15sp"
+        tools:text="系统检测到账号异常，为了你的账号安全，系统暂时停用了你的账号，详情请联系小鹿官方客服。" />
+
+    <View
+        android:id="@+id/mid_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="5dp"
+        android:background="#E4E4E4" />
+
+
+    <TextView
+        android:id="@+id/ok_btn"
+        android:layout_width="295dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="我知道了"
+        android:textColor="#333333"
+        android:textSize="15sp" />
+
+</com.flyco.roundview.RoundLinearLayout>

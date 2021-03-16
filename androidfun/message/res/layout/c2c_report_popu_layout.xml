@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="55dp"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    app:rv_backgroundColor="@android:color/white"
+    app:rv_cornerRadius="5dp">
+
+    <TextView
+        android:id="@+id/tv_c2c_shielding"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="15dp"
+        android:gravity="center"
+        android:text="拉黑"
+        android:textColor="#11121C"
+        android:textSize="12sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_c2c_report"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="18dp"
+        android:gravity="center"
+        android:text="举报"
+        android:textColor="#11121C"
+        android:textSize="12sp"
+        tools:ignore="HardcodedText" />
+
+
+</com.flyco.roundview.RoundLinearLayout>

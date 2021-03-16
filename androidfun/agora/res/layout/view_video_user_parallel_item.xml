@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/close_video"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
+        android:padding="10dp"
+        android:src="@drawable/icon_live_video_img"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/close_audio"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:src="@drawable/live_voice_state_img_selector2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.flyco.roundview.RoundRelativeLayout
+        android:id="@+id/user_container"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rv_backgroundColor="@color/masks_layer_30"
+        app:rv_cornerRadius="15dp">
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/user_avatar"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="2.5dp"
+            app:radius_all="13dp"
+            app:round_stroke_color="@color/color_73FA5D"
+            app:round_stroke_width="0.5dp" />
+
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/upstream_time"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="7.5dp"
+            android:gravity="center_vertical"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textColor="@color/alpha90_white"
+            android:textSize="8sp"
+            app:rv_cornerRadius="8dp"
+            app:rv_strokeColor="@color/alpha60_white"
+            app:rv_strokeWidth="0.3dp"
+            tools:ignore="SmallSp"
+            tools:text="连线中 05:07:25" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toStartOf="@id/upstream_time"
+            android:layout_toEndOf="@id/user_avatar"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:textSize="11sp"
+            tools:ignore="SmallSp"
+            tools:text="" />
+    </com.flyco.roundview.RoundRelativeLayout>
+
+    <com.flyco.roundview.RoundRelativeLayout
+        android:id="@+id/anchor_container"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rv_backgroundColor="@color/masks_layer_30"
+        app:rv_cornerRadius="15dp">
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/anchor_avatar"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="2.5dp"
+            app:radius_all="13dp"
+            app:round_stroke_color="@color/color_73FA5D"
+            app:round_stroke_width="0.5dp" />
+
+        <ImageView
+            android:id="@+id/anchor_close_audio"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="2.5dp"
+            android:src="@drawable/icon_close_mic"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <com.mei.widget.gradient.GradientTextView
+            android:id="@+id/logo_intimate_man"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="7.5dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:text="知心达人"
+            android:textColor="@android:color/white"
+            android:textSize="8sp"
+            app:gd_direction="topToBottom"
+            app:gd_end_color="@color/color_FF9E40"
+            app:gd_radius="8dp"
+            app:gd_start_color="@color/color_FE6B10"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <TextView
+            android:id="@+id/anchor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toStartOf="@id/logo_intimate_man"
+            android:layout_toEndOf="@id/anchor_avatar"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:textSize="11sp"
+            tools:ignore="SmallSp"
+            tools:text="" />
+
+    </com.flyco.roundview.RoundRelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

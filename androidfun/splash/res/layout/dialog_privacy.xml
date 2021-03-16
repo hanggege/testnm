@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="295dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    app:rv_backgroundColor="@android:color/white"
+    app:rv_cornerRadius="8dp">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="30dp"
+        android:paddingBottom="20dp"
+        android:text="温馨提示"
+        android:textColor="#333333"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/privacy_content1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="2dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        tools:text="欢迎使用知心APP！在您使用知心产品或服务前，请您仔细阅读并充分理解《知心服务及隐私协议》；当您点击“同意”并开始使用产品服务时，即表示您已阅读并同意条款内容，如果您不同意，将可能导致无法继续使用我们的产品及服务。" />
+
+
+    <TextView
+        android:id="@+id/privacy_content2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="2dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        tools:text="点击查看《知心服务及隐私协议》" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal">
+
+        <com.mei.widget.round.RoundTextView
+            android:id="@+id/cancel_bt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="不同意"
+            android:textColor="#999999"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:back_color="#f1f1f1"
+            app:stroke_radius="20dp" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="2dp" />
+
+        <com.mei.widget.gradient.GradientTextView
+            android:id="@+id/privacy_bt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="同意"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:gd_end_color="@color/color_FF3F36"
+            app:gd_radius="22.5dp"
+            app:gd_start_color="@color/color_FF7F33" />
+
+    </LinearLayout>
+
+
+</com.flyco.roundview.RoundLinearLayout>

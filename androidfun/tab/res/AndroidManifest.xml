@@ -1,0 +1,27 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+        <activity
+            android:name="com.mei.wood.ui.TabMainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <data
+                    android:host="chosen_featured_tab"
+                    android:scheme="${app_scheme}" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+
+</manifest>

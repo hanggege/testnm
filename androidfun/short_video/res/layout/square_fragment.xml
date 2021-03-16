@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.mei.base.weight.tablayout.SlidingTabLayout
+        android:id="@+id/slide_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        app:tl_indicator_width="0dp"
+        app:tl_tab_padding="7dp"
+        app:tl_textBold="SELECT"
+        app:tl_textSelectColor="@color/color_333333"
+        app:tl_textSelectSize="16sp"
+        app:tl_textUnselectColor="@color/color_999999"
+        app:tl_textsize="15sp" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_below="@id/slide_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp" />
+
+    <com.mei.base.common.EmptyPageLayout
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:empty_layout_btn_text="@string/try_again"
+        app:empty_layout_text="@string/no_network" />
+</RelativeLayout>
+

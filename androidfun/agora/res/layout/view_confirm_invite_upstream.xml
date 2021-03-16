@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    app:rv_backgroundColor="@android:color/white"
+    app:rv_cornerRadius="8dp">
+
+    <TextView
+        android:id="@+id/invite_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="4dp"
+        android:text="用户连线需付20心币\n是否确认发送邀请"
+        android:textColor="@color/color_333333"
+        android:textSize="16sp" />
+
+
+    <LinearLayout
+        android:id="@+id/not_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/not_hint_check"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/live_invite_agree_selector" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="下次不再提醒"
+            android:textColor="@color/color_999999"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp">
+
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/cancel_dialog_btn"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="25dp"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/color_999999"
+            android:textSize="15sp"
+            app:rv_backgroundColor="@color/color_f8f8f8"
+            app:rv_cornerRadius="20dp" />
+
+
+        <com.mei.widget.gradient.GradientTextView
+            android:id="@+id/confirm_dialog_btn"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="@string/confirm"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            app:gd_end_color="@color/color_FF3F36"
+            app:gd_radius="22.5dp"
+            app:gd_start_color="@color/color_FF7F33" />
+    </LinearLayout>
+</com.flyco.roundview.RoundLinearLayout>

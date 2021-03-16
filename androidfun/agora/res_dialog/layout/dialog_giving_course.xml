@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/giving_course_top_bg"
+        android:layout_width="280dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <com.mei.base.weight.relative.RoundConstraintLayout
+        android:id="@+id/giving_course_content_bg"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/giving_course_user_avatar_riv"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius="8dp"
+        tools:background="@color/color_d159cf">
+
+        <ImageView
+            android:id="@+id/close_giving_course_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:src="@drawable/icon_dialog_close_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+
+        <TextView
+            android:id="@+id/giving_course_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="53dp"
+            android:layout_marginEnd="15dp"
+            android:textColor="@color/color_333333"
+            app:layout_constraintEnd_toEndOf="@+id/giving_course_content_bg"
+            app:layout_constraintStart_toStartOf="@+id/giving_course_content_bg"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="情感导师-乐乐 赠送你一个课程" />
+
+        <com.mei.base.weight.relative.RoundConstraintLayout
+            android:id="@+id/giving_course_content_card_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/giving_course_content_bg"
+            app:layout_constraintStart_toStartOf="@+id/giving_course_content_bg"
+            app:layout_constraintTop_toBottomOf="@+id/giving_course_title_tv"
+            app:radius_all="4dp"
+            app:rv_backgroundColor="@android:color/white">
+
+
+            <TextView
+                android:id="@+id/giving_course_card_content_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:textColor="@color/color_333333"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="高情商聊天宝典高情商聊天宝典高情商聊天聊天聊天宝典" />
+
+            <TextView
+                android:id="@+id/giving_course_content_hint_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="12dp"
+                android:textColor="@color/color_999999"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/giving_course_card_content_tv"
+                app:layout_constraintVertical_bias="0"
+                tools:text="原价：原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价原价" />
+
+        </com.mei.base.weight.relative.RoundConstraintLayout>
+
+        <com.mei.widget.gradient.GradientTextView
+            android:id="@+id/giving_course_btn"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            app:gd_end_color="@color/color_FF3F36"
+            app:gd_radius="20dp"
+            app:gd_start_color="@color/color_FF7F33"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/giving_course_content_card_bg"
+            tools:text="去领取" />
+
+    </com.mei.base.weight.relative.RoundConstraintLayout>
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/giving_course_user_avatar_riv"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="61dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/giving_course_top_bg"
+        app:radius_all="45dp"
+        app:round_stroke_color="@android:color/white"
+        app:round_stroke_width="2dp"
+        tools:src="@drawable/default_avatar_72" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content">
+
+    <com.flyco.roundview.RoundFrameLayout
+        android:id="@+id/snap_up_dialog"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius="8dp" />
+
+    <ImageView
+        android:id="@+id/snap_up_top_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/bg_snap_up_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/snap_up_dialog"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/snap_up_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:src="@drawable/icon_dialog_close_grey"
+        app:layout_constraintEnd_toEndOf="@id/snap_up_top_bg"
+        app:layout_constraintTop_toTopOf="@id/snap_up_top_bg"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/snap_up_top_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_snap_up_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/snap_up_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/snap_up_top_icon"
+        app:layout_constraintStart_toStartOf="@id/snap_up_top_icon"
+        app:layout_constraintTop_toTopOf="@id/snap_up_top_icon"
+        tools:text="30分钟" />
+
+    <TextView
+        android:id="@+id/snap_up_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="免费连线"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@id/snap_up_time"
+        app:layout_constraintStart_toStartOf="@id/snap_up_time"
+        app:layout_constraintTop_toBottomOf="@id/snap_up_time"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/snap_up_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15.5dp"
+        android:text="抢券成功!"
+        android:textColor="@color/color_333333"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="@id/snap_up_top_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/snap_up_hint_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="恭喜您获得"
+        android:textColor="@color/color_333333"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@id/snap_up_hint_right"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/snap_up_top_bg"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/snap_up_hint_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="免费咨询30分钟"
+        android:textColor="@color/color_FF3F36"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/snap_up_hint_left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/snap_up_hint_left"
+        tools:ignore="HardcodedText"
+        tools:text="免费咨询30分钟" />
+
+    <TextView
+        android:id="@+id/hint_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="可用于快速咨询或私密连线"
+        android:textColor="@color/color_333333"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/snap_up_hint_left"
+        tools:ignore="HardcodedText" />
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/snap_up_advisory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="20dp"
+        android:paddingHorizontal="47dp"
+        android:paddingVertical="10dp"
+        android:text="开心收下"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="20dp"
+        app:gd_start_color="@color/color_FF7F33"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hint_text"
+        tools:ignore="HardcodedText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

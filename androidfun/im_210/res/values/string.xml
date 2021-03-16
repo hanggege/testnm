@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="complete">完成</string>
+    <string name="add_command_phrase">添加常用语</string>
+    <string name="edit_command_phrase">编辑常用语</string>
+    <string name="manager_command_phrase">管理常用语</string>
+    <string name="sort">排序</string>
+</resources>

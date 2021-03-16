@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@color/masks_layer_30"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <com.flyco.roundview.RoundFrameLayout
+        android:id="@+id/backgroundColor"
+        android:layout_width="0dp"
+        android:layout_height="12dp"
+        android:layout_marginHorizontal="7.5dp"
+        app:layout_constraintBottom_toBottomOf="@id/progressIndicator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/progressIndicator"
+        app:rv_backgroundColor="@color/masks_layer_30"
+        app:rv_cornerRadius="6.5dp" />
+
+    <com.mei.widget.gradient.GradientFrameLayout
+        android:id="@+id/progressColor"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:gd_end_color="@color/color_FF8B00"
+        app:gd_radius="6.5dp"
+        app:gd_start_color="@color/color_FFAF00"
+        app:layout_constraintBottom_toBottomOf="@id/backgroundColor"
+        app:layout_constraintEnd_toEndOf="@id/backgroundColor"
+        app:layout_constraintStart_toStartOf="@id/backgroundColor"
+        app:layout_constraintTop_toTopOf="@id/backgroundColor">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/indicator_progress_shadow"
+            tools:ignore="ContentDescription" />
+
+    </com.mei.widget.gradient.GradientFrameLayout>
+
+    <View
+        android:id="@+id/progressEndLine"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/backgroundColor"
+        app:layout_constraintEnd_toEndOf="@id/progressColor"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/progressDurationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/alpha85_white"
+        android:textSize="9sp"
+        app:layout_constraintBottom_toBottomOf="@id/backgroundColor"
+        app:layout_constraintEnd_toEndOf="@id/backgroundColor"
+        app:layout_constraintStart_toStartOf="@id/backgroundColor"
+        app:layout_constraintTop_toTopOf="@id/backgroundColor"
+        tools:ignore="SmallSp"
+        tools:text="30分钟" />
+
+    <com.opensource.svgaplayer.SVGAImageView
+        android:id="@+id/progressIndicator"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:src="@drawable/icon_discount_countdown_indicator"
+        app:autoPlay="false"
+        app:clearsAfterStop="false"
+        app:fillMode="Forward"
+        app:layout_constraintDimensionRatio="h, 0.6"
+        app:layout_constraintEnd_toEndOf="@id/progressEndLine"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/progressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="9sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/progressIndicator"
+        app:layout_constraintTop_toBottomOf="@id/progressIndicator"
+        tools:ignore="SmallSp"
+        tools:text="剩余02:11" />
+
+</merge>

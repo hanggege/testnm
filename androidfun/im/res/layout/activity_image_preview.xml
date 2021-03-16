@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_image_preview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/preview_photo_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/im_chat_default_image" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/thirty_black">
+
+        <ImageButton
+            android:id="@+id/select_original"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/mul_pictrue_selector" />
+
+        <TextView
+            android:id="@+id/original_img_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:layout_toRightOf="@id/select_original"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,50 @@
+ext {
+
+    //library module app id 库需要全局的appid统一管理
+    //im
+    IM_APP_ID = '1400286751'
+    HW_PUSH_BUZID = '10139'
+    XM_PUSH_BUZID = '10146'
+    VIVO_PUSH_BUZID = '10161'
+    MZ_PUSH_BUZID = '10168'
+    OPPO_PUSH_BUZID = '10170'
+    HUAWEI_APP_ID = "100888405"
+    XIAOMI_APP_ID = "2882303761518044459"
+    XIAOMI_APP_KEY = "5851804415459"
+    VIVO_APP_ID = "20258"
+    VIVO_APP_KEY = "f3a9e23a-1861-43e0-a7ad-fdde074fc202"
+    VIVO_APP_SECRET = "0f6349fb-f990-49c1-9541-37ebbef6d34d"
+    MZ_PUSH_APPID = "129599"
+    MZ_PUSH_APPKEY = "09f6607ec4564167a46d256671de4fac"
+    OPPO_PUSH_APPKEY = "e64c786077464b2e954224248eeb2990"
+    OPPO_PUSH_SECRET = "1d7e69790fb5410d8b1387e104e46daf"
+
+    //growingIO
+    GROWING_IO_ID = '912ded755d706e14'
+    GROWING_IO_SCHEME = 'growing.f0df3c59e73d077a'
+    // 正式环境
+    GETUI_APP_ID = 'S3fWLrZo0b78hFyKqvpC65'
+    GETUI_APP_KEY = 'gQh9Zu3qfs7m4GveS0JQ9'
+    GETUI_APP_SECRET = '3mIiPCazD9AETRQqPB9OBA'
+
+    //weixin
+    // weixin_app_id = 'wx1d25acf5baefbfeb'
+    weixin_app_id = 'wxe33398f92639c606'
+
+    BUGLY_APP_ID = '19286c657d'
+    UMENG_APP_ID = '5e43a38d65b5ec273b5ae946'
+
+    // agora
+    AGORA_APP_ID = "b86243dc9a284f81b9ad2c401aac3239"
+
+    //闪验
+    shanyan_app_id = 'Dhji0Z2Z'
+    shanyan_app_key = '2xsfW2ZF'
+
+    //持续集成
+    pgyer_appid = '27d772c869718f064917744f49c14ea4'
+    ding_token = [//钉钉机器人
+                  'bd9413db87e5e2b9513adc58d0dab0d58aae3bdab5308dc2b5b71f84376aaf36',//Android FBI
+                  '9d579a9b81a7277379326c797a31feb64af1084240a1fe75707b5803fca6b3de'//2.4.8
+    ]
+}

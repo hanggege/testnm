@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:paddingLeft="20dp"
+    android:paddingTop="15dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="15dp">
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/user_avatar_img"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/default_male_head"
+        app:radius_all="25dp"
+        app:round_color="@color/color_999999"/>
+
+    <TextView
+        android:id="@+id/time_stamp_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/color_c8c8c8"
+        android:textSize="11sp"
+        tools:ignore="SmallSp"
+        tools:text="10:11" />
+
+    <TextView
+        android:id="@+id/notify_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_toStartOf="@id/time_stamp_tv"
+        android:layout_toEndOf="@id/user_avatar_img"
+        android:textColor="#262626"
+        android:textSize="16sp"
+        tools:text="xxxxxx" />
+
+    <TextView
+        android:id="@+id/last_msg_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/notify_title_tv"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@id/user_avatar_img"
+        android:textColor="@color/color_999999"
+        android:textSize="13sp"
+        tools:text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
+
+
+</RelativeLayout>

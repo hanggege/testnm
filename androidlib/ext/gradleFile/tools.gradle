@@ -1,0 +1,230 @@
+import groovy.json.JsonSlurper
+
+import java.nio.channels.FileChannel
+
+task appRefactorFile {
+    doLast {
+        def dir = file("$rootDir")
+//        refactorDir(dir, "com.mei.shaman.web", "com.mei.goat.web")
+//    refactorDir(dir, "com.mei.R", "com.mei.wood.R")
+//        batchRename()
+        def f = file("$rootDir/androidlib/test/src/main/res/raw/test_account.json")
+        def json = new JsonSlurper().parseText(f.text)
+        json.each {
+            println("<key>${it.key}</key>")
+            println("<string>${it.value}</string>")
+        }
+    }
+
+}
+
+
+task checkBigPicture() {
+    doLast {
+        def sizeList = new HashMap<File, String>()
+        def whList = new HashMap<File, String>()
+        def suffixList = new HashMap<File, String>()
+        project.rootProject.childProjects.each {
+            Project p = it.value
+            p.getPlugins().each {
+                if ("com.android.build.gradle.AppPlugin".equalsIgnoreCase(it.class.name)) {
+                    p.android.sourceSets.main.res.srcDirs.each {
+                        file(it).listFiles().each {
+                            def resDirName = it.getName()
+                            if (resDirName.contains("drawable") || resDirName.contains("mipmap")) {
+                                file(it).listFiles().each {
+                                    FileInputStream fis = null
+                                    try {
+                                        if (it.getName().lastIndexOf("xml") == -1) {
+                                            def size = it.length()
+                                            //大于50K的图片
+                                            if (size > 50 * 1024) {
+                                                sizeList.put(it, "${it} size=${size * 1f / 1024}k")
+                                            }
+
+                                            fis = new FileInputStream(it)
+                                            //webp  有问题，部分可以计算出来
+                                            if (it.getName().lastIndexOf("webp") != -1) {
+                                                byte[] bytes = new byte[30]
+                                                fis.read(bytes, 0, bytes.length)
+                                                int width = ((int) bytes[27] & 0xff) << 8 | ((int) bytes[26] & 0xff)
+                                                int height = ((int) bytes[29] & 0xff) << 8 | ((int) bytes[28] & 0xff)
+                                                if (width > 200 || height > 200) {
+                                                    whList.put(it, "${it} width=${width}  height=${height}")
+                                                }
+                                            } else {//png jpg等
+                                                java.awt.image.BufferedImage image = javax.imageio.ImageIO.read(fis)
+                                                //xml 和 webp格式的就为null 排除
+                                                if (image != null) {
+                                                    def width = image.getWidth()
+                                                    def height = image.getHeight()
+                                                    if (width > 200 || height > 200) {
+                                                        whList.put(it, "${it} width=${width}  height=${height}")
+                                                    }
+
+                                                    //寻找png以外的图片
+                                                    def suffix = ""
+                                                    def imageName = it.getName()
+                                                    String[] ss = imageName.split("\\.")
+                                                    if (ss.length >= 2) {
+                                                        suffix = ss[ss.length - 1]
+                                                    }
+                                                    if (!suffix.equals("png")) {
+                                                        suffixList.put(it, "${it}")
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    } catch (Exception e) {
+                                        e.printStackTrace()
+                                    } finally {
+                                        if (fis != null) {
+                                            try {
+                                                fis.close()
+                                            } catch (IOException e) {
+                                                e.printStackTrace()
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    println "-------大于50KB的图片开始统计-------"
+                    for (Map.Entry<File, String> entry : sizeList.entrySet()) {
+                        def file = entry.getKey()
+                        def value = entry.getValue()
+                        println value
+                        copyFilterDrawableFile(file, "size")
+                    }
+                    println "-------大于50KB的图片结束统计-------"
+
+                    println "-------宽或者高大于200的图片开始统计-------"
+                    for (Map.Entry<File, String> entry : whList.entrySet()) {
+                        def file = entry.getKey()
+                        def value = entry.getValue()
+                        println value
+                        copyFilterDrawableFile(file, "wh")
+                    }
+                    println "-------宽或者高大于100的图片结束统计-------"
+
+                    println "-------不是png或者webp格式的图片开始统计-------"
+                    for (Map.Entry<File, String> entry : suffixList.entrySet()) {
+                        def file = entry.getKey()
+                        def value = entry.getValue()
+                        println value
+                        copyFilterDrawableFile(file, "suffix")
+                    }
+                    println "-------不是png或者webp格式的图片结束统计-------"
+                }
+            }
+        }
+    }
+}
+
+def copyFilterDrawableFile(File srcFile, String toDirName) {
+    def parentName = new File(srcFile.getParent()).getName()
+    def rootDir = "${project.rootDir.getPath()}${File.separator}filterDrawable"
+
+    def toFileDir = new File("${rootDir}${File.separator}${toDirName}${File.separator}${parentName}")
+    if (!toFileDir.exists()) {
+        toFileDir.mkdirs()
+    }
+    //rootdir/toDirName/xxhdpi/xxx.png
+    def toFile = new File(toFileDir, srcFile.getName())
+    if (toFile.exists()) {
+        toFile.delete()
+    }
+    FileChannel sourceChannel = null
+    FileChannel destChannel = null
+    try {
+        sourceChannel = new FileInputStream(srcFile).getChannel()
+        destChannel = new FileOutputStream(toFile).getChannel()
+        destChannel.transferFrom(sourceChannel, 0, sourceChannel.size())
+    } finally {
+        if (sourceChannel != null) {
+            sourceChannel.close()
+        }
+        if (destChannel != null) {
+            destChannel.close()
+        }
+    }
+}
+
+
+def batchRename() {
+    String preName = "nooning_anim_"
+    File dir = file("$rootDir/app/src/function/home/res_nooning/drawable-xhdpi")
+    dir.listFiles().each {
+        it.renameTo(it.path.replace("合成 1_0", preName))
+    }
+//    List<File> fileList = dir.listFiles()
+//    String path = "$rootDir/app/src/function/home/res_nooning/drawable/nooning_anim.xml"
+//    for (int i = 0; i < 150; i+=1) {
+//        DecimalFormat df = new DecimalFormat("0000")
+//        String name = fileList.any {
+//            it.name.replace(".png", "").endsWith(df.format(i))
+//        } ? df.format(i) : df.format(0)
+//        writeFile(path, "\n<item android:drawable=\"@drawable/$preName${name}\" android:duration=\"40\"/>", true)
+//    }
+//    writeFile(path, "</animation-list>", true)
+//    dir.listFiles().each {
+//        println(it.name.replace(".png", ""))
+//    }
+}
+
+
+def refactorDir(File dir, CharSequence target, CharSequence replacement) {
+    def tempList = dir.listFiles(new FilenameFilter() {
+        @Override
+        boolean accept(File f, String name) {
+            return (file("${f.path}/$name").isDirectory() && !name.equalsIgnoreCase('build')) || name.endsWith('.java') || name.endsWith('.kt')
+            //|| name.endsWith('.xml') ||  name.endsWith('.pro')
+//|| name.endsWith('.gradle')
+        }
+    })
+    tempList.each { File f ->
+        if (f.isDirectory()) {
+            refactorDir(f, target, replacement)
+        } else {
+            if (f.text.contains(target)) {
+                println "------>  " + f.path
+                writeFile(f.path, f.text.replace(target, replacement), false)
+            }
+        }
+    }
+}
+
+def renameDir(File dir, CharSequence target, CharSequence replacement) {
+    def tempList = dir.listFiles()
+    tempList.each { File f ->
+        if (f.isDirectory()) {
+            renameDir(f, target, replacement)
+            if (dir.name.equalsIgnoreCase(target)) {
+                dir.renameTo(file("${dir.parent}/$replacement"))
+                println("-------->${dir.path}\n  ${dir.parent}/$replacement")
+            }
+        }
+    }
+}
+
+
+def checkContains(File dir, String value, List<String> collectList) {
+    def tempList = dir.listFiles(new FilenameFilter() {
+        @Override
+        boolean accept(File f, String name) {
+            return (file("${f.path}/$name").isDirectory() && !name.equalsIgnoreCase('build')) || name.endsWith('.java') || name.endsWith('.kt')
+        }
+    })
+    tempList.each { File f ->
+        if (f.isDirectory()) {
+            checkContains(f, value, collectList)
+        } else {
+            if (f.text.contains("\"$value\"")) {
+                println(f.path)
+                collectList.add(f.path)
+            }
+        }
+    }
+}

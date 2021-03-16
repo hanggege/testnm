@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:background="#ffffff">
+
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/content_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:orientation="vertical"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius_TL="10dp"
+        app:rv_cornerRadius_TR="10dp">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <TextView
+                android:id="@+id/report_user_btn"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="end"
+                android:gravity="center"
+                android:text="举报"
+                android:textColor="#C8C8C8"
+                android:textSize="12sp"
+                android:visibility="gone"
+                tools:ignore="HardcodedText" />
+
+            <com.mei.widget.menupoint.MenuPointView
+                android:id="@+id/report_user_btn_pub"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:paddingLeft="15dp"
+                android:paddingTop="16dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="16dp"
+                android:visibility="gone"
+                app:menu_number="3"
+                app:menu_point_color="@color/color_c8c8c8"
+                app:menu_point_width="4dp"
+                app:menu_type="horizontal"
+                tools:visibility="visible" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/user_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="4dp"
+                android:includeFontPadding="false"
+                android:textColor="#333333"
+                android:textSize="15sp"
+                tools:text="快乐的橙子" />
+
+            <com.mei.widget.gradient.GradientTextView
+                android:id="@+id/card_user_role_ta"
+                android:layout_width="28dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="4dp"
+                android:gravity="center"
+                android:text="助教"
+                android:textColor="@android:color/white"
+                android:textSize="8sp"
+                android:visibility="gone"
+                app:gd_end_color="@color/color_FA3998"
+                app:gd_radius="8dp"
+                app:gd_start_color="@color/color_FB686F"
+                tools:ignore="HardcodedText,SmallSp"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/dialog_live_room_message_service"
+                android:layout_width="50dp"
+                android:layout_height="15dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/icon_service_bg"
+                android:gravity="center"
+                android:maxLength="3"
+                android:paddingStart="13dp"
+                android:paddingEnd="3dp"
+                android:paddingBottom="0.5dp"
+                android:shadowColor="#40000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:textColor="@android:color/white"
+                android:textSize="8sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:ignore="RtlSymmetry,SmallSp"
+                tools:text="安娜家"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/level_text"
+                android:layout_width="34dp"
+                android:layout_height="15dp"
+                android:layout_marginEnd="4dp"
+                android:gravity="center_vertical|right"
+                android:maxLength="2"
+                android:paddingEnd="8dp"
+                android:shadowColor="#40000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:background="@drawable/normal_level_one"
+                tools:ignore="RtlHardcoded,RtlSymmetry,SmallSp"
+                tools:text="5"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal"
+            tools:ignore="DisableBaselineAlignment">
+
+
+            <LinearLayout
+                android:id="@+id/left_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/left_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#333333"
+                    android:textSize="18sp"
+                    tools:text="12" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="注册时长"
+                    android:textColor="#999999"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/left_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/color_FF3A3A"
+                    android:textSize="11sp"
+                    tools:ignore="SmallSp"
+                    tools:text="被拉黑28次" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/center_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#333333"
+                    android:textSize="18sp"
+                    tools:text="12" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="贡献心币"
+                    android:textColor="#999999"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/center_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/color_FF3A3A"
+                    android:textSize="11sp"
+                    tools:ignore="SmallSp"
+                    tools:text="被拉黑28次" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/right_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#333333"
+                    android:textSize="18sp"
+                    tools:text="12" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="连线次数"
+                    android:textColor="#999999"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/right_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/color_FF3A3A"
+                    android:textSize="11sp"
+                    tools:ignore="SmallSp"
+                    tools:text="被拉黑28次" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/card_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#E7E7E7" />
+
+
+        <TextView
+            android:id="@+id/at_tv"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:gravity="center"
+            android:text="\@TA"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+
+    </com.flyco.roundview.RoundLinearLayout>
+
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/user_avatar_img"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/default_male_head"
+        app:radius_all="35dp"
+        app:round_stroke_color="@android:color/white"
+        app:round_stroke_width="3dp" />
+
+    <ImageView
+        android:id="@+id/logo_intimate_man"
+        android:layout_width="77.5dp"
+        android:layout_height="22.5dp"
+        android:layout_alignBottom="@id/user_avatar_img"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-10dp"
+        android:background="@drawable/logo_intimate_man"
+        tools:ignore="ContentDescription" />
+</RelativeLayout>

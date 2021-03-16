@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mei.widget.empty.EmptyPageView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/net_error_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:visibility="gone"
+    app:empty_btn_background="@drawable/common_btn_bg"
+    app:empty_btn_text="@string/try_again"
+    app:empty_image_resource="@drawable/empty_net_error_icon"
+    app:empty_text="@string/no_network"
+    tools:visibility="gone" />

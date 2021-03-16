@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="215dp"
+    android:clipChildren="false">
+
+    <RelativeLayout
+        android:layout_width="310dp"
+        android:layout_height="208dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_invite_system">
+
+        <TextView
+            android:id="@+id/invite_title"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="35dp"
+            android:includeFontPadding="false"
+            android:textColor="#666666"
+            android:textSize="13sp"
+            tools:text="活泼可爱的王老师 邀请你进 直播间" />
+
+        <TextView
+            android:id="@+id/tv_context"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/invite_title"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="8dp"
+            android:includeFontPadding="false"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            tools:text="活泼可爱的王老师 邀请你进 直播间" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="25dp"
+            android:orientation="horizontal">
+
+
+            <com.flyco.roundview.RoundTextView
+                android:id="@+id/left_dialog_btn"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="25dp"
+                android:gravity="center"
+                android:textColor="#999999"
+                android:textSize="15sp"
+                app:rv_backgroundColor="#F8F8F8"
+                app:rv_cornerRadius="20dp"
+                tools:text="再想想" />
+
+
+            <com.mei.widget.gradient.GradientTextView
+                android:id="@+id/right_dialog_btn"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                app:gd_end_color="@color/color_FF3F36"
+                app:gd_radius="22.5dp"
+                app:gd_start_color="@color/color_FF7F33"
+                tools:text="立即连线" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/user_avatar_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/default_male_head"
+        app:radius_all="10dp"
+        app:round_stroke_color="@android:color/white"
+        app:round_stroke_width="3dp" />
+
+    <TextView
+        android:id="@+id/invite_tag"
+        android:layout_width="81dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="-3dp"
+        android:background="@drawable/label_special_common"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        tools:text="婚姻指南" />
+
+</FrameLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="247dp"
+    android:layout_marginTop="0.3dp"
+    android:layout_marginBottom="0.5dp">
+
+
+    <ImageView
+        android:id="@+id/product_show_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center" />
+
+    <ImageView
+        android:id="@+id/product_flask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/flask_product" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/product_top"
+        android:layout_width="32dp"
+        android:layout_height="18dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="置顶"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:rv_backgroundColor="#33000000"
+        app:rv_cornerRadius="3dp" />
+
+    <ImageView
+        android:id="@+id/product_play"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/icon_product_play"
+        tools:ignore="RtlHardcoded" />
+
+    <RelativeLayout
+        android:id="@+id/progress_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <com.czp.library.ArcProgress
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:arcbgColor="@android:color/transparent"
+            app:borderWidth="4dp"
+            app:degree="0"
+            app:progressColor="@android:color/white"
+            app:progressStyle="arc"
+            app:radius="58dp"
+            app:unprogresColor="@android:color/transparent" />
+
+        <TextView
+            android:id="@+id/progress_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            tools:text="86%" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progress"
+            android:layout_centerHorizontal="true"
+            android:text="上传中,请稍等"
+            android:textColor="@android:color/white"
+            android:textSize="13sp" />
+
+
+    </RelativeLayout>
+
+</FrameLayout>

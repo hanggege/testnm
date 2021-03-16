@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <View
+        android:id="@+id/intimate_separation_main_title_end_20dp_line"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/intimate_separation_main_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/intimate_separation_main_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_333333"
+        android:textSize="20sp"
+        android:translationZ="1dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="知心达人·公开直播中" />
+
+    <TextView
+        android:id="@+id/intimate_separation_title_more_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="更多"
+        android:textColor="@color/color_666666"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@id/intimate_separation_main_title"
+        app:layout_constraintEnd_toStartOf="@id/intimate_separation_title_arrow"
+        app:layout_constraintTop_toTopOf="@id/intimate_separation_main_title"
+        tools:ignore="HardcodedText" />
+
+    <com.mei.widget.arrow.ArrowView
+        android:id="@+id/intimate_separation_title_arrow"
+        android:layout_width="5dp"
+        android:layout_height="9.5dp"
+        app:arrow_direction="right"
+        app:arrow_line_color="@color/color_666666"
+        app:arrow_width="1.5dp"
+        app:layout_constraintBottom_toBottomOf="@id/intimate_separation_title_more_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/intimate_separation_title_more_text" />
+
+    <View
+        android:id="@+id/intimate_separation_title_more_click"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/intimate_separation_title_more_text"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/intimate_separation_title_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="intimate_separation_title_more_text, intimate_separation_title_arrow,intimate_separation_title_more_click"
+        tools:visibility="visible" />
+
+    <com.mei.widget.gradient.GradientFrameLayout
+        android:layout_width="0dp"
+        android:layout_height="7dp"
+        app:gd_end_color="@color/transparent"
+        app:gd_radius="3.5dp"
+        app:gd_start_color="@color/alpha40_FF3A3A"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="@id/intimate_separation_main_title"
+        app:layout_constraintEnd_toEndOf="@id/intimate_separation_main_title_end_20dp_line"
+        app:layout_constraintStart_toStartOf="@id/intimate_separation_main_title" />
+
+    <TextView
+        android:id="@+id/intimate_separation_sub_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:includeFontPadding="false"
+        android:textColor="@color/color_999999"
+        android:textSize="11sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@id/intimate_separation_main_title"
+        app:layout_constraintTop_toBottomOf="@id/intimate_separation_main_title"
+        tools:ignore="SmallSp"
+        tools:text="连线30分钟，聊聊你的困扰，找到同频知心"
+        tools:visibility="visible" />
+
+</merge>

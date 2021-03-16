@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:id="@+id/root_conver_select"
+    android:gravity="center_vertical">
+
+    <RelativeLayout
+        android:id="@+id/avatar_layout"
+        android:layout_width="90dp"
+        android:layout_height="60dp">
+
+        <include
+            layout="@layout/include_avatar_40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/avatar_layout"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/message_nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxWidth="200dp"
+            android:maxLines="1"
+            android:text=""
+            android:textColor="@color/color_333333"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

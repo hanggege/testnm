@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+    <View
+        android:id="@+id/status_bar_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@android:color/white" />
+
+    <FrameLayout
+        android:id="@+id/im_msg_list_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/im_user_option_frame" />
+
+
+    <com.mei.widget.actionbar.MeiActionBar
+        android:id="@+id/mei_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_below="@id/status_bar_view"
+        android:background="@android:color/white" />
+
+    <LinearLayout
+        android:id="@+id/im_user_option_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mei_action_bar"
+        android:layout_marginTop="-1dp"
+        android:clipChildren="false"
+        android:orientation="vertical">
+
+        <com.mei.im.ui.view.C2CChartTopUsePubInfo
+            android:id="@+id/im_c2c_chart_user_pub_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false" />
+
+        <include layout="@layout/chat_c2c_header_private_layout" />
+
+        <com.mei.im.ui.view.ImServiceListBannerView
+            android:id="@+id/im_service_banner_islbv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </LinearLayout>
+    <!--假的遮罩层    -->
+    <View
+        android:id="@+id/c2c_mask_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:visibility="gone" />
+
+</RelativeLayout>

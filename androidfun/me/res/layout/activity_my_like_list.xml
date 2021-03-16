@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/my_like_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="3" />
+
+    <com.mei.widget.empty.EmptyPageView
+        android:id="@+id/my_like_empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:empty_image_height="114dp"
+        app:empty_image_resource="@drawable/my_like_empty"
+        app:empty_image_top_margin="130dp"
+        app:empty_image_width="270dp"
+        app:empty_main_background="@android:color/white"
+        app:empty_text="还没有赞过的短视频呢"
+        app:empty_text_color="@color/color_999999"
+        app:empty_text_size="15sp" />
+
+    <com.mei.base.common.EmptyPageLayout
+        android:id="@+id/my_like_network_unavailable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+</FrameLayout>

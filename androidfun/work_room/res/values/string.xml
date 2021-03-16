@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="work_room_hint_custom_tag">标签将展示在发现页和个人主页，你还可以添加%1$d个标签</string>
+    <string name="member_introduce_hint">请输入个人简介</string>
+    <string name="member_introduce_save">保存</string>
+</resources>

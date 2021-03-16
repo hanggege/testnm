@@ -1,0 +1,20 @@
+{
+  "cheek_thinning": 0.0,
+  "eye_enlarging": 0.4,
+  "cheek_v": 0.5,
+  "eye_bright": 0.0,
+  "filter_name": "origin",
+  "intensity_mouth": 0.4,
+  "color_level": 0.3,
+  "blur_level": 0.7,
+  "intensity_chin": 0.3,
+  "red_level": 0.3,
+  "cheek_narrow": 0.0,
+  "cheek_small": 0.0,
+  "filter_level": 0.7,
+  "tooth_whiten": 0.0,
+  "blur_type": 0.0,
+  "intensity_forehead": 0.3,
+  "skin_detect": 1.0,
+  "intensity_nose": 0.5
+}

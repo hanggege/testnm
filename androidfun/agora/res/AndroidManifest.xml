@@ -1,0 +1,38 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <application>
+
+        <activity
+            android:name="com.mei.live.ui.VideoLiveRoomActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing" />
+
+        <activity
+            android:name="com.mei.live.ui.StartLiveRoomActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="start_live"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.mei.live.ui.LiveEndingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.live.ui.LevelWebViewActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+    </application>
+</manifest>

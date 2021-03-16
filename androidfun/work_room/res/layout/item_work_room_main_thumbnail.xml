@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/room_main_thumbnail"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:radius_all="7dp" />
+
+    <com.flyco.roundview.RoundFrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/room_main_thumbnail"
+        app:layout_constraintLeft_toLeftOf="@id/room_main_thumbnail"
+        app:layout_constraintRight_toRightOf="@id/room_main_thumbnail"
+        app:layout_constraintTop_toTopOf="@id/room_main_thumbnail"
+        app:rv_backgroundColor="@color/masks_layer_20"
+        app:rv_cornerRadius="7dp" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/room_main_thumbnail_works_size"
+        android:layout_width="64.5dp"
+        android:layout_height="21dp"
+        android:gravity="center"
+        android:textColor="@color/color_666666"
+        android:textSize="10sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@id/room_main_thumbnail"
+        app:layout_constraintTop_toTopOf="@id/room_main_thumbnail"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius_BL="10dp"
+        app:rv_cornerRadius_TR="7dp"
+        tools:ignore="SmallSp"
+        tools:text="32个作品" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/room_main_thumbnail_top"
+        android:layout_width="28dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6.5dp"
+        android:background="@color/color_e8e8e8"
+        android:gravity="center"
+        android:text="置顶"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@id/room_main_thumbnail"
+        app:layout_constraintTop_toTopOf="@id/room_main_thumbnail"
+        app:rv_backgroundColor="@color/masks_layer_30"
+        app:rv_cornerRadius="2dp"
+        tools:ignore="HardcodedText,SmallSp" />
+
+    <ImageView
+        android:id="@+id/room_main_thumbnail_play"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:padding="6dp"
+        android:src="@drawable/work_room_main_thumbnail_play"
+        app:layout_constraintBottom_toBottomOf="@id/room_main_thumbnail"
+        app:layout_constraintEnd_toEndOf="@id/room_main_thumbnail" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

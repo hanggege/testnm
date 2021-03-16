@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="IconTextMenuView">
+        <attr name="text_content" format="string" />
+        <attr name="icon_drawable" format="reference" />
+
+    </declare-styleable>
+
+</resources>

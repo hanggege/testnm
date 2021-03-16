@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="short_video_page_description">视频封面</string>
+    <string name="browser_error_img_description">错误显示图片</string>
+    <string name="user_videos_empty_description">用户视频空页面图片</string>
+</resources>

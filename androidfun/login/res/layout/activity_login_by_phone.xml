@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/login_title_close"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="16dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="16dp"
+            android:src="@drawable/bg_black_back_arrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="登录知心"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/login_phone_input"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/top_layout"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/login_phone_country"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/login_phone_country_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:gravity="center"
+                android:text="+86"
+                android:clickable="false"
+                android:textColor="#000000"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:layout_width="7dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/icon_arrow_down"
+                android:textCursorDrawable="@drawable/bg_login_cursor" />
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="13dp"
+            android:background="@null"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="请输入您的手机号"
+            android:inputType="number"
+            android:textColor="#ff262626"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText,TextFields">
+
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@id/login_phone_input"
+        android:layout_marginRight="25dp"
+        android:background="#E8E8E8" />
+
+    <RelativeLayout
+        android:id="@+id/input_code_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/login_phone_input"
+        android:layout_marginTop="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="35dp"
+        android:paddingRight="35dp">
+
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/login_get_code"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="获取验证码"
+            android:textColor="#333333"
+            android:textSize="12sp"
+            app:rv_cornerRadius="5dp"
+            app:rv_strokeColor="#ff333333"
+            app:rv_strokeWidth="1dp"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/login_verification_code"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/login_get_code"
+            android:background="@null"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:drawablePadding="15dp"
+            android:hint="请输入验证码"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textColor="#ff262626"
+            android:textCursorDrawable="@drawable/bg_login_cursor"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/input_code_layout"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="#E8E8E8" />
+
+    <TextView
+        android:id="@+id/other_login_by_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/input_code_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/login_bt_bg"
+        android:gravity="center"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:text="确定"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+
+</RelativeLayout>

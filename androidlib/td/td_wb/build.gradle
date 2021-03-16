@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion target_sdk_version
+    buildToolsVersion build_tools_version
+
+    defaultConfig {
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        manifestPlaceholders = [
+                weibo_app_key     : weibo_app_key,
+                weibo_redirect_url: weibo_redirect_url,
+                weibo_scope       : weibo_scope
+        ]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly("androidx.appcompat:appcompat:$androidx_lib_version")
+    compileOnly project(':td_ls')
+    compileOnly project(':td_support')
+
+    api getWeiboLib()
+}
+
+def getWeiboLib() {
+    try {
+        return weibo_lib
+    } catch (Exception e) {
+        return 'com.sina.weibo.sdk:core:4.4.0:openDefaultRelease@aar'
+    }
+}

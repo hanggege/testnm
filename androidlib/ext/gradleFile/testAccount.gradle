@@ -1,0 +1,41 @@
+import groovy.json.JsonSlurper
+
+task testAccount {
+    doLast {
+        List<Integer> accountList = getTestAccountInfo()
+        def path = "$rootDir/androidlib/test/src/main/res/raw/test_account.json"
+        writeFile(path, "{\n\t\"\":\"用户名\"", false)
+
+        accountList.groupBy { it % 100 }.each {
+            println it.key
+            getUserInfo(it.value.join(',')).each {
+                def role = it.user_type > 0 ? "导师：" : "用户："
+                writeFile(path, ",\n\t\"${it.user_id}\":\"$role${it.user_name}\"", true)
+            }
+        }
+        writeFile(path, "\n}", true)
+    }
+}
+
+List<Integer> getTestAccountInfo() {
+    try {
+        def json = new JsonSlurper().parseText(file("$rootDir/androidlib/test/src/main/res/raw/test_number.json").text)
+        return json.data
+    } catch (Exception e) {
+        e.printStackTrace()
+        return Collections.<Integer> emptyList()
+    }
+}
+
+static def getUserInfo(user_ids) {
+    try {
+        def p = ['curl', 'http://sindar.yeshouxiansheng.com/user_profile/info_simple',
+                 "-F", "user_id=$user_ids"
+        ].execute()
+        def json = new JsonSlurper().parseText(p.text)
+        return json.data.list
+    } catch (Exception e) {
+        e.printStackTrace()
+        return null
+    }
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/color_F4F5FF"
+    android:paddingStart="20dp">
+
+    <ImageView
+        android:id="@+id/close_open_notification_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="10dp"
+        android:src="@drawable/icon_close"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/notification_hint_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开启推送通知，不再错过消息提醒"
+        android:textColor="@color/color_333333"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/close_open_notification_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <com.mei.widget.gradient.GradientTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:gravity="center"
+        android:paddingLeft="9.5dp"
+        android:paddingTop="4dp"
+        android:paddingRight="9.5dp"
+        android:paddingBottom="4dp"
+        android:text="去开启"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:gd_end_color="@color/color_85A2FF"
+        app:gd_radius="13dp"
+        app:gd_start_color="@color/color_5E82F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rv_cornerRadius="12.5dp"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

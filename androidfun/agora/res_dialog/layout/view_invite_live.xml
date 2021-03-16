@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/back_layout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingTop="45dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="20dp"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius="8dp">
+
+        <TextView
+            android:id="@+id/mentor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textColor="@color/color_333333"
+            android:textSize="13sp"
+            tools:text="成峰" />
+
+        <TextView
+            android:id="@+id/live_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            tools:text="邀请你连线" />
+
+        <TextView
+            android:id="@+id/live_hint_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="5dp"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            tools:text="本次连线需消耗20心币"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/live_sub_hint_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="5dp"
+            android:textColor="@color/color_333333"
+            android:textSize="12sp"
+            tools:text="咨询方向：" />
+
+        <LinearLayout
+            android:id="@+id/invite_now_apply_coupon_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/invite_now_apply_prefix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="正在使用"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="139dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/coupon_now_apply_bg">
+
+                <TextView
+                    android:id="@+id/invite_now_apply_coupon_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/line"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    tools:ignore="SmallSp"
+                    tools:text="免费券免费券" />
+
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="55dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/invite_now_apply_coupon_content_hint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/color_FF3A3A"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/line"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    tools:ignore="SmallSp"
+                    tools:text="5分钟连线5分钟连线5分钟连线" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <com.flyco.roundview.RoundTextView
+                android:id="@+id/close_dialog_btn"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="25dp"
+                android:gravity="center"
+                android:textColor="@color/color_999999"
+                android:textSize="15sp"
+                app:rv_backgroundColor="@color/color_f8f8f8"
+                app:rv_cornerRadius="20dp"
+                tools:text="我知道了" />
+
+
+            <com.mei.widget.gradient.GradientTextView
+                android:id="@+id/submit_dialog_btn"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                app:gd_end_color="@color/color_FF3F36"
+                app:gd_radius="22.5dp"
+                app:gd_start_color="@color/color_FF7F33"
+                tools:text="去充值" />
+        </LinearLayout>
+
+
+    </com.flyco.roundview.RoundLinearLayout>
+
+    <com.mei.widget.choince.ChoiceView
+        android:id="@+id/choice_view"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="15dp"
+        android:padding="3dp"
+        app:choice_color="@color/color_999999"
+        app:choice_type="cross"
+        app:choice_width="1.5dp"
+        tools:ignore="RtlHardcoded" />
+
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/user_avatar_img"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        app:radius_all="40dp"
+        app:round_stroke_color="@android:color/white"
+        app:round_stroke_width="3dp"
+        tools:src="@drawable/default_avatar_90" />
+
+</FrameLayout>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="450dp"
+    android:layout_gravity="bottom"
+    android:clipChildren="false">
+
+    <View
+        android:id="@+id/tb_dimss"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.flyco.roundview.RoundRelativeLayout
+        android:id="@+id/fl_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="18dp"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius_TL="8dp"
+        app:rv_cornerRadius_TR="8dp">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_card_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_head_frame"
+            android:overScrollMode="never"
+            tools:ignore="MissingConstraints" />
+
+        <com.flyco.roundview.RoundRelativeLayout
+            android:id="@+id/card_head_frame"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@+id/fl_head_dialog_card"
+            android:background="@android:color/white"
+            android:paddingStart="110dp"
+            app:rv_backgroundColor="@android:color/white"
+            app:rv_cornerRadius_TL="8dp"
+            app:rv_cornerRadius_TR="8dp"
+            tools:ignore="MissingConstraints,NotSibling">
+
+            <TextView
+                android:id="@+id/tv_card_dialog_use_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:maxLength="8"
+                android:textColor="@color/color_333333"
+                android:textSize="17sp"
+                tools:text="xxx" />
+
+            <ImageView
+                android:id="@+id/iv_roler_label"
+                android:layout_width="58.5dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="15dp"
+                android:layout_toEndOf="@+id/tv_card_dialog_use_name"
+                android:background="@drawable/icon_pers_vip_tip"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <com.mei.widget.gradient.GradientTextView
+                android:id="@+id/tv_card_follow_anchor"
+                android:layout_width="52dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="15dp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:gd_end_color="@color/color_FF3F36"
+                app:gd_radius="2dp"
+                app:gd_start_color="@color/color_FF7F33"
+                tools:visibility="gone" />
+
+            <com.mei.widget.menupoint.MenuPointView
+                android:id="@+id/more_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="16dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="16dp"
+                android:layout_alignParentEnd="true"
+                app:menu_number="3"
+                app:menu_point_color="@color/color_c8c8c8"
+                app:menu_point_width="4dp"
+                app:menu_type="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <com.mei.widget.gradient.GradientLinearLayout
+                android:id="@+id/live_state"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:visibility="gone"
+                app:gd_LB_radius="25dp"
+                app:gd_LT_radius="25dp"
+                app:gd_end_color="@color/color_FF5454"
+                app:gd_start_color="@color/color_ffa00a">
+
+                <com.mei.widget.living.LivingView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginStart="10dp"
+                    app:line_color="@android:color/white"
+                    app:line_width="1.5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="5dp"
+                    android:includeFontPadding="false"
+                    android:text="直播中"
+                    android:textColor="@android:color/white"
+                    android:textSize="10sp"
+                    tools:ignore="HardcodedText,SmallSp" />
+            </com.mei.widget.gradient.GradientLinearLayout>
+
+        </com.flyco.roundview.RoundRelativeLayout>
+
+
+    </com.flyco.roundview.RoundRelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/fl_head_dialog_card"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/fl_frame"
+
+        >
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/card_image_head"
+            android:layout_width="87dp"
+            android:layout_height="87dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-15dp"
+            android:src="@drawable/default_avatar_40"
+            app:radius_all="60dp"
+            app:round_stroke_color="@android:color/white"
+            app:round_stroke_width="3dp" />
+
+        <ImageView
+            android:layout_width="82dp"
+            android:layout_height="24.5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="55dp"
+            android:background="@drawable/icon_pers_vip_tip" />
+
+    </RelativeLayout>
+</RelativeLayout>

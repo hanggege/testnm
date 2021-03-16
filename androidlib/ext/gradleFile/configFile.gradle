@@ -1,0 +1,105 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+ext {
+    checkBiboConfig = this.&checkBiboConfig
+    checkVersionCode = this.&checkVersionCode
+}
+
+/**
+ * 更新版本号与code
+ */
+def checkVersionCode(String path, String version, int code) {
+    File targetFile = file(path)
+    String name = targetFile.name.substring(0, targetFile.name.indexOf('.'))
+    File versionTxt = file("${targetFile.parent}${File.separatorChar}/${name}.txt")
+    File versionJson = file("${targetFile.parent}${File.separatorChar}/${name}.json")
+    versionJson.createNewFile()
+    readVersion(path)
+    def dataMap = parseJson(versionJson.text)
+    if (dataMap.isEmpty()) dataMap = readVersion(versionTxt.path)
+    dataMap.put(version, "$code")
+
+    String formatContent = JsonOutput.prettyPrint(JsonOutput.toJson(dataMap))
+    writeFile(versionJson.path, formatContent, false)
+    versionTxt.delete()
+}
+
+/**
+ * 读取老版本记录
+ */
+def readVersion(String path) {
+    def dataList = new LinkedHashMap()
+    if (file(path).exists()) {
+        file(path).eachLine { line ->
+            if (line.trim()) {
+                def arr = line.split("[ ]+")
+                if (arr.length == 4) {
+                    dataList.put(arr[0], arr[2])
+                }
+            }
+        }
+    }
+    return dataList
+}
+
+/**
+ * 自动更新config_load.json
+ */
+def checkBiboConfig(String versionName, String configPath) {
+    File notifyFile = file("${rootDir}/cache/version_notify.json")
+    notifyFile.parentFile.mkdirs()
+    notifyFile.createNewFile()
+    Map map = parseJson(notifyFile.text)
+    boolean versionChanged = map["version"] != versionName
+
+    map["version"] = versionName
+    writeFile(notifyFile.path, JsonOutput.toJson(map), false)
+
+    if (isJenkins()) {
+        print('jenkins不更新config')
+    } else if (versionChanged || !file(configPath).exists()) {
+        def nameMap = ['wood': 'xiaolu2', 'gank': 'xiaolu2', 'ward': 'frozen', "bee": "xiaolu2", "duck": "xiaolu2"]
+        def projectName = nameMap.get(rootProject.name)
+        if (projectName == null) projectName = 'aman'
+        def url = "http://john.yeshouxiansheng.com/xiaolu/config?project_name=$projectName&front_type=1&version=$versionName"
+        def p = ['curl', url].execute()
+        println(url)
+        writeFile(configPath, decodeUnicode(JsonOutput.prettyPrint(p.text)), false)
+    }
+}
+
+static def parseJson(String txt) {
+    Map map = new HashMap()
+    try {
+        map = new JsonSlurper().parseText(txt)
+    } catch (Exception e) {
+        e.printStackTrace()
+    }
+    return map
+}
+
+/**
+ * unicode编码转中文
+ */
+static def decodeUnicode(String dataStr) {
+    int start = 0
+    def buffer = new StringBuffer()
+    try {
+        while (start > -1) {
+            int end = dataStr.indexOf("\\u", start)
+            if (end > -1) {
+                buffer.append(dataStr.substring(start, end))
+                def charStr = dataStr.substring(end + 2, end + 6)
+                buffer.append((char) Integer.parseInt(charStr, 16))
+                start = end + 6
+            } else {
+                buffer.append(dataStr.substring(start, dataStr.length()))
+                start = end
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace()
+    }
+    return buffer.toString()
+}

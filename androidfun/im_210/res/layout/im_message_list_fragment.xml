@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f6f6f6">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/im_message_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/im_coupon_hint"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/im_coupon_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/input_bottom_layout"
+        android:background="@drawable/bg_im_coupon_hint"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <View
+            android:id="@+id/bg_coupon_hint_text"
+            android:layout_width="223.5dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_im_coupon_hint_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/coupon_hint_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="64dp" />
+
+        <TextView
+            android:id="@+id/coupon_hint_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/bg_coupon_hint_text"
+            app:layout_constraintEnd_toEndOf="@id/coupon_hint_line"
+            app:layout_constraintStart_toStartOf="@id/bg_coupon_hint_text"
+            app:layout_constraintTop_toTopOf="@id/bg_coupon_hint_text"
+            tools:ignore="SmallSp"
+            tools:text="优惠券" />
+
+        <TextView
+            android:id="@+id/coupon_hint_count_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/color_FF3A3A"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/bg_coupon_hint_text"
+            app:layout_constraintEnd_toEndOf="@id/bg_coupon_hint_text"
+            app:layout_constraintStart_toStartOf="@id/coupon_hint_line"
+            app:layout_constraintTop_toTopOf="@id/bg_coupon_hint_text"
+            tools:text="该用户有3张优惠券可用" />
+
+        <com.mei.widget.arrow.ArrowView
+            android:layout_width="12dp"
+            android:layout_height="7dp"
+            android:layout_marginEnd="14dp"
+            app:arrow_direction="top"
+            app:arrow_line_color="@color/color_000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/input_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        tools:ignore="RtlSymmetry">
+
+        <!--        <include-->
+        <!--            android:id="@+id/im_more_menu_layout"-->
+        <!--            layout="@layout/include_chat_more_menu"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="110dp"-->
+        <!--            android:layout_below="@id/input_bar_layout"-->
+        <!--            android:visibility="gone"-->
+        <!--            tools:visibility="visible" />-->
+
+        <com.mei.im.ui.view.menu.view.ChatMoreMenuView
+            android:id="@+id/im_more_menu_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/input_bar_layout"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <FrameLayout
+            android:id="@+id/im_quick_msg_layout"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_below="@id/input_bar_layout"
+            android:background="@android:color/white"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/input_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp">
+
+            <FrameLayout
+                android:id="@+id/mentor_menu_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp">
+
+                <com.flyco.roundview.RoundTextView
+                    android:id="@+id/mentor_quick_msg_tv"
+                    android:layout_width="65dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="常用语"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp"
+                    android:visibility="visible"
+                    app:rv_backgroundColor="@color/color_FF8200"
+                    app:rv_cornerRadius="25dp"
+                    tools:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/mentor_show_keyboard"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/im_more_menu_keyboard_img"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/send_btn_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp">
+
+                <ImageView
+                    android:id="@+id/show_more_menu"
+                    android:layout_width="38dp"
+                    android:layout_height="50dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="6dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/im_more_menu_img"
+                    android:visibility="visible" />
+
+                <com.mei.widget.gradient.GradientTextView
+                    android:id="@+id/send_msg_tv"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    app:gd_end_color="@color/color_FF3F36"
+                    app:gd_radius="22.5dp"
+                    app:gd_start_color="@color/color_FF7F33"
+                    android:gravity="center"
+                    android:text="发送"
+                    android:textColor="@android:color/white"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+
+            <com.flyco.roundview.RoundFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toLeftOf="@id/send_btn_layout"
+                android:layout_toRightOf="@id/mentor_menu_layout"
+                app:rv_backgroundColor="#F9F9F9"
+                app:rv_cornerRadius="25dp">
+
+                <EditText
+                    android:id="@+id/im_input_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:ellipsize="end"
+                    android:maxLength="800"
+                    android:maxLines="3"
+                    android:minHeight="40dp"
+                    android:paddingStart="10dp"
+                    android:paddingTop="6dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="6dp"
+                    android:textColor="#333333"
+                    android:textColorHint="#CBCBCB"
+                    android:textSize="14sp"
+                    tools:text="" />
+            </com.flyco.roundview.RoundFrameLayout>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/im_gift_banner"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:visibility="gone" />
+</RelativeLayout>

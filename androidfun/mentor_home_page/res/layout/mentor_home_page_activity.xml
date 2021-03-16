@@ -1,0 +1,153 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/mentor_home_page_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:layout_behavior="com.mei.mentor_home_page.wiget.CustomBehavior">
+
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <include layout="@layout/mentor_home_page_header" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/mentor_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentInsetStart="0dp"
+                app:layout_collapseMode="pin">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp">
+
+                    <ImageView
+                        android:id="@+id/mentor_home_page_back_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:src="@drawable/bg_white_back_arrow"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/mentor_toolbar_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:ellipsize="end"
+                        android:maxEms="7"
+                        android:singleLine="true"
+                        android:textColor="@color/color_333333"
+                        android:textSize="18sp"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="爱的解答陈国峰ddddddd" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true">
+
+                        <RelativeLayout
+                            android:id="@+id/title_follow_container"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            tools:visibility="visible">
+
+                            <com.mei.widget.gradient.GradientTextView
+                                android:id="@+id/mentor_home_page_title_follow"
+                                android:layout_width="52dp"
+                                android:layout_height="25dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="4dp"
+                                android:layout_toStartOf="@id/more_btn"
+                                android:alpha="0"
+                                android:gravity="center"
+                                android:text="关注"
+                                android:textColor="@android:color/white"
+                                android:textSize="12sp"
+                                app:gd_end_color="@color/color_FF3F36"
+                                app:gd_radius="2dp"
+                                app:gd_start_color="@color/color_FF7F33"
+                                tools:ignore="HardcodedText" />
+
+                            <com.mei.widget.menupoint.MenuPointView
+                                android:id="@+id/more_btn"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_alignParentEnd="true"
+                                android:paddingLeft="15dp"
+                                android:paddingTop="16dp"
+                                android:paddingRight="15dp"
+                                android:paddingBottom="16dp"
+                                app:menu_number="3"
+                                app:menu_point_color="@android:color/white"
+                                app:menu_point_width="4dp"
+                                app:menu_type="horizontal" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/mentor_home_page_upload_cover"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="15dp"
+                            android:text="上传封面"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp"
+                            android:visibility="gone"
+                            tools:ignore="HardcodedText"
+                            tools:visibility="gone" />
+                    </FrameLayout>
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/mentor_home_page_tab"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:paddingBottom="1dp"
+            app:tabBackground="@color/color_00ffffff"
+            app:tabIndicator="@drawable/tab_indicator"
+            app:tabIndicatorColor="@color/color_303030"
+            app:tabIndicatorHeight="4dp"
+            app:tabMode="fixed"
+            app:tabRippleColor="@color/color_00ffffff"
+            app:tabSelectedTextColor="@color/color_333333"
+            app:tabTextColor="@color/color_666666" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_e8e8e8" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mentor_home_page_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:spanCount="6" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

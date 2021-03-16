@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/gift_page_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.mei.widget.recyclerview.banner.PageIndicatorView
+        android:id="@+id/gift_indicator"
+        android:layout_below="@+id/gift_page_recycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

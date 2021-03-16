@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/fan_contribute"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:drawableStart="@drawable/icon_contribute"
+        android:drawableEnd="@drawable/icon_to_contribute"
+        android:drawablePadding="3dp"
+        android:gravity="center"
+        android:paddingStart="2dp"
+        android:paddingEnd="4dp"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rv_backgroundColor="@color/masks_layer_20"
+        app:rv_cornerRadius="20dp"
+        tools:ignore="SmallSp"
+        tools:text="2451" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/room_week_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="5dp"
+        android:drawableStart="@drawable/icon_room_week_rank"
+        android:drawableEnd="@drawable/icon_to_contribute"
+        android:drawablePadding="3dp"
+        android:gravity="center"
+        android:paddingStart="6dp"
+        android:paddingEnd="4dp"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@id/fan_contribute"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginStart="0dp"
+        app:rv_backgroundColor="@color/masks_layer_20"
+        app:rv_cornerRadius="20dp"
+        tools:ignore="SmallSp"
+        tools:text="周榜第一名" />
+</androidx.constraintlayout.widget.ConstraintLayout>

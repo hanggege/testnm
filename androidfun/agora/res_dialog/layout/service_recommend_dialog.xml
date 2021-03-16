@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="310dp"
+    android:layout_height="155dp"
+    android:layout_gravity="center"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    app:rv_backgroundColor="@android:color/white"
+    app:rv_cornerRadius="8dp">
+
+    <TextView
+        android:id="@+id/invite_title"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center_horizontal"
+        android:includeFontPadding="false"
+        android:text="推荐该服务到直播间"
+        android:textColor="@color/color_333333"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_no_next_show_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:button="@drawable/check_service_no_next_show" />
+
+        <TextView
+            android:id="@+id/hint_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:gravity="center_horizontal"
+            android:text="下次不再提醒"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/confirm_dialog_btn"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="推荐"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="22.5dp"
+        app:gd_start_color="@color/color_FF7F33" />
+
+</com.flyco.roundview.RoundLinearLayout>

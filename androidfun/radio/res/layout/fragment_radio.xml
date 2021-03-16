@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/radio_control_v"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/voice_private_radio_default_bg">
+
+
+    <ImageView
+        android:id="@+id/radio_bg_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/voice_cover_bg_description"
+        android:src="@drawable/voice_private_radio_default_bg"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <com.mei.radio.view.MeiImageSwitcher
+            android:id="@+id/radio_bg_image_switcher"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/alpha50_black" />
+    </FrameLayout>
+
+    <!--    在听-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listening_rlv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radio_back_fl"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/listening_count_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listening_rlv"
+        tools:ignore="MissingConstraints,SmallSp"
+        tools:text="18人正在陪你听" />
+
+    <com.mei.radio.view.CycleTextListView
+        android:id="@+id/cycle_text_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/oval_scale_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/oval_scale_view"
+        tools:ignore="MissingConstraints" />
+
+    <com.mei.radio.view.OvalScaleView
+        android:id="@+id/oval_scale_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <com.mei.radio.view.MotionEventDispatchView
+        android:id="@+id/view_motion_dispatch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/oval_scale_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/oval_scale_view" />
+
+    <android.widget.Space
+        android:id="@+id/space"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="43.5dp"
+        app:layout_constraintBottom_toBottomOf="@id/oval_scale_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/oval_scale_view" />
+
+    <com.mei.radio.view.MeiImageSwitcher
+        android:id="@+id/iv_voice_cover"
+        android:layout_width="248dp"
+        android:layout_height="248dp"
+        app:layout_constraintBottom_toBottomOf="@id/oval_scale_view"
+        app:layout_constraintStart_toEndOf="@id/space"
+        app:layout_constraintTop_toTopOf="@id/oval_scale_view" />
+
+
+    <TextView
+        android:id="@+id/voice_name_tv"
+        android:layout_width="234dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/radio_play_or_pause_v"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:text="音频名称音频音频名称音频音频名称音频音频名称音频" />
+
+    <FrameLayout
+        android:id="@+id/radio_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/radio_play_or_pause_v"
+        app:layout_constraintEnd_toStartOf="@id/radio_play_or_pause_v"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.opensource.svgaplayer.SVGAImageView
+            android:id="@+id/radio_favorite_unselected"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_radio_favorite_unselected"
+            app:clearsAfterStop="false"
+            app:fillMode="Forward"
+            app:loopCount="1"
+            tools:ignore="ContentDescription" />
+
+    </FrameLayout>
+
+
+    <com.flyco.roundview.RoundRelativeLayout
+        android:id="@+id/radio_play_or_pause_v"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="76dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/radio_next"
+        app:layout_constraintStart_toEndOf="@id/radio_favorite"
+        app:layout_goneMarginLeft="15dp"
+        app:layout_goneMarginStart="15dp"
+        app:rv_backgroundColor="@color/alpha20_white"
+        app:rv_cornerRadius="90dp">
+
+        <ImageView
+            android:id="@+id/radio_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/radio_play_or_pause_description"
+            android:src="@drawable/radio_player_state_selector"
+            tools:visibility="gone" />
+
+        <com.mei.widget.progress.ProgressView
+            android:id="@+id/radio_voice_loading"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            app:pv_progressMode="indeterminate"
+            app:pv_progressStyle="@style/CircularWhiteProgress"
+            tools:visibility="visible" />
+
+    </com.flyco.roundview.RoundRelativeLayout>
+
+    <ImageView
+        android:id="@+id/radio_next"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_radio_next"
+        app:layout_constraintEnd_toStartOf="@id/radio_matter_img"
+        app:layout_constraintStart_toEndOf="@id/radio_play_or_pause_v"
+        app:layout_constraintTop_toTopOf="@id/radio_play_or_pause_v"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/radio_matter_img"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/selector_radio_matter"
+        app:layout_constraintEnd_toStartOf="@id/radio_my_favorite"
+        app:layout_constraintStart_toEndOf="@id/radio_next"
+        app:layout_constraintTop_toTopOf="@id/radio_play_or_pause_v"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/radio_matter_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:minWidth="30dp"
+        android:textColor="@android:color/white"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@id/radio_matter_img"
+        app:layout_constraintStart_toStartOf="@id/radio_matter_img"
+        app:layout_constraintTop_toBottomOf="@id/radio_matter_img"
+        tools:ignore="SmallSp"
+        tools:text="09:59" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/radio_matter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="radio_matter_img,radio_matter_duration" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/radio_my_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:drawableStart="@drawable/ic_radio_list"
+        android:drawablePadding="3dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        android:text="我喜欢的"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@id/radio_play_or_pause_v"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/radio_matter_img"
+        app:layout_constraintTop_toTopOf="@id/radio_play_or_pause_v"
+        app:rv_backgroundColor="@color/alpha20_white"
+        app:rv_cornerRadius="15dp"
+        tools:ignore="HardcodedText" />
+
+    <com.mei.base.common.EmptyPageLayout
+        android:id="@+id/radio_empty_page"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <FrameLayout
+        android:id="@+id/radio_back_fl"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/back_select_data" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/radio_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@id/radio_back_fl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/radio_back_fl"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

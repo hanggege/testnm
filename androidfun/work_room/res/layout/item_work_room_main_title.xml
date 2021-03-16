@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="7.5dp">
+
+    <View
+        android:id="@+id/room_main_title_line"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/color_f9f9f9"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/room_main_title_rll"
+        android:layout_width="5dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="22.5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/room_main_title_line"
+        app:rv_backgroundColor="@color/color_FC5D00"
+        app:rv_cornerRadius_BR="4dp"
+        app:rv_cornerRadius_TR="4dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/room_main_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:textColor="@color/color_333333"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/room_main_title_rll"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/room_main_title_rll"
+        tools:text="专属服务" />
+
+    <TextView
+        android:id="@+id/room_main_title_all_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="查看全部"
+        android:textColor="@color/color_666666"
+        android:textSize="12sp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/room_main_title_text"
+        app:layout_constraintEnd_toStartOf="@id/room_main_title_right_arrow"
+        tools:ignore="HardcodedText" />
+
+    <com.mei.widget.arrow.ArrowView
+        android:id="@+id/room_main_title_right_arrow"
+        android:layout_width="5dp"
+        android:layout_height="8.99dp"
+        android:layout_marginEnd="15dp"
+        app:arrow_width="1.25dp"
+        app:arrow_direction="right"
+        app:arrow_line_color="@color/color_666666"
+        app:layout_constraintTop_toTopOf="@id/room_main_title_all_text"
+        app:layout_constraintBottom_toBottomOf="@id/room_main_title_all_text"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/room_main_title_show_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="room_main_title_right_arrow,room_main_title_all_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

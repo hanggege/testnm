@@ -1,0 +1,115 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity
+            android:name="com.mei.me.activity.MyRoseActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="personal_top_tup"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.mei.me.activity.MeSettingActivity"
+            android:label="@string/setting"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="setting"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mei.me.activity.NewMessageNotificationSettingActivity"
+            android:label="新消息提醒"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.me.activity.PersonalInformationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="edit_personal_info"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.mei.me.activity.BlackListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.me.activity.MyFansListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.mei.me.activity.InterestSelectActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.me.activity.MyFollowListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="my_follow_list"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mei.me.activity.BindPhoneActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.me.activity.BindPhoneCodeActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.me.activity.EditIntroductionActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name="com.mei.me.activity.MyLikeListActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="my_like_list"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mei.me.activity.MyBlacklistActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+    </application>
+</manifest>

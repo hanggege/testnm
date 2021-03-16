@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        android:paddingBottom="80dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <com.mei.widget.gradient.GradientLinearLayout
+        android:id="@+id/studio_live"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="62.5dp"
+        android:layout_marginBottom="34dp"
+        android:gravity="center"
+        android:visibility="gone"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="22.5dp"
+        app:gd_start_color="@color/color_FF7F33"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/studio_live_img"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="6.5dp"
+            android:src="@drawable/studio_live_img"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/studio_live_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText"
+            tools:text="工作室开播" />
+
+    </com.mei.widget.gradient.GradientLinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mei.base.weight.richtext.view.DeletableEditText xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:cursorVisible="true"
+    android:gravity="top|left"
+    android:text=""
+    android:textColor="@color/color_3f3f3f"
+    android:textColorHint="@color/color_cecece"
+    android:textSize="14sp"
+    android:textCursorDrawable="@drawable/richtext_color_cursor">
+
+</com.mei.base.weight.richtext.view.DeletableEditText>

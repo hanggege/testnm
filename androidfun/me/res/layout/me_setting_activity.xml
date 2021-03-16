@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8F8"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/new_message_notification_setting_rl"
+        style="@style/setting_row_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/list_press_selector_normal"
+        tools:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="新消息提醒"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <com.mei.widget.arrow.ArrowView
+            android:layout_width="6dp"
+            android:layout_height="12dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:arrow_direction="right"
+            app:arrow_line_color="@color/color_cacaca" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.75dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="#F8F8F8"
+        tools:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/my_blacklist_row"
+        style="@style/setting_row_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/list_press_selector_normal"
+        android:visibility="visible"
+        tools:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="黑名单"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <com.mei.widget.arrow.ArrowView
+            android:layout_width="6dp"
+            android:layout_height="12dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:arrow_direction="right"
+            app:arrow_line_color="@color/color_cacaca" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.75dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/color_f8f8f8"
+        tools:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/stealth_function_layout"
+        style="@style/setting_row_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/list_press_selector_normal"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="账号隐身"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <com.mei.base.weight.button.SwitchButton
+            android:id="@+id/stealth_function_switch"
+            android:layout_width="43dp"
+            android:layout_height="23dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            app:onColor="#78d374"
+            app:thumb_height="20dp"
+            app:thumb_width="20dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/about_us_row"
+        style="@style/setting_row_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/list_press_selector_normal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="关于知心"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <com.mei.widget.arrow.ArrowView
+            android:layout_width="6dp"
+            android:layout_height="12dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:arrow_direction="right"
+            app:arrow_line_color="@color/color_cacaca" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/setting_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.75dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/color_f8f8f8"
+        tools:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/setting_user_privacy"
+        style="@style/setting_row_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/list_press_selector_normal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="用户及隐私条款"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <com.mei.widget.arrow.ArrowView
+            android:layout_width="6dp"
+            android:layout_height="12dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:arrow_direction="right"
+            app:arrow_line_color="@color/color_cacaca" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/logout_btn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:text="@string/logout"
+        android:textColor="#989898"
+        android:textSize="16sp" />
+</LinearLayout>

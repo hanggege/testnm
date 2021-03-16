@@ -1,0 +1,28 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="actionBarSize">50dp</item>
+        <item name="android:actionBarSize">50dp</item>
+        <item name="colorPrimary">@color/color_333333</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorAccent">@color/color_333333</item>
+        <item name="android:background">@null</item>
+        <item name="android:selectableItemBackground">@null</item>
+        <item name="android:selectableItemBackgroundBorderless" tools:targetApi="lollipop">@null
+        </item>
+    </style>
+
+    <style name="NoActionBar" parent="AppTheme">
+        <item name="actionBarSize">0dp</item>
+        <item name="android:actionBarSize">0dp</item>
+        <!--<item name="android:windowNoTitle">true</item>-->
+        <!--<item name="android:windowActionBar">false</item>-->
+        <!--<item name="windowActionBar">false</item>-->
+        <!--<item name="windowNoTitle">true</item>-->
+    </style>
+
+</resources>

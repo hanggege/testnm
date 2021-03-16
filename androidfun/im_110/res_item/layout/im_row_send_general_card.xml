@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    tools:background="@android:color/holo_blue_light">
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/im_time_stamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:includeFontPadding="false"
+        android:padding="5dp"
+        android:text="12:00"
+        android:textColor="#989898"
+        android:textSize="12sp"
+        app:rv_cornerRadius="3dp"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal"
+        android:paddingRight="15dp">
+
+        <include layout="@layout/include_avatar_42" />
+
+
+        <!--这个结构下面的为每条消息体，上面的是通用消息内容，一般都会有-->
+        <com.flyco.roundview.RoundLinearLayout
+            android:id="@+id/im_message_container"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:rv_backgroundColor="@android:color/white"
+            app:rv_cornerRadius="10dp">
+
+            <TextView
+                android:id="@+id/card_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_general_card_top"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:minHeight="41dp"
+                android:paddingStart="15dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="10dp"
+                android:text="你的测试报告已"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp"
+                tools:ignore="HardcodedText"
+                tools:visibility="gone" />
+
+            <com.mei.widget.round.RoundImageView
+                android:id="@+id/top_image"
+                android:layout_width="match_parent"
+                android:layout_height="129dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:visibility="gone"
+                app:radius_all="2dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.mei.widget.round.RoundImageView
+                    android:id="@+id/start_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="14dp"
+                    android:visibility="gone"
+                    app:radius_all="2dp" />
+
+                <TextView
+                    android:id="@+id/card_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="@color/color_333333"
+                    android:textSize="16sp"
+                    tools:text="抑郁程度测评，测测你的抑郁程度测测你的抑郁程度" />
+
+                <com.mei.widget.round.RoundImageView
+                    android:id="@+id/end_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="14dp"
+                    android:visibility="gone"
+                    app:radius_all="2dp" />
+
+            </LinearLayout>
+
+            <com.mei.widget.round.RoundImageView
+                android:id="@+id/bottom_image"
+                android:layout_width="match_parent"
+                android:layout_height="129dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                app:radius_all="2dp" />
+
+            <TextView
+                android:id="@+id/card_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                android:gravity="center_vertical"
+                android:textColor="@color/color_FE3F3F"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:id="@+id/button_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center">
+
+                <com.mei.widget.gradient.GradientTextView
+                    android:id="@+id/start_btn"
+                    android:layout_width="100dp"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:gd_end_color="@color/color_FF3F36"
+                    app:gd_radius="32dp"
+                    app:gd_start_color="@color/color_FF7F33"
+                    tools:text="立即查看" />
+
+                <com.flyco.roundview.RoundTextView
+                    android:id="@+id/end_btn"
+                    android:layout_width="100dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:rv_backgroundColor="@color/color_D8D8D8"
+                    app:rv_cornerRadius="32dp"
+                    tools:text="立即查看" />
+            </LinearLayout>
+        </com.flyco.roundview.RoundLinearLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="4dp">
+
+            <ImageView
+                android:id="@+id/im_message_retry"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/im_send_error_img"
+                android:visibility="gone"
+                tools:ignore="ContentDescription"
+                tools:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/im_message_sending"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:indeterminateDrawable="@drawable/smallprogressbars"
+                android:visibility="visible" />
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

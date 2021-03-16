@@ -1,0 +1,28 @@
+{
+  "beta": [
+    {
+      "buildTimeFilePath": "beta/2.4.8.2_beta5-250_2020-11-26 15:30:02.json",
+      "buildVersion": "2.4.8.2_beta5-250",
+      "buildTime": 764.982,
+      "endDate": "2020-11-26 15:42:47",
+      "buildUser": "joker",
+      "startDate": "2020-11-26 15:30:02"
+    },
+    {
+      "buildTimeFilePath": "beta/2.4.8.2_beta5-250_2020-11-25 17:30:58.json",
+      "buildVersion": "2.4.8.2_beta5-250",
+      "buildTime": 1487.723,
+      "endDate": "2020-11-25 17:55:45",
+      "buildUser": "joker",
+      "startDate": "2020-11-25 17:30:58"
+    },
+    {
+      "buildTimeFilePath": "beta/2.3.6_beta24-44_2020-09-17 20:35:58.json",
+      "buildVersion": "2.3.6_beta24-44",
+      "buildTime": 636.237,
+      "endDate": "2020-09-17 20:46:34",
+      "buildUser": "joker",
+      "startDate": "2020-09-17 20:35:58"
+    }
+  ]
+}

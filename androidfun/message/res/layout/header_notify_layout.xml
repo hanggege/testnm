@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingTop="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+    <com.mei.widget.recyclerview.banner.BannerView
+        android:id="@+id/notify_header_banner"
+        android:layout_width="match_parent"
+        android:layout_height="90dp" />
+
+    <com.mei.widget.recyclerview.banner.PageIndicatorView
+        android:id="@+id/notify_header_indicator_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/notify_header_banner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="4dp" />
+</RelativeLayout>

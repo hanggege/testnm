@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/title_line_rll"
+        android:layout_width="5dp"
+        android:layout_height="15dp"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mentor_home_page_user_titile"
+        app:layout_constraintBottom_toBottomOf="@+id/mentor_home_page_user_titile"
+        app:rv_cornerRadius_BR="4dp"
+        app:rv_cornerRadius_TR="4dp"
+        app:rv_backgroundColor="@color/color_FC5D00" />
+
+    <TextView
+        android:id="@+id/mentor_home_page_user_titile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="个人简介"
+        android:textColor="@color/color_333333"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/title_line_rll"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.zhy.view.flowlayout.TagFlowLayout
+        android:id="@+id/mentor_home_page_user_info_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mentor_home_page_user_titile" />
+
+
+    <com.mei.live.views.ExpandableTextView.CardExpandableTextView
+        android:id="@+id/expand_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:paddingBottom="15dp"
+        android:gravity="left"
+        android:lineSpacingExtra="4dp"
+        android:textColor="@color/color_333333"
+        android:includeFontPadding="false"
+        android:textSize="15sp"
+        app:ep_contract_color="@color/color_FF3A3A"
+        app:ep_expand_color="@color/color_FF3A3A"
+        app:ep_max_line="7"
+        app:ep_mention_color="@color/color_666666"
+        app:ep_need_contract="true"
+        app:ep_need_expand="true"
+        app:ep_need_link="false"
+        app:ep_need_mention="false"
+        app:layout_constraintTop_toBottomOf="@+id/mentor_home_page_user_info_tag"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

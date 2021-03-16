@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/footer_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_f8f8f8">
+
+    <RelativeLayout
+        android:id="@+id/loading_container"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:indeterminateDrawable="@drawable/smallprogressbars"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/load_on"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_centerVertical="true"
+            android:text="加载中..."
+            android:layout_toRightOf="@id/progress"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:textColor="@color/color_c8c8c8"
+            android:textSize="12sp"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/loaded_container"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/loaded_over"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/xiaolu_slogan"
+            android:textColor="@color/color_a8a8a8"
+            android:textSize="14sp"
+            android:visibility="visible" />
+
+        <View
+            android:layout_width="45dp"
+            android:layout_height="0.5dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="19dp"
+            android:layout_toLeftOf="@id/loaded_over"
+            android:background="@color/color_a8a8a8" />
+
+        <View
+            android:layout_width="45dp"
+            android:layout_height="0.5dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="19dp"
+            android:layout_toRightOf="@id/loaded_over"
+            android:background="@color/color_a8a8a8" />
+    </RelativeLayout>
+</RelativeLayout>

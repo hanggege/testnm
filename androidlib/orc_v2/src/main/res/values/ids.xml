@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--为空界面用到的id-->
+    <item name="empty_image" type="id" />
+    <item name="empty_text" type="id" />
+    <item name="empty_btn" type="id" />
+
+
+</resources>

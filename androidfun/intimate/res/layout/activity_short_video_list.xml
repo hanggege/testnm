@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <com.mei.base.weight.tablayout.SlidingTabLayout
+        android:id="@+id/slide_tab_layout"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        app:layout_constraintBottom_toBottomOf="@id/back_choice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/back_choice"
+        app:layout_constraintTop_toTopOf="@id/back_choice"
+        app:tl_indicator_color="@color/color_303030"
+        app:tl_indicator_corner_radius="2dp"
+        app:tl_indicator_height="4dp"
+        app:tl_indicator_width="20dp"
+        app:tl_tab_padding="10dp"
+        app:tl_textBold="SELECT"
+        app:tl_textSelectColor="@color/color_333333"
+        app:tl_textSelectSize="19sp"
+        app:tl_textUnselectColor="@color/color_333333"
+        app:tl_textsize="15sp" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slide_tab_layout" />
+
+    <com.mei.base.common.EmptyPageLayout
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:empty_layout_btn_text="@string/try_again"
+        app:empty_layout_text="@string/no_network" />
+
+    <com.mei.widget.arrow.ArrowView
+        android:id="@+id/back_choice"
+        android:layout_width="38dp"
+        android:layout_height="44dp"
+        android:padding="15dp"
+        app:arrow_direction="left"
+        app:arrow_line_color="@color/color_333333"
+        app:arrow_width="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

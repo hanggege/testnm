@@ -1,0 +1,12 @@
+{
+"buildType":"beta",
+"buildUser":"joker",
+"allTime":"636.237",
+"startDate":"2020-09-17 20:35:58",
+"endDate":"2020-09-17 20:46:34",
+"versionName":"2.3.6_beta24",
+"versionCode":"44",
+"tasks":{
+   "dove:prepareKotlinBuildScriptModel":"0.013"
+   }
+}

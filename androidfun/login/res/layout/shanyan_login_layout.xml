@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="false">
+
+    <ImageView
+        android:id="@+id/login_splash_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/login_logo_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/other_login_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="其他方式登录"
+        android:textColor="@color/color_989898"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/login_by_wechat"
+        android:layout_marginBottom="14dp"/>
+
+
+    <ImageView
+        android:id="@+id/login_by_wechat"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/icon_login_wechat"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/login_by_phone"
+        app:layout_constraintBottom_toBottomOf="@id/login_by_phone" />
+
+    <ImageView
+        android:id="@+id/login_by_phone"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="90dp"
+        android:src="@drawable/icon_login_phone"
+        app:layout_constraintLeft_toRightOf="@id/login_by_wechat"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="75dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

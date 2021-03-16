@@ -1,0 +1,19 @@
+在我们项目中封装了IMAllEventManager实现相关事件回调以及拓展了事件集合管理，
+IMAllEventManager封装了我们基本所需要的事件回调，使用IMAllEventManagerKit.kt
+里面的registered，unregistered添加事件注册，如果是FragmentActi**vity或者Fragment可以
+直接使用bindEventLifecycle即可。
+
+
+IMAllEventManager可以回调的事件有:
+```
+TIMMessageListener:新消息接收事件
+TIMOfflinePushListener: 离线消息推送接收事件
+TIMMessageRevokedListener: 消息撤回事件
+TIMMessageReceiptListener: 消息接收回执事件
+TIMUserStatusListener: 用户状态改变事件
+TIMConnListener: TIM链接状态改变事件
+TIMRefreshListener: 数据刷新事件
+TIMGroupEventListener: 群组事件
+```
+
+这里需要注意，不是特殊监听的话，注册和解绑一定要成双成对出现，不然容易造成内存泄漏。

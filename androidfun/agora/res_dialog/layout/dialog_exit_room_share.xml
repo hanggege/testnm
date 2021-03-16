@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@android:color/transparent">
+
+    <ImageView
+        android:id="@+id/share_info_top_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_exit_room_share_top_bg"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <com.flyco.roundview.RoundFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/share_info_top_img"
+        app:layout_constraintVertical_bias="0.0"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius_BL="8dp"
+        app:rv_cornerRadius_BR="8dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <ImageView
+        android:id="@+id/share_poster"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="4.5dp"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/share_barrier_mid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/share_info_top_img"
+        tools:background="@color/color_4CB866"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:id="@+id/share_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/bg_exit_room_dialog"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/share_barrier_mid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/share_info_top_img">
+
+        <ImageView
+            android:id="@+id/share_msg_left_iv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="2dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/share_msg_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="2dp" />
+
+        <ImageView
+            android:id="@+id/share_msg_right_iv"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="2dp"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/share_barrier_mid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="share_poster,share_msg" />
+
+    <com.mei.widget.gradient.GradientLinearLayout
+        android:id="@+id/share_btn_left"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="12.5dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="12.5dp"
+        android:gravity="center"
+        app:gd_radius="23dp"
+        app:gd_start_color="@color/color_4CB866"
+        app:layout_constraintBottom_toTopOf="@id/share_exit_text"
+        app:layout_constraintEnd_toStartOf="@id/share_btn_right"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/share_barrier_mid"
+        app:layout_goneMarginBottom="20dp">
+
+        <ImageView
+            android:id="@+id/share_btn_left_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/icon_wechat"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/share_btn_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分享给好友"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
+
+    </com.mei.widget.gradient.GradientLinearLayout>
+
+    <com.mei.widget.gradient.GradientLinearLayout
+        android:id="@+id/share_btn_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="12.5dp"
+        android:gravity="center"
+        app:gd_radius="23dp"
+        app:gd_start_color="@color/color_4CB866"
+        app:layout_constraintBottom_toBottomOf="@id/share_btn_left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/share_btn_left"
+        app:layout_constraintTop_toTopOf="@id/share_btn_left">
+
+        <ImageView
+            android:id="@+id/share_btn_right_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/icon_share_wechat_moments"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/share_btn_right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分享到朋友圈"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
+
+    </com.mei.widget.gradient.GradientLinearLayout>
+
+    <TextView
+        android:id="@+id/share_exit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:text="退出直播间"
+        android:textColor="@color/color_C8C8C8"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/share_btn_left"
+        tools:ignore="HardcodedText"
+        tools:visibility="gone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

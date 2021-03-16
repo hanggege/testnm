@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/black_list_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="16dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="16dp"
+            android:src="@drawable/bg_black_back_arrow"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/rose_title"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="黑名单"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/consume_record"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="请选择你感兴趣的内容"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:gravity="center"
+        android:text="完善资料，为您匹配更精准的内容"
+        android:textColor="#ABABAB"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/interested_recy"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="34dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:overScrollMode="never" />
+
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/three_next"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="80dp"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="22.5dp"
+        app:gd_start_color="@color/color_FF7F33"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>

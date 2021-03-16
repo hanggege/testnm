@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gift_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:minHeight="150dp"
+    app:rv_backgroundColor="@color/color_181824"
+    app:rv_cornerRadius_TL="12dp"
+    app:rv_cornerRadius_TR="12dp">
+
+    <com.mei.widget.choince.ChoiceView
+        android:id="@+id/cancel"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="15dp"
+        app:choice_color="#80ffffff"
+        app:choice_type="cross" />
+
+    <TextView
+        android:id="@+id/shield_manager_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="更多功能"
+        android:textColor="#80ffffff"
+        tools:ignore="HardcodedText" />
+
+    <View
+        android:id="@+id/view_divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.25dp"
+        android:layout_below="@+id/shield_manager_title"
+        android:layout_marginTop="15dp"
+        android:background="#1Affffff" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/menu_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_divider"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="4" />
+
+</com.flyco.roundview.RoundRelativeLayout>

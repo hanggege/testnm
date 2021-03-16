@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mei.widget.gradient.GradientLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/complement_name"
+    android:layout_width="match_parent"
+    android:layout_height="38dp"
+    android:gravity="center"
+    app:gd_radius="19dp"
+    app:gd_stroke_start_color="@color/color_c8c8c8"
+    app:gd_stroke_width="0.5dp"
+    tools:gd_end_color="@color/color_FD645D"
+    tools:gd_start_color="@color/color_FD955A">
+
+    <ImageView
+        android:id="@+id/complement_name_icon"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="6dp"
+        android:src="@drawable/icon_wechat"
+        android:visibility="gone"
+        tools:ignore="ContentDescription"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/complement_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:textColor="@color/color_c8c8c8"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText"
+        tools:text="三金"
+        tools:textColor="@android:color/white" />
+
+</com.mei.widget.gradient.GradientLinearLayout>

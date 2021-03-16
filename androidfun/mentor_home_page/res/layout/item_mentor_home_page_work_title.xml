@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp">
+
+    <View
+        android:id="@+id/mentor_home_page_line"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#fff9f9f9"
+        tools:ignore="MissingConstraints" />
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/title_line_rll"
+        android:layout_width="5dp"
+        android:layout_height="15dp"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mentor_home_page_line"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:rv_cornerRadius_BR="4dp"
+        app:rv_cornerRadius_TR="4dp"
+        app:rv_backgroundColor="@color/color_FC5D00" />
+
+    <TextView
+        android:id="@+id/production_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:text="相册"
+        android:textColor="@color/color_333333"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/title_line_rll"
+        app:layout_constraintTop_toBottomOf="@+id/mentor_home_page_line" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/mentor_home_page_icon_upload_pic"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="10dp"
+        android:drawableStart="@drawable/icon_upload_pic"
+        android:drawablePadding="-10dp"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp_10"
+        android:text="发布图片"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/production_title"
+        app:layout_constraintRight_toLeftOf="@id/mentor_home_page_icon_upload_video"
+        app:layout_constraintTop_toTopOf="@id/production_title"
+        app:rv_backgroundColor="#FF6D1A"
+        app:rv_cornerRadius="15dp" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/mentor_home_page_icon_upload_video"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="15dp"
+        android:drawableStart="@drawable/icon_upload_video"
+        android:drawablePadding="-10dp"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp_10"
+        android:text="发布视频"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/production_title"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/production_title"
+        app:rv_backgroundColor="#ffffa500"
+        app:rv_cornerRadius="15dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

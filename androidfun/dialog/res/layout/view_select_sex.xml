@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.flyco.roundview.RoundLinearLayout
+            app:rv_backgroundColor="@android:color/white"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            app:rv_cornerRadius_TR="8dp"
+            app:rv_cornerRadius_TL="8dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/dialog_sel_male"
+                android:text="男"
+                android:gravity="center"
+                android:padding="12dp"
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#fff8f8f8" />
+
+
+            <TextView
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:id="@+id/dialog_sel_female"
+                android:text="女"
+                android:gravity="center"
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.flyco.roundview.RoundLinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:background="#fff8f8f8"
+            android:layout_height="5dp" />
+
+        <com.flyco.roundview.RoundTextView
+            app:rv_backgroundColor="@android:color/white"
+            android:id="@+id/dialog_sel_cancel"
+            android:text="取消"
+            android:gravity="center"
+            android:padding="12dp"
+            android:textColor="#989898"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

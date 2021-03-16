@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mei.widget.round.RoundTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/consult_product_label"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:gravity="center"
+    android:textColor="@color/color_333333"
+    android:textSize="14sp"
+    app:back_color="@color/color_f8f8f8"
+    app:stroke_radius="15dp"
+    tools:back_color="@color/color_4CB866"
+    tools:text="抑郁焦虑" />

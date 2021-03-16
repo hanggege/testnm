@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="42dp">
+
+    <LinearLayout
+        android:id="@+id/load_more_loading_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:indeterminateDrawable="@drawable/smallprogressbars"
+            android:layout_width="25dp"
+            android:layout_height="25dp" />
+
+        <TextView
+            android:id="@+id/load_on"
+            android:layout_width="wrap_content"
+            android:includeFontPadding="false"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_c8c8c8"
+            android:gravity="center"
+            android:text="@string/pull_loading"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/load_more_load_fail_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_prompt"
+            android:layout_width="match_parent"
+            android:includeFontPadding="false"
+            android:layout_height="match_parent"
+            android:textColor="@color/color_c8c8c8"
+            android:gravity="center"
+            android:text="@string/brvah_load_failed"
+            android:textSize="12sp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/load_more_load_end_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/load_end"
+            android:layout_width="match_parent"
+            android:includeFontPadding="false"
+            android:layout_height="match_parent"
+            android:textColor="@color/color_c8c8c8"
+            android:gravity="center"
+            android:text="@string/msg_no_more"
+            android:textSize="12sp" />
+    </FrameLayout>
+
+    <View
+        android:id="@+id/load_more_load_complete_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</FrameLayout>

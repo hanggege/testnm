@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:alpha="0.9"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        app:rv_backgroundColor="#FFFFFF"
+        app:rv_cornerRadius="15dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:src="@drawable/icon_upload_tip_bg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="18dp"
+            android:lineSpacingExtra="3dp"
+            android:includeFontPadding="false"
+            android:text="发消息没人回复？上传清晰的五官照头像，可大幅提升回复率哦～"
+            android:textColor="#333333"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/upload_avatar_now"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/gradient_bg_fffeba2e_ffff8100"
+            android:gravity="center"
+            android:text="立即上传头像"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/complement_info_cancel"
+            android:layout_marginTop="15dp"
+            android:textSize="15sp"
+            android:textColor="#CBCBCB"
+            android:layout_marginBottom="15dp"
+            android:text="暂不上传"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.flyco.roundview.RoundLinearLayout>
+
+
+</FrameLayout>

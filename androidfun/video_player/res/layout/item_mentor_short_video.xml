@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="155dp"
+    tools:background="@color/color_333333">
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/short_video_riv"
+        android:layout_width="match_parent"
+        android:layout_height="155dp"
+        android:scaleType="centerCrop"
+        app:radius_all="2dp"
+        app:round_color="@color/color_282D4B" />
+
+    <com.mei.widget.gradient.GradientFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom"
+        android:visibility="gone"
+        app:gd_direction="topToBottom"
+        app:gd_end_color="@color/alpha100_black"
+        app:gd_start_color="@color/alpha0_black" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/mentor_avatar_riv"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:radius_all="45dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/mentor_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="2dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            tools:ignore="MissingConstraints"
+            tools:text="小松心理小松心理咨小松心小松心理小松心理咨小松心小松心理小松心理咨小松心" />
+    </LinearLayout>
+
+
+</FrameLayout>

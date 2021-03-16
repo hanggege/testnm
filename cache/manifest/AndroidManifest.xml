@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mei.wood">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <!-- 需要申请的权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+
+
+    <permission
+        android:name="android.permission.INTERACT_ACROSS_USERS_FULL"
+        android:protectionLevel="signature" />
+    <permission
+        android:name="android.permission.INTERACT_ACROSS_USERS"
+        android:protectionLevel="signature" />
+
+    <!-- 个推Android9.0以上默认不不⽀支持http通信，为保证SDK正常使⽤用，请在application节点下新增该属性  android:usesCleartextTraffic="true"-->
+
+
+    <!--Q 后台定位权限-->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+    <!--android 9使用前台服务定位适配-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+
+    <!-- 去AndroidManifest_wood.xml 找对应清单 -->
+
+
+    <!--https://developer.android.google.cn/preview/privacy/scoped-storage-->
+    <!--android:requestLegacyExternalStorage="true"  Q存储兼容  设置为兼容模式Legacy View-->
+    <!--Filtered View-->
+    <!--App可以直接访问App-specific目录，但不能直接访问App-specific外的文件。-->
+    <!--访问公共目录或其他APP的App-specific目录，只能通过MediaStore、SAF、或者其他APP提供的ContentProvider、FileProvider等访问。-->
+    <!--Legacy View-->
+    <!--兼容模式。与Android Q以前一样， 申请权限后App可访问外部存储，拥有完整的访问权限。-->
+    <application
+        android:name="com.mei.wood.App"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="UnusedAttribute"
+        tools:replace="android:label,android:allowBackup">
+
+        <!-- 渠道 -->
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL}" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name="com.mei.splash.ui.SplashActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <data
+                    android:host="${package_name}"
+                    android:scheme="${app_scheme}" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.oppopush" />
+            </intent-filter>
+            <!-- GIO 集成配置，使用圈选和 Debugger 等功能用作唤醒 APP-->
+            <intent-filter>
+                <data android:scheme="${GROWING_IO_SCHEME}" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <!-- GIO APPLinks 配置，广告监测用途，APP 用户点击广告监测短链直接跳转 APP-->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="gio.ren"
+                    android:pathPattern="/nWR4bud.*"
+                    android:scheme="https" />
+                <data
+                    android:host="gio.ren"
+                    android:pathPattern="/nWR4b.*id.*"
+                    android:scheme="https" />
+
+                <data
+                    android:host="gio.ren"
+                    android:pathPattern="/nWR4b.*td.*"
+                    android:scheme="https" />
+
+                <data
+                    android:host="datayi.cn"
+                    android:pathPattern="/nWR4bud.*"
+                    android:scheme="https" />
+                <data
+                    android:host="datayi.cn"
+                    android:pathPattern="/nWR4b.*id.*"
+                    android:scheme="https" />
+
+                <data
+                    android:host="datayi.cn"
+                    android:pathPattern="/nWR4b.*td.*"
+                    android:scheme="https" />
+            </intent-filter>
+
+
+        </activity>
+
+
+    
+
+        <activity
+            android:name="com.mei.wood.web.MeiWebActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="new_json_webview"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="new_webview"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- 带有分享按钮的webview -->
+        <activity
+            android:name="com.mei.wood.dialog.share.activity.ShareWebActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="share_webview"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+
+
+
+        <activity
+            android:name="com.mei.login.ui.WechatFirstLoginActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.login.ui.LoginByPhoneActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name="com.mei.wood.ui.TabMainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <data
+                    android:host="chosen_featured_tab"
+                    android:scheme="${app_scheme}" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+
+
+
+
+
+
+
+
+
+
+
+
+        <activity
+            android:name="com.mei.intimate.ShortVideoListActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name="com.mei.intimate.TouristsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name="com.mei.me.activity.MyRoseActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="personal_top_tup"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.mei.me.activity.MeSettingActivity"
+            android:label="@string/setting"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="setting"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mei.me.activity.NewMessageNotificationSettingActivity"
+            android:label="新消息提醒"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.me.activity.PersonalInformationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="edit_personal_info"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.mei.me.activity.BlackListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.me.activity.MyFansListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.mei.me.activity.InterestSelectActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.me.activity.MyFollowListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="my_follow_list"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mei.me.activity.BindPhoneActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.me.activity.BindPhoneCodeActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.me.activity.EditIntroductionActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name="com.mei.me.activity.MyLikeListActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="my_like_list"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mei.me.activity.MyBlacklistActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name="com.mei.message.MessageNotificationActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="jump_message_notification_page"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+    <activity
+        android:name="com.mei.userinfocomplement.UserInfoComplementActivity"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="adjustPan|stateHidden"
+        android:launchMode="singleTask">
+
+    </activity>
+
+
+
+
+
+        <activity
+            android:name="com.mei.live.ui.VideoLiveRoomActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing" />
+
+        <activity
+            android:name="com.mei.live.ui.StartLiveRoomActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="start_live"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.mei.live.ui.LiveEndingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.live.ui.LevelWebViewActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+
+
+
+        <!-- IM start -->
+        <activity
+            android:name="com.mei.im.ui.IMImagePreviewActivity"
+            android:label="图片预览"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.im.ui.IMSelectConverActivity"
+            android:label="选择"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.im.ui.IMVideoActivity"
+            android:screenOrientation="portrait" />
+        <!-- IM end -->
+
+
+
+        <activity
+            android:name="com.mei.im.ui.IMC2CMessageActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="user_chat"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mei.im.ui.IMAddCommonWordsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.im.ui.IMMangeComWordsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+    <activity
+        android:name="com.chuanglan.shanyan_sdk.view.CmccLoginActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:launchMode="singleTop"
+        android:screenOrientation="behind"
+        android:theme="@style/ShanYanDialogStyle" />
+
+    <activity-alias
+        android:name="com.cmic.sso.sdk.activity.LoginAuthActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:launchMode="singleTop"
+        android:screenOrientation="behind"
+        android:targetActivity="com.chuanglan.shanyan_sdk.view.CmccLoginActivity"
+        android:theme="@style/ShanYanDialogStyle" />
+
+    <activity
+        android:name="com.chuanglan.shanyan_sdk.view.ShanYanOneKeyActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:launchMode="singleTop"
+        android:screenOrientation="behind"
+        android:theme="@style/ShanYanDialogStyle" />
+
+    <activity
+        android:name="com.chuanglan.shanyan_sdk.view.CTCCPrivacyProtocolActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:launchMode="singleTop"
+        android:screenOrientation="behind"
+        android:theme="@style/ShanYanDialogStyle" />
+
+
+
+
+        <!--七牛直播与播放器-->
+        <service android:name="com.pili.stream.SteamService" />
+        <service android:name="com.pili.player.ListenService" />
+
+
+
+
+        <activity
+            android:name="com.mei.player.PlayerHandleActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="stateHidden" />
+
+
+        <activity
+            android:name="com.mei.video.ShortVideoPlayerNewActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ShortVideoTheme" />
+
+
+        <activity
+            android:name="com.mei.mentor_home_page.ui.MentorHomePageActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="personal_page_info"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+    <activity
+        android:name="com.mei.faceunity.activity.FUBeautyActivity"
+        android:launchMode="singleTask"
+        android:screenOrientation="portrait"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+
+        <activity
+            android:name="com.mei.course_service.ui.MeiWebCourseServiceActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="course_service_webView"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="course_service_json_webView"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name="com.mei.work.ui.WorkRoomInfoEditorActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="work_room_info_editor"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mei.work.ui.EditContentActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.mei.work.ui.WorkRoomMemberIntroduceEditActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+
+        <activity
+            android:name="com.mei.find.ui.FindCourseActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="find_course"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+
+
+
+        <activity
+            android:name="com.mei.short_video.SquareOrRecommendActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="square_recommend_page"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.mei.radio.MeiRadioPlayerActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="jump_radio"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name="com.mei.wood.ForTestMethodActivity" />
+        <activity android:name="com.mei.wood.ForTestLoginActivity" />
+        <activity android:name="com.mei.wood.DebugMainActivity" />
+        <activity android:name="com.mei.wood.ForClientRequestActivity" />
+        <activity android:name="com.mei.wood.TestFragmentActivity" />
+        <activity android:name="com.mei.wood.ViewTestActivity" />
+</application>
+
+</manifest>

@@ -1,0 +1,134 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion rootProject.ext.target_sdk_version
+    buildToolsVersion rootProject.ext.build_tools_version
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField "String", "PACKAGE_NAME", "\"" + getApplicationId(project) + "\""
+        manifestPlaceholders = [
+                package_name: getApplicationId(project),
+                app_scheme  : app_scheme
+        ]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/app_debug.kotlin_module'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            file("src").listFiles().each { f ->
+                if (f.name != "main") {
+                    java.srcDirs += f.path
+                }
+            }
+
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+
+dependencies {
+    api fileTree(include: '*.jar', dir: 'libs/jars')
+    api fileTree(include: '*.aar', dir: 'libs/aars')
+
+    // 获取打包渠道
+    api 'com.meituan.android.walle:library:1.1.7'
+
+    //official
+    api("androidx.appcompat:appcompat:$androidx_lib_version")
+    api("androidx.recyclerview:recyclerview:$androidx_lib_version")
+    api("com.google.android.material:material:$androidx_lib_version")//替代com.android.support:design
+    api("androidx.core:core-ktx:$androidx_lib_version@aar")
+    api("androidx.fragment:fragment-ktx:$androidx_lib_version@aar")
+    api("androidx.swiperefreshlayout:swiperefreshlayout:$androidx_lib_version")
+    api("androidx.lifecycle:lifecycle-extensions:$lifecycle_version")
+    api("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    api("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    api("androidx.viewpager2:viewpager2:1.1.0-alpha01")
+    api("androidx.constraintlayout:constraintlayout:2.0.4")
+    api "com.google.code.gson:gson:$json_version"
+
+    //square
+    api("com.squareup.retrofit2:retrofit:$retrofit_version")
+    api("com.squareup.retrofit2:adapter-rxjava2:$retrofit_version")
+    api("com.squareup.retrofit2:converter-gson:$retrofit_version")
+    api "com.squareup.okhttp3:okhttp:$okhttp_version"
+    api("com.squareup.okhttp3:logging-interceptor:$okhttp_version")
+
+    //qiniu
+    api 'com.qiniu:qiniu-android-sdk:8.0.5@aar'
+    api 'com.qiniu:happy-dns:0.2.17@aar'
+
+    //emoji
+    api('com.vdurmont:emoji-java:5.1.1') {
+        exclude group: "org.json"
+    }
+    //rx
+    api rootProject.ext.rxJava
+    api(rootProject.ext.rxAndroid)
+    api("com.trello.rxlifecycle3:rxlifecycle:$rxlifecycle_version")
+    api("com.trello.rxlifecycle3:rxlifecycle-android:$rxlifecycle_version@aar")
+    api("com.trello.rxlifecycle3:rxlifecycle-components:$rxlifecycle_version@aar")
+    //image
+    api rootProject.ext.photoView
+    api(rootProject.ext.glideImage)
+    api 'jp.wasabeef:glide-transformations:4.3.0'
+    api "com.github.bumptech.glide:okhttp3-integration:$glide_version@aar"
+    //noinspection GradleDependency
+    api 'id.zelory:compressor:2.1.0'
+    //util
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6@aar'
+    api 'com.jaeger.statusbarutil:library:1.5.1@aar'
+    api 'com.github.ksoichiro:android-observablescrollview:1.6.0@aar'
+    api 'com.flyco.roundview:FlycoRoundView_Lib:1.1.4@aar'
+    //数据保存
+    api 'com.tencent:mmkv-static:1.2.5'
+
+    //kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+
+    //webview优化
+    api "com.didiglobal.booster:booster-android-instrument-webview:$didi_booster"
+    //toast
+    api "com.didiglobal.booster:booster-android-instrument-toast:$didi_booster"
+    //activity-thread
+    api "com.didiglobal.booster:booster-android-instrument-activity-thread:$didi_booster"
+
+    //finalizer-watchdog-daemon
+    api "com.didiglobal.booster:booster-android-instrument-finalizer-watchdog-daemon:$didi_booster"
+}

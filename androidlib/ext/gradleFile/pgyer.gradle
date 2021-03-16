@@ -1,0 +1,126 @@
+import groovy.json.JsonSlurper
+
+ext {
+    appVersionName = getAppVersionName()
+    appVersionCode = getAppVersionCode()
+}
+
+task pgyerLog {
+    doLast {
+        String path = "$rootDir/history/apkSize.txt"
+        writeFile(path, 'versionName                       appFileSize                       vCode', false)
+        for (int i = 0; i < 100; i++) {
+            boolean needBreak = printPgyer(i, path)
+            if (needBreak) break
+        }
+    }
+}
+
+@SuppressWarnings("GrMethodMayBeStatic")
+def getPgyerList() {
+    try {
+        return getPgyerInfo(0).data.list
+    } catch (Exception e) {
+        e.printStackTrace()
+        return null
+    }
+}
+
+boolean printPgyer(pageNo, path) {
+    try {
+        def json = getPgyerInfo(pageNo)
+        List list = json.data.list
+        list.each { info ->
+            String ver = info.buildVersion
+            if (!ver.contains('beta')) {
+                String tag = ""
+                for (int i = 0; i < 11 - ver.length(); i++) {
+                    tag = tag.concat(" ")
+                }
+                ver = ver.concat(tag)
+                tag = ""
+                String size = info.appFileSize
+                for (int i = 0; i < 11 - size.length(); i++) {
+                    tag = tag.concat(" ")
+                }
+                size = size.concat(tag)
+                writeFile(path, "\n${ver}                       ${size}                       ${info.appVersionNo}", true)
+            }
+        }
+
+        return list.isEmpty()
+    } catch (Exception e) {
+        e.printStackTrace()
+        return true
+    }
+
+}
+
+@SuppressWarnings("GrMethodMayBeStatic")
+String getAppVersionName() {
+    try {
+        String versionName = VERSION_NAME
+        if (versionName.isEmpty()) {
+            versionName = LOCAL_VERSION_NAME
+        }
+        boolean release = RELEASE_PACKAGE instanceof Boolean ? RELEASE_PACKAGE : Boolean.parseBoolean(RELEASE_PACKAGE)
+        if (release) {
+            return versionName
+        }
+        int index = 1
+        getPgyerList().each { info ->
+            String ver = info.buildVersion
+            if (ver.contains('beta') && ver.contains(versionName)) {
+                int old = 0
+                try {
+                    old = Integer.parseInt(ver.substring(ver.indexOf('beta') + 'beta'.length()))
+                } catch (Exception e) {
+                    e.printStackTrace()
+                }
+                if (old >= index) {
+                    index = old + 1
+                }
+            }
+        }
+        String betaVersion = String.valueOf(index)
+        return "${versionName}_beta$betaVersion"
+    } catch (Exception e) {
+        e.printStackTrace()
+        return LOCAL_VERSION_NAME
+    }
+
+}
+
+@SuppressWarnings("GrMethodMayBeStatic")
+int getAppVersionCode() {
+    int versionCode
+    try {
+        if (Integer.parseInt(VERSION_CODE) != 0) {
+            versionCode = Integer.parseInt(VERSION_CODE)
+        } else {
+            versionCode = Integer.parseInt(LOCAL_VERSION_CODE)
+        }
+    } catch (Exception e) {
+        e.printStackTrace()
+        versionCode = Integer.parseInt(LOCAL_VERSION_CODE)
+    }
+    return versionCode
+}
+
+@SuppressWarnings("GrMethodMayBeStatic")
+def getPgyerInfo(pageNo) {
+    try {
+        def p = ['curl', 'https://www.pgyer.com/apiv2/app/builds',
+                 "-F", "appKey=$pgyer_appid",
+                 "-F", "_api_key=1bd4e19be1499a3faf7114659b7d3f7f",
+                 "-F", "page=$pageNo"
+        ].execute()
+        def json = new JsonSlurper().parseText(p.text)
+        return json
+    } catch (Exception e) {
+        e.printStackTrace()
+        return null
+    }
+}
+
+

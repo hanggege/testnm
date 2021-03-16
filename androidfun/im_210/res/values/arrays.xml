@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="publisher_menu_text">
+        <item>相册</item>
+        <item>拍照</item>
+        <item>私密连线</item>
+        <item>课程服务</item>
+    </string-array>
+    <integer-array name="publisher_menu_res">
+        <item>@drawable/im_more_menu_picture_img</item>
+        <item>@drawable/im_more_menu_camera_img</item>
+        <item>@drawable/im_more_menu_live_img</item>
+        <item>@drawable/im_more_menu_service_img</item>
+    </integer-array>
+
+    <integer-array name="publisher_menu_type">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>5</item>
+    </integer-array>
+
+<!--    普通用户-->
+    <string-array name="common_menu_text">
+        <item>相册</item>
+        <item>拍照</item>
+        <item>私密连线</item>
+        <item>送礼物</item>
+    </string-array>
+    <integer-array name="common_menu_res">
+        <item>@drawable/im_more_menu_picture_img</item>
+        <item>@drawable/im_more_menu_camera_img</item>
+        <item>@drawable/im_more_menu_live_img</item>
+        <item>@drawable/im_more_menu_gift_img</item>
+    </integer-array>
+
+    <integer-array name="common_menu_type">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </integer-array>
+</resources>

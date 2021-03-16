@@ -1,0 +1,235 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+import java.text.SimpleDateFormat
+
+def startTime = System.currentTimeMillis()
+def taskMap = new HashMap<String, TaskBean>()
+def collectionTime_buildType = null
+
+gradle.beforeProject {
+    Project project ->
+//        println "---> gradle beforeProject " + project.name + " 配置开始前回调"
+}
+
+gradle.afterProject {
+    Project project ->
+//        println "---> gradle afterProject " + project.name + " 配置结束回调"
+}
+
+gradle.projectsEvaluated {
+    gradle ->
+//        println "---> projectsEvaluated所有的project都配置完毕了，准备生成Task依赖关系"
+}
+
+
+gradle.taskGraph.whenReady {
+    TaskExecutionGraph graph ->
+//        println "--->whenReady  task 依赖关系已经生成"
+}
+
+gradle.taskGraph.beforeTask { Task task ->
+//    println "---> Project[${task.project.name}]--->Task[${task.name}] 开始执行"
+    def taskBean = new TaskBean()
+    taskBean.projectName = task.project.name
+    taskBean.taskName = task.name
+    taskBean.startData = System.currentTimeMillis()
+    taskMap.put(TaskBean.key(task), taskBean)
+}
+
+gradle.taskGraph.afterTask { task, TaskState taskState ->
+    //第二个参数表示 task 的状态，是可选的参数
+//    println "---> Project[${task.project.name}]--->Task[${task.name}] 在执行完毕,taskState[upToDate:${taskState.upToDate},skipped:${taskState.skipped},executed:${taskState.executed},didWork:${taskState.didWork}]"
+//   println "---> Project[${task.project.name}]--->Task[${task.name}] 结束执行"
+
+    def taskBean = taskMap.get(TaskBean.key(task))
+    if (taskBean != null) {
+        taskBean.endData = System.currentTimeMillis()
+
+        def taskTime = (taskBean.endData - taskBean.startData) / 1000.0f
+        println "--->[${task.project.name}:${task.name}]执行时长: ${taskTime}s"
+        taskBean.interval = taskTime
+    }
+}
+
+
+task getBuildType() {
+    boolean release = RELEASE_PACKAGE instanceof Boolean ? RELEASE_PACKAGE : Boolean.parseBoolean(RELEASE_PACKAGE)
+    if (isJenkins()) {
+        //jenkins打正式包
+        collectionTime_buildType = "jenkins"
+    } else if (release) {
+        //本地打正式包
+        collectionTime_buildType = "release"
+    } else {
+        //beta 包括debug 和 beta 测试包
+        collectionTime_buildType = "beta"
+    }
+    println collectionTime_buildType
+}
+
+
+project.afterEvaluate {
+    Task aR = tasks.findByName("assembleRelease")
+    if (aR != null) {
+        aR.dependsOn getBuildType
+    }
+}
+
+
+gradle.buildFinished { BuildResult result ->
+    //result.action :Configure/Build/
+    println "---> buildFinished--- ${result.action}  ---  ${result.failure}  ---  ${result.gradle}   ---$collectionTime_buildType"
+    //没有对应的类型不保存
+    if (collectionTime_buildType == null) {
+        return
+    }
+    //编译失败 不保存
+    if (result.failure != null) {
+        println("---> buildFinished  failue")
+        return
+    }
+    if (taskMap.size() == 0) {
+        println("---> buildFinished  taskSize == 0")
+        return
+    }
+    def endTime = System.currentTimeMillis()
+    def time = (endTime - startTime) / 1000.0f
+
+    //大于10分钟的记录 60s x 10
+    if (time < 600) {
+        println("---> buildFinished  build Time $time")
+        return
+    }
+
+    def format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+    def startDate = format.format(new Date(startTime))
+    def endDate = format.format(new Date(endTime))
+
+    def user = System.properties['user.name']
+
+    String buildTimeRootDir = "$history_path${File.separatorChar}buildTime"
+    String buildTimeUserDir = "$buildTimeRootDir${File.separatorChar}$user"
+    String buildTimeUserFileStr = "$buildTimeUserDir${File.separatorChar}buildTime.json"
+
+    String buildTimeTaskDir = "$buildTimeUserDir${File.separatorChar}$collectionTime_buildType"
+    String fileName = "${android.defaultConfig.versionName}-${android.defaultConfig.versionCode}_${startDate}.json"
+    String buildTimeTaskStr = "$buildTimeTaskDir${File.separatorChar}${fileName}"
+
+    //根据用户保存当前编译信息到对应文件夹
+    def buildTimeMap = new HashMap()
+    if (file(buildTimeUserFileStr).exists()) {
+        buildTimeMap = new JsonSlurper().parseText(file(buildTimeUserFileStr).text)
+    }
+    def buildData = buildTimeMap.get(collectionTime_buildType)
+    if (buildData == null) {
+        buildData = new ArrayList<HashMap>()
+        buildTimeMap.put(collectionTime_buildType, buildData)
+    }
+    def nowData = new HashMap()
+    nowData.put("buildUser", user)
+    nowData.put("buildVersion", "${android.defaultConfig.versionName}-${android.defaultConfig.versionCode}")
+    nowData.put("buildTime", time)
+    nowData.put("startDate", startDate)
+    nowData.put("endDate", endDate)
+    nowData.put("buildTimeFilePath", "$collectionTime_buildType${File.separatorChar}$fileName")
+    buildData.add(0, nowData)
+    String buildTimeUserStr = JsonOutput.prettyPrint(JsonOutput.toJson(buildTimeMap))
+    if (!file(buildTimeUserDir).exists()) {
+        file(buildTimeUserDir).mkdirs()
+    }
+    writeFile(buildTimeUserFileStr, buildTimeUserStr, false)
+
+    //保存具体的task执行时间信息
+    def data = TaskBean.sortProfileData(taskMap)
+    def json = '{'
+    json += "\n\"buildType\":\"${collectionTime_buildType}\","
+    json += "\n\"buildUser\":\"${user}\","
+    json += "\n\"allTime\":\"${time}\","
+    json += "\n\"startDate\":\"${startDate}\","
+    json += "\n\"endDate\":\"${endDate}\","
+    json += "\n\"versionName\":\"${android.defaultConfig.versionName}\","
+    json += "\n\"versionCode\":\"${android.defaultConfig.versionCode}\","
+    json += "\n\"tasks\":{"
+    for (Map.Entry<String, TaskBean> item : data) {
+//            println "---> ${item.value.showTaskInfo()}"
+        json += "\n   \"${item.key}\":\"${item.value.interval}\","
+    }
+    json = json.substring(0, json.length() - 1)
+    json += "\n   }"
+    json += "\n}"
+    if (!file(buildTimeTaskDir).exists()) {
+        file(buildTimeTaskDir).mkdirs()
+    }
+    writeFile(buildTimeTaskStr, json, false)
+    println "---> startTime=${startDate},endTime=${endDate},总共耗时=${time}s"
+    exec {
+        commandLine 'git', 'add', "$rootDir${File.separatorChar}history${File.separatorChar}buildTime"
+    }
+
+}
+
+
+class TaskBean {
+    String projectName
+    String taskName
+    long startData
+    long endData
+    float interval
+
+    public static String key(Task task) {
+        return task.project.name + ":" + task.name
+    }
+
+    //对task所花费的时间进行排序
+    public static List<Map.Entry<String, TaskBean>> sortProfileData(Map<String, TaskBean> profileData) {
+        List<Map.Entry<String, TaskBean>> data = new ArrayList<>()
+        for (timing in profileData) data.add(timing)
+        Collections.sort(data, new Comparator<Map.Entry<String, TaskBean>>() {
+            @Override
+            int compare(Map.Entry<String, TaskBean> o1, Map.Entry<String, TaskBean> o2) {
+                if (o1.value.interval > o2.value.interval) return 1
+                else if (o1.value.interval < o2.value.interval) return -1
+                return 0
+            }
+        })
+        return data
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true
+        if (o == null) return false
+
+        if (o.getClass() == TaskBean.class) {
+            TaskBean taskBean = (TaskBean) o
+            return Objects.equals(taskName, taskBean.taskName) && Objects.equals(projectName, taskBean.projectName)
+        } else if (o.getClass() == Task.class) {
+            Task task = (Task) o
+            return Objects.equals(taskName, task.name) && Objects.equals(projectName, task.project.name)
+        }
+        return false
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(projectName, taskName)
+    }
+
+    public String showTaskInfo() {
+        return "[" + projectName + ":" + taskName + "]" + "->" + interval + "s"
+    }
+
+    @Override
+    public String toString() {
+        return "TaskBean{" +
+                "projectName='" + projectName + '\'' +
+                ", taskName='" + taskName + '\'' +
+                ", startData=" + startData +
+                ", endData=" + endData +
+                ", interval=" + interval +
+                '}'
+    }
+
+
+}

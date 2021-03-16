@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="workRoomInfoEditorStyle">
+        <item name="android:textColor">@color/color_262626</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="android:layout_marginStart">15dp</item>
+    </style>
+    <style name="workRoomTabTextStyle">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="workRoomTabStyle" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/color_333333</item>
+        <item name="tabIndicatorHeight">4dp</item>
+        <item name="tabPaddingStart">0dp</item>
+        <item name="tabPaddingEnd">0dp</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabTextAppearance">@style/workRoomTabTextStyle</item>
+        <item name="tabSelectedTextColor">@color/color_333333</item>
+        <item name="tabTextColor">@color/color_666666</item>
+        <item name="tabRippleColor">@color/color_00ffffff</item>
+    </style>
+</resources>

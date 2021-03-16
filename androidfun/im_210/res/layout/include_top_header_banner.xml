@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_f6f6f6"
+    android:paddingTop="10dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
+    <!--专属服务-->
+    <com.mei.widget.recyclerview.banner.BannerView
+        android:id="@+id/service_header_banner"
+        android:layout_width="match_parent"
+        android:layout_height="78.5dp" />
+
+    <com.mei.widget.recyclerview.banner.PageIndicatorView
+        android:id="@+id/service_header_indicator_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/service_header_banner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp" />
+</RelativeLayout>

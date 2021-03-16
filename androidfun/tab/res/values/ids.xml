@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    TabItemView-->
+    <item name="bottom_bar_item_icon" type="id" />
+    <item name="bottom_bar_item_svg_icon" type="id" />
+    <item name="bottom_bar_red_point" type="id" />
+    <item name="bottom_bar_item_title" type="id" />
+    <item name="bottom_bar_item_top_right_icon" type="id" />
+    <item name="bottom_bar_item_select_icon" type="id" />
+    <!--    TabItemView-->
+
+
+    <!--    MainTabView-->
+    <item name="tab_content_view1" type="id" />
+    <item name="tab_content_view2" type="id" />
+    <item name="tab_content_view3" type="id" />
+    <item name="tab_content_view4" type="id" />
+    <item name="tab_content_view5" type="id" />
+    <item name="live_layout" type="id" />
+    <item name="main_tab_bar" type="id" />
+    <item name="main_content_root" type="id" />
+    <item name="red_packet_view" type="id" />
+    <!--    MainTabView-->
+
+
+</resources>

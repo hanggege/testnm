@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/pay_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal"
+        tools:ignore="DisableBaselineAlignment">
+
+        <com.mei.widget.gradient.GradientLinearLayout
+            android:id="@+id/wechat_pay"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginEnd="15dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:gd_end_color="@color/color_0CC70A"
+            app:gd_radius="30dp"
+            app:gd_start_color="@color/color_09BB07">
+
+
+            <com.flyco.roundview.RoundTextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:drawableStart="@drawable/icon_wechat_pay"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="@string/wechat_pay"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:rv_cornerRadius="25dp" />
+        </com.mei.widget.gradient.GradientLinearLayout>
+
+        <com.mei.widget.gradient.GradientLinearLayout
+            android:id="@+id/ali_pay"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:gd_end_color="@color/color_469DFA"
+            app:gd_radius="30dp"
+            app:gd_start_color="@color/color_398EE8">
+
+            <com.flyco.roundview.RoundTextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:drawableStart="@drawable/icon_ali_pay"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="@string/ali_pay"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:rv_cornerRadius="25dp" />
+        </com.mei.widget.gradient.GradientLinearLayout>
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/pay_bottom_layout"
+        android:layout_marginBottom="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/bg_my_rose_head"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@drawable/bg_red_money"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="90dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="账户余额"
+                    android:textColor="#ffffffff"
+                    android:textSize="13sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/rose_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffffff"
+                    android:textSize="36sp"
+                    tools:text="100" />
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/icon_heart_money"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
+
+            <com.mei.me.view.GiftTopUpView
+                android:id="@+id/gift_top_up_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bg_my_rose_head"
+                android:layout_marginTop="10dp" />
+
+            <LinearLayout
+                android:id="@+id/free_task_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gift_top_up_view"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:paddingTop="15dp">
+
+                <TextView
+                    android:id="@+id/free_get"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:text="免费获取"
+                    android:textColor="@color/color_333333"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/free_get_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <View
+        android:id="@+id/toolbar_bg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:alpha="0"
+        android:background="#FFFFFF" />
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/back_choice"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="15dp"
+            android:src="@drawable/bg_white_back_arrow"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/rose_title"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="充值"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/consume_record"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/consume_record"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            tools:ignore="RelativeOverlap" />
+    </RelativeLayout>
+
+</RelativeLayout>

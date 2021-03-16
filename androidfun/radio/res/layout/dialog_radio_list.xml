@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    android:orientation="vertical"
+    app:rv_backgroundColor="@android:color/white"
+    app:rv_cornerRadius_TL="15dp"
+    app:rv_cornerRadius_TR="15dp"
+    tools:layout_gravity="bottom"
+    tools:rv_backgroundColor="@color/color_3079E6">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="52.5dp">
+
+        <TextView
+            android:id="@+id/dialog_radio_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="15dp"
+            android:includeFontPadding="false"
+            android:textSize="16sp"
+            tools:text="我喜欢的 (5)" />
+
+        <ImageView
+            android:id="@+id/dialog_radio_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:padding="15dp"
+            android:src="@drawable/ic_radio_dialog_close"
+            tools:ignore="ContentDescription" />
+
+    </FrameLayout>
+
+    <View
+        android:id="@+id/dialog_radio_title_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/color_FFEBEBEB" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dialog_radio_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+</com.flyco.roundview.RoundLinearLayout>

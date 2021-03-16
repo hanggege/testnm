@@ -1,0 +1,31 @@
+apply from: "$rootDir/androidlib/ext/gradleFile/tools.gradle"
+apply from: "$rootDir/androidlib/ext/gradleFile/appPackage.gradle"
+apply from: "$rootDir/androidlib/ext/gradleFile/collectionTime.gradle"
+
+if (isJenkins() || package_user.any { (it == System.properties['user.name']) }) {
+    if (android.defaultConfig.versionName.toLowerCase().contains('beta')) {//beta不作处理,默认为测试版本
+
+    } else {
+        apply from: "$rootDir/androidlib/ext/gradleFile/jenkins.gradle"
+    }
+}
+
+println("===========================当前运行版本${android.defaultConfig.versionName}===========================================")
+
+
+if (!android.defaultConfig.versionName.contains('beta') && !isJenkins()) {
+    /** 准备打正式包, 会上传ftp的哪种 **/
+    exec {
+        String msg = "${System.properties['user.name']}\n请注意哦，正在准备打正式包, 会上传ftp的哪种,请确定FTP上是否已打包，会覆盖上传"
+        workingDir "${rootDir}/androidlib/ext/jar"
+        commandLine 'java', '-jar', 'notify.jar', msg
+    }
+
+}
+
+apply from: "$rootDir/androidlib/ext/ios/ios_change_class.gradle"
+
+
+
+
+

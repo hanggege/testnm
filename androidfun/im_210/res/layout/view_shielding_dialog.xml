@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    app:rv_backgroundColor="@android:color/white"
+    app:rv_cornerRadius="8dp">
+
+    <TextView
+        android:id="@+id/shield_hint_dialog_content"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center_horizontal"
+        android:includeFontPadding="false"
+        android:textColor="@color/color_333333"
+        android:textSize="16sp"
+        tools:text="用户连线需付20心币" />
+
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/shield_hint_dialog_confirm_btn"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="知道了"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="22.5dp"
+        app:gd_start_color="@color/color_FF7F33"
+        tools:ignore="HardcodedText" />
+
+
+</com.flyco.roundview.RoundLinearLayout>

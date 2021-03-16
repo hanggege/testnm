@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <com.zhy.view.flowlayout.TagFlowLayout
+        android:id="@+id/id_flowlayout_card_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        app:max_select="-1"
+        tools:ignore="MissingConstraints" />
+
+    <com.mei.live.views.ExpandableTextView.CardExpandableTextView
+        android:id="@+id/expand_text_card_dialog_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="4dp"
+        android:paddingStart="15dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="15dp"
+        android:textSize="14sp"
+        app:ep_contract_color="@color/color_FF3A3A"
+        app:ep_expand_color="@color/color_FF3A3A"
+        app:ep_max_line="2"
+        app:ep_mention_color="@color/color_666666"
+        app:ep_need_contract="true"
+        app:ep_need_expand="true"
+        app:ep_need_link="false"
+        app:ep_need_mention="false" />
+
+</LinearLayout>

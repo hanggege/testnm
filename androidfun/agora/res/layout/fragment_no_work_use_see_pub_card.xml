@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom">
+
+    <com.flyco.roundview.RoundFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius_TL="8dp"
+        app:rv_cornerRadius_TR="8dp" />
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/user_avatar_img"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/default_male_head"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:radius_all="35dp"
+        app:round_stroke_color="@android:color/white"
+        app:round_stroke_width="3dp" />
+
+    <ImageView
+        android:id="@+id/logo_intimate_man"
+        android:layout_width="75.5dp"
+        android:layout_height="22.5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-10dp"
+        android:background="@drawable/logo_intimate_man"
+        app:layout_constraintBottom_toBottomOf="@id/user_avatar_img"
+        app:layout_constraintEnd_toEndOf="@id/user_avatar_img"
+        app:layout_constraintStart_toStartOf="@id/user_avatar_img"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/anchor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:includeFontPadding="false"
+        android:textColor="@color/color_333333"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/user_avatar_img"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="暖冬的狐狸" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/anchor_name"
+        app:layout_constraintStart_toEndOf="@id/anchor_name"
+        app:layout_constraintTop_toTopOf="@id/anchor_name">
+
+        <TextView
+            android:id="@+id/level_text"
+            android:layout_width="34dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="5dp"
+            android:gravity="center_vertical|right"
+            android:maxLength="2"
+            android:paddingEnd="10dp"
+            android:shadowColor="#40000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:background="@drawable/normal_level_one"
+            tools:ignore="RtlHardcoded,RtlSymmetry,SmallSp"
+            tools:text="5"
+            tools:visibility="visible" />
+
+
+        <com.mei.widget.round.RoundTextView
+            android:id="@+id/user_extra_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_marginStart="5dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textColor="@android:color/white"
+            android:textSize="9sp"
+            app:back_color="#FF69B0"
+            app:stroke_radius="15dp"
+            tools:ignore="SmallSp"
+            tools:text="女 00后" />
+    </LinearLayout>
+
+    <com.mei.widget.menupoint.MenuPointView
+        android:id="@+id/more_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:paddingLeft="15dp"
+        android:paddingTop="16dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/anchor_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/anchor_name"
+        app:menu_number="3"
+        app:menu_point_color="@android:color/black"
+        app:menu_point_width="4dp"
+        app:menu_type="horizontal" />
+
+    <TextView
+        android:id="@+id/user_info_desc_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="10dp"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:singleLine="true"
+        android:textColor="#999999"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/anchor_name"
+        app:layout_constraintTop_toBottomOf="@+id/anchor_name"
+        tools:ignore="SmallSp"
+        tools:text="擅长：xxx" />
+
+    <LinearLayout
+        android:id="@+id/center_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/logo_intimate_man"
+        tools:ignore="DisableBaselineAlignment">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/left_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#333333"
+                android:textSize="18sp"
+                tools:text="12" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="收到心币"
+                android:textColor="#999999"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/center_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#333333"
+                android:textSize="18sp"
+                tools:text="12" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="粉丝数"
+                android:textColor="#999999"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/right_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxEms="8"
+                android:singleLine="true"
+                android:textColor="#333333"
+                android:textSize="18sp"
+                tools:text="99小时60分钟" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="已播时长"
+                android:textColor="#999999"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/follow_anchor"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="25dp"
+        android:gravity="center"
+        android:text="立即关注"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="22.5dp"
+        app:gd_start_color="@color/color_FF7F33"
+        app:layout_constraintTop_toBottomOf="@id/center_layout"
+        tools:ignore="HardcodedText" />
+
+    <View
+        android:id="@+id/bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="#e7e7e7"
+        app:layout_constraintTop_toBottomOf="@id/follow_anchor" />
+
+    <LinearLayout
+        android:id="@+id/card_bottom_action_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/bottom_line">
+
+
+        <TextView
+            android:id="@+id/at_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="\@TA"
+            android:textColor="#333333"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="20dp"
+            android:background="#E7E7E7" />
+
+        <LinearLayout
+            android:id="@+id/send_gift"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/icon_data_card_send_gift"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="送礼物"
+                android:textColor="@color/color_FE3F3F"
+                android:textSize="15sp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

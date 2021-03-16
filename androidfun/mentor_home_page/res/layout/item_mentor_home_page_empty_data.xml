@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:visibility="visible">
+
+    <ImageView
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/empty_product_icon" />
+
+    <TextView
+        android:id="@+id/mentor_home_page_empty_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp"
+        android:text="该知心达人还没有上传相册内容"
+        android:textColor="@color/color_999999"
+        android:textSize="15sp" />
+
+    <View
+        android:id="@+id/mentor_home_page_line"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="20dp"
+        android:background="#fff9f9f9"
+        android:visibility="gone" />
+
+
+</LinearLayout>

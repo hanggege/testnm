@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="85dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/bg_special_upstream_option"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/upstream_choice_service_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:textColor="@color/color_333333"
+        android:textSize="13sp"
+        tools:text="婚姻挽回挽回指明思维深度剖析" />
+
+    <TextView
+        android:id="@+id/upstream_choice_service_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="11dp"
+        android:textColor="@color/color_ff8200"
+        android:textSize="12sp"
+        tools:ignore="SmallSp"
+        tools:text="剩余时长：" />
+</LinearLayout>

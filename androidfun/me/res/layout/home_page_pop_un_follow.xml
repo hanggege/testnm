@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="113dp"
+    android:gravity="center"
+    android:layout_height="60dp"
+    android:background="@drawable/bg_follow_pop"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_hom_page_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="取消关注"
+        android:textColor="#333333"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+</LinearLayout>

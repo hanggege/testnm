@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/free_task_list_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="首次观看直播10分钟：5心币"
+        android:textColor="#ff11121c"
+        android:textSize="15sp"
+        tools:ignore="HardcodedText" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true">
+
+        <com.mei.widget.gradient.GradientTextView
+            android:id="@+id/free_task_list_ready"
+            android:layout_width="79dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="去完成"
+            android:textColor="#ffffffff"
+            android:textSize="14sp"
+            app:gd_direction="leftToBottom"
+            app:gd_end_color="@color/color_FFFC9300"
+            app:gd_radius="16dp"
+            app:gd_start_color="@color/color_FFFFBF00"
+            tools:ignore="HardcodedText" />
+
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/free_task_list_done"
+            android:layout_width="79dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="已完成"
+            android:textColor="#999999"
+            android:textSize="14sp"
+            app:rv_backgroundColor="@color/color_f6f6f6"
+            app:rv_cornerRadius="16dp"
+            tools:ignore="HardcodedText" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:orientation="horizontal">
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/user_avatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/default_avatar_50"
+        app:radius_all="20dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLength="8"
+            android:singleLine="true"
+            android:textColor="@color/color_333333"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="haha" />
+
+        <TextView
+            android:id="@+id/service_name"
+            android:layout_width="50dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/icon_service_bg"
+            android:gravity="center"
+            android:maxLength="4"
+            android:paddingStart="13dp"
+            android:textColor="@android:color/white"
+            android:textSize="8sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/user_name"
+            app:layout_constraintStart_toEndOf="@id/user_name"
+            app:layout_constraintTop_toTopOf="@id/user_name"
+            tools:ignore="RtlSymmetry,SmallSp"
+            tools:text="安娜家"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/user_name"
+            app:layout_constraintTop_toBottomOf="@id/user_name"
+            tools:ignore="SmallSp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.mei.widget.round.RoundTextView
+        android:id="@+id/invite_upstream"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="15dp"
+        android:gravity="center"
+        android:paddingStart="7dp"
+        android:paddingEnd="7dp"
+        android:textColor="@color/color_c8c8c8"
+        android:textSize="10sp"
+        app:stroke_color="@color/color_c8c8c8"
+        app:stroke_radius="12.5dp"
+        app:stroke_width="0.5dp"
+        tools:ignore="SmallSp"
+        tools:text="邀请语音连线" />
+
+</LinearLayout>

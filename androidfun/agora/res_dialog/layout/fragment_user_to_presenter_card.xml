@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mei.base.weight.relative.RoundConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:maxHeight="450dp"
+    app:rv_backgroundColor="@android:color/white"
+    app:rv_cornerRadius_TL="8dp"
+    app:rv_cornerRadius_TR="8dp">
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/presenter_avatar"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/default_male_head"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:radius_all="55dp" />
+
+    <TextView
+        android:id="@+id/presenter_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:textColor="@color/color_333333"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/presenter_avatar"
+        app:layout_constraintTop_toTopOf="@id/presenter_avatar"
+        tools:text="暖冬的狐狸" />
+
+    <TextView
+        android:id="@+id/report_presenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:padding="10dp"
+        android:text="举报"
+        android:textColor="@color/color_c8c8c8"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/presenter_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/presenter_name"
+        tools:ignore="HardcodedText"
+        tools:visibility="gone" />
+
+    <com.mei.widget.menupoint.MenuPointView
+        android:id="@+id/menu_manager"
+        android:layout_width="35dp"
+        android:layout_height="20dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="15dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/presenter_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/presenter_name"
+        app:menu_number="3"
+        app:menu_point_color="@color/color_c8c8c8"
+        app:menu_point_width="3dp"
+        app:menu_type="horizontal"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="menu_manager,report_presenter" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/at_presenter"
+        android:layout_width="52dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="15dp"
+        android:gravity="center"
+        android:text="\@TA"
+        android:textColor="@color/color_333333"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/presenter_name"
+        app:layout_constraintEnd_toStartOf="@id/barrier"
+        app:layout_constraintTop_toTopOf="@+id/presenter_name"
+        app:rv_backgroundColor="#f5f5f5"
+        app:rv_cornerRadius="2dp"
+        tools:ignore="HardcodedText" />
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/follow_presenter"
+        android:layout_width="52dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="15dp"
+        android:gravity="center"
+        android:text="@string/follow"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="2dp"
+        app:gd_start_color="@color/color_FF7F33"
+        app:layout_constraintBottom_toBottomOf="@id/presenter_name"
+        app:layout_constraintEnd_toStartOf="@id/at_presenter"
+        app:layout_constraintTop_toTopOf="@+id/presenter_name" />
+
+    <com.mei.widget.gradient.GradientLinearLayout
+        android:id="@+id/icon_presenter_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="41dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="5dp"
+        app:gd_direction="topToBottom"
+        app:gd_end_color="@color/color_FF9E40"
+        app:gd_radius="8dp"
+        app:gd_start_color="@color/color_FE6B10"
+        app:layout_constraintEnd_toEndOf="@id/presenter_avatar"
+        app:layout_constraintStart_toStartOf="@id/presenter_avatar"
+        app:layout_constraintTop_toTopOf="@id/presenter_avatar">
+
+        <ImageView
+            android:id="@+id/icon_presenter_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_presenter"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/icon_presenter"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginStart="1dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="主讲人"
+            android:textColor="@android:color/white"
+            android:textSize="9sp"
+            tools:ignore="HardcodedText,SmallSp" />
+
+    </com.mei.widget.gradient.GradientLinearLayout>
+
+    <com.mei.widget.gradient.GradientLinearLayout
+        android:id="@+id/add_follow_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="40dp"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="2dp"
+        app:gd_start_color="@color/color_FF7F33"
+        app:layout_constraintBottom_toBottomOf="@id/icon_presenter_layout"
+        app:layout_constraintEnd_toStartOf="@id/send_gift"
+        app:layout_constraintStart_toStartOf="@id/presenter_name">
+
+        <ImageView
+            android:id="@+id/add_follow_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_follow_add"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/add_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginStart="3dp"
+            android:gravity="center"
+            android:text="@string/follow"
+            android:textColor="@android:color/white" />
+
+    </com.mei.widget.gradient.GradientLinearLayout>
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/send_gift"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:text="@string/send_gift_txt"
+        android:textColor="@color/color_333333"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/add_follow_layout"
+        app:layout_constraintEnd_toStartOf="@id/at_tv"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/add_follow_layout"
+        app:rv_backgroundColor="#f5f5f5"
+        app:rv_cornerRadius="2dp" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/at_tv"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="15dp"
+        android:gravity="center"
+        android:text="\@TA"
+        android:textColor="@color/color_333333"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/add_follow_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/send_gift"
+        app:rv_backgroundColor="#f5f5f5"
+        app:rv_cornerRadius="2dp"
+        tools:ignore="HardcodedText" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/operate_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="add_follow_layout,send_gift,at_tv" />
+
+    <View
+        android:id="@+id/view_divider"
+        android:layout_width="0dp"
+        android:layout_height="0.2dp"
+        android:layout_margin="15dp"
+        android:background="@color/color_e8e8e8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon_presenter_layout" />
+
+    <com.mei.base.weight.recyclerview.LimitRecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        app:RecycleView_maxHeight="380dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_divider" />
+</com.mei.base.weight.relative.RoundConstraintLayout>
+

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="UselessParent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:weightSum="2">
+
+            <com.mei.widget.clear.ClearEditText
+                android:id="@+id/edit_link"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:hint="输入内链"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
+
+            <TextView
+                android:id="@+id/test_link"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text="点击跳转内链"
+                android:textColor="@android:color/white"
+                tools:ignore="RtlHardcoded" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:weightSum="2">
+
+            <com.mei.widget.clear.ClearEditText
+                android:id="@+id/edit_id"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:hint="输入ID"
+                android:text="28619696"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
+
+            <TextView
+                android:id="@+id/test_id"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text="点击跳转对话"
+                android:textColor="@android:color/white"
+                tools:ignore="RtlHardcoded" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/test_huaibar"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text="离线推送"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/test_channel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text="多媒体"
+                android:textColor="@android:color/white"
+                tools:ignore="RtlHardcoded" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/test_im_single"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text="美颜配置"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/test_im_group"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text="登录弹框"
+                android:textColor="@android:color/white"
+                tools:ignore="RtlHardcoded" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/test_course_list_activity"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text="im按住说哈测试"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/test_order"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text="选图"
+                android:textColor="@android:color/white"
+                tools:ignore="RtlHardcoded" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/show_record"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text="停止时间统计"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/test_ab"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text="AB测"
+                android:textColor="@android:color/white"
+                tools:ignore="RtlHardcoded" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/show_image_upload"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text="图片上传"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/show_video_upload"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text="视频上传"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/get_image_upload"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text="获取视频和图片"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/test_work_room_info_edit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text="工作室信息编辑"
+                android:textColor="@android:color/white" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/test_shan_yan_bind_dialog"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text="闪验绑定手机号"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:layout_weight="1"
+                android:background="@color/masks_layer_60"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@android:color/white" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

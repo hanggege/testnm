@@ -1,0 +1,58 @@
+ext {
+    createJiaguFile = this.&createJiaguFile
+    createDingShell = this.&createDingShell
+    jiagu_name = "mouse_zen@163.com"
+    jiagu_pwd = "a5223490"
+}
+
+afterEvaluate {
+//    println("=============" + android.signingConfigs.find { it.name == 'release' })
+//    createJiaguFile(file("/Users/joker/workSpace/git-space/melkor/history/4.3.6/4.3.6-120-other_436_jiagu_sign.apk"))
+}
+
+
+def createJiaguFile(File apk) {
+    String name = System.properties['user.name']
+    File jiaguDir = file("$rootDir/cache/shell")
+    jiaguDir.mkdirs()
+    File jiaguFile = file("$jiaguDir/${getProjectCode()}_${name}_jiagu.sh")
+    try {
+        String jarPath = rootProject.property(name)
+        //com.android.build.gradle.internal.dsl.SigningConfig
+        def sign = android.signingConfigs.find {
+            it.name == 'release'
+        }
+        writeFile(jiaguFile.absolutePath, '#!/bin/bash', false)
+        writeFile(jiaguFile.absolutePath, "\njar=${jarPath}", true)
+        writeFile(jiaguFile.absolutePath, "\njava -jar \$jar -login $jiagu_name $jiagu_pwd", true)
+        writeFile(jiaguFile.absolutePath, "\njava -jar \$jar -importsign ${sign.storeFile} ${sign.storePassword} ${sign.keyAlias} ${sign.keyPassword}", true)
+        writeFile(jiaguFile.absolutePath, "\njava -jar \$jar -showsign", true)
+        writeFile(jiaguFile.absolutePath, "\njava -jar \$jar -config -x86", true)
+        writeFile(jiaguFile.absolutePath, "\njava -jar \$jar -showconfig", true)
+        writeFile(jiaguFile.absolutePath, "\necho java -jar \$jar -jiagu ${apk.path} ${apk.parentFile.path} -autosign", true)
+        writeFile(jiaguFile.absolutePath, "\njava -jar \$jar -jiagu ${apk.path} ${apk.parentFile.path} -autosign", true)
+    } catch (Exception e) {
+        e.printStackTrace()
+    }
+    return jiaguFile
+}
+
+def createDingShell(String dingMsg) {
+    String name = System.properties['user.name']
+    File dingDingDir = file("$rootDir/cache/shell")
+    String versionName = android.defaultConfig.versionName
+    dingDingDir.mkdirs()
+    File dingDingFile = file("$dingDingDir/${getProjectCode()}_${name}_ding.sh")
+    writeFile(dingDingFile.absolutePath, '#!/bin/bash', false)
+    writeFile(dingDingFile.absolutePath, "\necho \"发消息给测试\"", true)
+    writeFile(dingDingFile.absolutePath, "\necho \"token = \$1\"", true)
+    writeFile(dingDingFile.absolutePath, "\nDING_URL=\"https://oapi.dingtalk.com/robot/send?access_token=\$1\"", true)
+    writeFile(dingDingFile.absolutePath, "\ncurl \$DING_URL \\", true)
+    writeFile(dingDingFile.absolutePath, "\n-H 'Content-Type: application/json' \\", true)
+    writeFile(dingDingFile.absolutePath, "\n-d '{\"msgtype\": \"text\",", true)
+    writeFile(dingDingFile.absolutePath, "\n\"text\": {", true)
+    writeFile(dingDingFile.absolutePath, "\"content\": \"Android当前打包版本: 《 $versionName 》\\n--------------------------------------------\\n \\n$dingMsg\\n\"},", true)
+    writeFile(dingDingFile.absolutePath, "\n\"at\":{\"isAtAll\":true}", true)
+    writeFile(dingDingFile.absolutePath, "\n}'", true)
+    return dingDingFile
+}

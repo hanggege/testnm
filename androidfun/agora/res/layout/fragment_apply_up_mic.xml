@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/switch_layout"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:paddingTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="连线申请开启"
+            android:textColor="@color/color_333333"
+            android:textSize="10sp"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <com.mei.base.weight.button.SwitchButton
+            android:id="@+id/switch_button"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:padding="5dp"
+            app:onColor="#78d374"
+            app:thumb_height="16dp"
+            app:thumb_width="18dp" />
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/up_mic_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/switch_layout"
+        android:layout_marginTop="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <TextView
+        android:id="@+id/empty_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/switch_layout"
+        android:gravity="center"
+        android:textColor="@color/color_c8c8c8"
+        android:textSize="12sp"
+        tools:text="暂时无人申请\n去直播围观列表邀请用户吧" />
+</RelativeLayout>

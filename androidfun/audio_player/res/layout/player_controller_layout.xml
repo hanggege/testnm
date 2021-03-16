@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/player_one_layout">
+
+    <SeekBar
+        android:id="@+id/player_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="21dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="25dp"
+        android:background="@android:color/white"
+        android:paddingStart="5dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="4dp"
+        android:progressDrawable="@drawable/player_seek_progress_layer"
+        android:thumb="@drawable/player_seek_thumb_bar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player_display_color_bg"
+        tools:progress="10" />
+
+
+    <TextView
+        android:id="@+id/player_curr_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player_seek_bar"
+        tools:text="03:12" />
+
+    <TextView
+        android:id="@+id/player_total_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player_seek_bar"
+        tools:text="03:12" />
+
+    <ImageView
+        android:id="@+id/player_state_btn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/player_state_selector"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player_seek_bar"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/player_pre_btn"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="15dp"
+        android:padding="10dp"
+        android:src="@drawable/player_pre_img"
+        app:layout_constraintBottom_toBottomOf="@id/player_state_btn"
+        app:layout_constraintRight_toLeftOf="@id/player_state_btn"
+        app:layout_constraintTop_toTopOf="@id/player_state_btn"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/player_next_btn"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="15dp"
+        android:padding="10dp"
+        android:src="@drawable/player_next_img"
+        app:layout_constraintBottom_toBottomOf="@id/player_state_btn"
+        app:layout_constraintLeft_toRightOf="@id/player_state_btn"
+        app:layout_constraintTop_toTopOf="@id/player_state_btn"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:id="@+id/course_list_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="2dp"
+        app:layout_constraintBottom_toBottomOf="@id/player_state_btn"
+        app:layout_constraintRight_toLeftOf="@id/player_pre_btn"
+        app:layout_constraintTop_toTopOf="@id/player_state_btn">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/player_course_img"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="课程表"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/document_list_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="2dp"
+        app:layout_constraintBottom_toBottomOf="@id/player_state_btn"
+        app:layout_constraintLeft_toRightOf="@id/player_next_btn"
+        app:layout_constraintTop_toTopOf="@id/player_state_btn">
+
+        <ImageView
+            android:layout_width="19dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:src="@drawable/player_doc_img"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="文稿"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+</merge>

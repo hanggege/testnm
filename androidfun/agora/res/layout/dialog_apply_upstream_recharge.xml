@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    app:rv_backgroundColor="@android:color/white"
+    app:rv_cornerRadius_TL="12dp"
+    app:rv_cornerRadius_TR="12dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/top_up"
+        android:textColor="@color/color_333333"
+        android:textSize="17sp" />
+
+    <com.mei.live.views.ApplyUpstreamRechargeView
+        android:id="@+id/apply_upstream_recharge_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp" />
+</com.flyco.roundview.RoundLinearLayout>

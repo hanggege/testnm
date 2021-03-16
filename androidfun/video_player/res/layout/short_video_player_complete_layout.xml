@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/short_video_complete_info_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#303030"
+    android:clickable="true"
+    tools:ignore="KeyboardInaccessibleWidget">
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/short_complete_avatar_img"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="140dp"
+        android:src="@drawable/default_male_head"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:radius_all="45dp" />
+
+    <TextView
+        android:id="@+id/short_complete_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/short_complete_avatar_img"
+        tools:text="发起私聊或者私密连线" />
+
+    <TextView
+        android:id="@+id/short_complete_hint_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="20dp"
+        android:alpha="0.5"
+        android:gravity="center"
+        tools:text="发起私聊或者私密连线，知心达人为你在线解惑"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/short_complete_name_tv"
+        tools:ignore="HardcodedText" />
+
+
+    <com.mei.widget.gradient.GradientLinearLayout
+        android:id="@+id/short_complete_mentor_home_page_layout"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        app:gd_direction="leftToRight"
+        app:gd_end_color="#FF8D05"
+        app:gd_radius="25dp"
+        app:gd_start_color="#FEBE00"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/short_complete_hint_tv">
+
+        <ImageView
+            android:id="@+id/short_complete_live_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:clickable="false"
+            android:scaleType="fitCenter"
+            android:src="@drawable/short_video_complete_icon"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/short_complete_live_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:clickable="false"
+            android:text="Ta的主页"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+    </com.mei.widget.gradient.GradientLinearLayout>
+
+    <com.mei.widget.gradient.GradientLinearLayout
+        android:id="@+id/short_complete_private_im_layout"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        app:gd_direction="leftToRight"
+        app:gd_end_color="#FF3F36"
+        app:gd_radius="25dp"
+        app:gd_start_color="#FF7F33"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/short_complete_mentor_home_page_layout"
+        app:layout_goneMarginTop="60dp"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/short_complete_im_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:clickable="false"
+            android:scaleType="fitCenter"
+            android:src="@drawable/short_private_im_icon"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/short_complete_im_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:clickable="false"
+            android:text="私聊"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+    </com.mei.widget.gradient.GradientLinearLayout>
+
+    <TextView
+        android:id="@+id/short_complete_replay_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:alpha="0.5"
+        android:padding="10dp"
+        android:text="重新播放"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/short_complete_private_im_layout"
+        tools:ignore="HardcodedText" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

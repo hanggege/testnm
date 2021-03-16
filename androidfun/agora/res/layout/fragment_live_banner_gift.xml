@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="106dp"
+    android:background="@android:color/transparent"
+    android:gravity="bottom"
+    android:id="@+id/root_layout"
+    android:orientation="vertical">
+
+    <!--    <com.mei.live.views.GiftBannerView-->
+    <!--        android:id="@+id/gift_container_top"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="68dp"-->
+    <!--        tools:visibility="visible"-->
+    <!--        android:visibility="gone" />-->
+
+    <!--    <com.mei.live.views.GiftBannerView-->
+    <!--        android:id="@+id/gift_container_bottom"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="68dp"-->
+    <!--        tools:visibility="visible"-->
+    <!--        android:visibility="gone"/>-->
+</LinearLayout>

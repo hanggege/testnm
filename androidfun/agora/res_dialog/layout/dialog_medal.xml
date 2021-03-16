@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/medal_iv"
+        android:layout_width="315dp"
+        android:layout_height="315dp"
+        android:layout_marginTop="118dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/color_FF4F00"
+        tools:ignore="ContentDescription" />
+
+
+    <ImageView
+        android:id="@+id/medal_center_iv"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="81.5dp"
+        app:layout_constraintEnd_toEndOf="@id/medal_iv"
+        app:layout_constraintStart_toStartOf="@id/medal_iv"
+        app:layout_constraintTop_toTopOf="@+id/medal_iv"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/medal_inner_center_iv"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="@+id/medal_center_iv"
+        app:layout_constraintEnd_toEndOf="@+id/medal_center_iv"
+        app:layout_constraintStart_toStartOf="@+id/medal_center_iv"
+        app:layout_constraintTop_toTopOf="@+id/medal_center_iv" />
+
+    <ImageView
+        android:id="@+id/medal_hint_title_iv"
+        android:layout_width="0dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="64.5dp"
+        android:layout_marginTop="191dp"
+        android:layout_marginEnd="64.5dp"
+        app:layout_constraintEnd_toEndOf="@+id/medal_iv"
+        app:layout_constraintStart_toStartOf="@+id/medal_iv"
+        app:layout_constraintTop_toTopOf="@+id/medal_iv"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/medal_hint_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7.5dp"
+        android:gravity="center_horizontal"
+        android:maxLines="1"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/medal_hint_title_iv"
+        app:layout_constraintStart_toStartOf="@+id/medal_hint_title_iv"
+        app:layout_constraintTop_toTopOf="@+id/medal_hint_title_iv"
+        tools:text="你获得了新的勋章" />
+
+
+    <TextView
+        android:id="@+id/medal_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/medal_iv"
+        app:layout_constraintStart_toStartOf="@+id/medal_iv"
+        app:layout_constraintTop_toTopOf="@+id/medal_iv"
+        tools:text="专属服务 Lv.1" />
+
+    <TextView
+        android:id="@+id/medal_hint_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/medal_name_tv"
+        tools:text="累计充值专属50钻，" />
+
+    <com.mei.widget.gradient.GradientFrameLayout
+        android:id="@+id/medal_btn_gfl"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="55dp"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="20dp"
+        app:gd_start_color="@color/color_FF7F33"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/medal_hint_tv">
+
+        <TextView
+            android:id="@+id/medal_btn_content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            tools:text="我知道了" />
+
+    </com.mei.widget.gradient.GradientFrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

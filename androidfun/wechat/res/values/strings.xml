@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_wechat_rist_tips_official">风险提示: 请在小鹿平台上购买服务,私下交易将面临无法退款、隐私泄露等风险。如咨询师意图私下交易,请在咨询师的个人主页底部点击举报。</string>
+    <string name="add_wechat_rist_tips">风险提示: 请在小鹿平台上购买服务,私下交易将面临无法退款、隐私泄露等风险。如咨询师意图私下交易,请点此举报 ></string>
+</resources>

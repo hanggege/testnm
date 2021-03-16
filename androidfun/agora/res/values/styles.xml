@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="GiftAnimView">
+        <attr name="double_text_size" format="reference|dimension" />
+    </declare-styleable>
+    <declare-styleable name="ContributeAvatarView">
+        <attr name="image_size" format="reference|integer" />
+        <attr name="round_stroke_width" format="dimension" />
+        <attr name="round_stroke_color" format="reference|color" />
+    </declare-styleable>
+
+</resources>

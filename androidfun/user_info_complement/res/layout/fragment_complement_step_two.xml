@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/complement_step_two_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="2/3  请选择你的年龄"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:ignore="HardcodedText" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="7dp"
+        android:gravity="center"
+        android:text="完善资料，为您匹配更精准的内容"
+        android:textColor="#666666"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_complement_age_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="3" />
+
+
+</LinearLayout>

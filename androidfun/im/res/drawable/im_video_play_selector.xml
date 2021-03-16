@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/im_video_play_pause_icon" android:state_activated="true" />
+    <item android:drawable="@drawable/im_video_play_pause_icon" android:state_selected="true" />
+    <item android:drawable="@drawable/im_video_play_play_icon" />
+</selector>

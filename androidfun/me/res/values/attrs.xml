@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EditItemView">
+        <attr name="edit_title" format="string|reference" />
+        <attr name="edit_title_bold" format="boolean" />
+        <attr name="edit_text" format="string|reference" />
+        <attr name="edit_arrow_visible" format="boolean" />
+        <attr name="edit_text_visible" format="boolean" />
+        <attr name="edit_hint" format="string|reference" />
+        <attr name="edit_icon" format="reference" />
+        <attr name="edit_title_color" format="color" />
+        <attr name="edit_text_color" format="color" />
+        <attr name="edit_title_size" format="dimension" />
+        <attr name="edit_text_focus" format="boolean" />
+        <attr name="edit_textview_type" format="enum" >
+            <enum name="EditText" value="0"/>
+            <enum name="TextView" value="1"/>
+            <enum name="LabelText" value="2"/>
+        </attr>
+    </declare-styleable>
+
+
+</resources>

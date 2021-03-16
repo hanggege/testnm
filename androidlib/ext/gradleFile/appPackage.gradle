@@ -1,0 +1,375 @@
+ext {
+    getApkFiles = this.&getApkFiles
+}
+android.applicationVariants.all { variant ->//com.android.build.gradle.api.ApplicationVariant
+    String buildType = variant.buildType.name
+    String channel = variant.flavorName == "" ? "other" : variant.flavorName
+    String versionName = variant.versionName
+    int versionCode = variant.versionCode
+
+    /**只对Release包起作用，如果不是Release包则不变更输出路径，否则可能导致AS无法自动安装debug包。**/
+    boolean release = RELEASE_PACKAGE instanceof Boolean ? RELEASE_PACKAGE : Boolean.parseBoolean(RELEASE_PACKAGE)
+    if (buildType == 'release' && (release || isJenkins() || package_user.any {
+        it == System.properties['user.name']
+    })) {
+//        variant.getPackageApplication().outputDirectory = file("$history_path${File.separatorChar}$versionName")
+        // TODO: joker 2019/1/16 com.android.tools.build:gradle 3.3.0之后用以下方式
+        variant.getPackageApplicationProvider().configure {
+            it.outputDirectory = file("$history_path${File.separatorChar}$versionName")
+        }
+    }
+    variant.outputs.each { output ->//com.android.build.gradle.api.ApkVariantOutput
+        /**只对Release包起作用，如果不是Release包则不变更名称**/
+        if (buildType == 'release') {
+            String fileName = "${versionName}-${versionCode}-${channel}.apk"
+            output.outputFileName = fileName
+
+//            String apkPath = variant.getPackageApplication().outputDirectory.absolutePath + "${File.separatorChar}" + fileName
+//            println "=====realse输出文件路径   $apkPath"
+            // TODO: joker 2019/1/16 com.android.tools.build:gradle 3.3.0之后用以下方式
+//            variant.getPackageApplicationProvider().configure {
+//                String apkPath = it.outputDirectory.absolutePath + "${File.separatorChar}" + fileName
+//                println "=====realse输出文件路径   $apkPath"
+//            }
+            // TODO: 2020/3/26  com.android.tools.build:gradle 3.6.0之后用以下方式
+            variant.getPackageApplicationProvider().configure { pa ->//com.android.build.gradle.tasks.PackageApplication
+                String apkPath = pa.outputDirectory.get().asFile.path + "${File.separatorChar}" + fileName
+                println "=====realse输出文件路径   $apkPath"
+            }
+        }
+    }
+
+    //强制签名
+    if (getSign() == null) {
+        throw new IllegalThreadStateException("请配置签名")
+    }
+}
+
+/**
+ * 通过条件获取apk列表
+ * @param filter
+ * @return
+ */
+List<File> getApkFiles(FilenameFilter filter) {
+    File outputDir = file("$history_path${File.separatorChar}${android.defaultConfig.versionName}")
+    ArrayList<File> apkList = outputDir.listFiles(filter)
+    return apkList != null ? apkList : new ArrayList<File>()
+}
+
+
+/**
+ * 打包完成后 使用AndResGuard进行资源混淆
+ */
+task runAndResGuard {
+    doLast {
+        println('-----------开始资源混淆-------------')
+
+        List<File> apkList = getApkFiles { f, name -> name.endsWith(".apk") }
+        println(apkList)
+        if (apkList.isEmpty()) {
+            println("===========================资源混淆失败，文件夹未找到文件===========================================")
+        } else if (android.defaultConfig.versionName.toLowerCase().contains('beta')) {
+            /**beta只上传一个测试包**/
+            File findApk = apkList.find { it.name.contains("-$jiagu_flavor") }
+            File apkFile = findApk
+            if (apkFile == null || !apkFile.exists()) apkFile = apkList.isEmpty() ? null : apkList.first()
+            String outPutDir = "${history_path}/AndResGuard/${apkFile.getName()}"
+            andResGuard(apkFile.absolutePath, outPutDir)
+            replaceAndResGuardApk(outPutDir, apkFile)
+        } else {
+            apkList.each { apkFile ->
+                String outPutDir = "${history_path}/AndResGuard/${apkFile.getName()}"
+                andResGuard(apkFile.absolutePath, outPutDir)
+                replaceAndResGuardApk(outPutDir, apkFile)
+            }
+        }
+        println('-----------结束资源混淆-------------')
+    }
+}
+
+boolean replaceAndResGuardApk(String andResGuardApkDir, File srcApk) {
+    println "-----开始替换文件-------"
+
+    File andResGuardApkParentDir = (new File(andResGuardApkDir)).getParentFile()
+    File backupSrcDir = new File(andResGuardApkParentDir.absolutePath, "backupSrc")
+    if (!backupSrcDir.exists()) {
+        backupSrcDir.mkdirs()
+    }
+
+    File to = new File(backupSrcDir, srcApk.getName())
+    println "拷贝文件:${srcApk.getAbsolutePath()} ---> ${to.getAbsolutePath()}"
+    //备份原来的
+    copyFile(srcApk, to)
+
+    //替换原始的
+    //找一个最合适的apk替换原来的文件
+    File andResGuardDir = new File(andResGuardApkDir)
+    File andResGuardFile = null
+    //对于发布于Google Play的APP，建议不要使用7Zip压缩，因为这个会导致Google Play的优化Patch算法失效
+    if (!srcApk.getName().contains("google")) {
+        andResGuardFile = andResGuardDir.listFiles().find({
+            it.name.contains("signed") && it.name.contains("7zip") && it.name.contains("aligned")
+        })
+        if (andResGuardFile == null) {
+            andResGuardFile = andResGuardDir.listFiles().find({
+                it.name.contains("signed") && it.name.contains("7zip")
+            })
+        }
+    }
+    if (andResGuardFile == null) {
+        andResGuardFile = andResGuardDir.listFiles().find({
+            it.name.contains("signed") && it.name.contains("aligned")
+        })
+    }
+    if (andResGuardFile == null) {
+        andResGuardFile = andResGuardDir.listFiles().find({
+            it.name.contains("signed")
+        })
+    }
+    println "替换文件:${andResGuardFile.getAbsolutePath()} ---> ${srcApk.getAbsolutePath()}"
+    if (andResGuardFile != null) {
+        String srcApkPath = srcApk.getAbsolutePath()
+        srcApk.delete()
+        copyFile(andResGuardFile, new File(srcApkPath))
+        return true
+    } else {
+        return false
+    }
+
+}
+
+/**
+ * 使用AndResGuard进行资源混淆
+ * @param apkPath apk路径
+ */
+def andResGuard(String apkPath, String outPutDir) {
+    String jarPath = "${rootProject.projectDir}/androidlib/ext/jar/AndResGuard/AndResGuard-cli-1.2.15.jar"
+
+
+    println "资源混淆生成配置文件------>开始"
+    File templateConfigFile = new File("${rootProject.projectDir}/androidlib/ext/jar/AndResGuard/template_config.xml")
+    FileInputStream fileInputStream = new FileInputStream(templateConfigFile)
+    int size = fileInputStream.available()
+    byte[] buffer = new byte[size]
+    fileInputStream.read(buffer)
+    fileInputStream.close()
+    String templateConfigStr = new String(buffer, "UTF-8")
+
+    //替换包名
+    templateConfigStr = templateConfigStr.replaceAll("@@FullPackageName@@", getApplicationId(project))
+
+    //替换签名
+    def sign = getSign()
+
+    String signatureFilePath = sign.storeFile
+    String storepass = sign.storePassword
+    String keypass = sign.keyPassword
+    String alias = sign.keyAlias
+
+    templateConfigStr = templateConfigStr.replaceAll("@@signPath@@", signatureFilePath)
+            .replaceAll("@@signStorepass@@", storepass)
+            .replaceAll("@@signKeypass@@", keypass)
+            .replaceAll("@@signAlias@@", alias)
+
+    String configPath = "$rootDir/cache/andResGuard/${rootProject.name}_config.xml"
+    writeFile(configPath, templateConfigStr, false)
+
+    println "资源混淆生成配置文件------>结束"
+
+    String p7zipPath = "${rootProject.projectDir}/androidlib/ext/jar/p7zip/7za"
+    String zipalignPath = "${rootProject.projectDir}/androidlib/ext/jar/zipalign"
+
+    println "资源混淆apk文件: ${apkPath}    andResGuard输出文件夹: ${outPutDir}"
+
+    if (file(outPutDir).exists()) {
+        println "之前打过这个版本的包  andResGuard输出文件夹存在，删除!"
+        file(outPutDir).deleteDir()
+    }
+
+    println("java -jar ${jarPath} ${apkPath} -config ${configPath} -out ${outPutDir}  -7zip ${p7zipPath} -zipalign ${zipalignPath}")
+    exec {
+        commandLine 'java', '-jar', jarPath, apkPath, '-config', configPath, '-out', outPutDir, '-7zip', p7zipPath, '-zipalign', zipalignPath
+    }
+}
+
+def getSign() {
+    def config = null
+    project.rootProject.childProjects.each {
+        Project p = it.value
+        p.getPlugins().each {
+            if ("com.android.build.gradle.AppPlugin".equalsIgnoreCase(it.class.name)) {
+                try {
+                    config = p.android.signingConfigs.release
+                } catch (Exception e) {
+                    e.printStackTrace()
+//                    config = p.android.signingConfigs.debug
+                }
+            }
+        }
+    }
+    return config
+}
+
+
+/**=============================================加固开始===============================================================================================**/
+/**
+ * 打包完成后加固应用
+ */
+task runjiagu {
+    doLast {
+        List<File> apkList = getApkFiles { f, name -> name.endsWith(".apk") && !name.contains("jiagu") }
+
+        println(apkList)
+        if (apkList.isEmpty()) {
+            println("===========================加固失败，文件夹未找到加固文件===========================================")
+        } else if (android.defaultConfig.versionName.toLowerCase().contains('beta')) {
+            /**beta只上传一个测试包**/
+            File findApk = apkList.find { it.name.contains("-$jiagu_flavor") }
+            File apkFile = findApk
+            if (apkFile == null || !apkFile.exists()) apkFile = apkList.isEmpty() ? null : apkList.first()
+            jiaGuApk(apkFile.absolutePath)
+        } else {
+            apkList.each {
+                jiaGuApk(it.absolutePath)
+                println("==加固Apk===${it}")
+            }
+            println("===========================加固完成===========================================")
+        }
+    }
+}
+/**
+ * google渠道需要先加zipalign处理，再打多渠道包
+ */
+
+task runZipalign {
+    doLast {
+        if (!android.defaultConfig.versionName.toLowerCase().contains('beta')) {
+            List<File> apkList = getApkFiles { f, name -> name.endsWith(".apk") && name.contains("-google") && name.contains("jiagu") }
+            apkList.each { apk ->
+                def zipFile = file("${apk.absolutePath.replace("-google", "-google_zipalign")}")
+                if (zipFile != null && zipFile.exists())
+                    delete(zipFile.absolutePath)
+                exec {
+                    println("===========================google zipalign ：${apk.absolutePath}===========================================")
+                    commandLine "${rootDir}${File.separatorChar}androidlib${File.separatorChar}ext${File.separatorChar}jar${File.separatorChar}zipalign",
+                            '-v', '4', apk,
+                            file("${apk.absolutePath.replace("-google", "-google_zipalign")}")
+                }
+            }
+        }
+    }
+}
+
+/**
+ * 用360加固
+ * @param apkPath apk路径
+ */
+def jiaGuApk(String apkPath) {
+    String jarPath = jiaguJarPath()
+    if (jarPath.isEmpty() || !file(apkPath).exists()) {
+        println("加固失败jiaGu($apkPath) 未配置jiagu ${jarPath}包，或者apk文件不存在")
+    } else {
+        println('开始加固')
+        exec {
+            /** jiagu完后的包输出路径 **/
+            String outPutJiaguApk = file(apkPath).parentFile.absolutePath
+            if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
+                commandLine 'java', '-jar', jarPath, '-jiagu', apkPath, outPutJiaguApk, '-autosign'
+            } else {
+                commandLine 'sh', createJiaguFile(file(apkPath))
+            }
+        }
+    }
+}
+
+/**
+ * 获取jiagu的jar包路径，本地配置好
+ * @return
+ */
+String jiaguJarPath() {
+    String jar = ''
+    try {
+        if (isJenkins()) {
+            jar = '/Users/ring/workspace/jiagu/jiagu.jar'
+        } else {
+            jar = rootProject.property(System.properties['user.name'])
+        }
+    } catch (Exception e) {
+        e.printStackTrace()
+        println("${rootProject.name}加固失败,请在gradle.properties配置${System.properties['user.name']}")
+    }
+    return jar
+}
+/**============================================加固完成================================================================================================**/
+
+/**============================================上传Pgyer================================================================================================**/
+
+task uploadPgyer {
+    doLast {
+        println("===========================上传pgyer文件===========================================")
+        List<File> apkList = getApkFiles { f, name -> name.endsWith(".apk") && name.contains("jiagu_sign") }.sort {
+            it.name
+        }
+        File findApk = apkList.find { it.name.contains("-$jiagu_flavor") }
+        File apkFile = findApk
+        if (apkFile == null || !apkFile.exists()) apkFile = apkList.isEmpty() ? "" : apkList.first()
+        if (apkList.isEmpty()) {
+            println("===========================文件夹未找到可以上传pgyer文件===========================================")
+        } else if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
+            exec {
+                /**需要做适配windows的上传pgyer**/
+                workingDir "${rootDir}${File.separatorChar}androidlib${File.separatorChar}ext${File.separatorChar}jar"
+                commandLine 'java', "-jar", "pgyer.jar", '1bd4e19be1499a3faf7114659b7d3f7f', 'c61e4354d608df80e71608ad79a82c87', apkFile, "joker"
+            }
+        } else {
+            exec {
+                workingDir "${rootDir}${File.separatorChar}androidlib${File.separatorChar}ext${File.separatorChar}shell"
+                commandLine 'sh', "report.sh", apkFile
+            }
+        }
+    }
+}
+
+/**============================================发钉钉================================================================================================**/
+task dingTalk {
+    doLast {
+        try {
+            ding_token.each { token ->
+                exec {
+                    println("发送钉钉消息  token---->  " + token)
+                    String msg = "Android\\n各位leader，快来下载新版【${getShowNameFromProject()}】.\\n --------------------------------------------\\n下载：  " +
+                            "\b\bhttps://www.pgyer.com/mei_${getProjectCode()}\\n"
+                    commandLine 'sh', createDingShell(msg), token
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace()
+        }
+    }
+}
+
+/**============================================task 生命周期================================================================================================**/
+
+task testJoker {
+    doLast {
+        println "==================test=================="
+    }
+}
+
+
+project.afterEvaluate {
+    Task assembleRelease = tasks.findByName("assembleRelease")
+    if (assembleRelease != null) {
+        assembleRelease.finalizedBy runjiagu
+//        assembleRelease.finalizedBy runAndResGuard
+//        runAndResGuard.finalizedBy runjiagu
+        runjiagu.finalizedBy runZipalign
+        runZipalign.finalizedBy uploadPgyer
+        uploadPgyer.finalizedBy dingTalk
+    }
+
+}
+
+
+
+

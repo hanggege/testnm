@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    tools:background="@android:color/holo_blue_light">
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/im_time_stamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:includeFontPadding="false"
+        android:padding="5dp"
+        android:text="12:00"
+        android:textColor="#989898"
+        android:textSize="12sp"
+        app:rv_cornerRadius="3dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:paddingRight="15dp">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="4dp">
+
+            <ImageView
+                android:id="@+id/im_message_retry"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/im_send_error_img"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/im_message_sending"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:indeterminateDrawable="@drawable/smallprogressbars"
+                android:visibility="visible" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/im_voice_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            android:text="1'20''"
+            android:textColor="@color/color_9b9b9b"
+            android:textSize="12sp" />
+
+        <!--这个结构下面的为每条消息体，上面的是通用消息内容，一般都会有-->
+        <com.flyco.roundview.RoundRelativeLayout
+            android:id="@+id/im_message_container"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="-1dp"
+            android:layout_marginRight="4dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            app:rv_backgroundColor="#FFDA0A"
+            app:rv_cornerRadius="10dp">
+
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:id="@+id/im_message_voice_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/chat_chatto_voice_playing_f3" />
+        </com.flyco.roundview.RoundRelativeLayout>
+
+
+        <include layout="@layout/include_avatar_42" />
+
+    </LinearLayout>
+
+</LinearLayout>

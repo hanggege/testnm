@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:orientation="vertical">
+
+    <com.mei.base.weight.tablayout.SlidingTabLayout
+        android:id="@+id/slide_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        app:tl_background_selectColor="@android:color/white"
+        app:tl_background_unSelectColor="@color/color_f6f6f6"
+        app:tl_tab_radius="8dp"
+        app:tl_tab_space_equal="true"
+        app:tl_textBold="SELECT"
+        app:tl_textSelectColor="@color/color_333333"
+        app:tl_textSelectSize="13sp"
+        app:tl_textUnselectColor="@color/color_333333"
+        app:tl_textsize="13sp" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_below="@+id/slide_tab_layout"
+        android:background="@android:color/white" />
+
+</RelativeLayout>

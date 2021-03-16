@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.flyco.roundview.RoundRelativeLayout
+        android:layout_width="310dp"
+        android:layout_height="214dp"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius="8dp"
+        tools:ignore="MissingConstraints">
+
+        <com.mei.widget.choince.ChoiceView
+            android:id="@+id/choice_view"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="15dp"
+            android:padding="3dp"
+            app:choice_color="@color/color_999999"
+            app:choice_type="cross"
+            app:choice_width="1.5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="添加自定义标签"
+            android:textColor="@color/color_333333"
+            android:textSize="17sp"
+            tools:ignore="HardcodedText" />
+
+        <com.flyco.roundview.RoundRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="74dp"
+            android:layout_marginEnd="23dp"
+            app:rv_cornerRadius="3dp"
+            app:rv_strokeColor="@color/color_c8c8c8"
+            app:rv_strokeWidth="1dp">
+
+            <EditText
+                android:id="@+id/et_personal_lable"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="请输入自定义标签"
+                android:padding="10dp"
+                android:textColor="@color/color_333333"
+                android:textSize="16sp"
+                tools:ignore="Autofill,HardcodedText,TextFields" />
+
+            <TextView
+                android:id="@+id/tv_personal_lable_change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/color_c8c8c8"
+                android:textSize="14sp"
+                tools:text="1/4" />
+
+        </com.flyco.roundview.RoundRelativeLayout>
+
+
+        <com.mei.widget.gradient.GradientTextView
+            android:id="@+id/tv_dialog_add_lable_commit"
+            android:layout_width="110dp"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:gd_end_color="@color/color_FF3F36"
+            app:gd_radius="22.5dp"
+            app:gd_start_color="@color/color_FF7F33"
+            tools:ignore="HardcodedText" />
+
+    </com.flyco.roundview.RoundRelativeLayout>
+
+</RelativeLayout>

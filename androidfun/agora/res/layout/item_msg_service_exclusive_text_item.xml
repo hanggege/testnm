@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/service_exclusive_click"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal"
+    android:paddingTop="5dp"
+    tools:background="#370C06">
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/user_avatar_img"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/default_avatar_50"
+        app:radius_all="14dp" />
+
+    <com.flyco.roundview.RoundRelativeLayout
+        android:id="@+id/live_msg_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:padding="6dp"
+        app:rv_backgroundColor="@color/masks_layer_30"
+        app:rv_cornerRadius="8dp">
+
+
+        <RelativeLayout
+            android:id="@+id/ly_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <include layout="@layout/view_level" />
+
+            <TextView
+                android:id="@+id/tv_live_name_pub_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/color_A3E2FB"
+                android:textSize="13sp"
+                tools:text="小峰 推荐 【专属服务】" />
+
+
+        </RelativeLayout>
+
+        <com.flyco.roundview.RoundRelativeLayout
+            android:id="@+id/live_msg_content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ly_name"
+            android:layout_marginTop="5dp"
+            android:paddingBottom="6dp"
+            app:radius_all="14dp"
+            app:rv_backgroundColor="#f2ffffff"
+            app:rv_cornerRadius="4dp">
+
+            <TextView
+                android:id="@+id/live_msg_content_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="2dp"
+                android:maxWidth="220dp"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                tools:text="挽救婚姻婚内移情，重获幸福家庭重获幸福家" />
+
+            <LinearLayout
+                android:id="@+id/history_service_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/live_msg_content_title"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tv_count_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/color_FF3A3A"
+                    android:textSize="15sp"
+                    tools:text="18" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="2dp"
+                    android:background="@drawable/icon_service_list_masonry" />
+
+                <TextView
+                    android:id="@+id/tv_connt_service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="2dp"
+                    android:textColor="@color/color_666666"
+                    android:textSize="9sp"
+                    tools:text="/60分钟 3次起" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/price_text_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/live_msg_content_title"
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:textSize="17sp"
+                tools:visibility="gone"
+                tools:text="专属服务价格" />
+        </com.flyco.roundview.RoundRelativeLayout>
+    </com.flyco.roundview.RoundRelativeLayout>
+
+</LinearLayout>

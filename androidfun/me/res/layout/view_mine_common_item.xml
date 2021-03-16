@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mine_common_item"
+    android:paddingHorizontal="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.mei.me.view.EditItemView
+        android:id="@+id/edit_item_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:edit_icon="@drawable/icon_me_start_live"
+        app:edit_text_focus="false"
+        app:edit_textview_type="TextView"
+        app:edit_title="开启直播"
+        app:edit_title_bold="true" />
+
+</FrameLayout>

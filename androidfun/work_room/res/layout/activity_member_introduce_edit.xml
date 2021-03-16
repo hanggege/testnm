@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content_cl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/member_rlv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/member_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="14dp"
+            android:textColor="@color/color_666666"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/member_rlv"
+            tools:ignore="MissingConstraints"
+            tools:text="士多啤梨的介绍" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="14dp"
+            android:background="@color/color_e8e8e8"
+            app:layout_constraintTop_toBottomOf="@id/member_name_tv"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/introduce_et"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="15dp"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="@string/member_introduce_hint"
+            android:maxLength="800"
+            android:paddingBottom="80dp"
+            android:textColor="@color/color_666666"
+            android:textColorHint="@color/color_C8C8C8"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/line"
+            app:layout_constraintVertical_weight="1"
+            tools:text="测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试" />
+
+        <TextView
+            android:id="@+id/content_length_hint_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/color_C8C8C8"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/save_gcv"
+            app:layout_constraintEnd_toEndOf="@+id/introduce_et"
+            tools:ignore="MissingConstraints"
+            tools:text="0/800" />
+
+
+        <com.mei.widget.gradient.GradientTextView
+            android:id="@+id/save_gcv"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginRight="52dp"
+            android:layout_marginBottom="21dp"
+            android:gravity="center"
+            android:text="@string/member_introduce_save"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:gd_end_color="@color/color_FF3F36"
+            app:gd_radius="25dp"
+            app:gd_start_color="@color/color_FF7F33"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="MissingConstraints" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <include
+        layout="@layout/include_net_error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
+        android:visibility="gone"
+        tools:visibility="gone" />
+
+</FrameLayout>

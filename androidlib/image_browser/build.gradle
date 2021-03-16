@@ -1,0 +1,65 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.target_sdk_version
+    buildToolsVersion rootProject.ext.build_tools_version
+    compileOptions.encoding = 'utf-8'
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs += "./src/picker/code"
+            res.srcDirs += "./src/picker/res"
+            java.srcDirs += "./src/browser/code"
+            res.srcDirs += "./src/browser/res"
+            java.srcDirs += "./src/video/code"
+            res.srcDirs += "./src/video/res"
+        }
+    }
+}
+
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+    google()
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    /*提供的Module*/
+    compileOnly "androidx.appcompat:appcompat:$androidx_lib_version"
+    compileOnly "androidx.recyclerview:recyclerview:$androidx_lib_version"
+    compileOnly rootProject.ext.glideImage
+    compileOnly rootProject.ext.photoView
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    api("com.davemorrissey.labs:subsampling-scale-image-view-androidx:3.10.0"){
+        exclude group: 'androidx.appcompat', module: 'appcompat'
+    }
+
+}
+

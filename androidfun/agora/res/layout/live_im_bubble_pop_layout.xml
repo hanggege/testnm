@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/bg_delete_shielding"
+        android:layout_width="75dp"
+        android:layout_height="36dp" />
+
+    <LinearLayout
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/live_stop_delete_msg_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="删除"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            tools:ignore="HardcodedText,RtlHardcoded" />
+
+
+        <TextView
+            android:id="@+id/live_stop_send_msg_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="拉黑"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+</RelativeLayout>

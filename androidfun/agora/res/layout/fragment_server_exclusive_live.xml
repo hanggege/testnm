@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rb_click_connect"
+    android:layout_width="match_parent"
+    android:layout_height="95dp"
+    android:background="@android:color/transparent">
+
+    <com.mei.widget.gradient.GradientFrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        app:gd_end_color="@color/color_FF9200"
+        app:gd_radius="4dp"
+        app:gd_start_color="@color/color_FD6443"
+        app:gd_stroke_start_color="@color/color_33FFFFFF"
+        app:gd_stroke_width="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="18dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/live_service_banner_bg"
+        android:gravity="center"
+        android:text="您的服务"
+        android:textColor="@android:color/white"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,SmallSp" />
+
+
+    <TextView
+        android:id="@+id/tv_title_service_live_sell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@android:color/white"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SmallSp"
+        tools:text="婚姻挽回深度分..." />
+
+    <TextView
+        android:id="@+id/tv_live_service_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textColor="@android:color/white"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_service_live_sell"
+        tools:ignore="SmallSp"
+        tools:text="剩余时长：140分钟" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/start_service"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginTop="7dp"
+        android:gravity="center"
+        android:paddingStart="26dp"
+        android:paddingEnd="7dp"
+        android:text="开始服务 >"
+        android:textColor="@color/color_FF6800"
+        android:textSize="9sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/anchor_avatar"
+        app:layout_goneMarginTop="10dp"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius="20dp"
+        tools:ignore="HardcodedText,SmallSp" />
+
+    <ImageView
+        android:id="@+id/anchor_avatar"
+        android:layout_width="21dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/default_male_head"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@id/start_service"
+        app:layout_constraintTop_toBottomOf="@+id/tv_live_service_time"
+        tools:visibility="visible" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

@@ -1,0 +1,106 @@
+task appioschangeclass {
+    doLast {
+        String prefix = "ty_"
+        String suffix = "_icon"
+        List<File> xcassetsList = findAllFile(file("/Users/joker/workspace/iOS/Tony_swift"), "", ".xcassets")
+        List<File> swiftList = findAllFile(file("/Users/joker/workspace/iOS/Tony_swift"), "", ".swift")
+        xcassetsList.each { sets ->
+            List<File> imagesetList = findAllFile(sets, "", ".imageset")
+            println("=================================$sets.path====================================================")
+            imagesetList.each { File set ->
+                String setName = set.name.replace(".imageset", "")
+                File contentFile = file("${set.path}/Contents.json")
+                if (contentFile.exists()) {
+                    List<File> imgList = findAllFile(set, "", ".png")
+                    String contentText = contentFile.text
+                    imgList.each { File imgFile ->
+                        String imgName = imgFile.name
+                        String endString = ".png"
+                        if (imgName.endsWith("@1x.png")) endString = "@1x.png"
+                        if (imgName.endsWith("@2x.png")) endString = "@2x.png"
+                        if (imgName.endsWith("@3x.png")) endString = "@3x.png"
+
+                        String targetName = "$prefix${imgName.replace(endString, "")}$suffix$endString"
+                        println("=======$imgName    $targetName   $endString")
+                        contentText = contentText.replace(imgName, targetName)
+                        imgFile.renameTo(imgFile.path.replace(imgName, targetName))
+                    }
+                    writeFile(contentFile.path, contentText, false)
+                }
+                set.renameTo(set.path.replace(setName, "$prefix${setName}$suffix"))
+                swiftList.each { swiftFile ->
+                    println(swiftFile.path)
+                    String swiftContent = swiftFile.text
+                    if (swiftContent.contains("R.image.${setName}()")) {
+                        println("=================================$setName====================================================")
+                        swiftContent = swiftContent.replace("R.image.${setName}()", "R.image.$prefix${setName}$suffix()")
+                    }
+                    writeFile(swiftFile.path, swiftContent, false)
+                }
+            }
+            println("=====================================================================================")
+        }
+
+    }
+}
+
+task appiosChangePre {
+    doLast {
+        List<File> swiftList = findAllFile(file("/Users/joker/workspace/iOS/Tony_swift"), "", ".swift")
+        swiftList.each { File swift ->
+            if (swift.name.startsWith("TY")) {
+                println(swift.name)
+                String targetName = swift.name.replace("TY", "XL")
+                swift.renameTo("$swift.parent/$targetName")
+            }
+        }
+    }
+}
+
+task appiosFindTag {
+    doLast {
+        List<File> swiftList = findAllFile(file("/Users/joker/workspace/iOS/better"), "", ".swift")
+        swiftList.each { File swift ->
+            String text = swift.text
+            def reg = "FIX_WIDTH\\(-?([a-z0-9A-Z.]+)\\)"
+            def matcher = text =~ reg
+            Map<String, String> group = new HashMap<>()
+            while (matcher.find()) {
+                group.put(matcher.group(), matcher.group(1))
+            }
+            group.each { Map.Entry<String, String> m ->
+                println(m.key + "  ${m.key.contains("-") ? "-" : ""}${m.value}.pt")
+                text = text.replace(m.key, "${m.key.contains("-") ? "-" : ""}${m.value}.pt")
+            }
+            writeFile(swift.path, text, false)
+        }
+    }
+}
+
+def findAllFile(File dir, String start, String end) {
+    def list = new ArrayList()
+    def tempList = dir.listFiles(new FilenameFilter() {
+        @Override
+        boolean accept(File f, String name) {
+            if (!start.isEmpty() && name.startsWith(start)) {
+                return true
+            } else if (!end.isEmpty() && name.endsWith(end)) {
+                return true
+            } else if (file("${f.path}/$name").isDirectory() && !name.equalsIgnoreCase("Pods")) {
+                return true
+            } else {
+                return false
+            }
+        }
+    })
+    tempList.each { File f ->
+        if (!start.isEmpty() && f.name.startsWith(start)) {
+            list.add(f)
+        } else if (!end.isEmpty() && f.name.endsWith(end)) {
+            list.add(f)
+        } else if (f.isDirectory()) {
+            list.addAll(findAllFile(f, start, end))
+        }
+    }
+    return list
+}

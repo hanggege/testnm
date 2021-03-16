@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/work_room_header_cl"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:background="@android:color/white"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/work_room_img_riv"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:radius_all="6dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/work_room_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/color_333333"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/work_room_img_riv"
+        app:layout_constraintStart_toEndOf="@id/work_room_img_riv"
+        app:layout_constraintTop_toTopOf="@+id/work_room_img_riv"
+        tools:ignore="MissingConstraints"
+        tools:text="工作室名称" />
+
+    <com.flyco.roundview.RoundFrameLayout
+        android:id="@+id/work_room_page_rfl"
+        android:layout_width="91dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:drawableRight="@drawable/icon_personal_arrow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rv_cornerRadius="14dp"
+        app:rv_strokeColor="@color/color_e8e8e8"
+        app:rv_strokeWidth="1dp"
+        tools:ignore="MissingConstraints"
+        android:visibility="gone">
+
+        <com.mei.widget.round.RoundTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableRight="@drawable/icon_personal_arrow"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="工作室介绍"
+            android:textColor="@color/color_666666"
+            android:textSize="11sp" />
+
+    </com.flyco.roundview.RoundFrameLayout>
+
+    <FrameLayout
+        android:id="@+id/work_room_living_fl"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <com.mei.widget.gradient.GradientLinearLayout
+            android:id="@+id/living_layout"
+            android:layout_width="102dp"
+            android:layout_height="27dp"
+            android:gravity="center_vertical|right"
+            android:layout_gravity="center_vertical"
+            app:gd_end_color="@color/color_FC5143"
+            app:gd_radius="90dp"
+            app:gd_start_color="@color/color_FF973B"
+            tools:ignore="MissingConstraints,RtlHardcoded"
+            tools:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="直播中"
+                android:textColor="@android:color/white"
+                android:textSize="11sp"
+                tools:ignore="HardcodedText" />
+
+            <com.mei.widget.living.LivingView
+                android:id="@+id/living_img"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:clickable="false"
+                app:line_color="@android:color/white" />
+        </com.mei.widget.gradient.GradientLinearLayout>
+        <ImageView
+            android:id="@+id/living_img_iv"
+            android:layout_width="25dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="13dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="3dp"
+            tools:src="@drawable/icon_living_women" />
+
+
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_FECA91"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/intimate_consult_online_avatar_layout"
+        android:layout_width="0dp"
+        android:layout_height="87.5dp"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@id/intimate_consult_online_RT"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius="3dp">
+
+        <ImageView
+            android:id="@+id/intimate_consult_online_avatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="7dp"
+            android:scaleType="centerInside"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/personal_img_male_default" />
+
+    </com.flyco.roundview.RoundLinearLayout>
+
+
+    <ImageView
+        android:id="@+id/intimate_consult_online_RT"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_intimate_consult_no_live"
+        app:layout_constraintBottom_toTopOf="@id/intimate_consult_online_label_0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toEndOf="@id/intimate_consult_online_avatar_layout"
+        app:layout_constraintTop_toTopOf="@id/intimate_consult_online_avatar_layout"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        tools:ignore="ContentDescription" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/intimate_consult_online_label_0"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:paddingVertical="4dp"
+        android:textColor="@color/color_A16239"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@id/intimate_consult_online_label_1"
+        app:layout_constraintEnd_toEndOf="@id/intimate_consult_online_RT"
+        app:layout_constraintStart_toStartOf="@id/intimate_consult_online_RT"
+        app:layout_constraintTop_toBottomOf="@id/intimate_consult_online_RT"
+        app:rv_backgroundColor="@color/color_FEF7EC"
+        app:rv_cornerRadius="4dp"
+        tools:ignore="SmallSp"
+        tools:text="国家二级心理咨询" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/intimate_consult_online_label_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:paddingVertical="4dp"
+        android:textColor="@color/color_A16239"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@id/intimate_consult_online_avatar_layout"
+        app:layout_constraintEnd_toEndOf="@id/intimate_consult_online_RT"
+        app:layout_constraintStart_toStartOf="@id/intimate_consult_online_RT"
+        app:layout_constraintTop_toBottomOf="@id/intimate_consult_online_label_0"
+        app:rv_backgroundColor="@color/color_FEF7EC"
+        app:rv_cornerRadius="4dp"
+        tools:ignore="SmallSp"
+        tools:text="心理学硕士研究生" />
+
+    <com.flyco.roundview.RoundFrameLayout
+        android:id="@+id/intimate_consult_online_green_point"
+        android:layout_width="5dp"
+        android:layout_height="5dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@id/intimate_consult_online_name"
+        app:layout_constraintStart_toStartOf="@id/intimate_consult_online_avatar_layout"
+        app:layout_constraintTop_toTopOf="@id/intimate_consult_online_name"
+        app:rv_backgroundColor="@color/color_51C200"
+        app:rv_cornerRadius="2.5dp" />
+
+    <TextView
+        android:id="@+id/intimate_consult_online_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8.5dp"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:maxEms="10"
+        android:maxLines="1"
+        android:textColor="@color/color_333333"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@id/intimate_consult_online_green_point"
+        app:layout_constraintTop_toBottomOf="@id/intimate_consult_online_avatar_layout"
+        tools:text="情感咨询师-花轮" />
+
+</merge>

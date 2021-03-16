@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mei.picker.view.SquareRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/camera_image"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_centerInParent="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/camera_picture_nor"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/show_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/select_state_img"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:padding="7dp"
+        android:src="@drawable/mul_pictures_selected"
+        tools:ignore="ContentDescription,RtlHardcoded" />
+</com.mei.picker.view.SquareRelativeLayout>

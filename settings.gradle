@@ -1,0 +1,36 @@
+// app
+include ':app'
+
+include ':pili_player'
+include ':im_v4', ':im_push'
+include ':td_support', ':td_pay', ':td_ls'//, ':td_wb'
+
+// 视频直播
+include ':video_capturer_and_renderer'
+include ':faceunity'
+
+include ':orc_v2'
+
+include ':image_browser'
+//java lib
+include ':launcher-joke', ':launcher-compiler'
+
+//test
+include ':test'
+
+
+rootProject.children.each { child ->
+    File libFile
+    if (child.name.startsWith('td')) {
+        libFile = file("androidlib/td/${child.name}")
+    } else {
+        libFile = file("androidlib/${child.name}")
+    }
+    if (libFile == null || !libFile.exists()){
+        libFile = file("appLive/${child.name}")
+    }
+    if (libFile != null && libFile.exists()) {
+        project(":${child.name}").projectDir = libFile
+    }
+}
+

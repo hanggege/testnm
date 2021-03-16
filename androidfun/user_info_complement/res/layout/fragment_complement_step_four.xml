@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/complement_step_four_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="50dp"
+        android:text="4/4  选个昵称"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/complement_step_four_sub_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginTop="7dp"
+        android:text="知心是一个随时随地倾诉解惑的平台。\n为"
+        android:textColor="#666666"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/complement_step_four_title"
+        tools:ignore="HardcodedText" />
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/complement_step_four_avatar"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/default_avatar_50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/complement_step_four_sub_title"
+        app:radius_all="27.5dp"
+        tools:ignore="ContentDescription" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/complement_step_four_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="47dp"
+        android:layout_marginTop="24dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/complement_step_four_avatar"
+        app:spanCount="2" />
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/complement_step_four_refresh"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@+id/complement_step_four_edit_layout"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="@id/complement_step_four_rv"
+        app:layout_constraintTop_toBottomOf="@id/complement_step_four_rv"
+        app:rv_backgroundColor="@color/color_f8f8f8"
+        app:rv_cornerRadius="19dp">
+
+        <ImageView
+            android:id="@+id/complement_step_four_refresh_img"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/icon_refresh"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/complement_step_four_refresh_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="换一批"
+            android:textColor="@color/color_666666"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
+
+    </com.flyco.roundview.RoundLinearLayout>
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/complement_step_four_edit_layout"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/complement_step_four_refresh"
+        app:layout_constraintEnd_toEndOf="@id/complement_step_four_rv"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/complement_step_four_refresh"
+        app:layout_constraintTop_toTopOf="@id/complement_step_four_refresh"
+        app:rv_backgroundColor="@color/color_f8f8f8"
+        app:rv_cornerRadius="19dp">
+
+        <EditText
+            android:id="@+id/complement_step_four_edit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:background="@null"
+            android:hint="自己写一个"
+            android:importantForAutofill="no"
+            android:inputType="textNoSuggestions"
+            android:paddingStart="4dp"
+            android:textColorHint="@color/color_c8c8c8"
+            android:textCursorDrawable="@drawable/cursor_name_edit"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText,RtlSymmetry" />
+
+    </com.flyco.roundview.RoundLinearLayout>
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/complement_step_four_next"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="42dp"
+        android:layout_marginBottom="60dp"
+        android:gravity="center"
+        android:text="进入知心"
+        android:textColor="@color/color_c8c8c8"
+        android:textSize="16sp"
+        app:gd_radius="27.5dp"
+        app:gd_start_color="@color/color_f6f6f6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <include layout="@layout/include_net_error_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

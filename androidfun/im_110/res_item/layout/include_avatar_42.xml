@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.mei.widget.round.RoundImageView
+        app:radius_all="50dp"
+        android:id="@+id/avatar_img"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_female_head" />
+
+    <com.mei.widget.round.RoundImageView
+        app:radius_all="50dp"
+        android:id="@+id/vip_sign_img"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignRight="@id/avatar_img"
+        android:layout_alignBottom="@id/avatar_img"
+        android:src="@drawable/i_img_v"
+        android:visibility="invisible"
+        tools:visibility="visible" />
+</RelativeLayout>
+

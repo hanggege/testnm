@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:rv_backgroundColor="@android:color/white"
+            app:rv_cornerRadius="8dp">
+
+            <TextView
+                android:id="@+id/dialog_sel_album"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="从手机相册选择"
+                android:textColor="#333333"
+                android:textSize="18sp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#EDEDED" />
+
+            <TextView
+                android:id="@+id/dialog_sel_camera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="拍照上传"
+                android:textColor="#333333"
+                android:textSize="18sp" />
+
+        </com.flyco.roundview.RoundLinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/dialog_sel_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="取消"
+            android:textColor="#989898"
+            android:textSize="18sp"
+            app:rv_backgroundColor="@android:color/white"
+            app:rv_cornerRadius="8dp" />
+    </LinearLayout>
+
+</LinearLayout>

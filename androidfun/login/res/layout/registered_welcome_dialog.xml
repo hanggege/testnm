@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius="8dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:src="@drawable/registered_welcom_top_img"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/welcome_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:text="欢迎你来到\n知心"
+            android:textColor="@color/color_333333"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-10dp"
+            android:background="@drawable/welcome_card_bg_img"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingStart="40dp"
+            android:paddingTop="32dp"
+            android:paddingEnd="40dp"
+            android:paddingBottom="10dp">
+
+            <com.mei.widget.round.RoundImageView
+                android:id="@+id/user_avatar_img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/default_activity_header"
+                app:radius_all="30dp" />
+
+            <com.mei.widget.gradient.GradientLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="13dp"
+                android:gravity="center"
+                app:gd_direction="leftToRight"
+                app:gd_end_color="@color/color_1AFF8100"
+                app:gd_radius="15dp"
+                app:gd_start_color="@color/color_1AFEBA2E">
+
+                <TextView
+                    android:id="@+id/user_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#FFA00A"
+                    android:textSize="13sp"
+                    tools:ignore="HardcodedText"
+                    tools:text="昵称：xxxx" />
+
+                <com.flyco.roundview.RoundLinearLayout
+                    android:id="@+id/welcome_label_change_nickname"
+                    android:layout_width="60dp"
+                    android:layout_height="21dp"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    app:rv_cornerRadius="10.5dp"
+                    app:rv_strokeColor="@color/color_FF3F36"
+                    app:rv_strokeWidth="0.5dp">
+
+                    <ImageView
+                        android:id="@+id/welcome_change_nickname_icon"
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/icon_change"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/welcome_change_nickname_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="换一个"
+                        android:textColor="@color/color_FF3F36"
+                        android:textSize="10sp"
+                        tools:ignore="HardcodedText,SmallSp" />
+
+                </com.flyco.roundview.RoundLinearLayout>
+
+            </com.mei.widget.gradient.GradientLinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginRight="33dp"
+            android:lineSpacingExtra="2dp"
+            android:text="        快去找知心达人申请连线，或私聊咨询，一对一解决你的问题吧~"
+            android:textColor="@color/color_666666"
+            android:textSize="13sp"
+            tools:ignore="HardcodedText" />
+
+        <com.mei.widget.gradient.GradientTextView
+            android:id="@+id/welcome_submit_tv"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:text="开始探索"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            app:gd_end_color="@color/color_FF3F36"
+            app:gd_radius="22.5dp"
+            app:gd_start_color="@color/color_FF7F33"
+            tools:ignore="HardcodedText" />
+    </com.flyco.roundview.RoundLinearLayout>
+</LinearLayout>

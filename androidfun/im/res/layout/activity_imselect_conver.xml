@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mei.im.ui.IMSelectConverActivity">
+
+    <TextView
+        android:id="@+id/recent_tv"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/white_bottom_f8f8f8_top_1px"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:paddingStart="15dp"
+        android:text="最近联系人"
+        android:textColor="@color/color_999999"
+        android:textSize="14sp"
+        tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/recent_tv"
+        android:background="@color/color_f9f9f9"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/select_conversation_rc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_f9f9f9"
+            android:drawSelectorOnTop="false"
+            android:overScrollMode="never" />
+
+        <include layout="@layout/empty_layout" />
+    </RelativeLayout>
+</RelativeLayout>

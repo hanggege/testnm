@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_room_main_service_course">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/room_main_course_left_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginVertical="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="120dp">
+
+        <TextView
+            android:id="@+id/room_main_course_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="挽救婚姻婚内移情，" />
+
+        <TextView
+            android:id="@+id/room_main_course_price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/room_main_course_name_tv"
+            tools:text="180" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/room_main_course_free_listen"
+        android:layout_width="80dp"
+        android:layout_height="28dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="15dp"
+        android:paddingStart="9.5dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="9.5dp"
+        android:paddingBottom="7dp"
+        android:visibility="visible"
+        app:gd_end_color="@color/color_FF4030"
+        app:gd_radius="20dp"
+        app:gd_start_color="@color/color_FF8484">
+
+        <ImageView
+            android:id="@+id/room_main_course_options_iv"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/work_room_main_course_play"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/room_main_course_options_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:text="免费试听"
+            android:textColor="@android:color/white"
+            android:textSize="11sp"
+            tools:ignore="HardcodedText,SmallSp" />
+    </com.flyco.roundview.RoundLinearLayout>
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/room_main_course_bought"
+        android:layout_width="70dp"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="15dp"
+        android:gravity="center"
+        android:text="已购买"
+        android:textColor="@color/color_FF3A3A"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius="20dp"
+        app:rv_strokeColor="@color/color_FE3F3F"
+        app:rv_strokeWidth="0.5dp"
+        tools:ignore="HardcodedText"
+        tools:visibility="visible" />
+
+
+</RelativeLayout>

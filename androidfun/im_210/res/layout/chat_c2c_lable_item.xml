@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="20dp"
+    android:layout_marginStart="5dp"
+    app:rv_backgroundColor="@color/color_1aff3a3a"
+    app:rv_cornerRadius="2dp">
+
+    <TextView
+        android:id="@+id/c2c_chat_info_text_label"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="8dp"
+        android:paddingTop="3dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="3dp"
+        android:text=""
+        android:textColor="#FC5D00"
+        android:textSize="11sp"
+        tools:ignore="MissingConstraints,SmallSp" />
+
+</com.flyco.roundview.RoundRelativeLayout>

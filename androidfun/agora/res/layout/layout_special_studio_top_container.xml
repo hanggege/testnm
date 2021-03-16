@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false">
+
+    <com.flyco.roundview.RoundFrameLayout
+        android:id="@+id/round_frame_layout"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@id/place_holder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rv_backgroundColor="@color/masks_layer_30"
+        app:rv_cornerRadius_BL="8dp"
+        app:rv_cornerRadius_BR="25dp"
+        app:rv_cornerRadius_TL="8dp"
+        app:rv_cornerRadius_TR="25dp" />
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/special_studio_avatar"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/default_male_head"
+        app:layout_constraintBottom_toBottomOf="@id/round_frame_layout"
+        app:layout_constraintEnd_toEndOf="@id/special_studio_name"
+        app:layout_constraintStart_toStartOf="@id/icon_studio_member"
+        app:layout_constraintTop_toTopOf="@id/round_frame_layout"
+        app:radius_all="45dp" />
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/special_studio_name"
+        android:layout_width="wrap_content"
+        android:layout_height="12dp"
+        android:paddingStart="11dp"
+        android:paddingEnd="5dp"
+        android:textColor="@android:color/white"
+        android:textSize="8sp"
+        app:gd_RB_radius="12dp"
+        app:gd_RT_radius="12dp"
+        app:gd_end_color="@color/color_3988F9"
+        app:gd_start_color="@color/color_AB76FE"
+        app:layout_constraintBottom_toBottomOf="@id/round_frame_layout"
+        app:layout_constraintStart_toStartOf="@+id/round_frame_layout"
+        tools:ignore="SmallSp"
+        tools:text="贾北霞心灵工作室" />
+
+    <ImageView
+        android:id="@+id/icon_studio_member"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/icon_studio_member"
+        app:layout_constraintBottom_toBottomOf="@id/special_studio_name"
+        app:layout_constraintEnd_toStartOf="@id/round_frame_layout"
+        app:layout_constraintStart_toStartOf="@id/round_frame_layout"
+        app:layout_constraintTop_toTopOf="@id/special_studio_name"
+        tools:ignore="ContentDescription" />
+
+
+    <TextView
+        android:id="@+id/special_studio_anchor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7.5dp"
+        android:layout_marginTop="7.5dp"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@id/special_studio_name"
+        app:layout_constraintTop_toTopOf="@id/round_frame_layout"
+        tools:text="六个字的名字情感" />
+
+    <com.flyco.roundview.RoundFrameLayout
+        android:id="@+id/special_studio_online_number_point"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        app:layout_constraintBottom_toBottomOf="@id/special_studio_online_number"
+        app:layout_constraintStart_toStartOf="@id/special_studio_anchor_name"
+        app:layout_constraintTop_toTopOf="@id/special_studio_online_number"
+        app:rv_backgroundColor="@color/color_73FA5D"
+        app:rv_cornerRadius="4dp" />
+
+    <TextView
+        android:id="@+id/special_studio_online_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7.5dp"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="5dp"
+        android:textColor="@color/alpha60_white"
+        android:textSize="9sp"
+        app:layout_constraintBottom_toBottomOf="@id/round_frame_layout"
+        app:layout_constraintStart_toEndOf="@id/special_studio_online_number_point"
+        tools:ignore="SmallSp"
+        tools:text="六个" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/special_studio_online_number_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="special_studio_online_number, special_studio_online_number_point" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/special_studio_mic_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:layout_marginStart="10dp"
+        android:drawableStart="@drawable/icon_mic_time"
+        android:drawablePadding="3dp"
+        android:gravity="center"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/special_studio_online_number"
+        app:layout_constraintStart_toEndOf="@id/special_studio_online_number"
+        app:layout_constraintTop_toTopOf="@id/special_studio_online_number"
+        app:rv_backgroundColor="@color/masks_layer_30"
+        app:rv_cornerRadius="8.5dp"
+        tools:ignore="SmallSp"
+        tools:text="13:09"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="special_studio_anchor_name,special_studio_mic_time_tv" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/special_studio_follow_anchor"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="12.5dp"
+        android:drawablePadding="3dp"
+        android:gravity="center"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="@string/follow"
+        android:textColor="@android:color/white"
+        android:textSize="11sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/round_frame_layout"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintTop_toTopOf="@id/round_frame_layout"
+        app:rv_backgroundColor="@color/color_FF3A3A"
+        app:rv_cornerRadius="25dp"
+        tools:ignore="SmallSp"
+        tools:visibility="gone" />
+
+    <androidx.constraintlayout.widget.Placeholder
+        android:id="@+id/place_holder"
+        android:layout_width="12.5dp"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toBottomOf="@id/round_frame_layout"
+        app:layout_constraintStart_toEndOf="@id/special_studio_follow_anchor"
+        app:layout_constraintTop_toTopOf="@id/round_frame_layout" />
+
+    <TextView
+        android:id="@+id/special_studio_room_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/alpha50_white"
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="@id/round_frame_layout"
+        app:layout_constraintTop_toBottomOf="@id/round_frame_layout"
+        tools:ignore="SmallSp"
+        tools:text="房间id:239343" />
+</androidx.constraintlayout.widget.ConstraintLayout>

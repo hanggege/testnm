@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_room_main_service_course">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/room_main_service_left_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginVertical="15dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="11dp"
+        android:layout_toStartOf="@+id/room_main_service_ask_rll">
+
+        <TextView
+            android:id="@+id/room_main_service_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="挽救婚姻婚内移情，重获幸福家庭重获幸福家庭重获幸福家庭重获幸福家庭" />
+
+        <TextView
+            android:id="@+id/room_main_service_price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/room_main_service_name_tv"
+            tools:text="180" />
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/room_main_service_teacher_avatar"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/room_main_service_price_tv"
+            app:radius_all="10dp"
+            tools:src="@drawable/default_male_head" />
+
+        <TextView
+            android:id="@+id/room_main_service_teacher_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/color_999999"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/room_main_service_teacher_avatar"
+            app:layout_constraintStart_toEndOf="@id/room_main_service_teacher_avatar"
+            app:layout_constraintTop_toTopOf="@id/room_main_service_teacher_avatar"
+            tools:ignore="SmallSp"
+            tools:text="贾北霞老师" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.mei.widget.gradient.GradientLinearLayout
+        android:id="@+id/room_main_service_ask_rll"
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="15dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="6dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="7dp"
+        app:gd_end_color="@color/color_FF4030"
+        app:gd_radius="20dp"
+        app:gd_start_color="@color/color_FF8484">
+
+        <ImageView
+            android:id="@+id/room_main_service_options_iv"
+            android:layout_width="14dp"
+            android:layout_height="12dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/icon_chat_tip"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/room_main_service_options_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:text="询问"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+    </com.mei.widget.gradient.GradientLinearLayout>
+
+
+</RelativeLayout>

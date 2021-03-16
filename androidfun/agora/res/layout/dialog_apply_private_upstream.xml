@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginStart="27.5dp"
+    android:layout_marginEnd="27.5dp">
+
+    <ImageView
+        android:id="@+id/bg_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_apply_private_upstream" />
+
+    <ImageView
+        android:id="@+id/icon_privacy_protect"
+        android:layout_width="68dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/icon_privacy_protect" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/icon_privacy_protect"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="12dp"
+        android:layout_toEndOf="@+id/icon_privacy_protect"
+        android:includeFontPadding="false"
+        android:text="我要私密连线"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/cost_private_upstream"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/title"
+        android:layout_alignBottom="@+id/icon_privacy_protect"
+        android:layout_marginBottom="15dp"
+        android:includeFontPadding="false"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        tools:text="(30心币/分钟)" />
+
+    <com.mei.widget.choince.ChoiceView
+        android:id="@+id/back_choice"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:padding="15dp"
+        app:choice_color="@android:color/white"
+        app:choice_type="cross"
+        app:choice_width="1dp" />
+
+    <include
+        android:id="@+id/lack_apply_private_upstream_layout"
+        layout="@layout/layout_lack_apply_private_upstream_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bg_top_layout" />
+
+    <include
+        android:id="@+id/enough_apply_private_upstream_layout"
+        layout="@layout/layout_enough_apply_private_upstream_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bg_top_layout"
+        android:visibility="gone" />
+</RelativeLayout>

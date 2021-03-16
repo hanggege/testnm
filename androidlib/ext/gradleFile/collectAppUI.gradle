@@ -1,0 +1,300 @@
+/**
+ * 收集所有activity
+ */
+task checkAppActivity {
+    doLast {
+        def list = collectFile(file("$rootDir"), "activity")
+        def json = '{'
+        list.each { File f ->
+            json += "\n   \"${f.name.substring(0, f.name.indexOf('.'))}\":\"$f.path\","
+        }
+        json = json.substring(0, json.length() - 1)
+        json += "\n}"
+        file("$rootDir/cache/collect/").mkdirs()
+        writeFile("$rootDir/cache/collect/activity.json", json, false)
+    }
+}
+
+/**
+ * 从网上统计的数据来检查哪些功能已经不再使用
+ */
+task checkAppUI {
+    doLast {
+        def activityList = collectFile(file("$rootDir/androidfun"), "activity")
+        def fragmentList = collectFile(file("$rootDir/androidfun"), "fragment")
+        List collectList = getAppCollectInfo()
+        println collectList
+        println activityList
+
+        activityList.each { File f ->
+            def has = collectList.any { d -> (d['ui_name'] == f.name.substring(0, f.name.indexOf('.'))) }
+            if (!has) {
+                println(f.path)
+            }
+
+        }
+        fragmentList.each { File f ->
+            def has = collectList.any { d -> (d['ui_name'] == f.name.substring(0, f.name.indexOf('.'))) }
+            if (!has) {
+                println(f.path)
+            }
+
+        }
+    }
+
+}
+
+/**
+ * 收集所有fragment
+ */
+task checkAppFragment {
+    doLast {
+        def list = collectFile(file("$rootDir"), "fragment")
+        def json = '{'
+        list.each { File f ->
+            json += "\n   \"${f.name.substring(0, f.name.indexOf('.'))}\":\"$f.path\","
+        }
+        json = json.substring(0, json.length() - 1)
+        json += "\n}"
+        file("$rootDir/cache/collect/").mkdirs()
+        writeFile("$rootDir/cache/collect/fragment.json", json, false)
+    }
+}
+
+/**
+ * 检查manifest文件中已经没有了的清单文件 activity
+ */
+task checkAppManifest {
+    doLast {
+        def json = new groovy.json.JsonSlurper().parseText(file("$rootDir/cache/collect/activity.json").text)
+        String content = file("$rootDir/app/build/intermediates/merged_manifests/otherDebug/processOtherDebugManifest/merged/AndroidManifest.xml").text.replace("<activity\n            ", "<activity ")
+        java.util.regex.Matcher matcher = java.util.regex.Pattern.compile("<activity android:name=\"([^\"]+)\"").matcher(content)
+        def result = ""
+        while (matcher.find()) {
+            def value = matcher.group(1)
+            def activity = value.substring(value.lastIndexOf('.') + 1)
+            if (json[activity] == null) {
+                println activity + "  ---------->  " + value
+                result += activity + "\n"
+            }
+
+        }
+        writeFile("$rootDir/cache/collect/mainfest.json", result, false)
+    }
+
+
+}
+
+/**
+ * 检查layout有没有被使用 没有则删除
+ */
+task checkAppLayout {
+    doLast {
+        def allList = getAllUseFiles(file("$rootDir"))
+        def layoutList = getAllLayoutFiles(file(rootDir))
+        def deleteList = new ArrayList()
+        layoutList.each { File layout ->
+            def hasUse = false
+            for (File f : allList) {
+                if (f.text.contains(layout.name.replace('.xml', ''))) {
+                    hasUse = true
+                    break
+                }
+            }
+            if (!hasUse) {
+                deleteList.add(layout.path)
+            }
+        }
+        deleteList.each { String path ->
+            println "-----" + path
+            file(path).delete()
+        }
+    }
+}
+
+/**
+ * 检查drawable有没有被使用 没有则删除
+ */
+task checkAppDrawable {
+    doLast {
+        def allList = getAllUseFiles(rootDir)
+        def drawableList = getAllDrawableFiles(rootDir)
+        def deleteList = new ArrayList()
+        drawableList.each { File drawable ->
+            def hasUse = false
+            for (File f : allList) {
+                if (f.text.contains(drawable.name.replace('.xml', '')
+                        .replace('.png', '')
+                        .replace('.gif', '')
+                        .replace('.webp', '')
+                        .replace('.jpg', '')
+                        .replace('.9', ''))) {
+                    hasUse = true
+                    break
+                }
+            }
+            if (!hasUse) {
+                deleteList.add(drawable.path)
+            }
+        }
+        deleteList.each { String path ->
+            println "-----" + path
+            file(path).delete()
+        }
+    }
+}
+
+/**
+ * 检查class有没有被使用
+ */
+task checkAppJavaFile {
+    doLast {
+        def allList = getAllUseFiles(file("$rootDir"))
+        def javaList = getAllUseFiles(file("$rootDir/app/src/main/java"))
+        def deleteList = new ArrayList()
+        javaList.each { File java ->
+            boolean hasUse = false
+            for (File f : allList) {
+                if (f.text.contains(java.name.replace('.java', '').replace('.kt', ''))) {
+                    hasUse = true
+                    break
+                }
+            }
+            if (!hasUse) {
+                deleteList.add(java.path)
+            }
+        }
+
+        deleteList.each { String path ->
+            println "-----" + path
+        }
+    }
+}
+
+/**
+ * 获取所有class文件
+ * @param dir
+ * @param end
+ * @return
+ */
+def collectFile(File dir, String end) {
+    def list = new ArrayList()
+    def tempList = dir.listFiles(new FilenameFilter() {
+        @Override
+        boolean accept(File f, String name) {
+            return file("${f.path}/$name").isDirectory() || name.endsWith('.java') || name.endsWith('.kt')
+        }
+    })
+    tempList.each { File f ->
+        if (f.isDirectory() && !f.name.equalsIgnoreCase('build') && !f.name.equalsIgnoreCase('net') && !f.name.equalsIgnoreCase('test') && !f.name.equalsIgnoreCase('app-ext')) {
+            list.addAll(collectFile(f, end))
+        } else if (!f.isDirectory() && f.name.toLowerCase().contains(end)) {
+            list.add(f)
+        }
+    }
+    return list
+}
+
+/**
+ * 获取所有可能使用到资源的文件
+ * @param dir
+ * @return
+ */
+def getAllUseFiles(File dir) {
+    def list = new ArrayList()
+    def tempList = dir.listFiles(new FilenameFilter() {
+        @Override
+        boolean accept(File f, String name) {
+            return file("${f.path}/$name").isDirectory() || name.endsWith('.java') || name.endsWith('.kt') || name.endsWith('.xml')
+        }
+    })
+    tempList.each { File f ->
+        if (f.isDirectory() && !f.name.equalsIgnoreCase('build')) {
+            list.addAll(getAllUseFiles(f))
+        } else if (!f.isDirectory()) {
+            list.add(f)
+        }
+    }
+    return list
+}
+
+/**
+ * 获取全项目的layout文件
+ * @param dir
+ * @return
+ */
+def getAllLayoutFiles(File dir) {
+    def list = new ArrayList()
+    def tempList = dir.listFiles(new FilenameFilter() {
+        @Override
+        boolean accept(File f, String name) {
+            if (file("${f.path}/$name").isDirectory()) {
+                return true
+            } else if (f.name.equalsIgnoreCase('layout') && !file("${f.path}/$name").isDirectory()) {
+                return true
+            } else {
+                return false
+            }
+        }
+    })
+    tempList.each { File f ->
+        if (f.isDirectory() && !f.name.equalsIgnoreCase('build')) {
+            list.addAll(getAllLayoutFiles(f))
+        } else if (!f.isDirectory()) {
+            list.add(f)
+        }
+    }
+    return list
+}
+
+/**
+ * 获取所有drawable文件
+ * @param dir
+ * @return
+ */
+def getAllDrawableFiles(File dir) {
+    def list = new ArrayList()
+    def tempList = dir.listFiles(new FilenameFilter() {
+        @Override
+        boolean accept(File f, String name) {
+            if (file("${f.path}/$name").isDirectory()) {
+                return true
+            } else if (f.name.startsWith('drawable') && !file("${f.path}/$name").isDirectory()) {
+                return true
+            } else if (f.name.equalsIgnoreCase('anim') && !file("${f.path}/$name").isDirectory()) {
+                return true
+            } else if (f.name.equalsIgnoreCase('color') && !file("${f.path}/$name").isDirectory()) {
+                return true
+            } else {
+                return false
+            }
+        }
+    })
+    tempList.each { File f ->
+        if (f.isDirectory() && !f.name.equalsIgnoreCase('build')) {
+            list.addAll(getAllDrawableFiles(f))
+        } else if (!f.isDirectory()) {
+            list.add(f)
+        }
+    }
+    return list
+}
+
+def getAppCollectInfo() {
+    try {
+        def project_name = 'aman'
+        if (rootProject.name.toLowerCase().startsWith('wood')) {
+            project_name = 'xiaolu'
+        }
+        def p = ['curl', 'http://sindar.yeshouxiansheng.com/report/use_page',
+                 "-F", "client_type=Android",
+                 "-F", "project_name=$project_name"
+                 , "-F", "version=2.6.2"
+        ].execute()
+        def json = new groovy.json.JsonSlurper().parseText(p.text)
+        return json.data.list
+    } catch (Exception e) {
+        e.printStackTrace()
+        return null
+    }
+}

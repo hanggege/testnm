@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/room_main_footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <View
+        android:id="@+id/room_main_bg_img"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_room_main_footer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/room_main_footer_avatar"
+        android:layout_width="68dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="13dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/personal_img_male_default" />
+
+    <TextView
+        android:id="@+id/room_main_footer_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="20dp"
+        android:lineSpacingExtra="2dp"
+        android:maxWidth="175dp"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/room_main_bg_img"
+        app:layout_constraintEnd_toStartOf="@id/room_main_footer_next"
+        app:layout_constraintStart_toEndOf="@id/room_main_footer_avatar"
+        app:layout_constraintTop_toTopOf="@id/room_main_bg_img"
+        tools:text="我是天天快乐的小鳄鱼\n有什么问题都可以找我哦~" />
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/room_main_footer_next"
+        android:layout_width="78dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="15dp"
+        android:elevation="3dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/room_main_bg_img"
+        app:layout_constraintEnd_toEndOf="@id/room_main_bg_img"
+        app:layout_constraintTop_toTopOf="@id/room_main_bg_img"
+        app:rv_backgroundColor="@color/color_ffd638"
+        app:rv_cornerRadius="17.5dp">
+
+        <TextView
+            android:id="@+id/room_main_footer_pm"
+            android:layout_width="32.5dp"
+            android:layout_height="wrap_content"
+            android:text="私聊"
+            android:textColor="@color/color_333333"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <com.mei.widget.arrow.ArrowView
+            android:id="@+id/room_main_footer_next_img"
+            android:layout_width="7dp"
+            android:layout_height="10.5dp"
+            android:layout_marginStart="6dp"
+            app:arrow_direction="right"
+            app:arrow_line_color="@color/color_333333"
+            app:arrow_width="1.5dp" />
+
+    </com.flyco.roundview.RoundLinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

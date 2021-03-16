@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp">
+
+    <TextView
+        android:id="@+id/online_number"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textColor="#c8c8c8"
+        tools:ignore="MissingConstraints"
+        tools:text="1" />
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/image_avatar_item"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_centerVertical="true"
+        android:layout_margin="2dp"
+        android:layout_marginStart="8.5dp"
+        android:layout_toRightOf="@+id/online_number"
+        android:src="@drawable/default_gray_avatar"
+        app:radius_all="17.5dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/contributor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/image_avatar_item"
+        android:layout_toRightOf="@+id/image_avatar"
+        android:textColor="@color/color_333333"
+        android:textSize="13sp"
+        tools:text="愤怒的小鸡" />
+
+    <FrameLayout
+        android:id="@+id/level_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@+id/contributor_name"
+        android:layout_toRightOf="@+id/image_avatar">
+
+        <ImageView
+            android:id="@+id/level_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/level"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|right"
+            android:gravity="center"
+            android:shadowColor="#40000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:textColor="#FFF"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            tools:text="1222" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/contribute_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="27.5dp"
+        android:textColor="@color/color_FF4F00"
+        android:textSize="13sp"
+        tools:text="1258" />
+</RelativeLayout>

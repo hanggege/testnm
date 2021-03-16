@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/room_main_thumbnail_empty_text"
+        android:layout_width="114dp"
+        android:layout_height="150dp"
+        android:gravity="center"
+        android:text="暂未发布作品"
+        android:textColor="@color/color_999999"
+        android:textSize="10sp"
+        app:rv_backgroundColor="@color/color_e8e8e8"
+        app:rv_cornerRadius="6dp"
+        tools:ignore="HardcodedText,SmallSp" />
+
+</FrameLayout>

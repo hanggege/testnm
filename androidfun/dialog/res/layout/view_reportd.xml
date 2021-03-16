@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<com.flyco.roundview.RoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/report_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:layout_marginTop="30dp"
+    android:orientation="vertical"
+    app:rv_backgroundColor="#E6211B2A"
+    app:rv_cornerRadius_TL="14dp"
+    app:rv_cornerRadius_TR="14dp">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp">
+
+
+        <TextView
+            android:id="@+id/report_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="举报"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
+
+        <com.mei.widget.choince.ChoiceView
+            android:id="@+id/report_close"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="right|center_vertical"
+            app:choice_color="#99FFFFFF"
+            app:choice_type="cross"
+            tools:ignore="RtlHardcoded" />
+    </FrameLayout>
+
+
+    <View
+        android:id="@+id/report_line1"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="#99FFFFFF" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_report_why"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingTop="9dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:id="@+id/report_why_hint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="*举报理由"
+            android:textColor="#99FFFFFF"
+            android:textSize="13sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/report_why"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请选择"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            tools:ignore="HardcodedText" />
+
+        <com.mei.widget.arrow.ArrowView
+            android:id="@+id/report_why_arrow"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginStart="5dp"
+            app:arrow_direction="right"
+            app:arrow_line_color="@android:color/white" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/report_des"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="*举报描述"
+        android:textColor="#99FFFFFF"
+        android:textSize="13sp"
+        tools:ignore="HardcodedText" />
+
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/report_content_et_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        app:rv_cornerRadius="10dp"
+        app:rv_strokeColor="@color/color_99FFFFFF"
+        app:rv_strokeWidth="0.5dp">
+
+        <EditText
+            android:id="@+id/report_content_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:gravity="start"
+            android:hint="请详细描述您的举报内容，至少20字"
+            android:minLines="3"
+            android:padding="10dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#33FFFFFF"
+            android:textSize="13sp"
+            tools:ignore="Autofill,HardcodedText,TextFields" />
+
+    </com.flyco.roundview.RoundLinearLayout>
+
+    <TextView
+        android:id="@+id/report_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="*图片证据"
+        android:textColor="#99FFFFFF"
+        android:textSize="13sp"
+        tools:ignore="HardcodedText" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/report_img_recy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:overScrollMode="never" />
+
+    <TextView
+        android:id="@+id/report_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="*您的手机号"
+        android:textColor="#99FFFFFF"
+        android:textSize="13sp"
+        tools:ignore="HardcodedText" />
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/report_phone_et_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        app:rv_cornerRadius="10dp"
+        app:rv_strokeColor="@color/color_99FFFFFF"
+        app:rv_strokeWidth="0.5dp">
+
+        <EditText
+            android:id="@+id/report_phone_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:gravity="start"
+            android:hint="请输入您的手机号方便我们联系您"
+            android:inputType="number"
+            android:maxLength="13"
+            android:minLines="1"
+            android:padding="10dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#33FFFFFF"
+            android:textSize="13sp"
+            tools:ignore="Autofill,HardcodedText,TextFields" />
+
+    </com.flyco.roundview.RoundLinearLayout>
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/report_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:paddingLeft="50dp"
+        android:paddingTop="13dp"
+        android:paddingRight="50dp"
+        android:paddingBottom="13dp"
+        android:text="匿名提交"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="50dp"
+        app:gd_start_color="@color/color_FF7F33"
+        tools:ignore="HardcodedText" />
+
+</com.flyco.roundview.RoundLinearLayout>
+
+

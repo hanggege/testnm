@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.target_sdk_version
+    buildToolsVersion rootProject.ext.build_tools_version
+    compileOptions.encoding = 'utf-8'
+    defaultConfig {
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField "int", "IM_APP_ID", IM_APP_ID
+
+        manifestPlaceholders = [
+                applicationId: getApplicationId(project)
+        ]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            file("function").listFiles().each { dir ->
+                dir.listFiles().each { source ->
+                    if (source.name.startsWith("code")) {
+                        java.srcDirs += source.path
+                    } else if (source.name.startsWith("res")) {
+                        res.srcDirs += source.path
+                    }
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.aar'])
+
+    compileOnly("androidx.appcompat:appcompat:$androidx_lib_version")
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compileOnly "com.google.code.gson:gson:$json_version"
+    compileOnly("androidx.lifecycle:lifecycle-extensions:$lifecycle_version")
+
+    api 'com.tencent.imsdk:imsdk:5.1.2@aar'
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="40dp">
+
+    <ImageView
+        android:id="@+id/album_logo_img"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#CCCCCC"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_error"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/album_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toRightOf="@id/album_logo_img"
+        android:layout_toEndOf="@id/album_logo_img"
+        android:ellipsize="end"
+        android:maxWidth="280dp"
+        android:maxLines="1"
+        android:textColor="#333333"
+        android:textSize="14sp"
+        tools:text="xxxxxdsafsadfsadfasdfasxxxxxdsafsadfsadfasdfasxxxxxdsafsadfsadfasdfasxxxxxdsafsadfsadfasdfas"
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/album_count_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toRightOf="@id/album_name_tv"
+        android:layout_toEndOf="@id/album_name_tv"
+        android:ellipsize="end"
+        android:maxWidth="300dp"
+        android:maxLines="1"
+        android:textColor="#999999"
+        android:textSize="14sp"
+        tools:text="（111）"
+        tools:ignore="RtlHardcoded" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="#F8F8F8" />
+
+</RelativeLayout>

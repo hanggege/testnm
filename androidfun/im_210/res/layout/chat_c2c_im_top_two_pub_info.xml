@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:clipChildren="false"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include layout="@layout/chat_c2c_im_audience" />
+
+    <include layout="@layout/chat_c2c_im_live" />
+    <include layout="@layout/chat_c2c_im_work_room_info"/>
+</LinearLayout>

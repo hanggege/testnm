@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="perfect_information_for_roses">完善资料可获得心币</string>
+    <string name="setting">设置</string>
+    <string name="consume_record">查看明细</string>
+    <string name="top_up">充值</string>
+    <string name="ali_pay">支付宝充值</string>
+    <string name="wechat_pay">微信充值</string>
+    <string name="logout">退出登录</string>
+    <string name="nick_name">昵称</string>
+    <string name="age">年龄</string>
+    <string name="start_live">开启直播</string>
+    <string name="personal_lable_txt">标签将展示在发现页和个人主页，你还可以添加%1$d个标签</string>
+    <string name="video_loading_failed">视频加载失败</string>
+    <string name="retry_click">点击重试</string>
+    <string name="invite_for_gift">邀请有礼</string>
+</resources>

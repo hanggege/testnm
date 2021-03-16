@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_upstream_loading_view">
+
+    <com.mei.base.weight.custom.SpreadAvatarView
+        android:id="@+id/spread_avatar_view"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:layout_constraintBottom_toBottomOf="@+id/mentor_avatar"
+        app:layout_constraintEnd_toEndOf="@+id/mentor_avatar"
+        app:layout_constraintStart_toStartOf="@+id/mentor_avatar"
+        app:layout_constraintTop_toTopOf="@+id/mentor_avatar"
+        app:spread_big_end_color="#00ffe000"
+        app:spread_big_start_color="#4dffe000"
+        app:spread_in_radius="45dp"
+        app:spread_is_stroke="false"
+        app:spread_out_radius="125dp" />
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/mentor_avatar"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="160dp"
+        android:src="@drawable/default_avatar_50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:radius_all="45dp"
+        app:round_stroke_color="@android:color/white"
+        app:round_stroke_width="3dp" />
+
+    <TextView
+        android:id="@+id/contact_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mentor_avatar"
+        tools:text="正在为你联系麦玲玲" />
+
+    <ImageView
+        android:id="@+id/coupon_icon"
+        android:layout_width="62dp"
+        android:layout_height="23dp"
+        android:layout_marginEnd="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/upstream_text"
+        app:layout_constraintEnd_toStartOf="@+id/upstream_text"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/upstream_text"
+        tools:background="@color/color_333333"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/coupon_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/coupon_icon"
+        app:layout_constraintStart_toStartOf="@id/coupon_icon"
+        app:layout_constraintTop_toTopOf="@id/coupon_icon"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="@+id/coupon_icon"
+        app:layout_constraintWidth_max="wrap"
+        tools:text="免费卷免费卷" />
+
+    <TextView
+        android:id="@+id/upstream_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="#80FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/coupon_icon"
+        app:layout_constraintTop_toBottomOf="@+id/contact_text"
+        tools:text="连线成功后  30心币/每分钟" />
+
+    <RelativeLayout
+        android:id="@+id/special_service_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/bg_special_service_loading"
+        android:padding="20dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contact_text">
+
+        <TextView
+            android:id="@+id/service_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="服　　务:"
+            android:textColor="@color/color_999999"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/service_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/service_tag"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/service_tag"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            tools:text="挽救婚姻婚内移情" />
+
+        <TextView
+            android:id="@+id/service_duration_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/service_name"
+            android:layout_alignStart="@id/service_tag"
+            android:layout_marginTop="13dp"
+            android:text="可连时长:"
+            android:textColor="@color/color_999999"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/service_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/service_duration_tag"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/service_duration_tag"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            tools:text="230分钟" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/cancel_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="@string/cancel"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/icon_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/icon_end_call"
+        app:layout_constraintBottom_toTopOf="@+id/cancel_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

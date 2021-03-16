@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_bg_evaluatin"
+    android:layout_width="wrap_content"
+    android:layout_height="125dp">
+
+
+    <com.mei.widget.round.RoundImageView
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/image_gift_evaluation"
+        android:layout_width="70dp"
+        android:layout_height="70dp" />
+
+    <TextView
+        android:id="@+id/tv_evaluation_gift_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/color_999999"
+        android:textSize="13sp"
+        tools:text="请继续努力吧" />
+
+    <ImageView
+        android:id="@+id/iv_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/icon_selected_badge"
+        android:visibility="gone"
+        tools:visibility="visible" />
+</com.flyco.roundview.RoundRelativeLayout>

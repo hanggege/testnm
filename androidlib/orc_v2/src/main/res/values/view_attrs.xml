@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MeiActionBar">
+        <attr name="left_layout" format="reference|integer" />
+        <attr name="right_layout" format="reference|integer" />
+        <attr name="center_layout" format="reference|integer" />
+        <attr name="bar_line_color" format="color" />
+        <attr name="bar_line_width" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="BottomLineLayout">
+        <attr name="bottomLineColor" format="reference|color" />
+        <attr name="bottomLineSelectedColor" format="reference|color" />
+        <attr name="bottomLineWidth" format="dimension|reference" />
+        <attr name="bottomLineHeight" format="dimension|reference" />
+        <attr name="bottomLineOffset" format="dimension|reference" />
+        <attr name="bottomLineIndex" format="integer|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="living_style">
+        <attr name="line_number" format="integer" />
+        <attr name="line_width" format="dimension" />
+        <attr name="line_color" format="color" />
+        <attr name="line_duration" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="password_style">
+        <attr name="pw_length" format="integer" />
+        <attr name="pw_line_width" format="dimension" />
+        <attr name="pw_line_color" format="color|reference" />
+        <attr name="pw_text_color" format="color|reference" />
+        <attr name="pw_text_holder" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="round_style">
+        <attr name="back_color" format="color|reference" />
+        <attr name="stroke_color" format="color|reference" />
+        <attr name="stroke_width" format="dimension" />
+        <attr name="stroke_radius" format="dimension" />
+        <attr name="is_circle" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ArrowView">
+        <attr name="arrow_width" format="dimension" />
+        <attr name="arrow_full" format="boolean" />
+        <attr name="arrow_line_color" format="color|reference" />
+        <attr name="arrow_direction" format="enum">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="top" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="MultiLineView">
+        <attr name="multi_line_width" format="dimension" />
+        <attr name="multi_line_color" format="color|reference" />
+        <attr name="multi_h_number" format="integer" />
+        <attr name="multi_v_number" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="ChoiceView">
+        <attr name="choice_width" format="dimension" />
+        <attr name="choice_color" format="color|reference" />
+        <attr name="choice_type" format="enum">
+            <enum name="none" value="0" />
+            <enum name="tick" value="1" />
+            <enum name="cross" value="2" />
+            <enum name="plus" value="3" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="MenuPointView">
+        <attr name="menu_point_width" format="dimension" />
+        <attr name="menu_point_color" format="color|reference" />
+        <attr name="menu_number" format="integer" />
+        <attr name="menu_type" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="BannerView">
+        <attr name="duration" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="RoundImageView">
+        <attr name="radius_all" format="dimension" />
+        <attr name="radius_left_top" format="dimension" />
+        <attr name="radius_left_bottom" format="dimension" />
+        <attr name="radius_right_top" format="dimension" />
+        <attr name="radius_right_bottom" format="dimension" />
+        <attr name="round_stroke_width" format="dimension" />
+        <attr name="round_stroke_color" format="reference|color" />
+        <attr name="round_color" format="reference|color" />
+    </declare-styleable>
+
+    <declare-styleable name="GradientStrokeView">
+        <attr name="start_color" format="reference|color" />
+        <attr name="end_color" format="reference|color" />
+        <attr name="round_radius" format="dimension" />
+        <attr name="gradient_stroke_width" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="GiftCountDownView">
+        <attr name="gift_start_color" format="reference|color" />
+        <attr name="gift_end_color" format="reference|color" />
+        <attr name="gift_gradient_stroke_width" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="SwipeMenuLayout">
+        <attr name="left_menu_view" format="reference" />
+        <attr name="right_menu_view" format="reference" />
+        <attr name="content_view" format="reference" />
+    </declare-styleable>
+
+    <!--为空界面用到的-->
+    <declare-styleable name="EmptyPageView">
+        <!--空图片的宽和高，以及图片资源-->
+        <attr name="empty_image_width" format="dimension|reference" />
+        <attr name="empty_image_height" format="dimension|reference" />
+        <attr name="empty_image_resource" format="reference" />
+        <attr name="empty_image_top_margin" format="dimension|reference" />
+        <!--空白提示内容-->
+        <attr name="empty_text" format="string|reference" />
+        <attr name="empty_text_size" format="dimension|reference" />
+        <attr name="empty_text_color" format="string|color" />
+        <attr name="empty_text_top_margin" format="dimension|reference" />
+        <!--按钮展示内容和是否显示-->
+        <attr name="empty_btn_text" format="reference|string" />
+        <attr name="empty_btn_text_size" format="dimension|reference" />
+        <attr name="empty_btn_text_color" format="string|color" />
+        <attr name="empty_btn_background" format="reference|color" />
+        <attr name="empty_btn_width" format="dimension|reference" />
+        <attr name="empty_btn_height" format="dimension|reference" />
+        <attr name="empty_btn_top_margin" format="dimension|reference" />
+        <!--整个背景的设置-->
+        <attr name="empty_main_background" format="reference|color" />
+    </declare-styleable>
+
+</resources>

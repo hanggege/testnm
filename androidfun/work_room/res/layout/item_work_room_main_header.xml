@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/status_bar_view"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="205dp"
+        android:background="@drawable/bg_room_main_top"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/room_main_upload_cover"
+        android:layout_width="67.5dp"
+        android:layout_height="25dp"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:text="上传封面"
+        android:textColor="@color/color_333333"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/room_main_thumbnail_rv"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius_BR="12.5dp"
+        app:rv_cornerRadius_TR="12.5dp"
+        tools:ignore="HardcodedText" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/room_main_upload_video"
+        android:layout_width="67.5dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16.5dp"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:text="上传视频"
+        android:textColor="@color/color_333333"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/room_main_upload_cover"
+        app:layout_constraintTop_toBottomOf="@id/room_main_upload_cover"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius_BR="12.5dp"
+        app:rv_cornerRadius_TR="12.5dp"
+        tools:ignore="HardcodedText" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/room_main_upload_photo"
+        android:layout_width="67.5dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16.5dp"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:text="上传图片"
+        android:textColor="@color/color_333333"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/room_main_upload_cover"
+        app:layout_constraintTop_toBottomOf="@id/room_main_upload_video"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius_BR="12.5dp"
+        app:rv_cornerRadius_TR="12.5dp"
+        tools:ignore="HardcodedText" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/room_main_edit"
+        android:layout_width="67.5dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16.5dp"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:text="编辑资料"
+        android:textColor="@color/color_333333"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/room_main_upload_cover"
+        app:layout_constraintTop_toBottomOf="@id/room_main_upload_photo"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius_BR="12.5dp"
+        app:rv_cornerRadius_TR="12.5dp"
+        tools:ignore="HardcodedText" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/room_main_edit_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="room_main_upload_cover,room_main_upload_photo,room_main_upload_video,room_main_edit"
+        tools:visibility="visible" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/room_main_thumbnail_rv"
+        android:layout_width="0dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="44dp"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:overScrollMode="never"
+        android:paddingStart="15dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/room_main_upload_cover"
+        app:layout_constraintTop_toBottomOf="@id/status_bar_view"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/room_main_summary_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/color_333333"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/room_main_thumbnail_rv"
+        tools:text="爱玲挽回工作室" />
+
+    <com.flyco.roundview.RoundRelativeLayout
+        android:id="@+id/room_main_living_label"
+        android:layout_width="118.5dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="15dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/room_main_summary_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/room_main_summary_title"
+        app:rv_cornerRadius="15dp">
+
+        <View
+            android:id="@+id/room_main_summary_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_room_main_living" />
+
+        <TextView
+            android:id="@+id/room_main_living_label_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="7dp"
+            android:layout_toStartOf="@id/room_main_living_label_living"
+            android:text="工作室\n直播中"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <com.mei.widget.living.LivingView
+            android:id="@+id/room_main_living_label_living"
+            android:layout_width="11dp"
+            android:layout_height="11dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="11.5dp"
+            android:visibility="visible"
+            app:line_color="@android:color/white" />
+
+    </com.flyco.roundview.RoundRelativeLayout>
+
+    <ImageView
+        android:id="@+id/room_main_living_label_avatar"
+        android:layout_width="34dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="12dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/room_main_living_label"
+        app:layout_constraintStart_toStartOf="@id/room_main_living_label"
+        tools:background="@android:color/holo_blue_light"
+        tools:ignore="ContentDescription"
+        tools:visibility="visible" />
+
+    <com.mei.widget.gradient.GradientLinearLayout
+        android:id="@+id/room_main_header_label"
+        android:layout_width="88dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="15dp"
+        android:gravity="center"
+        android:maxWidth="101.5dp"
+        android:minWidth="60dp"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="20dp"
+        app:gd_start_color="@color/color_FF7F33"
+        app:layout_constraintBottom_toBottomOf="@id/room_main_summary_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/room_main_summary_title"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/room_main_header_label_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="咨询"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+    </com.mei.widget.gradient.GradientLinearLayout>
+
+    <TextView
+        android:id="@+id/room_main_header_room_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/color_999999"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/room_main_summary_title"
+        app:layout_constraintTop_toBottomOf="@id/room_main_summary_title"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="房间ID:125871" />
+
+    <com.mei.widget.arrow.ArrowView
+        android:id="@+id/room_main_header_room_id_arrow"
+        android:layout_width="4dp"
+        android:layout_height="7.5dp"
+        android:layout_marginStart="7.5dp"
+        android:layout_marginBottom="4sp"
+        app:arrow_direction="right"
+        app:arrow_line_color="@color/color_999999"
+        app:arrow_width="1dp"
+        app:layout_constraintBottom_toBottomOf="@id/room_main_header_room_id"
+        app:layout_constraintStart_toEndOf="@id/room_main_header_room_id" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

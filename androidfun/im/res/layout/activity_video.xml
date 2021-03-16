@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <SurfaceView
+        android:id="@+id/play_video_surfaceview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <ImageButton
+        android:id="@+id/play_video_play_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/im_video_play_selector"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/play_video_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/thirty_black"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <Button
+            android:id="@+id/play_video_cancel_send_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/im_video_play_action_cancel_selector"
+            android:minWidth="72dp"
+            android:minHeight="1dp"
+            android:padding="8dp"
+            android:text="取消"
+            android:textColor="@color/default_text_color"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/play_video_commit_send_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@color/color_ffa000"
+            android:minWidth="72dp"
+            android:minHeight="1dp"
+            android:padding="8dp"
+            android:text="发送"
+            android:textColor="@color/default_text_color"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</RelativeLayout>

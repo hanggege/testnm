@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path
+        name="external_storage_root"
+        path="." />
+    <files-path
+        name="files-path"
+        path="." />
+    <cache-path
+        name="cache-path"
+        path="." />
+    <!--/storage/emulated/0/Android/data/...-->
+    <external-files-path
+        name="external_file_path"
+        path="." />
+    <!--代表app 外部儲存區域根目錄下的檔案 Context.getExternalCacheDir目錄下的目錄-->
+    <external-cache-path
+        name="external_cache_path"
+        path="." />
+    <!--配置root-path。這樣子可以讀取到sd卡和一些應用分身的目錄，否則微信分身儲存的圖片，就會導致
+     java.lang.IllegalArgumentException: Failed to find configured root that contains
+     /storage/emulated/999/tencent/MicroMsg/WeiXin/export1544062754693.jpg，在小米6的手機上微信分身有這個crash，華為沒有-->
+    <root-path
+        name="root-path"
+        path="" />
+</paths>

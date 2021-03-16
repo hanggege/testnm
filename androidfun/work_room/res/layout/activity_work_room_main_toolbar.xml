@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/room_main_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp">
+
+        <com.mei.widget.arrow.ArrowView
+            android:id="@+id/room_main_toolbar_back_arrow"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:paddingStart="17.5dp"
+            android:paddingTop="14dp"
+            android:paddingEnd="17.5dp"
+            android:paddingBottom="14dp"
+            app:arrow_direction="left"
+            app:arrow_line_color="@color/color_333333"
+            app:arrow_width="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/room_main_toolbar_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:ellipsize="end"
+            android:gravity="center|start"
+            android:maxWidth="90dp"
+            android:maxLines="1"
+            android:textColor="@color/color_333333"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/room_main_toolbar_back_arrow"
+            app:layout_constraintEnd_toStartOf="@+id/room_main_state_layout"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="爱玲挽回工作室asdfasdf" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/room_main_state_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.mei.widget.gradient.GradientTextView
+                android:id="@+id/room_main_toolbar_label_text"
+                android:layout_width="60dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="2.5dp"
+                android:gravity="center"
+                android:text="咨询"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                app:gd_end_color="@color/color_FF3F36"
+                app:gd_radius="15dp"
+                app:gd_start_color="@color/color_FF7F33"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_goneMarginEnd="15dp"
+                tools:ignore="HardcodedText"
+                tools:visibility="gone" />
+
+            <com.flyco.roundview.RoundRelativeLayout
+                android:id="@+id/room_main_toolbar_living_label"
+                android:layout_width="101.5dp"
+                android:layout_height="25dp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_goneMarginEnd="15dp"
+                app:rv_backgroundColor="@color/color_ffd638"
+                app:rv_cornerRadius="15dp">
+
+                <View
+                    android:id="@+id/room_main_toolbar_living_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_room_main_living" />
+
+                <TextView
+                    android:id="@+id/room_main_toolbar_living_label_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="7dp"
+                    android:layout_toStartOf="@id/room_main_toolbar_living_label_living"
+                    android:text="直播中"
+                    android:textColor="@android:color/white"
+                    android:textSize="11sp"
+                    tools:ignore="HardcodedText,SmallSp" />
+
+                <com.mei.widget.living.LivingView
+                    android:id="@+id/room_main_toolbar_living_label_living"
+                    android:layout_width="11dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="11.5dp"
+                    android:visibility="visible"
+                    app:line_color="@android:color/white" />
+
+            </com.flyco.roundview.RoundRelativeLayout>
+
+            <ImageView
+                android:id="@+id/room_main_toolbar_living_label_avatar"
+                android:layout_width="28dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="-50dp"
+                app:layout_constraintBottom_toBottomOf="@id/room_main_toolbar_living_label"
+                app:layout_constraintStart_toStartOf="@id/room_main_toolbar_living_label"
+                tools:background="@android:color/holo_blue_light"
+                tools:ignore="ContentDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.mei.widget.menupoint.MenuPointView
+            android:id="@+id/room_main_toolbar_menupoint"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="15dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:menu_number="3"
+            app:menu_point_color="@color/color_333333"
+            app:menu_point_width="4dp"
+            app:menu_type="horizontal" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/room_main_page_tab"
+        style="@style/workRoomTabStyle"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:paddingBottom="1dp"
+        app:tabIndicator="@drawable/work_room_tab_indicator" />
+
+    <View
+        android:id="@+id/room_main_page_tab_interval"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/color_e8e8e8" />
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mei.widget.gradient.GradientFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_interest"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    app:gd_radius="3dp"
+    app:gd_start_color="@color/color_F8F4F8"
+    tools:ignore="ContentDescription">
+
+    <TextView
+        android:id="@+id/item_interest_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="10dp"
+        android:includeFontPadding="false"
+        android:textColor="@color/color_c8c8c8"
+        android:textSize="15sp"
+        tools:text="心理健康" />
+
+    <ImageView
+        android:id="@+id/item_interest_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="10dp"
+        android:adjustViewBounds="true" />
+
+</com.mei.widget.gradient.GradientFrameLayout>

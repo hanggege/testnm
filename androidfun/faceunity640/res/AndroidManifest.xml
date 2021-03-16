@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <activity
+        android:name="com.mei.faceunity.activity.FUBeautyActivity"
+        android:launchMode="singleTask"
+        android:screenOrientation="portrait"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+</manifest>

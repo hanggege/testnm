@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/mentor_bg_frame"
+        android:layout_width="match_parent"
+        android:layout_height="325dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/mentor_bg_iv"
+            android:layout_width="match_parent"
+            android:layout_height="325dp"
+            android:scaleType="centerCrop"
+            tools:ignore="ContentDescription,MissingConstraints"
+            tools:src="@drawable/bg_personal_page_head" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="325dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/personal_banner_flask"
+            tools:ignore="ContentDescription,MissingConstraints" />
+
+        <com.mei.widget.gradient.GradientLinearLayout
+            android:id="@+id/living_layout"
+            android:layout_width="70dp"
+            android:layout_height="27dp"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="30dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:gd_LB_radius="50dp"
+            app:gd_LT_radius="50dp"
+            app:gd_end_color="@color/color_FF4030"
+            app:gd_start_color="@color/color_FF973B"
+            tools:ignore="RtlHardcoded"
+            tools:visibility="visible">
+
+            <com.mei.widget.living.LivingView
+                android:id="@+id/living_img"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginStart="9dp"
+                android:clickable="false"
+                app:line_color="@android:color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:text="直播中"
+                android:textColor="@android:color/white"
+                android:textSize="13sp"
+                tools:ignore="HardcodedText" />
+        </com.mei.widget.gradient.GradientLinearLayout>
+    </FrameLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/mentor_header_rl"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="285dp"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="@id/mentor_bg_frame"
+        app:layout_constraintTop_toTopOf="@+id/mentor_bg_frame"
+        tools:ignore="MissingConstraints">
+
+        <com.flyco.roundview.RoundRelativeLayout
+            android:id="@+id/avatar_stroke"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            app:rv_cornerRadius="65dp"
+            app:rv_strokeColor="@android:color/transparent"
+            app:rv_strokeWidth="2.5dp">
+
+            <com.mei.widget.round.RoundImageView
+                android:id="@+id/personal_avatar"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bg_shadow_avatar"
+                android:scaleType="center"
+                app:radius_all="68dp"
+                app:round_stroke_color="@android:color/white"
+                app:round_stroke_width="4dp"
+                tools:src="@drawable/default_female_head_more_big" />
+        </com.flyco.roundview.RoundRelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_online_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/mentor_header_rl"
+        app:layout_constraintTop_toBottomOf="@+id/mentor_bg_frame"
+        tools:ignore="MissingConstraints">
+
+        <com.mei.widget.gradient.GradientLinearLayout
+            android:id="@+id/personal_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:gd_end_color="@color/color_FF3F36"
+            app:gd_radius="2dp"
+            app:gd_start_color="@color/color_FF7F33">
+
+            <TextView
+                android:id="@+id/mentor_btn_state_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="关注"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                app:drawableStartCompat="@drawable/icon_follow_add"
+                tools:ignore="HardcodedText" />
+        </com.mei.widget.gradient.GradientLinearLayout>
+
+
+        <ImageView
+            android:id="@+id/icon_follow_profile"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="#F5F5F5"
+            android:padding="10dp"
+            android:src="@drawable/icon_follow_profile"
+            android:visibility="gone"
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/details_info01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="@id/mentor_bg_frame"
+        app:layout_constraintTop_toBottomOf="@id/mentor_header_rl">
+
+
+        <TextView
+            android:id="@+id/personal_ability"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#ff666666"
+            android:textSize="13sp"
+            android:visibility="gone"
+            tools:text="擅长领域: "
+            app:drawableStartCompat="@drawable/icon_personal_skill"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/jump_to_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/personal_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/color_333333"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="瞄小姐瞄" />
+
+
+            <ImageView
+                android:layout_width="74dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/icon_pers_vip_tip"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="63dp"
+                android:layout_height="23dp"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/icon_playing_mentor"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/details_info02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        app:layout_constraintLeft_toLeftOf="@id/details_info01"
+        app:layout_constraintTop_toBottomOf="@id/details_info01">
+
+        <TextView
+            android:id="@+id/personal_live_room_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:textColor="#ff666666"
+            android:textSize="13sp"
+            tools:text="直播间ID：21233"
+            app:drawableEndCompat="@drawable/icon_personal_arrow"
+            tools:visibility="visible" />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

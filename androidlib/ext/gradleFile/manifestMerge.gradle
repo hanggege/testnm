@@ -1,0 +1,85 @@
+ext {
+    AppManifestXml = "$rootDir/cache/manifest/AndroidManifest.xml"
+    createfunction = this.&createfunction
+}
+appManifestMerge()
+
+def appManifestMerge() {
+    String defManifestText = file("$rootDir/app/src/main/AndroidManifest.xml").text
+    println("=============开始合并AndroidManifest.xml=================")
+    int endIndex = defManifestText.indexOf("</application>")
+    writeFile(AppManifestXml, defManifestText.substring(0, endIndex), false)
+    findManifestXml().each { f ->
+        f.eachLine { line ->
+            if (!line.contains("manifest") && !line.contains("application"))
+                writeFile(AppManifestXml, "$line\n", true)
+        }
+    }
+    writeFile(AppManifestXml, defManifestText.substring(endIndex), true)
+    println("==============结束合并AndroidManifest.xml================")
+
+}
+
+/**
+ * 查看所有的 AndroidManifest.xml
+ */
+List<File> findManifestXml() {
+    List<File> manifestList = new ArrayList()
+    def json = new groovy.json.JsonSlurper().parseText(file("$rootDir/androidfun/${rootProject.name}_function.json").text)
+    json.func.keySet().each { k ->
+        file("$rootDir/androidfun/$k").listFiles().each { f ->
+            f.listFiles().each {
+                if (it.name == "AndroidManifest.xml") {
+                    manifestList.add(it)
+                }
+            }
+        }
+    }
+    File testManifest = file("${rootDir}/androidfun/test/res/AndroidManifest.xml")
+    if (testManifest.exists()) manifestList.add(testManifest)
+    return manifestList
+}
+
+
+def createfunction(String k, String moduleName) {
+    println "自动生成${k}模块文件夹模板"
+    def fileRoot = file("$rootDir/androidfun/$k")
+
+    //创建java code 文件夹
+    def codeDir = "$fileRoot/code"
+    file("${codeDir}/com/mei/$k").mkdirs()
+    //添加目录
+//    java.srcDirs += codeDir
+
+    //创建res文件夹
+    def resRootDir = "$fileRoot/res"
+    def resDir = new ArrayList<String>()
+    resDir.add("$resRootDir/drawable")
+    resDir.add("$resRootDir/drawable-xhdpi")
+    resDir.add("$resRootDir/drawable-xxhdpi")
+    resDir.add("$resRootDir/layout")
+    resDir.add("$resRootDir/values")
+    resDir.forEach({
+        file(it).mkdirs()
+    })
+    //创建string
+    def stringfile = "$resRootDir/values/string.xml"
+    writeFile(stringfile, "<?xml version=\"1.0\" encoding=\"utf-8\"?>", false)
+    writeFile(stringfile, "\n", true)
+    writeFile(stringfile, "<resources>", true)
+    writeFile(stringfile, "\n\n", true)
+    writeFile(stringfile, "</resources>", true)
+
+    //创建AndroidManifest.xml
+    def manifest = "$resRootDir/AndroidManifest.xml"
+    writeFile(manifest, "<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\">", false)
+    writeFile(manifest, "\n\n", true)
+    writeFile(manifest, "</manifest>", true)
+
+    //添加目录
+//    res.srcDirs += resRootDir
+
+    //创建文档文件
+    def readme = "${fileRoot}/${moduleName}.md"
+    writeFile(readme, "# ${moduleName}", false)
+}

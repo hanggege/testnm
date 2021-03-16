@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:layout_marginStart="1dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginBottom="5dp"
+    android:clipChildren="false">
+
+    <com.mei.base.weight.relative.RoundConstraintLayout
+        android:id="@+id/bg_frame_selector"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="7dp"
+        android:clipChildren="false"
+        app:rv_backgroundColor="@android:color/transparent"
+        app:rv_cornerRadius="4dp"
+        app:rv_strokeColor="@color/color_c8c8c8"
+        app:rv_strokeWidth="1dp">
+
+        <ImageView
+            android:id="@+id/icon_heart_money"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20.5dp"
+            android:src="@drawable/icon_heart_money"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/rose_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:includeFontPadding="false"
+            android:textColor="@color/color_333333"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/icon_heart_money"
+            app:layout_constraintStart_toEndOf="@id/icon_heart_money"
+            app:layout_constraintTop_toTopOf="@id/icon_heart_money"
+            tools:text="60" />
+
+        <TextView
+            android:id="@+id/plus_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:includeFontPadding="false"
+            android:textColor="@color/color_ff8b07"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/rose_count"
+            app:layout_constraintStart_toEndOf="@id/rose_count"
+            app:layout_constraintTop_toTopOf="@id/rose_count"
+            tools:text="+20" />
+
+        <TextView
+            android:id="@+id/expend_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/rose_count"
+            app:layout_constraintTop_toBottomOf="@id/rose_count"
+            tools:text="6元" />
+
+        <TextView
+            android:id="@+id/rest_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_top_right_text"
+            android:gravity="center_vertical|end"
+            android:paddingStart="10dp"
+            android:paddingEnd="3dp"
+            android:textColor="@android:color/white"
+            android:textSize="8sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SmallSp"
+            tools:text="约可私密连接133333分钟"
+            tools:visibility="visible" />
+
+    </com.mei.base.weight.relative.RoundConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/recommend_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:layout_marginTop="1.5dp"
+        android:background="@drawable/badge_recommend_recharge"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
+</com.flyco.roundview.RoundFrameLayout>

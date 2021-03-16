@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    LiveBottomBar-->
+    <item name="live_avatar" type="id" />
+    <item name="gif_img" type="id" />
+    <item name="iv_pause" type="id" />
+    <item name="live_close" type="id" />
+    <item name="broad_live_name" type="id" />
+    <!--    LiveBottomBar-->
+
+
+</resources>

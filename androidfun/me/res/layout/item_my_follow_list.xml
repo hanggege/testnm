@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingStart="20dp"
+    android:paddingTop="10dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="10dp">
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/my_follow_list_avatar"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
+        android:scaleType="center"
+        app:radius_all="68dp"
+        tools:src="@drawable/default_avatar_28" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/goto_im_tv"
+        android:layout_width="60dp"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="私聊"
+        android:textColor="@color/color_FF3A3A"
+        android:textSize="11sp"
+        app:rv_cornerRadius="13dp"
+        app:rv_strokeColor="@color/color_FF3A3A"
+        app:rv_strokeWidth="0.75dp"
+        tools:ignore="HardcodedText,SmallSp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toEndOf="@id/my_follow_list_avatar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        tools:ignore="RelativeOverlap">
+
+
+        <TextView
+            android:id="@+id/my_follow_list_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxEms="7"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            tools:text="微微一笑微微一笑微微一笑微微一笑微微一笑" />
+
+        <com.mei.widget.gradient.GradientLinearLayout
+            android:id="@+id/my_follow_list_live_status_v"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="5dp"
+            app:gd_end_color="@color/color_FF3F36"
+            app:gd_radius="22.5dp"
+            app:gd_start_color="@color/color_FF7F33">
+
+            <com.flyco.roundview.RoundFrameLayout
+                android:layout_width="3dp"
+                android:layout_height="3dp"
+                app:rv_backgroundColor="@android:color/white"
+                app:rv_cornerRadius="1.5dp" />
+
+            <TextView
+                android:id="@+id/my_follow_list_live_status"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginStart="5dp"
+                android:gravity="center"
+                android:text="直播中"
+                android:textColor="@android:color/white"
+                android:textSize="8sp"
+                tools:ignore="HardcodedText,SmallSp" />
+
+        </com.mei.widget.gradient.GradientLinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mei.widget.gradient.GradientConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="5dp"
+    app:gd_direction="topToBottom"
+    app:gd_end_color="@color/color_00FAF6EB"
+    app:gd_start_color="@color/color_FFFAF6EB">
+
+    <ImageView
+        android:id="@+id/contribute_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:paddingStart="5dp"
+        android:paddingTop="13dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="5dp"
+        android:src="@drawable/icon_contribute_question"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="ContentDescription,MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/title_containers"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/icon_contribute_title_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="3.5dp"
+            android:src="@drawable/icon_contribute_head_left"
+            app:layout_constraintBottom_toBottomOf="@+id/total_contribute_text"
+            app:layout_constraintEnd_toStartOf="@+id/total_contribute_text"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/total_contribute_text"
+            tools:ignore="ContentDescription,MissingConstraints" />
+
+        <TextView
+            android:id="@+id/total_contribute_text"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:gravity="center"
+            android:textColor="@color/color_333333"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@+id/total_contribute_coin"
+            app:layout_constraintStart_toEndOf="@+id/icon_contribute_title_left"
+            tools:ignore="MissingConstraints"
+            tools:text="总贡献榜" />
+
+        <TextView
+            android:id="@+id/total_contribute_coin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:textColor="@color/color_333333"
+            android:textSize="13sp"
+            app:drawableStartCompat="@drawable/icon_contribute"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/total_contribute_text"
+            tools:ignore="MissingConstraints"
+            tools:text="23456" />
+
+        <ImageView
+            android:id="@+id/icon_contribute_title_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3.5dp"
+            android:src="@drawable/icon_contribute_head_right"
+            app:layout_constraintBottom_toBottomOf="@+id/total_contribute_text"
+            app:layout_constraintEnd_toEndOf="@+id/parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/total_contribute_coin"
+            app:layout_constraintTop_toTopOf="@+id/total_contribute_text"
+            tools:ignore="ContentDescription,MissingConstraints,UnknownId" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="#E8E8E8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avatar_container" />
+
+    <include
+        android:id="@+id/avatar_container"
+        layout="@layout/view_contribute_avatar_rank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp" />
+
+</com.mei.widget.gradient.GradientConstraintLayout>

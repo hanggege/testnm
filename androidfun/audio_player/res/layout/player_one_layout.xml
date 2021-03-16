@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="100dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/player_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="25dp"
+                android:gravity="center_horizontal"
+                android:maxLines="2"
+                android:textColor="@color/color_333333"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="如何挽救婚姻幸福，你必须知道这三点，才能获取幸福" />
+
+            <TextView
+                android:id="@+id/player_sub_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:gravity="center_horizontal"
+                android:textColor="@color/color_999999"
+                android:textSize="15sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/player_title_tv"
+                tools:text="如何挽救婚姻幸福，你必须知道这三点，才能获取幸福" />
+
+
+            <com.flyco.roundview.RoundFrameLayout
+                android:id="@+id/player_display_color_bg"
+                android:layout_width="140dp"
+                android:layout_height="185dp"
+                android:layout_marginTop="81dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/player_title_tv"
+                app:rv_backgroundColor="#F8F8F8"
+                app:rv_cornerRadius="6dp">
+
+                <com.mei.widget.round.RoundImageView
+                    android:id="@+id/player_display_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:radius_all="6dp" />
+
+            </com.flyco.roundview.RoundFrameLayout>
+
+
+            <include layout="@layout/player_controller_layout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/player_back_btn"
+        android:layout_width="50dp"
+        android:layout_height="44dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="13dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="13dp"
+        android:src="@drawable/bg_black_back_arrow"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.flyco.roundview.RoundRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:rv_backgroundColor="@color/color_f8f8f8"
+        app:rv_cornerRadius="5dp">
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/mentor_avatar_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/default_male_head"
+            app:radius_all="20dp" />
+
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/goto_course_btn"
+            android:layout_width="80dp"
+            android:layout_height="28dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            android:background="@color/color_e8e8e8"
+            android:gravity="center"
+            android:text="进入课程  >"
+            android:textColor="@color/color_666666"
+            android:textSize="11sp"
+            app:rv_cornerRadius="14dp"
+            app:rv_strokeColor="@color/color_e8e8e8"
+            app:rv_strokeWidth="0.75dp"
+            tools:ignore="HardcodedText,SmallSp" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/goto_course_btn"
+            android:layout_toEndOf="@id/mentor_avatar_img"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/course_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/color_666666"
+                android:textSize="15sp"
+                tools:text="挽救婚姻幸福课" />
+
+            <TextView
+                android:id="@+id/course_sub_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp"
+                tools:text="15讲 | 情感分析师胡图图" />
+        </LinearLayout>
+
+
+    </com.flyco.roundview.RoundRelativeLayout>
+
+    <include layout="@layout/include_net_error_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

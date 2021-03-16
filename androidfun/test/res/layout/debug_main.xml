@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/client_state"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="你现在在正式接口环境"
+            android:textColor="@android:color/black"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/change_client"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="@color/masks_layer_60"
+            android:gravity="center"
+            android:text="打开测试接口环境"
+            android:textColor="@android:color/white"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/change_http"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="@color/masks_layer_60"
+            android:gravity="center"
+            android:text="https与http切换"
+            android:textColor="@android:color/white"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/test_method"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/masks_layer_60"
+            android:gravity="center"
+            android:text="测试入口"
+            android:textColor="@android:color/white"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/test_login"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="@color/masks_layer_60"
+            android:gravity="center"
+            android:text="登录入口 ，不要动"
+            android:textColor="@android:color/white"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/show_text_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="sdfasdfa"
+        android:textColor="@color/color_333333"
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
+
+
+</LinearLayout>

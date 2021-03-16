@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:maxHeight="402dp"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dialog_coupon_top"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <View
+            android:id="@+id/dialog_coupon_top_bg"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/bg_coupon_dialog_top"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dialog_coupon_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="这张券你想用在？"
+            android:textColor="@android:color/white"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/dialog_coupon_label"
+            android:layout_width="195dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="7.5dp"
+            android:background="@drawable/bg_coupon_dialog_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dialog_coupon_title" />
+
+        <View
+            android:id="@+id/dialog_label_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="52dp"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_coupon_top_bg"
+            app:layout_constraintStart_toStartOf="@id/dialog_coupon_label"
+            app:layout_constraintTop_toTopOf="@id/dialog_coupon_top_bg" />
+
+        <TextView
+            android:id="@+id/dialog_coupon_label_discount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_coupon_label"
+            app:layout_constraintEnd_toEndOf="@id/dialog_label_line"
+            app:layout_constraintStart_toStartOf="@id/dialog_coupon_label"
+            app:layout_constraintTop_toTopOf="@id/dialog_coupon_label"
+            app:layout_constraintWidth_max="wrap"
+            tools:text="6.5折券" />
+
+        <TextView
+            android:id="@+id/dialog_coupon_label_deadline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/color_FF3A3A"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_coupon_label"
+            app:layout_constraintEnd_toEndOf="@id/dialog_coupon_label"
+            app:layout_constraintStart_toEndOf="@id/dialog_label_line"
+            app:layout_constraintTop_toTopOf="@id/dialog_coupon_label"
+            app:layout_constraintWidth_max="wrap"
+            tools:ignore="SmallSp"
+            tools:text="有效期至2020.02.28有效期至2020" />
+
+        <ImageView
+            android:id="@+id/dialog_coupon_exit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="15dp"
+            android:src="@drawable/icon_coupon_exit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/dialog_coupon_fl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius_BL="8dp"
+        app:rv_cornerRadius_BR="8dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dialog_coupon_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </com.flyco.roundview.RoundLinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,24 @@
+apply from: "$rootDir/androidlib/ext/gradleFile/pgyer.gradle"
+apply from: "$rootDir/androidlib/ext/gradleFile/creator.gradle"
+apply from: "$rootDir/androidlib/ext/gradleFile/configFile.gradle"
+apply from: "$rootDir/androidlib/ext/gradleFile/testAccount.gradle"
+apply from: "$rootDir/androidlib/ext/gradleFile/collectAppUI.gradle"
+
+
+/****************************release版检查gioeable配置************************************/
+gradle.taskGraph.whenReady { org.gradle.api.execution.TaskExecutionGraph graph ->
+    graph.allTasks.each { task ->
+        if (task.name.contains("Release") && !"true".endsWith(gioenable)) {
+            println " graph  ==================${task.name}"
+            String msg = "release版需要将 gradle.properties 中的gioenable=false 设置为 true"
+            println msg
+            exec {
+                workingDir "${rootDir}/androidlib/ext/jar"
+                commandLine 'java', '-jar', 'notify.jar', msg
+            }
+            throw RuntimeException()
+        }
+
+    }
+
+}

@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">FULiveDemo</string>
+
+    <string name="camera_dialog_title">warning</string>
+    <string name="camera_dialog_message">Camera permissions are disabled or the camera is occupied by another app!</string>
+    <string name="camera_dialog_open">Retry</string>
+    <string name="camera_dialog_back">quit</string>
+
+    <string name="save_photo_success">Save photo successfully!</string>
+    <string name="save_video_success">Save video successfully!</string>
+    <string name="fu_base_is_tracking_text">No Face Tracking</string>
+
+    <string name="beauty_box_skin_detect">Skin Detect</string>
+    <string name="beauty_box_heavy_blur_fine">Fine Blur Mode</string>
+    <string name="beauty_box_heavy_blur_clear">Light Blur Mode</string>
+    <string name="beauty_box_heavy_blur_hazy">Heavy Blur Mode</string>
+    <string name="beauty_box_blur_level">Blur</string>
+    <string name="beauty_box_color_level">Whiten</string>
+    <string name="beauty_box_red_level">Ruddy</string>
+    <string name="beauty_box_eye_bright">Eye Brighten</string>
+    <string name="beauty_box_tooth_whiten">Tooth Whiten</string>
+    <string name="beauty_box_eye_enlarge">Eye Enlarge</string>
+    <string name="beauty_box_cheek_thinning">Cheek Thin</string>
+    <string name="beauty_box_cheek_v">V Thin</string>
+    <string name="beauty_box_cheek_narrow">Cheek Narrow</string>
+    <string name="beauty_box_cheek_small">Cheek Small</string>
+    <string name="beauty_box_intensity_chin">Chin</string>
+    <string name="beauty_box_intensity_forehead">Forehead</string>
+    <string name="beauty_box_intensity_nose">Nose</string>
+    <string name="beauty_box_intensity_mouth">Mouth</string>
+    <string name="beauty_radio_skin_beauty">Skin</string>
+    <string name="beauty_radio_face_shape">Reshape</string>
+    <string name="beauty_radio_filter">Filter</string>
+    <string name="makeup_radio_lipstick">Lipstick</string>
+    <string name="makeup_radio_blusher">Blush</string>
+    <string name="makeup_radio_eyebrow">Eyebrow</string>
+    <string name="makeup_radio_eye_shadow">Eye Shadow</string>
+    <string name="makeup_radio_remove">Remove</string>
+    <string name="makeup_peach_blossom">peach</string>
+    <string name="makeup_boyfriend">boyfriend</string>
+    <string name="makeup_clear">clear</string>
+    <string name="makeup_grapefruit">grapefruit</string>
+
+    <string name="fennen">Pink</string>
+    <string name="qingxin">Fresh</string>
+    <string name="lengsediao">Cold tone</string>
+    <string name="nuansediao">Warm tone</string>
+    <string name="bailiang">Bright</string>
+
+
+    <string name="confirm">Yes</string>
+    <string name="cancel">No</string>
+    <string name="dialog_confirm_delete">Are you sure to delete?</string>
+
+    <string name="dialog_reset_avatar_model">Reset all parameters to default?</string>
+    <string name="recover">Recover</string>
+
+</resources>

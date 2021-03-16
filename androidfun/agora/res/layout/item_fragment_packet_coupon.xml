@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/red_packet_fl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/live_coupon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_coupon">
+
+        <com.opensource.svgaplayer.SVGAImageView
+            android:id="@+id/live_coupon_svga"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:clearsAfterStop="false"
+            app:fillMode="Forward"
+            app:loopCount="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="6dp"
+            android:includeFontPadding="false"
+            android:text="点我使用"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,SmallSp" />
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/red_packet_iv"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:scaleType="centerInside"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/icon_receive_red_packet" />
+
+    <TextView
+        android:id="@+id/need_duration_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="6dp"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        android:visibility="gone"
+        tools:ignore="SmallSp"
+        tools:text="04:20" />
+</FrameLayout>

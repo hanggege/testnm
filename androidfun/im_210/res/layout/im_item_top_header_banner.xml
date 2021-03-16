@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="78.5dp">
+
+    <RelativeLayout
+        android:id="@+id/banner_con_rl"
+        android:layout_width="match_parent"
+        android:layout_height="78.5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_toLeftOf="@+id/im_start_service_tv">
+
+            <TextView
+                android:id="@+id/im_service_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="挽救婚姻婚内移情，重获幸福家庭重获幸福家庭重获幸福家庭重获幸福家庭"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/im_service_price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="剩余时长：40分钟"
+                android:textColor="@color/color_FF3A3A"
+                android:textSize="13sp"
+                app:layout_constraintTop_toBottomOf="@+id/im_service_name_tv"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.mei.widget.gradient.GradientTextView
+            android:id="@+id/im_start_service_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="2dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="6dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="7dp"
+            android:text="开始服务"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:gd_end_color="@color/color_FF3F36"
+            app:gd_radius="22.5dp"
+            app:gd_start_color="@color/color_FF7F33" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

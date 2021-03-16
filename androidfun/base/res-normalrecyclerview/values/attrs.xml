@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="RecyclerWrapper">
+        <!--离最后Item多少个开始执行loadmore-->
+        <attr name="loadmore_account" format="integer" />
+        <!--当数据达到多少才显示footer没有更多提示-->
+        <attr name="visible_account" format="integer" />
+        <!--是否显示floatButton-->
+        <attr name="show_floatbtn" format="boolean" />
+
+    </declare-styleable>
+
+</resources>

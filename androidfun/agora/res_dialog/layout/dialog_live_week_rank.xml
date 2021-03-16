@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mei.base.weight.relative.RoundConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_dialog_view"
+    android:layout_width="match_parent"
+    android:layout_height="480dp"
+    app:rv_backgroundColor="@android:color/white"
+    app:rv_cornerRadius_TL="8dp"
+    app:rv_cornerRadius_TR="8dp">
+
+    <TextView
+        android:id="@+id/week_rank_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/color_333333"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:text="知心周榜" />
+
+    <TextView
+        android:id="@+id/receive_coin_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:textColor="@color/color_c8c8c8"
+        android:textSize="13sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/week_rank_title_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/week_rank_title_tv"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/week_rank_rlv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="55dp"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/week_rank_title_tv" />
+
+
+    <include
+        android:id="@+id/live_week_rank_bottom_view"
+        layout="@layout/view_live_week_rank_bottom" />
+
+    <com.mei.base.common.EmptyPageLayout
+        android:id="@+id/week_rank_error_epv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
+
+</com.mei.base.weight.relative.RoundConstraintLayout>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:id="@+id/back_layout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="45dp"
+        android:paddingBottom="20dp"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius="8dp">
+
+        <TextView
+            android:id="@+id/mentor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_666666"
+            android:textSize="13sp"
+            tools:text="成峰" />
+
+        <TextView
+            android:id="@+id/live_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            tools:text="邀请你连线" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/shadow_radius_6"
+            android:padding="25dp">
+
+            <TextView
+                android:id="@+id/service_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="服　　务:"
+                android:textColor="@color/color_999999"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/service_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/service_tag"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/service_tag"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp"
+                tools:text="挽救婚姻婚内移情，重获幸福家庭重获幸福家" />
+
+            <TextView
+                android:id="@+id/service_duration_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/service_name"
+                android:layout_alignStart="@id/service_tag"
+                android:layout_marginTop="13dp"
+                android:text="可连时长:"
+                android:textColor="@color/color_999999"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/service_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/service_duration_tag"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/service_duration_tag"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp"
+                tools:text="230分钟" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <com.flyco.roundview.RoundTextView
+                android:id="@+id/close_dialog_btn"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="12.5dp"
+                android:layout_marginEnd="12.5dp"
+                android:gravity="center"
+                android:textColor="@color/color_999999"
+                android:textSize="15sp"
+                app:rv_backgroundColor="@color/color_f8f8f8"
+                app:rv_cornerRadius="20dp"
+                tools:text="我知道了" />
+
+
+            <com.mei.widget.gradient.GradientTextView
+                android:id="@+id/submit_dialog_btn"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="12.5dp"
+                android:layout_marginEnd="12.5dp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                app:gd_end_color="@color/color_FF3F36"
+                app:gd_radius="22.5dp"
+                app:gd_start_color="@color/color_FF7F33"
+                tools:text="去充值" />
+        </LinearLayout>
+
+
+    </com.flyco.roundview.RoundLinearLayout>
+
+    <com.mei.widget.choince.ChoiceView
+        android:id="@+id/choice_view"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="15dp"
+        android:padding="3dp"
+        app:choice_color="@color/color_999999"
+        app:choice_type="cross"
+        app:choice_width="1.5dp" />
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/user_avatar_img"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        app:radius_all="40dp"
+        app:round_stroke_color="@android:color/white"
+        app:round_stroke_width="3dp"
+        tools:src="@drawable/default_activity_header" />
+
+</FrameLayout>

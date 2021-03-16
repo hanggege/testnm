@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false">
+
+    <com.flyco.roundview.RoundRelativeLayout
+        android:id="@+id/bg_head_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="2dp"
+        android:clipToPadding="false"
+        android:paddingStart="2.5dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rv_backgroundColor="@color/masks_layer_30"
+        app:rv_cornerRadius="50dp">
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/anchor_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            app:radius_all="40dp"
+            tools:src="@drawable/default_avatar_40" />
+
+        <ImageView
+            android:layout_width="49dp"
+            android:layout_height="15dp"
+            android:layout_alignBottom="@+id/anchor_avatar"
+            android:layout_marginStart="-5dp"
+            android:layout_marginBottom="-4dp"
+            android:background="@drawable/icon_mentor"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/center_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/anchor_avatar"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/bg_head_layout"
+            app:layout_constraintStart_toEndOf="@id/anchor_avatar"
+            app:layout_constraintTop_toTopOf="@+id/bg_head_layout">
+
+            <TextView
+                android:id="@+id/anchor_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:textColor="@android:color/white"
+                android:textSize="13sp"
+                tools:text="六个字的名字" />
+
+            <LinearLayout
+                android:id="@+id/online_number_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <com.flyco.roundview.RoundFrameLayout
+                    android:id="@+id/online_number_point"
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    app:rv_backgroundColor="@color/color_73FA5D"
+                    app:rv_cornerRadius="4dp" />
+
+                <TextView
+                    android:id="@+id/online_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:paddingHorizontal="5dp"
+                    android:textColor="@color/alpha60_white"
+                    android:textSize="9sp"
+                    tools:ignore="SmallSp"
+                    tools:text="六个" />
+
+
+                <com.flyco.roundview.RoundTextView
+                    android:id="@+id/live_mic_time_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="17dp"
+                    android:layout_marginStart="5dp"
+                    android:drawableStart="@drawable/icon_mic_time"
+                    android:drawablePadding="3dp"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="10sp"
+                    android:visibility="gone"
+                    app:rv_backgroundColor="@color/masks_layer_30"
+                    app:rv_cornerRadius="8.5dp"
+                    tools:ignore="SmallSp"
+                    tools:text="13:09"
+                    tools:visibility="visible" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/follow_anchor"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@+id/center_layout"
+            android:drawablePadding="3dp"
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/follow"
+            android:textColor="@color/color_FF3A3A"
+            android:textSize="11sp"
+            android:visibility="gone"
+            app:rv_backgroundColor="@android:color/white"
+            app:rv_cornerRadius="25dp"
+            tools:ignore="SmallSp"
+            tools:visibility="visible" />
+    </com.flyco.roundview.RoundRelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

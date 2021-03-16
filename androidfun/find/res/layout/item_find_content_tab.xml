@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="55dp"
+    android:background="@drawable/bg_shadow_find_tab_content"
+    android:focusable="true"
+    android:orientation="vertical">
+
+    <com.mei.widget.gradient.GradientConstraintLayout
+        android:id="@+id/item_find_content_tab_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:duplicateParentState="true"
+        app:gd_radius="5dp"
+        app:gd_start_color="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/item_find_content_tab_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="5dp"
+            android:clickable="false"
+            android:duplicateParentState="true"
+            android:gravity="bottom"
+            android:includeFontPadding="false"
+            android:textColor="@color/color_262626"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tool:text="婚姻家庭" />
+
+
+        <ImageView
+            android:id="@+id/item_find_content_tab_img"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:scaleType="fitEnd"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_find_content_tab_text"
+            app:layout_constraintVertical_bias="1"
+            tool:background="@color/color_333333"
+            tool:ignore="ContentDescription" />
+
+    </com.mei.widget.gradient.GradientConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

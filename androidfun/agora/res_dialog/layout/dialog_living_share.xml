@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:rv_backgroundColor="@color/color_181824"
+    app:rv_cornerRadius_TL="12dp"
+    app:rv_cornerRadius_TR="12dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.6"
+            android:includeFontPadding="false"
+            android:text="分享直播间"
+            android:layout_centerInParent="true"
+            android:textColor="#73FFFFFF"
+            android:textSize="13sp" />
+
+
+        <ImageView
+            android:id="@+id/share_dialog_close"
+            android:layout_width="wrap_content"
+            android:src="@drawable/icon_dialog_close"
+            android:layout_alignParentEnd="true"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/masks_layer_20" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/share_dialog_num"
+                android:layout_width="match_parent"
+                android:maxLines="2"
+                android:gravity="center"
+                android:layout_marginRight="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="50dp"
+                android:layout_height="wrap_content"
+                tools:text="每邀请1位好友最高可得每每邀请1位好友最高可得每邀请1位好友最高可得每邀请1位好友最高可得"
+                android:textColor="#ffffffff"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/share_dialog_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="6dp"
+            android:text="查看活动详情 >"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:alpha="0.6"
+            android:textColor="#ffffffff"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="25dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/share_dialog_wechat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/icon_share_dialog_wechat"
+                android:text="邀请微信好友"
+                android:layout_marginRight="30dp"
+                android:textColor="#99ffffff"
+                android:drawablePadding="5dp"
+                android:textSize="11sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/share_dialog_public"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/icon_share_dialog_public"
+                android:layout_marginLeft="30dp"
+                android:text="分享到朋友圈"
+                android:textColor="#99ffffff"
+                android:drawablePadding="5dp"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</com.flyco.roundview.RoundLinearLayout>

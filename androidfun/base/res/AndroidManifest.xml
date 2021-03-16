@@ -1,0 +1,51 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+        <activity
+            android:name="com.mei.wood.web.MeiWebActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="new_json_webview"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="new_webview"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- 带有分享按钮的webview -->
+        <activity
+            android:name="com.mei.wood.dialog.share.activity.ShareWebActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="share_webview"
+                    android:scheme="${app_scheme}" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+
+</manifest>

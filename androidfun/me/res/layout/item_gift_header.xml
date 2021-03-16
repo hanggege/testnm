@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="3dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginBottom="15dp">
+
+    <com.mei.widget.gradient.GradientLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        app:gd_end_color="@color/color_1AFFBC00"
+        app:gd_radius="4dp"
+        app:gd_start_color="@color/color_1AFC9702">
+
+        <TextView
+            android:id="@+id/concession_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/icon_concession_top_up"
+            android:gravity="center"
+            android:textColor="@color/color_333333"
+            android:textSize="12sp"
+            tools:text="1元 购 10 心币" />
+    </com.mei.widget.gradient.GradientLinearLayout>
+
+    <com.flyco.roundview.RoundFrameLayout
+        android:id="@+id/bg_selected_state_concession"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:visibility="gone"
+        app:rv_cornerRadius="4dp"
+        app:rv_strokeColor="@color/color_ff8200"
+        app:rv_strokeWidth="1dp"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/icon_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/icon_selected_badge"
+            tools:ignore="ContentDescription" />
+
+    </com.flyco.roundview.RoundFrameLayout>
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/first_top_up_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:paddingStart="5dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="2dp"
+        android:text="新人首充专享"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:gd_LT_radius="4dp"
+        app:gd_RB_radius="4dp"
+        app:gd_end_color="@color/color_FFBC00"
+        app:gd_start_color="@color/color_FC9702"
+        tools:ignore="HardcodedText,SmallSp" />
+</RelativeLayout>

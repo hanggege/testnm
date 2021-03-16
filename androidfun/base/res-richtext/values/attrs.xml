@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RichTextEditor">
+        <attr name="rich_text_hint" format="string" /><!--默认值""-->
+        <attr name="rich_text_hint_color" format="color|reference" /><!--默认值"#C8C8C8"-->
+        <attr name="rich_text_size_normal" format="dimension|reference" /><!--默认值16dp-->
+        <attr name="rich_text_color_normal" format="color|reference" /><!--默认值"#333333"-->
+        <attr name="rich_text_margin_left" format="dimension|reference" /><!--默认值15dp-->
+        <attr name="rich_text_margin_right" format="dimension|reference" /><!--默认值15dp-->
+        <attr name="rich_text_margin_top" format="dimension|reference" /><!--默认值15dp-->
+        <attr name="rich_text_margin_bottom" format="dimension|reference" /><!--默认值25dp-->
+        <attr name="rich_image_margin_top" format="dimension|reference" /><!--默认值10dp-->
+        <attr name="rich_image_margin_bottom" format="dimension|reference" /><!--默认值15dp-->
+        <!--字体行距 倍数 默认值1.2倍-->
+        <attr name="rich_text_line_spacing" format="float" />
+
+    </declare-styleable>
+</resources>

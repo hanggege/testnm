@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="20dp"
+    android:paddingTop="15dp"
+    android:paddingRight="20dp">
+
+
+    <FrameLayout
+        android:id="@+id/avatar_fl"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="15dp">
+
+        <com.mei.widget.round.RoundImageView
+            android:id="@+id/user_avatar_img"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:src="@drawable/default_avatar_90"
+            app:radius_all="25dp" />
+
+        <View
+            android:id="@+id/chat_online_v"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="bottom|right"
+            android:background="@drawable/icon_online_bg"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/time_stamp_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/color_c8c8c8"
+        android:textSize="11sp"
+        tools:ignore="SmallSp"
+        tools:text="10:11" />
+
+    <com.mei.widget.redpoint.RedPointView
+        android:id="@+id/red_point_view"
+        android:layout_width="wrap_content"
+        android:layout_height="13dp"
+        android:layout_below="@id/time_stamp_tv"
+        android:layout_alignTop="@id/avatar_fl"
+        android:layout_alignEnd="@id/avatar_fl"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:back_color="@android:color/holo_red_light"
+        tools:ignore="SmallSp"
+        tools:text="9" />
+
+    <LinearLayout
+        android:id="@+id/im_ly_context"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_toStartOf="@id/time_stamp_tv"
+        android:layout_toEndOf="@id/avatar_fl"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/user_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:textColor="#262626"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="xxxxxx" />
+
+        <TextView
+            android:id="@+id/iv_service_representation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:textSize="17sp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/conversation_list_tag_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/work_room_tag_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/im_ly_context"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toStartOf="@id/time_stamp_tv"
+        android:layout_toEndOf="@+id/avatar_fl"
+        tools:text="工作室标签"
+        android:visibility="gone"
+        tools:visibility="gone"
+        android:textSize="10sp"
+        android:textColor="@color/color_666666"/>
+
+
+    <TextView
+        android:id="@+id/last_msg_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/work_room_tag_tv"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@id/avatar_fl"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/color_999999"
+        android:textSize="13sp"
+        tools:text="xxxxxx" />
+
+    <View
+        android:id="@+id/conver_divider_view"
+        android:layout_width="match_parent"
+        android:layout_height="0.75dp"
+        android:layout_below="@id/last_msg_content_tv"
+        android:layout_marginTop="15dp"
+        android:background="@color/color_e8e8e8" />
+
+</RelativeLayout>

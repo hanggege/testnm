@@ -1,0 +1,245 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.growingio.android'
+apply from: "$rootDir/androidlib/ext/app-before.gradle"
+apply from: "$rootDir/androidlib/ext/gradleFile/manifestMerge.gradle"
+
+apply plugin: 'com.huawei.agconnect'
+
+
+//如果有用到kapt添加如下配置
+kapt {
+    useBuildCache = true
+    javacOptions {
+        //Kapt 使用 Java 编译器来运行注解处理器。以下是将任意选项传给 javac 的方式：
+        // 增加注解处理器的最大错误次数
+        // 默认为 100。
+        option("-Xmaxerrs", 500)
+    }
+}
+
+
+android {
+
+    compileSdkVersion rootProject.ext.target_sdk_version
+    buildToolsVersion rootProject.ext.build_tools_version
+    compileOptions.encoding = 'utf-8'
+
+    defaultConfig {
+        applicationId 'com.mei.goat'
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
+
+        //这里自己测试的时候可以写成静态的，提高编译效率，节约时间
+        //https://developer.android.com/studio/build/optimize-your-build#use_static_build_properties
+        versionCode appVersionCode//1.8.4  code 16
+        versionName appVersionName
+
+        checkVersionCode("$history_path/version.txt", versionName, versionCode)
+        multiDexEnabled true
+        resConfigs "en", "zh-rCN"
+
+        // growing io
+        resValue("string", "growingio_project_id", GROWING_IO_ID)
+        resValue("string", "growingio_url_scheme", GROWING_IO_SCHEME)
+        // 增加 gioenable 的配置
+        resValue("string", "growingio_enable", gioenable)
+
+        // bugly
+        buildConfigField "String", "BUGLY_APP_ID", "\"$BUGLY_APP_ID\""
+        // umeng
+        buildConfigField "String", "UMENG_APP_ID", "\"$UMENG_APP_ID\""
+        buildConfigField "String", "APP_SCHEME", "\"$app_scheme\""
+        // agora 直播
+        buildConfigField "String", "AGORA_APP_ID", "\"$AGORA_APP_ID\""
+
+        // 闪验
+        buildConfigField "String", "SHANYAN_APP_ID", "\"$shanyan_app_id\""
+        buildConfigField "String", "SHANYAN_APP_KEY", "\"$shanyan_app_key\""
+
+
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+
+        manifestPlaceholders = [
+                package_name     : getApplicationId(project),
+                //growingIO
+                GROWING_IO_SCHEME: GROWING_IO_SCHEME,
+                PACKAGE_NAME     : applicationId,
+                app_scheme       : app_scheme,
+                UMENG_CHANNEL    : 'other'
+        ]
+    }
+
+
+    splits {
+        density {
+            enable false
+            include "en", "de", "fr", "it"
+            include "nodpi", "hdpi", "xhdpi", "xxhdpi", "xxxhdpi"
+//            compatibleScreens 'small', 'normal', 'large', 'xlarge'
+        }
+    }
+
+    signingConfigs {
+        release {  // gradle assembleRelease
+            v1SigningEnabled true
+            v2SigningEnabled true
+            storeFile file("${rootDir.path}/app/key/goat.jks")
+            storePassword 'hnh123'
+            keyAlias 'goat'
+            keyPassword 'hnh123'
+        }
+        debug {
+            v1SigningEnabled true
+            v2SigningEnabled true
+            storeFile file("${rootDir.path}/app/key/goat.jks")
+            storePassword 'hnh123'
+            keyAlias 'goat'
+            keyPassword 'hnh123'
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            zipAlignEnabled = true
+            if (defaultConfig.versionName.contains('beta')) {
+                debuggable true
+            } else {
+                debuggable false
+            }
+            shrinkResources true
+//            multiDexKeepProguard file('multidex-config.pro')
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            ndk {
+                if (defaultConfig.versionName.contains('beta')) {
+                    abiFilters "armeabi-v7a"//, "x86"
+                } else {
+                    abiFilters "armeabi-v7a"
+                }
+
+            }
+            buildConfigField "boolean", "IS_TEST", "VERSION_NAME.contains(\"beta\")"
+        }
+        debug {
+            useProguard true
+            minifyEnabled false
+            debuggable true
+            ndk {
+                abiFilters "armeabi-v7a"//, "x86", "arm64-v8a"
+            }
+            buildConfigField "boolean", "IS_TEST", "true"
+        }
+    }
+
+    flavorDimensions "color"
+    productFlavors {
+        dove {
+            resValue("string", "app_name", "知心")
+            dimension "color"
+        }
+//        dov_huawei {
+//            resValue("string", "app_name", "知心情感")
+//            dimension "color"
+//        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/app_debug.kotlin_module'
+        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+        pickFirst 'lib/x86/libc++_shared.so'
+        pickFirst 'lib/arm64-v8a/libc++_shared.so'
+        pickFirst 'lib/x86_64/libc++_shared.so'
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        //防止错误提示影响打包的流程
+        abortOnError false
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    sourceSets {
+        main {
+            // 这里是做AndroidManifest.xml合并的代码
+            res.srcDirs += file(AppManifestXml).parentFile.path
+            manifest.srcFile AppManifestXml
+        }
+        println(main.manifest.srcFile.path)
+
+        main {
+            def kv = new groovy.json.JsonSlurper().parseText(file("$rootDir/androidfun/${rootProject.name}_function.json").text).func
+            kv.keySet().each { k ->
+                def hasDir = false
+                file("$rootDir/androidfun/$k").listFiles().each { f ->
+                    if (f.name.startsWith("code")) {
+                        hasDir = true
+                        java.srcDirs += f.absolutePath
+                    } else if (f.name.startsWith("res")) {
+                        hasDir = true
+                        res.srcDirs += f.absolutePath
+                    } else if (f.name.startsWith("jniLibs")) {
+                        jniLibs.srcDirs += f.absolutePath
+                    } else if (f.name.startsWith("libs")) {
+                        dependencies {
+                            implementation fileTree(include: ['*.jar', '*.aar'], dir: f.absolutePath)
+                        }
+                    }
+                }
+                if (!hasDir) {
+                    createfunction(k, kv.get(k))
+                    java.srcDirs += "$rootDir/androidfun/$k/code"
+                    res.srcDirs += "$rootDir/androidfun/$k/res"
+                }
+
+            }
+            res.srcDirs += "src/main/icon/office"
+            java.srcDirs += "$rootDir/cache/wechat"
+        }
+        main {
+            java.srcDirs += "src/common/push"
+            if (android.defaultConfig.versionName.contains('beta')) {
+                java.srcDirs += "${rootDir}/androidfun/test/code"
+                res.srcDirs += "${rootDir}/androidfun/test/res"
+            }
+        }
+
+    }
+
+    aaptOptions {
+        ignoreAssetsPattern "mw*.png"
+    }
+
+    //use legacy for for android 6.0
+//    useLibrary 'org.apache.http.legacy'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+}
+
+repositories {
+    flatDir {
+        dirs '../libs'
+    }
+}
+apply from: "dependency.gradle"
+apply from: "$rootDir/androidlib/ext/app-after.gradle"
+apply from: "$rootDir/androidlib/ext/gradleFile/wechatActivityApi.gradle" 

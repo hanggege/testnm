@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity
+            android:name="com.mei.login.ui.WechatFirstLoginActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mei.login.ui.LoginByPhoneActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+    </application>
+</manifest>

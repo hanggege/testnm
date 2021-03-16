@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/common_word_recy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="true"
+        android:overScrollMode="never"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="90dp" />
+
+    <com.mei.widget.gradient.GradientTextView
+        android:id="@+id/bt_add_common_words"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/dp_40"
+        android:gravity="center"
+        android:stateListAnimator="@null"
+        android:text="@string/add_command_phrase"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:gd_end_color="@color/color_FF3F36"
+        app:gd_radius="25dp"
+        app:gd_start_color="@color/color_FF7F33"
+        tools:ignore="MissingConstraints" />
+
+
+</FrameLayout>

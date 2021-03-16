@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <ImageView
+        android:id="@+id/head_layout"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:background="@drawable/head_free_upstream_count_down"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.mei.widget.choince.ChoiceView
+        android:id="@+id/back_choice"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="15dp"
+        android:visibility="gone"
+        app:choice_color="@android:color/white"
+        app:choice_type="cross"
+        app:choice_width="0.5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius_BL="8dp"
+        app:rv_cornerRadius_BR="8dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="5dp"
+            android:textColor="@color/color_333333"
+            android:textSize="17sp"
+            tools:text="用户余额不足\n连线时长仅剩 1分28秒" />
+
+        <TextView
+            android:id="@+id/sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:includeFontPadding="false"
+            android:textColor="@color/color_999999"
+            android:textSize="14sp"
+            tools:text="请选择时长继续连线（20心币/分钟）" />
+
+        <com.mei.live.views.ApplyUpstreamRechargeView
+            android:id="@+id/recharge_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.flyco.roundview.RoundLinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="2.5dp"
+    android:layout_marginEnd="2.5dp">
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/avatar_img"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:visibility="gone"
+        app:radius_all="14dp" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/people_count"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:rv_backgroundColor="@color/masks_layer_30"
+        app:rv_cornerRadius="14dp" />
+</FrameLayout>

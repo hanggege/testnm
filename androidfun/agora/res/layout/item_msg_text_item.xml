@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal"
+    android:paddingTop="5dp"
+    tools:background="#370C06">
+
+    <com.mei.widget.round.RoundImageView
+        android:id="@+id/user_avatar_img"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/default_avatar_50"
+        app:radius_all="14dp" />
+
+    <com.flyco.roundview.RoundRelativeLayout
+        android:id="@+id/live_msg_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:padding="6dp"
+        app:rv_backgroundColor="@color/masks_layer_30"
+        app:rv_cornerRadius="8dp">
+
+        <TextView
+            android:id="@+id/live_msg_content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:maxWidth="220dp"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            tools:text="           暖冬的狐狸： 我认识都没看见你喝过水呀，哈哈" />
+
+        <RelativeLayout
+            android:id="@+id/live_msg_coupon"
+            android:layout_width="82.5dp"
+            android:layout_height="23dp"
+            android:layout_below="@id/live_msg_content_tv"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="9dp"
+            android:background="@drawable/bg_live_message_coupon"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4.5dp"
+                android:text="点击查看"
+                android:textColor="@android:color/white"
+                android:textSize="11sp"
+                android:layout_toLeftOf="@id/live_msg_coupon_arrow"
+                android:layout_centerVertical="true"
+                tools:ignore="HardcodedText,SmallSp" />
+
+            <com.mei.widget.arrow.ArrowView
+                android:id="@+id/live_msg_coupon_arrow"
+                android:layout_width="3.5dp"
+                android:layout_height="6dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                app:arrow_direction="right"
+                app:arrow_line_color="@android:color/white"
+                app:arrow_width="1dp" />
+
+        </RelativeLayout>
+
+        <include layout="@layout/view_level" />
+
+
+    </com.flyco.roundview.RoundRelativeLayout>
+
+</LinearLayout>

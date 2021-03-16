@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:background="@color/color_666666">
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/tag_video_text"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:paddingHorizontal="12.5dp"
+        android:paddingVertical="5.5dp"
+        android:textColor="@color/color_333333"
+        android:textSize="15sp"
+        app:rv_backgroundColor="@android:color/white"
+        app:rv_cornerRadius="3dp"
+        tools:text="婚姻家庭" />
+
+</LinearLayout>

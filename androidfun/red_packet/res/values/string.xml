@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="receive_red_packet">领红包</string>
+    <string name="input_phone_type">+86</string>
+    <string name="input_phone_hint">请输入手机号</string>
+    <string name="get_code">获取验证码</string>
+</resources>
